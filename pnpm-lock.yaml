@@ -50,8 +50,8 @@ dependencies:
 
 devDependencies:
   '@commitlint/config-conventional':
-    specifier: ^15.0.0
-    version: 15.0.0
+    specifier: ^18.6.3
+    version: 18.6.3
   '@semantic-release/changelog':
     specifier: ^6.0.3
     version: 6.0.3(semantic-release@21.0.1)
@@ -353,11 +353,12 @@ packages:
     dev: true
     optional: true
 
-  /@commitlint/config-conventional@15.0.0:
-    resolution: {integrity: sha512-eZBRL8Lk3hMNHp1wUMYj0qrZQEsST1ai7KHR8J1IDD9aHgT7L2giciibuQ+Og7vxVhR5WtYDvh9xirXFVPaSkQ==}
-    engines: {node: '>=v12'}
+  /@commitlint/config-conventional@18.6.3:
+    resolution: {integrity: sha512-8ZrRHqF6je+TRaFoJVwszwnOXb/VeYrPmTwPhf0WxpzpGTcYy1p0SPyZ2eRn/sRi/obnWAcobtDAq6+gJQQNhQ==}
+    engines: {node: '>=v18'}
     dependencies:
-      conventional-changelog-conventionalcommits: 4.6.3
+      '@commitlint/types': 18.6.1
+      conventional-changelog-conventionalcommits: 7.0.2
     dev: true
 
   /@commitlint/config-validator@19.0.3:
@@ -411,6 +412,13 @@ packages:
       resolve-from: 5.0.0
     dev: true
     optional: true
+
+  /@commitlint/types@18.6.1:
+    resolution: {integrity: sha512-gwRLBLra/Dozj2OywopeuHj2ac26gjGkz2cZ+86cTJOdtWfiRRr4+e77ZDAGc6MDWxaWheI+mAV5TLWWRwqrFg==}
+    engines: {node: '>=v18'}
+    dependencies:
+      chalk: 4.1.2
+    dev: true
 
   /@commitlint/types@19.0.3:
     resolution: {integrity: sha512-tpyc+7i6bPG9mvaBbtKUeghfyZSDgWquIDfMgqYtTbmZ9Y9VzEm2je9EYcQ0aoz5o7NvGS+rcDec93yO08MHYA==}
@@ -2633,13 +2641,11 @@ packages:
       - supports-color
     dev: true
 
-  /conventional-changelog-conventionalcommits@4.6.3:
-    resolution: {integrity: sha512-LTTQV4fwOM4oLPad317V/QNQ1FY4Hju5qeBIM1uTHbrnCE+Eg4CdRZ3gO2pUeR+tzWdp80M2j3qFFEDWVqOV4g==}
-    engines: {node: '>=10'}
+  /conventional-changelog-conventionalcommits@7.0.2:
+    resolution: {integrity: sha512-NKXYmMR/Hr1DevQegFB4MwfM5Vv0m4UIxKZTTYuD98lpTknaZlSRrDOG4X7wIXpGkfsYxZTghUN+Qq+T0YQI7w==}
+    engines: {node: '>=16'}
     dependencies:
       compare-func: 2.0.0
-      lodash: 4.17.21
-      q: 1.5.1
     dev: true
 
   /conventional-changelog-writer@5.0.1:
