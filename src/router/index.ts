@@ -4,6 +4,14 @@ import Layout from '@/layout/Layout.vue'
 
 export const constantRoutes: RouteRecordRaw[] = [
     {
+        path: '/login',
+        component: () => import('@/views/Login.vue'),
+        meta: {
+            hidden: true,
+            title: '登录',
+        },
+    },
+    {
         path: '/',
         component: Layout,
         children: [
