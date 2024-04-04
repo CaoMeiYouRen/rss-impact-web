@@ -84,6 +84,9 @@ npm run commit
 
 ## 📝 License
 
+1. 本项目采用 AGPLv3 授权，并附加以下额外条件。
+2. 额外条件请参考 [License](https://github.com/CaoMeiYouRen/rss-impact-server?tab=readme-ov-file#-license)
+
 Copyright © 2024 [CaoMeiYouRen](https://github.com/CaoMeiYouRen).<br />
 This project is [AGPL--3.0](https://github.com/CaoMeiYouRen/rss-impact-web/blob/master/LICENSE) licensed.
 

@@ -32,10 +32,9 @@ jobs:
             **/node_modules
           key: pnpm-${{ runner.os }}-${{ hashFiles('package.json') }}
           restore-keys: pnpm-${{ runner.os }}
-      - run: pnpm i --fix-lockfile
+      - run: pnpm i --frozen-lockfile
       - run: pnpm run lint
       - run: pnpm run build
-      - env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm run release
+      # - env:
+      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      #   run: pnpm run release
