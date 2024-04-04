@@ -4,7 +4,11 @@ updates:
     directory: /
     open-pull-requests-limit: 20
     schedule:
+      time: "05:00"
       interval: daily
       timezone: Asia/Shanghai
     ignore:
       - dependency-name: semantic-release
+      - dependency-name: "@commitlint/config-conventional"
+        versions:
+          - ">= 19.0.0"

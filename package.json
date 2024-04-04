@@ -14,19 +14,23 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
     "@smallwei/avue": "^3.4.0",
     "@vueuse/core": "^10.9.0",
     "animate.css": "^4.1.1",
     "axios": "^1.6.8",
     "dayjs": "^1.11.10",
+    "element-plus": "^2.6.3",
     "lodash-es": "^4.17.21",
     "normalize.css": "^8.0.1",
+    "path-browserify": "^1.0.1",
+    "path-to-regexp": "^6.2.1",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^19.1.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@types/lodash-es": "^4.17.12",
