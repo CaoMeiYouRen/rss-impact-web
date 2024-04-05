@@ -5,5 +5,6 @@ module.exports = {
     ],
     rules: {
         'vue/no-multiple-template-root': [1],
+        'vue/multi-word-component-names': [0],
     },
 }

@@ -1,13 +1,14 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useCookies } from '@vueuse/integrations/useCookies'
 import { LoginDto, User } from '@/api/api'
 import { api } from '@/api'
 import * as storage from '@/utils/storage'
 
 export const useUserStore = defineStore('user', () => {
-    const user = ref<User | null>(null)
+    const user = ref<User | null>(storage.getUser() || null)
     const isLoadRoutes = ref(false)
+    const isLogin = computed(() => Boolean(user.value))
     const { remove } = useCookies()
 
     const setIsLoadRoutes = (value: boolean) => {
@@ -16,14 +17,16 @@ export const useUserStore = defineStore('user', () => {
 
     const login = async (data: LoginDto) => {
         const response = await api.api.authLogin(data)
-        return response.data
+        return response
     }
 
     const logout = async () => {
-        // 向后端发起登出请求
         // 移除本地的cookie
-        remove('connect.sid')
+        user.value = null
+        storage.removeUser()
         setIsLoadRoutes(false)
+        // remove('connect.sid') // 无法移除 http only
+        await api.api.authLogout()
     }
 
     const setUser = (newUser: User) => {
@@ -32,18 +35,20 @@ export const useUserStore = defineStore('user', () => {
     }
 
     const getUserInfo = async () => {
-        const resp = await api.api.userMe()
-        if (resp.data) {
-            setUser(resp.data)
+        const newUser = await api.api.userMe()
+        if (newUser) {
+            setUser(newUser)
         }
     }
 
     return {
         user,
+        isLogin,
         isLoadRoutes,
         login,
         logout,
         setUser,
         setIsLoadRoutes,
+        getUserInfo,
     }
 })

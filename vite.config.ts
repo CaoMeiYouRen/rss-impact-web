@@ -20,6 +20,7 @@ export default defineConfig({
                     'date-time': 'Date', // 修复 Date 类型问题
                 },
             } as any),
+            unwrapResponseData: true, // 解包 response 中的 data
         } as GenerateApiOption),
     ],
     server: {

@@ -1,8 +1,10 @@
-import { createRouter, createWebHistory, RouteRecordRaw, RouterOptions } from 'vue-router'
+import { createRouter, createWebHistory, RouteLocationNormalized, RouteRecordRaw, RouterOptions } from 'vue-router'
 import { HomeFilled, List, DocumentAdd, InfoFilled } from '@element-plus/icons-vue'
 import Layout from '@/layout/Layout.vue'
 
 export type RouteConfig = RouteRecordRaw
+
+export type Route = RouteLocationNormalized
 
 export const constantRoutes: RouteConfig[] = [
     {

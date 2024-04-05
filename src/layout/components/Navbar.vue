@@ -28,7 +28,29 @@
                     </el-icon>
                 </div>
                 <template #dropdown>
-                    <el-dropdown-menu />
+                    <el-dropdown-menu>
+                        <div
+                            v-for="(item,index) in navbar"
+                            :key="item.title"
+                        >
+                            <router-link
+                                v-if="item.to"
+                                :to="item.to"
+                            >
+                                <el-dropdown-item :divided="index>1">
+                                    {{ item.title }}
+                                </el-dropdown-item>
+                            </router-link>
+                            <span
+                                v-else
+                                @click="item.click"
+                            >
+                                <el-dropdown-item :divided="index>1">
+                                    {{ item.title }}
+                                </el-dropdown-item>
+                            </span>
+                        </div>
+                    </el-dropdown-menu>
                 </template>
             </el-dropdown>
         </div>
@@ -36,11 +58,33 @@
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from 'vue-router'
 import { useAppStore } from '@/store/modules/app'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import Hamburger from '@/components/Hamburger.vue'
+import { useUserStore } from '@/store/modules/user'
 
+const router = useRouter()
 const state = useAppStore()
+const userStore = useUserStore()
+
+const navbar = [
+    {
+        title: '主页',
+        to: '/',
+    },
+    // {
+    //     title: '个人中心',
+    //     to: '/user/index',
+    // },
+    {
+        title: '退出',
+        click: async () => {
+            await userStore.logout()
+            await router.push('/login')
+        },
+    },
+]
 
 function toggleSideBar() {
     state.toggleSidebar(true)

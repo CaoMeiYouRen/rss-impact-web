@@ -79,7 +79,12 @@ const option = {
 
 const submit = async (form: LoginDto, done: () => void) => {
     try {
-        const result = await userStore.login(form)
+        await userStore.login(form)
+        await userStore.getUserInfo()
+        await router.push({
+            path: redirect.value || '/',
+            query: otherQuery.value,
+        })
     } catch (error) {
         console.error(error)
     } finally {
