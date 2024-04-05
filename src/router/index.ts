@@ -2,7 +2,9 @@ import { createRouter, createWebHistory, RouteRecordRaw, RouterOptions } from 'v
 import { HomeFilled, List, DocumentAdd, InfoFilled } from '@element-plus/icons-vue'
 import Layout from '@/layout/Layout.vue'
 
-export const constantRoutes: RouteRecordRaw[] = [
+export type RouteConfig = RouteRecordRaw
+
+export const constantRoutes: RouteConfig[] = [
     {
         path: '/login',
         component: () => import('@/views/Login.vue'),
@@ -43,7 +45,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     },
 ]
 
-export const asyncRoutes: RouteRecordRaw[] = []
+export const asyncRoutes: RouteConfig[] = []
 
 const options: RouterOptions = {
     history: createWebHistory(import.meta.env.BASE_URL),

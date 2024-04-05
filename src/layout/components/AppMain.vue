@@ -1,13 +1,15 @@
 <template>
     <section class="app-main">
-        <transition
-            name="fade-transform"
-            mode="out-in"
-        >
-            <keep-alive :exclude="/404/ig">
-                <router-view />
-            </keep-alive>
-        </transition>
+        <router-view v-slot="{Component}">
+            <transition
+                name="fade-transform"
+                mode="out-in"
+            >
+                <keep-alive :exclude="/404/ig">
+                    <component :is="Component" />
+                </keep-alive>
+            </transition>
+        </router-view>
     </section>
 </template>
 

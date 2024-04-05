@@ -17,6 +17,7 @@
     "@element-plus/icons-vue": "^2.3.1",
     "@smallwei/avue": "^3.4.0",
     "@vueuse/core": "^10.9.0",
+    "@vueuse/integrations": "^10.9.0",
     "animate.css": "^4.1.1",
     "axios": "^1.6.8",
     "dayjs": "^1.11.10",
@@ -27,6 +28,7 @@
     "path-browserify": "^1.0.1",
     "path-to-regexp": "^6.2.1",
     "pinia": "^2.1.7",
+    "universal-cookie": "^7.1.4",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

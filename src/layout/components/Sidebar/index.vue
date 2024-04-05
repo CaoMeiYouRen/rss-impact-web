@@ -31,7 +31,7 @@ import { constantRoutes } from '@/router'
 const state = useAppStore()
 // TODO 修改 routes
 const routes = constantRoutes
-const isCollapse = computed(() => !state.opened)
+const isCollapse = computed(() => !state.sidebar.opened)
 </script>
 
 <style lang="scss" scoped>

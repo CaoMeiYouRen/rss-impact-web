@@ -1,5 +1,6 @@
 import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
 import { VITE_API_BASE_URL } from '@/config/env'
+import { instance } from '@/api'
 
 interface AjaxConfig {
     url: string
@@ -22,7 +23,7 @@ interface AjaxConfig {
 export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T>> {
     try {
         const { url, query = {}, data = {}, method = 'GET', headers = {}, timeout = 10000, baseURL = VITE_API_BASE_URL } = config
-        const resp = await axios(url, {
+        const resp = await instance(url, {
             method,
             headers,
             params: query,

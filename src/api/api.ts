@@ -9,6 +9,64 @@
  * ---------------------------------------------------------------
  */
 
+export interface ResponseDto {
+  statusCode?: number;
+  message?: string;
+  error?: string;
+  stack?: string;
+  data?: object;
+}
+
+export interface Rule {
+  required: boolean;
+  message: string;
+  trigger: string;
+}
+
+export interface DicData {
+  label: string;
+  value: string;
+}
+
+export interface Column {
+  type: string;
+  rules?: Rule[];
+  dicData?: DicData[];
+  label: string;
+  prop: string;
+  overHidden?: boolean;
+  value?: object;
+  addDisplay?: boolean;
+  editDisabled?: boolean;
+  readonly?: boolean;
+  max?: number;
+  min?: number;
+  format?: string;
+  maxlength?: number;
+  minlength?: number;
+  alone?: boolean;
+}
+
+export interface Option {
+  column: Column[];
+  index?: boolean;
+  align?: string;
+  border?: boolean;
+  stripe?: boolean;
+  columnBtn?: boolean;
+  refreshBtn?: boolean;
+  addBtn?: boolean;
+  editBtn?: boolean;
+  delBtn?: boolean;
+  viewBtn?: boolean;
+  excelBtn?: boolean;
+  title?: string;
+}
+
+export interface AvueCrudConfigImpl {
+  option: Option;
+}
+
 export interface User {
   /**
    * ID
@@ -18,15 +76,15 @@ export interface User {
   /**
    * 创建时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.933Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  createdAt: string;
+  createdAt: Date;
   /**
    * 更新时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.934Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  updatedAt: string;
+  updatedAt: Date;
   /**
    * 用户名
    * @minLength 0
@@ -56,9 +114,16 @@ export interface User {
   /**
    * 接口访问令牌
    * 接口访问令牌，部分情况可替代账号密码
-   * @example "rss-impact:7111ea8e-ed01-4341-aa88-1759c5453189"
+   * @example "rss-impact:fef26d6e-040f-4a7b-8d6a-4e4f12e107b6"
    */
   accessToken: string;
+}
+
+export interface FindUser {
+  data: User[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
 }
 
 export interface CreateUser {
@@ -138,6 +203,52 @@ export interface LoginDto {
   password: string;
 }
 
+export interface Category {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+  /**
+   * 所属用户ID
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 分组名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "分组A"
+   */
+  name: string;
+  /**
+   * 分组简介
+   * @minLength 0
+   * @maxLength 2048
+   * @example "分组A"
+   */
+  description?: string;
+  /**
+   * 订阅链接
+   * @example []
+   */
+  feeds: Feed[];
+}
+
 export interface EnclosureImpl {
   /**
    * 附件URL
@@ -169,15 +280,15 @@ export interface Article {
   /**
    * 创建时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.933Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  createdAt: string;
+  createdAt: Date;
   /**
    * 更新时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.934Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  updatedAt: string;
+  updatedAt: Date;
   /**
    * 所属用户ID
    * @example 1
@@ -214,9 +325,9 @@ export interface Article {
   /**
    * 发布日期
    * @format date-time
-   * @example "2024-04-04T10:21:15.300Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  publishDate?: string;
+  publishDate?: Date;
   /**
    * 作者
    * @minLength 0
@@ -336,15 +447,15 @@ export interface Hook {
   /**
    * 创建时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.933Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  createdAt: string;
+  createdAt: Date;
   /**
    * 更新时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.934Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  updatedAt: string;
+  updatedAt: Date;
   /**
    * 所属用户ID
    * @example 1
@@ -400,15 +511,15 @@ export interface Feed {
   /**
    * 创建时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.933Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  createdAt: string;
+  createdAt: Date;
   /**
    * 更新时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.934Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  updatedAt: string;
+  updatedAt: Date;
   /**
    * 所属用户ID
    * @example 1
@@ -475,50 +586,11 @@ export interface Feed {
   hooks: Hook[];
 }
 
-export interface Category {
-  /**
-   * ID
-   * @example 1
-   */
-  id: number;
-  /**
-   * 创建时间
-   * @format date-time
-   * @example "2024-04-04T10:21:14.933Z"
-   */
-  createdAt: string;
-  /**
-   * 更新时间
-   * @format date-time
-   * @example "2024-04-04T10:21:14.934Z"
-   */
-  updatedAt: string;
-  /**
-   * 所属用户ID
-   * @example 1
-   */
-  userId: number;
-  /** 所属用户 */
-  user: User;
-  /**
-   * 分组名称
-   * @minLength 0
-   * @maxLength 256
-   * @example "分组A"
-   */
-  name: string;
-  /**
-   * 分组简介
-   * @minLength 0
-   * @maxLength 2048
-   * @example "分组A"
-   */
-  description?: string;
-  /**
-   * 订阅链接
-   * @example []
-   */
-  feeds: Feed[];
+export interface FindFeed {
+  data: Feed[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
 }
 
 export interface CreateFeed {
@@ -660,6 +732,459 @@ export interface UpdateFeed {
   hooks?: Hook[];
 }
 
+export interface FindCategory {
+  data: Category[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
+}
+
+export interface CreateCategory {
+  /**
+   * 所属用户ID
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 分组名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "分组A"
+   */
+  name: string;
+  /**
+   * 分组简介
+   * @minLength 0
+   * @maxLength 2048
+   * @example "分组A"
+   */
+  description?: string;
+  /**
+   * 订阅链接
+   * @example []
+   */
+  feeds: Feed[];
+}
+
+export interface UpdateCategory {
+  /**
+   * ID
+   * @example 1
+   */
+  id?: number;
+  /**
+   * 所属用户ID
+   * @example 1
+   */
+  userId?: number;
+  /** 所属用户 */
+  user?: User;
+  /**
+   * 分组名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "分组A"
+   */
+  name?: string;
+  /**
+   * 分组简介
+   * @minLength 0
+   * @maxLength 2048
+   * @example "分组A"
+   */
+  description?: string;
+  /**
+   * 订阅链接
+   * @example []
+   */
+  feeds?: Feed[];
+}
+
+export interface FindArticle {
+  data: Article[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
+}
+
+export interface CreateArticle {
+  /**
+   * 所属用户ID
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 全局索引
+   * @example "499d4cee"
+   */
+  guid: string;
+  /**
+   * 链接
+   * @minLength 0
+   * @maxLength 2048
+   * @example "https://blog.cmyr.ltd/archives/499d4cee.html"
+   */
+  link?: string;
+  /**
+   * 标题
+   * @minLength 0
+   * @maxLength 256
+   * @example "这是一个标题"
+   */
+  title?: string;
+  /**
+   * 正文
+   * @minLength 0
+   * @maxLength 1048576
+   * @example "这是一段正文"
+   */
+  content?: string;
+  /**
+   * 发布日期
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  publishDate?: Date;
+  /**
+   * 作者
+   * @minLength 0
+   * @maxLength 128
+   * @example "CaoMeiYouRen"
+   */
+  author?: string;
+  /**
+   * 摘要
+   * 纯文本格式，无 HTML
+   * @minLength 0
+   * @maxLength 65536
+   * @example "这是一段内容摘要"
+   */
+  contentSnippet?: string;
+  /**
+   * 总结
+   * @minLength 0
+   * @maxLength 1024
+   * @example "这是一段总结"
+   */
+  summary?: string;
+  /**
+   * 分类列表
+   * @example ["tag1","tag2"]
+   */
+  categories?: string[];
+  /** 附件 */
+  enclosure?: EnclosureImpl;
+  /**
+   * 订阅源ID
+   * @example 1
+   */
+  feedId: number;
+  /** 订阅源 */
+  feed: Feed;
+}
+
+export interface UpdateArticle {
+  /**
+   * ID
+   * @example 1
+   */
+  id?: number;
+  /**
+   * 所属用户ID
+   * @example 1
+   */
+  userId?: number;
+  /** 所属用户 */
+  user?: User;
+  /**
+   * 全局索引
+   * @example "499d4cee"
+   */
+  guid?: string;
+  /**
+   * 链接
+   * @minLength 0
+   * @maxLength 2048
+   * @example "https://blog.cmyr.ltd/archives/499d4cee.html"
+   */
+  link?: string;
+  /**
+   * 标题
+   * @minLength 0
+   * @maxLength 256
+   * @example "这是一个标题"
+   */
+  title?: string;
+  /**
+   * 正文
+   * @minLength 0
+   * @maxLength 1048576
+   * @example "这是一段正文"
+   */
+  content?: string;
+  /**
+   * 发布日期
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  publishDate?: Date;
+  /**
+   * 作者
+   * @minLength 0
+   * @maxLength 128
+   * @example "CaoMeiYouRen"
+   */
+  author?: string;
+  /**
+   * 摘要
+   * 纯文本格式，无 HTML
+   * @minLength 0
+   * @maxLength 65536
+   * @example "这是一段内容摘要"
+   */
+  contentSnippet?: string;
+  /**
+   * 总结
+   * @minLength 0
+   * @maxLength 1024
+   * @example "这是一段总结"
+   */
+  summary?: string;
+  /**
+   * 分类列表
+   * @example ["tag1","tag2"]
+   */
+  categories?: string[];
+  /** 附件 */
+  enclosure?: EnclosureImpl;
+  /**
+   * 订阅源ID
+   * @example 1
+   */
+  feedId?: number;
+  /** 订阅源 */
+  feed?: Feed;
+}
+
+export interface FindHook {
+  data: Hook[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
+}
+
+export interface CreateHook {
+  /**
+   * 所属用户ID
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "Hook1"
+   */
+  name: string;
+  /**
+   * 类型
+   * @minLength 0
+   * @maxLength 128
+   * @example "webhook"
+   */
+  type: string;
+  /**
+   * 配置
+   * @example {}
+   */
+  config: object;
+  /** 过滤条件 */
+  filter: Filter;
+  /**
+   * 过滤出条件
+   * 去掉不要的内容
+   */
+  filterout: FilterOut;
+  /**
+   * 反转模式
+   * 如果服务可访问，则认为是故障
+   * @example false
+   */
+  isReversed: boolean;
+  /**
+   * 订阅源列表
+   * @example []
+   */
+  feeds: Feed[];
+}
+
+export interface UpdateHook {
+  /**
+   * ID
+   * @example 1
+   */
+  id?: number;
+  /**
+   * 所属用户ID
+   * @example 1
+   */
+  userId?: number;
+  /** 所属用户 */
+  user?: User;
+  /**
+   * 名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "Hook1"
+   */
+  name?: string;
+  /**
+   * 类型
+   * @minLength 0
+   * @maxLength 128
+   * @example "webhook"
+   */
+  type?: string;
+  /**
+   * 配置
+   * @example {}
+   */
+  config?: object;
+  /** 过滤条件 */
+  filter?: Filter;
+  /**
+   * 过滤出条件
+   * 去掉不要的内容
+   */
+  filterout?: FilterOut;
+  /**
+   * 反转模式
+   * 如果服务可访问，则认为是故障
+   * @example false
+   */
+  isReversed?: boolean;
+  /**
+   * 订阅源列表
+   * @example []
+   */
+  feeds?: Feed[];
+}
+
+export interface Resource {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+  /**
+   * 所属用户ID
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * URL
+   * @minLength 0
+   * @maxLength 2048
+   * @example "https://blog.cmyr.ltd/images/favicon-16x16-next.png"
+   */
+  url: string;
+  /**
+   * 文件名称
+   * @minLength 0
+   * @maxLength 1024
+   * @example "favicon-16x16-next.png"
+   */
+  name: string;
+  /**
+   * 文件路径
+   * @minLength 0
+   * @maxLength 2048
+   * @example "/data/download/favicon-16x16-next.png"
+   */
+  path: string;
+  /**
+   * 文件类型
+   * @minLength 0
+   * @maxLength 128
+   * @example "image/png"
+   */
+  type: string;
+  /**
+   * 文件大小(B)
+   * 单位为 B
+   * @example 114514
+   */
+  size: number;
+  /**
+   * 文件哈希
+   * @minLength 0
+   * @maxLength 128
+   * @example "d41d8cd98f00b204e9800998ecf8427e"
+   */
+  hash: string;
+  /**
+   * 文件状态
+   * @minLength 0
+   * @maxLength 16
+   * @example "success"
+   */
+  status: object;
+}
+
+export interface FindResource {
+  data: Resource[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
+}
+
+export interface Base {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+}
+
+export interface FindPlaceholderDto {
+  data: Base[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
+}
+
 export interface WebhookLog {
   /**
    * ID
@@ -669,15 +1194,15 @@ export interface WebhookLog {
   /**
    * 创建时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.933Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  createdAt: string;
+  createdAt: Date;
   /**
    * 更新时间
    * @format date-time
-   * @example "2024-04-04T10:21:14.934Z"
+   * @example "2023-12-31T16:00:00.000Z"
    */
-  updatedAt: string;
+  updatedAt: Date;
   /**
    * 所属用户ID
    * @example 1
@@ -879,153 +1404,32 @@ export class HttpClient<SecurityDataType = unknown> {
  * RSS Impact server docs
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
-  /**
-   * No description
-   *
-   * @name AppControllerGetHelloGet
-   * @request GET:/
-   */
-  appControllerGetHelloGet = (params: RequestParams = {}) =>
-    this.request<void, any>({
-      path: `/`,
-      method: "GET",
-      ...params,
-    });
-
-  /**
-   * No description
-   *
-   * @name AppControllerGetHelloPost
-   * @request POST:/
-   */
-  appControllerGetHelloPost = (params: RequestParams = {}) =>
-    this.request<void, any>({
-      path: `/`,
-      method: "POST",
-      ...params,
-    });
-
-  /**
-   * No description
-   *
-   * @name AppControllerGetHelloPut
-   * @request PUT:/
-   */
-  appControllerGetHelloPut = (params: RequestParams = {}) =>
-    this.request<void, any>({
-      path: `/`,
-      method: "PUT",
-      ...params,
-    });
-
-  /**
-   * No description
-   *
-   * @name AppControllerGetHelloDelete
-   * @request DELETE:/
-   */
-  appControllerGetHelloDelete = (params: RequestParams = {}) =>
-    this.request<void, any>({
-      path: `/`,
-      method: "DELETE",
-      ...params,
-    });
-
-  /**
-   * No description
-   *
-   * @name AppControllerGetHelloPatch
-   * @request PATCH:/
-   */
-  appControllerGetHelloPatch = (params: RequestParams = {}) =>
-    this.request<void, any>({
-      path: `/`,
-      method: "PATCH",
-      ...params,
-    });
-
-  /**
-   * No description
-   *
-   * @name AppControllerGetHelloOptions
-   * @request OPTIONS:/
-   */
-  appControllerGetHelloOptions = (params: RequestParams = {}) =>
-    this.request<void, any>({
-      path: `/`,
-      method: "OPTIONS",
-      ...params,
-    });
-
-  /**
-   * No description
-   *
-   * @name AppControllerGetHelloHead
-   * @request HEAD:/
-   */
-  appControllerGetHelloHead = (params: RequestParams = {}) =>
-    this.request<void, any>({
-      path: `/`,
-      method: "HEAD",
-      ...params,
-    });
-
-  /**
-   * No description
-   *
-   * @name AppControllerGetHelloSearch
-   * @request SEARCH:/
-   */
-  appControllerGetHelloSearch = (params: RequestParams = {}) =>
-    this.request<void, any>({
-      path: `/`,
-      method: "SEARCH",
-      ...params,
-    });
-
-  user = {
+  api = {
     /**
      * No description
      *
-     * @tags user
-     * @name UserControllerConfig
-     * @summary 获取 config
-     * @request GET:/user/config
+     * @name AppGetHello
+     * @request GET:/api
      */
-    userControllerConfig: (params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/user/config`,
+    appGetHello: (params: RequestParams = {}) =>
+      this.request<ResponseDto, any>({
+        path: `/api`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
     /**
      * No description
      *
-     * @tags user
-     * @name UserControllerFind
-     * @request GET:/user
+     * @name AppPostHello
+     * @request POST:/api
      */
-    userControllerFind: (params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/user`,
-        method: "GET",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags user
-     * @name UserControllerCreate
-     * @request POST:/user
-     */
-    userControllerCreate: (data: CreateUser, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/user`,
+    appPostHello: (params: RequestParams = {}) =>
+      this.request<ResponseDto, any>({
+        path: `/api`,
         method: "POST",
-        body: data,
-        type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -1033,29 +1437,13 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags user
-     * @name UserControllerUpdate
-     * @request PUT:/user
+     * @name UserConfig
+     * @summary 获取 config
+     * @request GET:/api/user/config
      */
-    userControllerUpdate: (data: UpdateUser, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/user`,
-        method: "PUT",
-        body: data,
-        type: ContentType.Json,
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags user
-     * @name UserControllerMe
-     * @summary 获取个人信息
-     * @request GET:/user/me
-     */
-    userControllerMe: (params: RequestParams = {}) =>
-      this.request<User, void>({
-        path: `/user/me`,
+    userConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/user/config`,
         method: "GET",
         format: "json",
         ...params,
@@ -1065,13 +1453,84 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags user
-     * @name UserControllerDicData
+     * @name UserFind
+     * @request GET:/api/user
+     */
+    userFind: (
+      query?: {
+        /** Query options */
+        query?: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<FindUser, void>({
+        path: `/api/user`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags user
+     * @name UserCreate
+     * @request POST:/api/user
+     */
+    userCreate: (data: CreateUser, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/user`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags user
+     * @name UserUpdate
+     * @request PUT:/api/user
+     */
+    userUpdate: (data: UpdateUser, params: RequestParams = {}) =>
+      this.request<User, void>({
+        path: `/api/user`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags user
+     * @name UserMe
+     * @summary 获取个人信息
+     * @request GET:/api/user/me
+     */
+    userMe: (params: RequestParams = {}) =>
+      this.request<User, void>({
+        path: `/api/user/me`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags user
+     * @name UserDicData
      * @summary 获取 dicData
-     * @request GET:/user/dicData
+     * @request GET:/api/user/dicData
      */
-    userControllerDicData: (params: RequestParams = {}) =>
+    userDicData: (params: RequestParams = {}) =>
       this.request<void, void>({
-        path: `/user/dicData`,
+        path: `/api/user/dicData`,
         method: "GET",
         ...params,
       }),
@@ -1080,14 +1539,14 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags user
-     * @name UserControllerFindOne
-     * @summary 查找记录
-     * @request GET:/user/{id}
+     * @name UserFindOne
+     * @request GET:/api/user/{id}
      */
-    userControllerFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/user/${id}`,
+    userFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<User, void>({
+        path: `/api/user/${id}`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1095,49 +1554,33 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags user
-     * @name UserControllerDelete
-     * @request DELETE:/user/{id}
+     * @name UserDelete
+     * @summary 删除用户。仅返回 id 字段
+     * @request DELETE:/api/user/{id}
      */
-    userControllerDelete: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/user/${id}`,
+    userDelete: (id: number, params: RequestParams = {}) =>
+      this.request<User, void>({
+        path: `/api/user/${id}`,
         method: "DELETE",
+        format: "json",
         ...params,
       }),
-  };
-  auth = {
+
     /**
      * No description
      *
      * @tags auth
-     * @name AuthControllerLogin
+     * @name AuthLogin
      * @summary 登录
-     * @request POST:/auth/login
+     * @request POST:/api/auth/login
      */
-    authControllerLogin: (data: LoginDto, params: RequestParams = {}) =>
-      this.request<void, any>({
-        path: `/auth/login`,
+    authLogin: (data: LoginDto, params: RequestParams = {}) =>
+      this.request<ResponseDto, any>({
+        path: `/api/auth/login`,
         method: "POST",
         body: data,
         type: ContentType.Json,
-        ...params,
-      }),
-  };
-  feed = {
-    /**
-     * No description
-     *
-     * @tags feed
-     * @name FeedControllerCreate
-     * @summary 创建记录
-     * @request POST:/feed
-     */
-    feedControllerCreate: (data: CreateFeed, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/feed`,
-        method: "POST",
-        body: data,
-        type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -1145,16 +1588,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
-     * @name FeedControllerUpdate
-     * @summary 更新记录
-     * @request PUT:/feed
+     * @name FeedConfig
+     * @summary 获取 config
+     * @request GET:/api/feed/config
      */
-    feedControllerUpdate: (data: UpdateFeed, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/feed`,
-        method: "PUT",
-        body: data,
-        type: ContentType.Json,
+    feedConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/feed/config`,
+        method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1162,21 +1604,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
-     * @name FeedControllerFind
+     * @name FeedFind
      * @summary 查找所有记录
-     * @request GET:/feed
+     * @request GET:/api/feed
      */
-    feedControllerFind: (
+    feedFind: (
       query?: {
         /** Query options */
         query?: string;
       },
       params: RequestParams = {},
     ) =>
-      this.request<void, void>({
-        path: `/feed`,
+      this.request<FindFeed, void>({
+        path: `/api/feed`,
         method: "GET",
         query: query,
+        format: "json",
         ...params,
       }),
 
@@ -1184,14 +1627,16 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
-     * @name FeedControllerConfig
-     * @summary 获取 config
-     * @request GET:/feed/config
+     * @name FeedCreate
+     * @summary 创建记录
+     * @request POST:/api/feed
      */
-    feedControllerConfig: (params: RequestParams = {}) =>
+    feedCreate: (data: CreateFeed, params: RequestParams = {}) =>
       this.request<void, void>({
-        path: `/feed/config`,
-        method: "GET",
+        path: `/api/feed`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
         ...params,
       }),
 
@@ -1199,14 +1644,33 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
-     * @name FeedControllerFindOne
+     * @name FeedUpdate
+     * @summary 更新记录
+     * @request PUT:/api/feed
+     */
+    feedUpdate: (data: UpdateFeed, params: RequestParams = {}) =>
+      this.request<Feed, void>({
+        path: `/api/feed`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags feed
+     * @name FeedFindOne
      * @summary 查找记录
-     * @request GET:/feed/{id}
+     * @request GET:/api/feed/{id}
      */
-    feedControllerFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/feed/${id}`,
+    feedFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<Feed, void>({
+        path: `/api/feed/${id}`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1214,30 +1678,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
-     * @name FeedControllerDelete
+     * @name FeedDelete
      * @summary 删除记录
-     * @request DELETE:/feed/{id}
+     * @request DELETE:/api/feed/{id}
      */
-    feedControllerDelete: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/feed/${id}`,
+    feedDelete: (id: number, params: RequestParams = {}) =>
+      this.request<Feed, void>({
+        path: `/api/feed/${id}`,
         method: "DELETE",
-        ...params,
-      }),
-  };
-  category = {
-    /**
-     * No description
-     *
-     * @tags category
-     * @name CategoryControllerConfig
-     * @summary 获取 config
-     * @request GET:/category/config
-     */
-    categoryControllerConfig: (params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/category/config`,
-        method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1245,21 +1694,38 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags category
-     * @name CategoryControllerFind
-     * @summary 查找所有记录
-     * @request GET:/category
+     * @name CategoryConfig
+     * @summary 获取 config
+     * @request GET:/api/category/config
      */
-    categoryControllerFind: (
+    categoryConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/category/config`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags category
+     * @name CategoryFind
+     * @summary 查找所有记录
+     * @request GET:/api/category
+     */
+    categoryFind: (
       query?: {
         /** Query options */
         query?: string;
       },
       params: RequestParams = {},
     ) =>
-      this.request<void, void>({
-        path: `/category`,
+      this.request<FindCategory, void>({
+        path: `/api/category`,
         method: "GET",
         query: query,
+        format: "json",
         ...params,
       }),
 
@@ -1267,13 +1733,13 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags category
-     * @name CategoryControllerCreate
+     * @name CategoryCreate
      * @summary 创建记录
-     * @request POST:/category
+     * @request POST:/api/category
      */
-    categoryControllerCreate: (data: Category, params: RequestParams = {}) =>
+    categoryCreate: (data: CreateCategory, params: RequestParams = {}) =>
       this.request<void, void>({
-        path: `/category`,
+        path: `/api/category`,
         method: "POST",
         body: data,
         type: ContentType.Json,
@@ -1284,16 +1750,17 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags category
-     * @name CategoryControllerUpdate
+     * @name CategoryUpdate
      * @summary 更新记录
-     * @request PUT:/category
+     * @request PUT:/api/category
      */
-    categoryControllerUpdate: (data: Category, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/category`,
+    categoryUpdate: (data: UpdateCategory, params: RequestParams = {}) =>
+      this.request<Category, void>({
+        path: `/api/category`,
         method: "PUT",
         body: data,
         type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -1301,14 +1768,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags category
-     * @name CategoryControllerFindOne
+     * @name CategoryFindOne
      * @summary 查找记录
-     * @request GET:/category/{id}
+     * @request GET:/api/category/{id}
      */
-    categoryControllerFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/category/${id}`,
+    categoryFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<Category, void>({
+        path: `/api/category/${id}`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1316,30 +1784,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags category
-     * @name CategoryControllerDelete
+     * @name CategoryDelete
      * @summary 删除记录
-     * @request DELETE:/category/{id}
+     * @request DELETE:/api/category/{id}
      */
-    categoryControllerDelete: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/category/${id}`,
+    categoryDelete: (id: number, params: RequestParams = {}) =>
+      this.request<Category, void>({
+        path: `/api/category/${id}`,
         method: "DELETE",
-        ...params,
-      }),
-  };
-  article = {
-    /**
-     * No description
-     *
-     * @tags article
-     * @name ArticleControllerConfig
-     * @summary 获取 config
-     * @request GET:/article/config
-     */
-    articleControllerConfig: (params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/article/config`,
-        method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1347,21 +1800,38 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
-     * @name ArticleControllerFind
-     * @summary 查找所有记录
-     * @request GET:/article
+     * @name ArticleConfig
+     * @summary 获取 config
+     * @request GET:/api/article/config
      */
-    articleControllerFind: (
+    articleConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/article/config`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags article
+     * @name ArticleFind
+     * @summary 查找所有记录
+     * @request GET:/api/article
+     */
+    articleFind: (
       query?: {
         /** Query options */
         query?: string;
       },
       params: RequestParams = {},
     ) =>
-      this.request<void, void>({
-        path: `/article`,
+      this.request<FindArticle, void>({
+        path: `/api/article`,
         method: "GET",
         query: query,
+        format: "json",
         ...params,
       }),
 
@@ -1369,13 +1839,13 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
-     * @name ArticleControllerCreate
+     * @name ArticleCreate
      * @summary 创建记录
-     * @request POST:/article
+     * @request POST:/api/article
      */
-    articleControllerCreate: (data: Article, params: RequestParams = {}) =>
+    articleCreate: (data: CreateArticle, params: RequestParams = {}) =>
       this.request<void, void>({
-        path: `/article`,
+        path: `/api/article`,
         method: "POST",
         body: data,
         type: ContentType.Json,
@@ -1386,16 +1856,17 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
-     * @name ArticleControllerUpdate
+     * @name ArticleUpdate
      * @summary 更新记录
-     * @request PUT:/article
+     * @request PUT:/api/article
      */
-    articleControllerUpdate: (data: Article, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/article`,
+    articleUpdate: (data: UpdateArticle, params: RequestParams = {}) =>
+      this.request<Article, void>({
+        path: `/api/article`,
         method: "PUT",
         body: data,
         type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -1403,14 +1874,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
-     * @name ArticleControllerFindOne
+     * @name ArticleFindOne
      * @summary 查找记录
-     * @request GET:/article/{id}
+     * @request GET:/api/article/{id}
      */
-    articleControllerFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/article/${id}`,
+    articleFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<Article, void>({
+        path: `/api/article/${id}`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1418,30 +1890,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
-     * @name ArticleControllerDelete
+     * @name ArticleDelete
      * @summary 删除记录
-     * @request DELETE:/article/{id}
+     * @request DELETE:/api/article/{id}
      */
-    articleControllerDelete: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/article/${id}`,
+    articleDelete: (id: number, params: RequestParams = {}) =>
+      this.request<Article, void>({
+        path: `/api/article/${id}`,
         method: "DELETE",
-        ...params,
-      }),
-  };
-  hook = {
-    /**
-     * No description
-     *
-     * @tags hook
-     * @name HookControllerConfig
-     * @summary 获取 config
-     * @request GET:/hook/config
-     */
-    hookControllerConfig: (params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/hook/config`,
-        method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1449,21 +1906,38 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags hook
-     * @name HookControllerFind
-     * @summary 查找所有记录
-     * @request GET:/hook
+     * @name HookConfig
+     * @summary 获取 config
+     * @request GET:/api/hook/config
      */
-    hookControllerFind: (
+    hookConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/hook/config`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags hook
+     * @name HookFind
+     * @summary 查找所有记录
+     * @request GET:/api/hook
+     */
+    hookFind: (
       query?: {
         /** Query options */
         query?: string;
       },
       params: RequestParams = {},
     ) =>
-      this.request<void, void>({
-        path: `/hook`,
+      this.request<FindHook, void>({
+        path: `/api/hook`,
         method: "GET",
         query: query,
+        format: "json",
         ...params,
       }),
 
@@ -1471,13 +1945,13 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags hook
-     * @name HookControllerCreate
+     * @name HookCreate
      * @summary 创建记录
-     * @request POST:/hook
+     * @request POST:/api/hook
      */
-    hookControllerCreate: (data: Hook, params: RequestParams = {}) =>
+    hookCreate: (data: CreateHook, params: RequestParams = {}) =>
       this.request<void, void>({
-        path: `/hook`,
+        path: `/api/hook`,
         method: "POST",
         body: data,
         type: ContentType.Json,
@@ -1488,16 +1962,17 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags hook
-     * @name HookControllerUpdate
+     * @name HookUpdate
      * @summary 更新记录
-     * @request PUT:/hook
+     * @request PUT:/api/hook
      */
-    hookControllerUpdate: (data: Hook, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/hook`,
+    hookUpdate: (data: UpdateHook, params: RequestParams = {}) =>
+      this.request<Hook, void>({
+        path: `/api/hook`,
         method: "PUT",
         body: data,
         type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -1505,14 +1980,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags hook
-     * @name HookControllerFindOne
+     * @name HookFindOne
      * @summary 查找记录
-     * @request GET:/hook/{id}
+     * @request GET:/api/hook/{id}
      */
-    hookControllerFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/hook/${id}`,
+    hookFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<Hook, void>({
+        path: `/api/hook/${id}`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1520,45 +1996,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags hook
-     * @name HookControllerDelete
+     * @name HookDelete
      * @summary 删除记录
-     * @request DELETE:/hook/{id}
+     * @request DELETE:/api/hook/{id}
      */
-    hookControllerDelete: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/hook/${id}`,
+    hookDelete: (id: number, params: RequestParams = {}) =>
+      this.request<Hook, void>({
+        path: `/api/hook/${id}`,
         method: "DELETE",
-        ...params,
-      }),
-  };
-  resource = {
-    /**
-     * No description
-     *
-     * @tags resource
-     * @name ResourceControllerDelete
-     * @summary 删除记录
-     * @request DELETE:/resource/{id}
-     */
-    resourceControllerDelete: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/resource/${id}`,
-        method: "DELETE",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags resource
-     * @name ResourceControllerFindOne
-     * @summary 查找记录
-     * @request GET:/resource/{id}
-     */
-    resourceControllerFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/resource/${id}`,
-        method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1566,14 +2012,14 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags resource
-     * @name ResourceControllerConfig
-     * @summary 获取 config
-     * @request GET:/resource/config
+     * @name ResourceDelete
+     * @summary 删除记录
+     * @request DELETE:/api/resource/{id}
      */
-    resourceControllerConfig: (params: RequestParams = {}) =>
+    resourceDelete: (id: number, params: RequestParams = {}) =>
       this.request<void, void>({
-        path: `/resource/config`,
-        method: "GET",
+        path: `/api/resource/${id}`,
+        method: "DELETE",
         ...params,
       }),
 
@@ -1581,59 +2027,54 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags resource
-     * @name ResourceControllerFind
-     * @summary 查找所有记录
-     * @request GET:/resource
+     * @name ResourceFindOne
+     * @summary 查找记录
+     * @request GET:/api/resource/{id}
      */
-    resourceControllerFind: (
-      query?: {
-        /** Query options */
-        query?: string;
-      },
-      params: RequestParams = {},
-    ) =>
-      this.request<void, void>({
-        path: `/resource`,
+    resourceFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<Resource, void>({
+        path: `/api/resource/${id}`,
         method: "GET",
-        query: query,
+        format: "json",
         ...params,
       }),
-  };
-  webhookLog = {
+
     /**
      * No description
      *
-     * @tags webhook-log
-     * @name WebhookLogControllerConfig
+     * @tags resource
+     * @name ResourceConfig
      * @summary 获取 config
-     * @request GET:/webhook-log/config
+     * @request GET:/api/resource/config
      */
-    webhookLogControllerConfig: (params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/webhook-log/config`,
+    resourceConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/resource/config`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
     /**
      * No description
      *
-     * @tags webhook-log
-     * @name WebhookLogControllerFind
+     * @tags resource
+     * @name ResourceFind
      * @summary 查找所有记录
-     * @request GET:/webhook-log
+     * @request GET:/api/resource
      */
-    webhookLogControllerFind: (
+    resourceFind: (
       query?: {
         /** Query options */
         query?: string;
       },
       params: RequestParams = {},
     ) =>
-      this.request<void, void>({
-        path: `/webhook-log`,
+      this.request<FindResource, void>({
+        path: `/api/resource`,
         method: "GET",
         query: query,
+        format: "json",
         ...params,
       }),
 
@@ -1641,13 +2082,52 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags webhook-log
-     * @name WebhookLogControllerCreate
-     * @summary 创建记录
-     * @request POST:/webhook-log
+     * @name WebhookLogConfig
+     * @summary 获取 config
+     * @request GET:/api/webhook-log/config
      */
-    webhookLogControllerCreate: (data: WebhookLog, params: RequestParams = {}) =>
+    webhookLogConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/webhook-log/config`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags webhook-log
+     * @name WebhookLogFind
+     * @summary 查找所有记录
+     * @request GET:/api/webhook-log
+     */
+    webhookLogFind: (
+      query?: {
+        /** Query options */
+        query?: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<FindPlaceholderDto, void>({
+        path: `/api/webhook-log`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags webhook-log
+     * @name WebhookLogCreate
+     * @summary 创建记录
+     * @request POST:/api/webhook-log
+     */
+    webhookLogCreate: (data: WebhookLog, params: RequestParams = {}) =>
       this.request<void, void>({
-        path: `/webhook-log`,
+        path: `/api/webhook-log`,
         method: "POST",
         body: data,
         type: ContentType.Json,
@@ -1658,16 +2138,17 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags webhook-log
-     * @name WebhookLogControllerUpdate
+     * @name WebhookLogUpdate
      * @summary 更新记录
-     * @request PUT:/webhook-log
+     * @request PUT:/api/webhook-log
      */
-    webhookLogControllerUpdate: (data: WebhookLog, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/webhook-log`,
+    webhookLogUpdate: (data: WebhookLog, params: RequestParams = {}) =>
+      this.request<WebhookLog, void>({
+        path: `/api/webhook-log`,
         method: "PUT",
         body: data,
         type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -1675,14 +2156,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags webhook-log
-     * @name WebhookLogControllerFindOne
+     * @name WebhookLogFindOne
      * @summary 查找记录
-     * @request GET:/webhook-log/{id}
+     * @request GET:/api/webhook-log/{id}
      */
-    webhookLogControllerFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/webhook-log/${id}`,
+    webhookLogFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<WebhookLog, void>({
+        path: `/api/webhook-log/${id}`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1690,14 +2172,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags webhook-log
-     * @name WebhookLogControllerDelete
+     * @name WebhookLogDelete
      * @summary 删除记录
-     * @request DELETE:/webhook-log/{id}
+     * @request DELETE:/api/webhook-log/{id}
      */
-    webhookLogControllerDelete: (id: number, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/webhook-log/${id}`,
+    webhookLogDelete: (id: number, params: RequestParams = {}) =>
+      this.request<WebhookLog, void>({
+        path: `/api/webhook-log/${id}`,
         method: "DELETE",
+        format: "json",
         ...params,
       }),
   };

@@ -8,7 +8,7 @@
 import { ref, onMounted } from 'vue'
 import { ajax } from '@/utils/ajax'
 
-defineProps<{ msg: string }>()
+// defineProps<{ msg: string }>()
 
 const message = ref('Hello Home.vue')
 

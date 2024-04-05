@@ -2,7 +2,7 @@
     <div class="navbar">
         <Hamburger
             id="hamburger-container"
-            :is-active="state.opened"
+            :is-active="state.sidebar.opened"
             class="hamburger-container"
             @toggle-click="toggleSideBar"
         />
@@ -43,7 +43,7 @@ import Hamburger from '@/components/Hamburger.vue'
 const state = useAppStore()
 
 function toggleSideBar() {
-    state.ToggleDevice()
+    state.toggleSidebar(true)
 }
 </script>
 

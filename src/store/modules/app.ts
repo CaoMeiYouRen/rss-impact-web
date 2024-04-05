@@ -1,17 +1,48 @@
 import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+import { getSidebarStatus, setSidebarStatus } from '@/utils/storage'
 
-// 你可以对 `defineStore()` 的返回值进行任意命名，但最好使用 store 的名字，同时以 `use` 开头且以 `Store` 结尾。(比如 `useUserStore`，`useCartStore`，`useProductStore`)
-// 第一个参数是你的应用中 Store 的唯一 ID。
+export enum DeviceType {
+    Mobile,
+    Desktop,
+}
 
-export const useAppStore = defineStore('app', {
-    state() {
-        return {
-            opened: true,
+export interface Sidebar {
+    opened: boolean
+    withoutAnimation: boolean
+}
+
+export interface IAppState {
+    device: DeviceType
+    sidebar: Sidebar
+}
+
+export const useAppStore = defineStore('app', () => {
+    const device = ref<DeviceType>(DeviceType.Desktop)
+    const sidebar = ref<Sidebar>({
+        opened: getSidebarStatus() !== 'closed',
+        withoutAnimation: false,
+    })
+
+    function toggleSidebar(withoutAnimation: boolean) {
+        sidebar.value.opened = !sidebar.value.opened
+        sidebar.value.withoutAnimation = withoutAnimation
+        if (sidebar.value.opened) {
+            setSidebarStatus('opened')
+        } else {
+            setSidebarStatus('closed')
         }
-    },
-    actions: {
-        ToggleDevice() {
-            this.opened = !this.opened
-        },
-    },
+    }
+
+    function closeSidebar(withoutAnimation: boolean) {
+        sidebar.value.opened = false
+        sidebar.value.withoutAnimation = withoutAnimation
+        setSidebarStatus('closed')
+    }
+
+    function toggleDevice(deviceType: DeviceType) {
+        device.value = deviceType
+    }
+
+    return { device, sidebar, toggleSidebar, closeSidebar, toggleDevice }
 })

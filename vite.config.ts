@@ -14,6 +14,12 @@ export default defineConfig({
             output: path.resolve('./src/api'), // 生成的文件所在的文件夹，注意要使用 path.resolve 解析出绝对路径，否则路径可能会有错误
             url: 'http://localhost:3000/docs-json', // 如果从远程接口载入
             httpClientType: 'axios', // or "fetch" 生成的接口类型
+            primitiveTypeConstructs: (constructs) => ({
+                ...constructs,
+                string: {
+                    'date-time': 'Date', // 修复 Date 类型问题
+                },
+            } as any),
         } as GenerateApiOption),
     ],
     server: {

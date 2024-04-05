@@ -14,6 +14,9 @@ dependencies:
   '@vueuse/core':
     specifier: ^10.9.0
     version: 10.9.0(vue@3.4.21)
+  '@vueuse/integrations':
+    specifier: ^10.9.0
+    version: 10.9.0(axios@1.6.8)(nprogress@0.2.0)(universal-cookie@7.1.4)(vue@3.4.21)
   animate.css:
     specifier: ^4.1.1
     version: 4.1.1
@@ -44,6 +47,9 @@ dependencies:
   pinia:
     specifier: ^2.1.7
     version: 2.1.7(typescript@5.4.4)(vue@3.4.21)
+  universal-cookie:
+    specifier: ^7.1.4
+    version: 7.1.4
   vue:
     specifier: ^3.4.21
     version: 3.4.21(typescript@5.4.4)
@@ -1249,6 +1255,10 @@ packages:
     dev: true
     optional: true
 
+  /@types/cookie@0.6.0:
+    resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
+    dev: false
+
   /@types/debug@4.1.12:
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
     dependencies:
@@ -1778,6 +1788,58 @@ packages:
       '@types/web-bluetooth': 0.0.16
       '@vueuse/metadata': 9.13.0
       '@vueuse/shared': 9.13.0(vue@3.4.21)
+      vue-demi: 0.14.7(vue@3.4.21)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  /@vueuse/integrations@10.9.0(axios@1.6.8)(nprogress@0.2.0)(universal-cookie@7.1.4)(vue@3.4.21):
+    resolution: {integrity: sha512-acK+A01AYdWSvL4BZmCoJAcyHJ6EqhmkQEXbQLwev1MY7NBnS+hcEMx/BzVoR9zKI+UqEPMD9u6PsyAuiTRT4Q==}
+    peerDependencies:
+      async-validator: '*'
+      axios: '*'
+      change-case: '*'
+      drauu: '*'
+      focus-trap: '*'
+      fuse.js: '*'
+      idb-keyval: '*'
+      jwt-decode: '*'
+      nprogress: '*'
+      qrcode: '*'
+      sortablejs: '*'
+      universal-cookie: '*'
+    peerDependenciesMeta:
+      async-validator:
+        optional: true
+      axios:
+        optional: true
+      change-case:
+        optional: true
+      drauu:
+        optional: true
+      focus-trap:
+        optional: true
+      fuse.js:
+        optional: true
+      idb-keyval:
+        optional: true
+      jwt-decode:
+        optional: true
+      nprogress:
+        optional: true
+      qrcode:
+        optional: true
+      sortablejs:
+        optional: true
+      universal-cookie:
+        optional: true
+    dependencies:
+      '@vueuse/core': 10.9.0(vue@3.4.21)
+      '@vueuse/shared': 10.9.0(vue@3.4.21)
+      axios: 1.6.8
+      nprogress: 0.2.0
+      universal-cookie: 7.1.4
       vue-demi: 0.14.7(vue@3.4.21)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -2716,6 +2778,11 @@ packages:
   /convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
     dev: true
+
+  /cookie@0.6.0:
+    resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
+    engines: {node: '>= 0.6'}
+    dev: false
 
   /copy-descriptor@0.1.1:
     resolution: {integrity: sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==}
@@ -8831,6 +8898,13 @@ packages:
       unist-util-is: 5.2.1
       unist-util-visit-parents: 5.1.3
     dev: true
+
+  /universal-cookie@7.1.4:
+    resolution: {integrity: sha512-Q+DVJsdykStWRMtXr2Pdj3EF98qZHUH/fXv/gwFz/unyToy1Ek1w5GsWt53Pf38tT8Gbcy5QNsj61Xe9TggP4g==}
+    dependencies:
+      '@types/cookie': 0.6.0
+      cookie: 0.6.0
+    dev: false
 
   /universal-user-agent@6.0.1:
     resolution: {integrity: sha512-yCzhz6FN2wU1NiiQRogkTQszlQSlpWaw8SvVegAc+bDxbzHgh1vX8uIe8OYyMH6DwH+sdTJsgMl36+mSMdRJIQ==}

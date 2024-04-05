@@ -18,8 +18,8 @@ import { useAppStore } from '@/store/modules/app'
 
 const state = useAppStore()
 const classObj = computed(() => ({
-    hideSidebar: !state.opened,
-    openSidebar: state.opened,
+    hideSidebar: !state.sidebar.opened,
+    openSidebar: state.sidebar.opened,
 }))
 </script>
 
