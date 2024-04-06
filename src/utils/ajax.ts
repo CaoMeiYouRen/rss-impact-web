@@ -20,24 +20,24 @@ interface AjaxConfig {
  * @param {AjaxConfig} config
  * @returns {Promise<AxiosResponse<any>>}
  */
-export async function ajax<T = any>(config: AjaxConfig): Promise<AxiosResponse<T>> {
-    try {
-        const { url, query = {}, data = {}, method = 'GET', headers = {}, timeout = 10000, baseURL = VITE_API_BASE_URL } = config
-        const resp = await instance(url, {
-            method,
-            headers,
-            params: query,
-            data,
-            timeout,
-            baseURL,
-        })
-        return resp
-    } catch (error: any) {
-        if (error.toJSON) {
-            console.error(error.toJSON())
-        } else {
-            console.error(error)
-        }
-        throw error
-    }
+export async function ajax<T = any>(config: AjaxConfig): Promise<T> {
+    // try {
+    const { url, query = {}, data = {}, method = 'GET', headers = {}, timeout = 10000, baseURL = VITE_API_BASE_URL } = config
+    const resp = await instance(url, {
+        method,
+        headers,
+        params: query,
+        data,
+        timeout,
+        baseURL,
+    })
+    return resp.data
+    // } catch (error: any) {
+    //     if (error.toJSON) {
+    //         console.error(error.toJSON())
+    //     } else {
+    //         console.error(error)
+    //     }
+    //     throw error
+    // }
 }
