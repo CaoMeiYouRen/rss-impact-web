@@ -1,92 +1,13 @@
+import { Option, Column, Page, DicData } from '@cao-mei-you-ren/avue-types'
+
+export { DicData }
 
 export declare interface AvueCrudConfig {
     option?: AvueCrudOption
     [key: string]: any
 }
 
-export declare interface AvueCrudOption {
-    addBtn?: boolean
-    addRowBtn?: boolean
-    align?: string
-    border?: boolean
-    calcHeight?: number
-    cancelBtnTitle?: string
-    columnBtn?: boolean
-    dataType?: string
-    cellBtn?: boolean
-    dateBtn?: boolean
-    cancelBtn?: boolean
-    dateDefault?: boolean
-    dicData?: any
-    dicMethod?: string
-    dicQuery?: any
-    dicUrl?: string
-    delBtn?: boolean
-    defaultSort?: any
-    dialogFullscreen?: boolean
-    dialogEscape?: boolean
-    dialogClickModal?: boolean
-    dialogCloseBtn?: boolean
-    dialogModal?: boolean
-    dialogTop?: string | number
-    dialogType?: string
-    dialogWidth?: string | number
-    dialogHeight?: string | number
-    defaultExpandAll?: boolean
-    expandRowKeys?: string[]
-    editBtn?: boolean
-    emptyText?: string
-    expand?: boolean
-    expandWidth?: number
-    expandFixed?: boolean
-    excelBtn?: boolean
-    filterBtn?: boolean
-    formWidth?: string | number
-    height?: number
-    header?: boolean
-    index?: boolean
-    indexLabel?: string
-    indexWidth?: number
-    indexFixed?: boolean
-    rowKey?: string
-    indeterminate?: boolean
-    labelWidth?: number
-    maxHeight?: number
-    menu?: boolean
-    menuWidth?: number
-    menuXsWidth?: number
-    menuAlign?: string
-    menuType?: string
-    menuBtnTitle?: string
-    pageSize?: string
-    pageSizes?: number[]
-    printBtn?: boolean
-    refreshBtn?: boolean
-    saveBtn?: boolean
-    updateBtn?: boolean
-    cancalBtn?: boolean
-    saveBtnTitle?: string
-    selection?: boolean
-    selectionWidth?: number
-    selectionFixed?: boolean
-    searchBtn?: boolean
-    selectable?: boolean
-    reserveSelection?: true
-    selectClearBtn?: boolean
-    showHeader?: boolean
-    showSummary?: boolean
-    size?: string
-    sumColumnList?: string[]
-    stripe?: boolean
-    tip?: string
-    tipPlacement?: string
-    title?: string
-    checkStrictly?: boolean
-    updateBtnTitle?: string
-    viewBtn?: boolean
-    width?: number
-    column?: Field[]
-    group?: Field[]
+export declare interface AvueCrudOption extends Option {
     [key: string]: any
 }
 
@@ -191,13 +112,6 @@ export declare interface AvueFormOption {
     [key: string]: any
 }
 
-export declare type CenterConfig = {
-    userInfo: AvueCrudOption
-    resetPassword: AvueCrudOption
-    accessToken: AvueCrudOption
-    [key: string]: AvueCrudOption
-}
-
 export declare interface CrudOptions {
     routes?: CrudRoutes
 }
@@ -248,25 +162,9 @@ export declare interface CrudRouteWithDto extends CrudRoute {
     transform?: (data: any) => any
 }
 
-export declare interface Field {
-    prop: string
-    label?: string
-    icon?: string
+export declare interface Field extends Column {
     type?: 'array' | 'hide' | 'text' | 'input' | 'autocomplete' | 'textarea' | 'number' | 'checkbox' | 'checkbox-button' | 'radio' | 'date' | 'dates' | 'week' | 'month' | 'year' | 'daterange' | 'time' | 'datetime' | 'datetimerange' | 'switch' | 'yesno' | 'slider' | 'password' | 'color' | 'select' | 'cascader' | 'transfer' | 'rate' | 'tag' | 'img' | 'image' | 'button' | 'json-editor' | 'upload-file' | 'image-uploader' | 'tree-select' | 'video-uploader' | 'quill-editor' | 'markdown-editor' | 'bmap' | 'codemirror' | 'gallery' | 'url'
     _type?: string
-    listable?: boolean
-    editable?: boolean
-    attrs?: any
-    layout?: number
-    tip?: string
-    options?: OptionItem[]
-    class?: string | string[]
-    style?: any
-    width?: string | number
-    column?: Field[]
-    addDisplay?: boolean
-    editDisabled?: boolean
-    dicData?: DicData
     [key: string]: any
 }
 
@@ -275,7 +173,7 @@ export declare interface OptionItem {
     value: string
 }
 
-export declare interface PaginateKeys {
+export declare interface PaginateKeys extends Page {
     data?: string
     total?: string
     lastPage?: string
@@ -285,8 +183,3 @@ export declare interface PaginateKeys {
 export declare interface Fields {
     [key: string]: Field
 }
-
-export declare type DicData = {
-    label: string
-    value: unknown
-}[]
