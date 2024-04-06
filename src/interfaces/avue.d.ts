@@ -8,6 +8,7 @@ export declare interface AvueCrudConfig {
 }
 
 export declare interface AvueCrudOption extends Option {
+    column?: Field[]
     [key: string]: any
 }
 
