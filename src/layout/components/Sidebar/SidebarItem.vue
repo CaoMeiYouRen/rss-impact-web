@@ -16,7 +16,7 @@
                         <component :is="theOnlyOneChild.meta.icon" />
                     </el-icon>
                     <span
-                        v-if="theOnlyOneChild.meta.title"
+                        v-if="theOnlyOneChild.meta.title && !isCollapse"
                     >{{ theOnlyOneChild.meta.title }}</span>
                 </el-menu-item>
             </SidebarItemLink>
@@ -121,12 +121,15 @@ export default defineComponent({
 })
 </script>
 
-<!-- <style lang="scss">
+<style lang="scss">
     .el-sub-menu.is-active > .el-sub-menu__title {
         color: $subMenuActiveText !important;
     }
 
     .full-mode {
+        a {
+            text-decoration: none !important; /* 移除下划线 */
+        }
         .nest-menu .el-sub-menu > .el-sub-menu__title,
         .el-sub-menu .el-menu-item {
             min-width: $sideBarWidth !important;
@@ -134,6 +137,7 @@ export default defineComponent({
 
             &:hover {
                 background-color: $subMenuHover !important;
+
             }
         }
     }
@@ -142,7 +146,7 @@ export default defineComponent({
         &.first-level {
             .sub-menu-title-noDropdown {
                 position: relative;
-                padding: 0 !important;
+                padding: 0 15px;
 
                 .el-tooltip {
                     padding: 0 !important;
@@ -166,9 +170,9 @@ export default defineComponent({
             }
         }
     }
-</style> -->
+</style>
 
-<!-- <style lang="scss" scoped>
+<style lang="scss" scoped>
     .svg-icon {
         margin-right: 16px;
     }
@@ -197,4 +201,4 @@ export default defineComponent({
             margin-left: 16px;
         }
     }
-</style> -->
+</style>

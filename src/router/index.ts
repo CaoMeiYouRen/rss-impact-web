@@ -8,6 +8,14 @@ export type Route = RouteLocationNormalized
 
 export const constantRoutes: RouteConfig[] = [
     {
+        path: '/404',
+        component: () => import('@/views/Page404.vue'),
+        meta: {
+            hidden: true,
+            title: '404',
+        },
+    },
+    {
         path: '/login',
         component: () => import('@/views/Login.vue'),
         meta: {
@@ -44,6 +52,11 @@ export const constantRoutes: RouteConfig[] = [
                 },
             },
         ],
+    },
+    {
+        path: '/(.*)',
+        redirect: '/404',
+        meta: { hidden: true },
     },
 ]
 

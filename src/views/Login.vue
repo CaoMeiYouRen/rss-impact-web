@@ -11,9 +11,9 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, nextTick, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { LoginDto, User } from '@/api/api'
+import { LoginDto } from '@/api/api'
 import { baseValidatePassword, isValidUsername } from '@/utils/validate'
 import { useUserStore } from '@/store/modules/user'
 
@@ -58,6 +58,7 @@ const option = {
         username: {
             span: 24,
             label: '用户名',
+            prefixIcon: 'el-icon-user',
             autocomplete: 'off',
             rules: [
                 { required: true, message: '请输入用户名', trigger: 'blur' },
@@ -68,6 +69,7 @@ const option = {
             type: 'password',
             span: 24,
             label: '密码',
+            prefixIcon: 'el-icon-lock',
             autocomplete: 'off',
             rules: [
                 { required: true, message: '请输入密码', trigger: 'blur' },

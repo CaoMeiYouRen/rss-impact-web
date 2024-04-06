@@ -1,16 +1,14 @@
 <template>
     <div class="home">
-        <p>{{ message }}</p>
+        <h1>欢迎用户 {{ userStore.user?.username }} 访问 RSS Impact</h1>
+        <p>这是一个基于 RSS 的 Hook 系统。</p>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { ajax } from '@/utils/ajax'
-
-// defineProps<{ msg: string }>()
-
-const message = ref('Hello Home.vue')
+import { useUserStore } from '@/store/modules/user'
+const userStore = useUserStore()
 
 onMounted(() => {
 
