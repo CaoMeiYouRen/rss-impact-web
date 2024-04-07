@@ -288,7 +288,7 @@ export interface Category {
    */
   updatedAt: Date;
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId: number;
@@ -356,7 +356,7 @@ export interface Article {
    */
   updatedAt: Date;
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId: number;
@@ -418,6 +418,7 @@ export interface Article {
   summary?: string;
   /**
    * 分类列表
+   * RSS 源定义的分类，和 本地RSS 的分组不是同一个
    * @example ["tag1","tag2"]
    */
   categories?: string[];
@@ -523,7 +524,7 @@ export interface Hook {
    */
   updatedAt: Date;
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId: number;
@@ -548,7 +549,10 @@ export interface Hook {
    * @example {}
    */
   config: object;
-  /** 过滤条件 */
+  /**
+   * 过滤条件
+   * 保留想要的内容
+   */
   filter: Filter;
   /**
    * 过滤出条件
@@ -587,7 +591,7 @@ export interface Feed {
    */
   updatedAt: Date;
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId: number;
@@ -661,7 +665,7 @@ export interface FindFeed {
 
 export interface CreateFeed {
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId: number;
@@ -733,7 +737,7 @@ export interface UpdateFeed {
    */
   id?: number;
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId?: number;
@@ -807,7 +811,7 @@ export interface FindCategory {
 
 export interface CreateCategory {
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId: number;
@@ -841,7 +845,7 @@ export interface UpdateCategory {
    */
   id?: number;
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId?: number;
@@ -875,167 +879,6 @@ export interface FindArticle {
   currentPage: number;
 }
 
-export interface CreateArticle {
-  /**
-   * 所属用户ID
-   * @example 1
-   */
-  userId: number;
-  /** 所属用户 */
-  user: User;
-  /**
-   * 全局索引
-   * @example "499d4cee"
-   */
-  guid: string;
-  /**
-   * 链接
-   * @minLength 0
-   * @maxLength 2048
-   * @example "https://blog.cmyr.ltd/archives/499d4cee.html"
-   */
-  link?: string;
-  /**
-   * 标题
-   * @minLength 0
-   * @maxLength 256
-   * @example "这是一个标题"
-   */
-  title?: string;
-  /**
-   * 正文
-   * @minLength 0
-   * @maxLength 1048576
-   * @example "这是一段正文"
-   */
-  content?: string;
-  /**
-   * 发布日期
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  publishDate?: Date;
-  /**
-   * 作者
-   * @minLength 0
-   * @maxLength 128
-   * @example "CaoMeiYouRen"
-   */
-  author?: string;
-  /**
-   * 摘要
-   * 纯文本格式，无 HTML
-   * @minLength 0
-   * @maxLength 65536
-   * @example "这是一段内容摘要"
-   */
-  contentSnippet?: string;
-  /**
-   * 总结
-   * @minLength 0
-   * @maxLength 1024
-   * @example "这是一段总结"
-   */
-  summary?: string;
-  /**
-   * 分类列表
-   * @example ["tag1","tag2"]
-   */
-  categories?: string[];
-  /** 附件 */
-  enclosure?: EnclosureImpl;
-  /**
-   * 订阅源ID
-   * @example 1
-   */
-  feedId: number;
-  /** 订阅源 */
-  feed: Feed;
-}
-
-export interface UpdateArticle {
-  /**
-   * ID
-   * @example 1
-   */
-  id?: number;
-  /**
-   * 所属用户ID
-   * @example 1
-   */
-  userId?: number;
-  /** 所属用户 */
-  user?: User;
-  /**
-   * 全局索引
-   * @example "499d4cee"
-   */
-  guid?: string;
-  /**
-   * 链接
-   * @minLength 0
-   * @maxLength 2048
-   * @example "https://blog.cmyr.ltd/archives/499d4cee.html"
-   */
-  link?: string;
-  /**
-   * 标题
-   * @minLength 0
-   * @maxLength 256
-   * @example "这是一个标题"
-   */
-  title?: string;
-  /**
-   * 正文
-   * @minLength 0
-   * @maxLength 1048576
-   * @example "这是一段正文"
-   */
-  content?: string;
-  /**
-   * 发布日期
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  publishDate?: Date;
-  /**
-   * 作者
-   * @minLength 0
-   * @maxLength 128
-   * @example "CaoMeiYouRen"
-   */
-  author?: string;
-  /**
-   * 摘要
-   * 纯文本格式，无 HTML
-   * @minLength 0
-   * @maxLength 65536
-   * @example "这是一段内容摘要"
-   */
-  contentSnippet?: string;
-  /**
-   * 总结
-   * @minLength 0
-   * @maxLength 1024
-   * @example "这是一段总结"
-   */
-  summary?: string;
-  /**
-   * 分类列表
-   * @example ["tag1","tag2"]
-   */
-  categories?: string[];
-  /** 附件 */
-  enclosure?: EnclosureImpl;
-  /**
-   * 订阅源ID
-   * @example 1
-   */
-  feedId?: number;
-  /** 订阅源 */
-  feed?: Feed;
-}
-
 export interface FindHook {
   data: Hook[];
   total: number;
@@ -1045,7 +888,7 @@ export interface FindHook {
 
 export interface CreateHook {
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId: number;
@@ -1070,7 +913,10 @@ export interface CreateHook {
    * @example {}
    */
   config: object;
-  /** 过滤条件 */
+  /**
+   * 过滤条件
+   * 保留想要的内容
+   */
   filter: Filter;
   /**
    * 过滤出条件
@@ -1097,7 +943,7 @@ export interface UpdateHook {
    */
   id?: number;
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId?: number;
@@ -1122,7 +968,10 @@ export interface UpdateHook {
    * @example {}
    */
   config?: object;
-  /** 过滤条件 */
+  /**
+   * 过滤条件
+   * 保留想要的内容
+   */
   filter?: Filter;
   /**
    * 过滤出条件
@@ -1161,7 +1010,7 @@ export interface Resource {
    */
   updatedAt: Date;
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId: number;
@@ -1243,7 +1092,7 @@ export interface WebhookLog {
    */
   updatedAt: Date;
   /**
-   * 所属用户ID
+   * 所属用户
    * @example 1
    */
   userId: number;
@@ -1577,9 +1426,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/user/dicData
      */
     userDicData: (params: RequestParams = {}) =>
-      this.request<void, void>({
+      this.request<DicData[], void>({
         path: `/api/user/dicData`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1940,41 +1790,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/api/article`,
         method: "GET",
         query: query,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags article
-     * @name ArticleCreate
-     * @summary 创建记录
-     * @request POST:/api/article
-     */
-    articleCreate: (data: CreateArticle, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/api/article`,
-        method: "POST",
-        body: data,
-        type: ContentType.Json,
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags article
-     * @name ArticleUpdate
-     * @summary 更新记录
-     * @request PUT:/api/article
-     */
-    articleUpdate: (data: UpdateArticle, params: RequestParams = {}) =>
-      this.request<Article, void>({
-        path: `/api/article`,
-        method: "PUT",
-        body: data,
-        type: ContentType.Json,
         format: "json",
         ...params,
       }),

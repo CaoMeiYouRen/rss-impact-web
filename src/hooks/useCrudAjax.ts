@@ -145,14 +145,13 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
     // 查询
     async function getList(where?: Record<string, unknown>, sort?: Record<string, unknown>) {
         loading.value = true
-
         try {
             const response = await ajax<GetListResponse<T>>({
                 url: unref(model),
                 method: 'GET',
                 baseURL: '/api',
                 query: {
-                    query: {
+                    query: JSON.stringify({
                         limit: page.value.pageSize,
                         page: page.value.currentPage,
                         // TODO 修改 排序 和 查询逻辑
@@ -164,7 +163,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
                         //     ...globalWhere,
                         //     ...where || {},
                         // },
-                    },
+                    }),
                 },
             })
             if (!response) {
