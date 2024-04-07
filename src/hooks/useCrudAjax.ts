@@ -1,7 +1,11 @@
-import { computed, ref, Ref, unref } from 'vue'
-import { ElMessage } from 'element-plus'
+import { computed, onMounted, ref, Ref, unref } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import { AvueCrudOption } from '@/interfaces/avue'
 import { ajax } from '@/utils/ajax'
+import { objectValueToString, stringValueToObject } from '@/utils/helper'
+
+const Message = ElMessage
+const MessageBox = ElMessageBox
 
 export interface GetConfigResponse {
     option: AvueCrudOption
@@ -65,6 +69,7 @@ const defaultOption: AvueCrudOption = {
     stripe: true,
     columnBtn: false,
     refreshBtn: false,
+    grid: false,
     column: [],
 }
 
@@ -79,9 +84,9 @@ const defaultOption: AvueCrudOption = {
  * @returns
  */
 // eslint-disable-next-line max-lines-per-function
-export function useCrudAjax<T = any>(model: string | Ref<string>, transform: IProps = {}, autoMount: boolean = true) {
+export function useCrudAjax<T extends Record<string, unknown> = any>(model: string | Ref<string>, transform: IProps = {}, autoMount: boolean = true) {
 
-    const option = ref({ ...defaultOption })
+    const option = ref<AvueCrudOption>({ ...defaultOption })
     const list = ref<T[]>([])
     const selections = ref<T[]>([])
     const loading = ref(false)
@@ -108,7 +113,7 @@ export function useCrudAjax<T = any>(model: string | Ref<string>, transform: IPr
             return true
         }
         return false
-    }).map((e) => e.prop))
+    }).map((e) => e.prop || '').filter(Boolean))
 
     const searchWhere = computed(() => search.value)
 
@@ -120,9 +125,10 @@ export function useCrudAjax<T = any>(model: string | Ref<string>, transform: IPr
             const response = await ajax<GetConfigResponse>({
                 url: `${unref(model)}/config`,
                 method: 'GET',
+                baseURL: '/api',
             })
             if (!response) {
-                ElMessage.error('获取表格配置失败')
+                Message.error('获取表格配置失败')
                 return
             }
             option.value = response.option
@@ -130,10 +136,286 @@ export function useCrudAjax<T = any>(model: string | Ref<string>, transform: IPr
                 page.value.pageSizes = response.option.pageSizes
             }
         } catch (error) {
-            ElMessage.error('获取表格配置失败')
+            Message.error('获取表格配置失败')
         } finally {
             loading.value = false
         }
+    }
+
+    // 查询
+    async function getList(where?: Record<string, unknown>, sort?: Record<string, unknown>) {
+        loading.value = true
+
+        try {
+            const response = await ajax<GetListResponse<T>>({
+                url: unref(model),
+                method: 'GET',
+                baseURL: '/api',
+                query: {
+                    query: {
+                        limit: page.value.pageSize,
+                        page: page.value.currentPage,
+                        // TODO 修改 排序 和 查询逻辑
+                        // sort: {
+                        //     createdAt: -1,
+                        //     ...sort || {},
+                        // },
+                        // where: {
+                        //     ...globalWhere,
+                        //     ...where || {},
+                        // },
+                    },
+                },
+            })
+            if (!response) {
+                Message.error('获取数据失败')
+                list.value = []
+                page.value.total = 0
+                return
+            }
+            const { total = 0 } = response
+            let { data = [] } = response
+            data = data.map((e) => objectValueToString(e as any, excludeKeys.value) as any)
+            if (postGet) {
+                data = data.map((e) => postGet(e))
+            }
+            list.value = data as any[]
+            page.value.total = total
+        } catch (error) {
+            Message.error('获取数据失败')
+        } finally {
+            loading.value = false
+        }
+    }
+
+    // 新增
+    async function rowSave(row: T, done: () => void) {
+        let obj = { ...row }
+        if (preSave) {
+            obj = preSave(obj)
+        }
+        delete obj.id
+        obj = stringValueToObject(obj, excludeKeys.value) as any
+        try {
+            const newObj = await ajax({
+                url: unref(model),
+                method: 'POST',
+                baseURL: '/api',
+                data: obj,
+            })
+            if (!newObj) {
+                Message.error('新增失败')
+                return
+            }
+            Message.success('新增成功')
+            await searchChange() // 重新拉取数据，直接新增会导致分页错误
+        } catch (error) {
+            Message.error('新增失败')
+        } finally {
+            done()
+        }
+    }
+    // 更新
+    async function rowUpdate(row: any, index: number, done: () => void) {
+        let obj = { ...row }
+        if (preUpdate) {
+            obj = preUpdate(obj)
+        }
+        obj = stringValueToObject(obj, excludeKeys.value)
+        const id = obj.id
+        try {
+            const newObj = await ajax({
+                url: `${unref(model)}/${id}`,
+                method: 'PUT',
+                baseURL: '/api',
+                data: obj,
+            })
+            if (!newObj) {
+                Message.error('修改失败')
+                return
+            }
+            Message.success('修改成功')
+            await searchChange() // 更新不会导致分页错误
+        } catch (error) {
+            Message.error('修改失败')
+        } finally {
+            done()
+        }
+    }
+    // 删除
+    async function rowDel(row: any) {
+        const id = row.id
+        try {
+            await MessageBox.confirm('此操作将永久删除该条数据, 是否继续？', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning',
+            })
+            loading.value = true
+            const newObj = await ajax({
+                url: `${unref(model)}/${id}`,
+                method: 'DELETE',
+                baseURL: '/api',
+            })
+            if (!newObj) {
+                Message.error('删除失败')
+                return
+            }
+            Message.success('删除成功')
+            await searchChange() // 重新拉取数据，直接删除会导致分页错误
+        } catch (error) {
+            console.error(error)
+            // 排除正常关闭
+            if (typeof error === 'string' && ['cancel', 'close'].includes(error)) {
+                return
+            }
+            Message.error('删除失败')
+        } finally {
+            loading.value = false
+        }
+    }
+
+    async function currentChange() {
+        return searchChange()
+    }
+
+    async function sizeChange() {
+        return searchChange()
+    }
+
+    // 搜索
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
+    async function searchChange(_searchForm: Record<string, unknown> = {}, done: () => void = () => { }) {
+        // TODO 修改 查询逻辑
+        const where = Object.fromEntries(Object.entries(searchWhere.value).filter(([, value]) => {
+            if (typeof value === 'string' && value === '') {
+                return false
+            }
+            return true
+        }).map(([key, value]) => {
+            const column = option.value.column?.find((e) => e.prop === key)
+            if (column?.type === 'select' && !column?.multiple) { // 如果为单选则精确匹配
+                return [
+                    key,
+                    value,
+                ]
+            }
+            if (column?.type === 'datetime' && column?.searchRange && Array.isArray(value)) { // 如果为日期且为范围选择
+                if (value.length === 2) {
+                    return [
+                        key,
+                        {
+                            $gte: value[0], // 大于等于第一个时间
+                            $lt: value[1], // 小于第二个时间，左闭右开 [date1,date2)
+                        },
+                    ]
+                }
+                return [
+                    key,
+                    undefined,
+                ]
+
+            }
+            if (Array.isArray(value)) {
+                if (value.length > 0) {
+                    return [
+                        key,
+                        {
+                            $in: value,
+                        },
+                    ]
+                }
+                return [
+                    key,
+                    undefined,
+                ]
+            }
+            if (typeof value === 'string') {
+                return [
+                    key,
+                    {
+                        $regex: value, // 模糊查询
+                    },
+                ]
+            }
+            return [
+                key,
+                value,
+            ]
+        }))
+        await getList(where)
+        done()
+    }
+
+    async function searchReset() {
+        page.value.currentPage = 1
+        page.value.total = 0
+        return getList()
+    }
+
+    async function refreshChange() {
+        return searchChange()
+    }
+
+    async function initDic() {
+        if (!formDom.value) {
+            return
+        }
+        try {
+            await formDom.value?.dicInit()
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    // 更新字典
+    async function updateDic() {
+        if (!formDom.value) {
+            return
+        }
+        try {
+            await formDom.value?.updateDic()
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    function selectionChange(newList: any[]) {
+        selections.value = newList
+    }
+
+    if (autoMount) {
+        onMounted(async () => {
+            await getOption()
+            await initDic()
+            await getList()
+        })
+    }
+
+    return {
+        option,
+        loading,
+        list,
+        page,
+        form,
+        formDom,
+        getOption,
+        getList,
+        rowUpdate,
+        rowSave,
+        rowDel,
+        currentChange,
+        sizeChange,
+        searchChange,
+        searchReset,
+        refreshChange,
+        initDic,
+        updateDic,
+        slotColumns,
+        selections,
+        selectionChange,
+        search,
+        searchWhere,
     }
 
 }

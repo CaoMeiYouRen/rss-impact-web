@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteLocationNormalized, RouteRecordRaw, RouterOptions } from 'vue-router'
-import { HomeFilled, List, DocumentAdd, InfoFilled } from '@element-plus/icons-vue'
+import { HomeFilled, List, DocumentAdd, InfoFilled, Avatar, UserFilled, Histogram } from '@element-plus/icons-vue'
 import Layout from '@/layout/Layout.vue'
+import { Role } from '@/constant/role'
 
 export type RouteConfig = RouteRecordRaw
 
@@ -34,6 +35,93 @@ export const constantRoutes: RouteConfig[] = [
                 meta: {
                     title: '主页',
                     icon: HomeFilled,
+                },
+            },
+        ],
+    },
+    {
+        path: '/',
+        component: Layout,
+        meta: {
+            title: '数据管理',
+            icon: Histogram,
+        },
+        children: [
+            {
+                path: 'feed',
+                component: () => import('@/views/data/Feed.vue'),
+                meta: {
+                    title: '订阅管理',
+                    icon: HomeFilled,
+                },
+            },
+            {
+                path: 'category',
+                component: () => import('@/views/data/Category.vue'),
+                meta: {
+                    title: '分类管理',
+                    icon: HomeFilled,
+                },
+            },
+            {
+                path: 'article',
+                component: () => import('@/views/data/Article.vue'),
+                meta: {
+                    title: '文章管理',
+                    icon: HomeFilled,
+                },
+            },
+            {
+                path: 'hook',
+                component: () => import('@/views/data/Hook.vue'),
+                meta: {
+                    title: 'Hook管理',
+                    icon: HomeFilled,
+                },
+            },
+            {
+                path: 'resource',
+                component: () => import('@/views/data/Resource.vue'),
+                meta: {
+                    title: '文件资源管理',
+                    icon: HomeFilled,
+                },
+            },
+            {
+                path: 'webhook-log',
+                component: () => import('@/views/data/WebhookLog.vue'),
+                meta: {
+                    title: 'Webhook和通知日志',
+                    icon: HomeFilled,
+                },
+            },
+        ],
+    },
+    {
+        path: '/admin',
+        component: Layout,
+        meta: {
+            title: '后台管理',
+            icon: Histogram,
+            roles: [Role.admin],
+        },
+        children: [
+            {
+                path: 'user',
+                name: 'User',
+                component: () => import('@/views/admin/User.vue'),
+                meta: {
+                    title: '用户管理',
+                    icon: UserFilled,
+                },
+            },
+            {
+                path: 'user',
+                name: 'User',
+                component: () => import('@/views/admin/User.vue'),
+                meta: {
+                    title: '用户管理',
+                    icon: Avatar,
                 },
             },
         ],
