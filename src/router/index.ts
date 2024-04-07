@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteLocationNormalized, RouteRecordRaw, RouterOptions } from 'vue-router'
-import { HomeFilled, List, DocumentAdd, InfoFilled, Avatar, UserFilled, Histogram } from '@element-plus/icons-vue'
+import { HomeFilled, List, DocumentAdd, InfoFilled, Avatar, UserFilled, Histogram, Grid } from '@element-plus/icons-vue'
 import Layout from '@/layout/Layout.vue'
 import { Role } from '@/constant/role'
 
@@ -52,7 +52,7 @@ export const constantRoutes: RouteConfig[] = [
                 component: () => import('@/views/data/Feed.vue'),
                 meta: {
                     title: '订阅管理',
-                    icon: HomeFilled,
+                    icon: 'iconfont icon-xinhao',
                 },
             },
             {
@@ -60,7 +60,7 @@ export const constantRoutes: RouteConfig[] = [
                 component: () => import('@/views/data/Category.vue'),
                 meta: {
                     title: '分类管理',
-                    icon: HomeFilled,
+                    icon: 'iconfont icon-fenlei',
                 },
             },
             {
@@ -68,7 +68,7 @@ export const constantRoutes: RouteConfig[] = [
                 component: () => import('@/views/data/Article.vue'),
                 meta: {
                     title: '文章管理',
-                    icon: HomeFilled,
+                    icon: 'iconfont icon-wenzhang',
                 },
             },
             {
@@ -76,15 +76,15 @@ export const constantRoutes: RouteConfig[] = [
                 component: () => import('@/views/data/Hook.vue'),
                 meta: {
                     title: 'Hook管理',
-                    icon: HomeFilled,
+                    icon: 'iconfont icon-webhook',
                 },
             },
             {
                 path: 'resource',
                 component: () => import('@/views/data/Resource.vue'),
                 meta: {
-                    title: '文件资源管理',
-                    icon: HomeFilled,
+                    title: '资源管理',
+                    icon: 'iconfont icon-ziyuanguanli',
                 },
             },
             {
@@ -92,7 +92,7 @@ export const constantRoutes: RouteConfig[] = [
                 component: () => import('@/views/data/WebhookLog.vue'),
                 meta: {
                     title: 'Webhook和通知日志',
-                    icon: HomeFilled,
+                    icon: 'iconfont icon-tongzhirizhi',
                 },
             },
         ],
@@ -102,7 +102,7 @@ export const constantRoutes: RouteConfig[] = [
         component: Layout,
         meta: {
             title: '后台管理',
-            icon: Histogram,
+            icon: Grid,
             roles: [Role.admin],
         },
         children: [

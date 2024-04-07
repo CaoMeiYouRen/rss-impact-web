@@ -12,8 +12,12 @@
                     :index="resolvePath(theOnlyOneChild.path)"
                     :class="{'sub-menu-title-noDropdown': isFirstLevel}"
                 >
-                    <el-icon v-if="theOnlyOneChild.meta.icon">
-                        <component :is="theOnlyOneChild.meta.icon" />
+                    <el-icon v-if="theOnlyOneChild.meta && theOnlyOneChild.meta.icon">
+                        <i
+                            v-if="typeof theOnlyOneChild.meta.icon === 'string'"
+                            :class="theOnlyOneChild.meta.icon"
+                        />
+                        <component :is="theOnlyOneChild.meta.icon" v-else />
                     </el-icon>
                     <span
                         v-if="theOnlyOneChild.meta.title && !isCollapse"
@@ -28,7 +32,11 @@
         >
             <template #title>
                 <el-icon v-if="item.meta && item.meta.icon">
-                    <component :is="item.meta.icon" />
+                    <i
+                        v-if="typeof item.meta.icon === 'string'"
+                        :class="item.meta.icon"
+                    />
+                    <component :is="item.meta.icon" v-else />
                 </el-icon>
                 <span
                     v-if="item.meta && item.meta.title"
@@ -183,7 +191,7 @@ export default defineComponent({
 
     i[class^="iconfont"] {
         width: 24px;
-        margin-right: 16px;
+        // margin-right: 16px;
         margin-left: 4px;
         text-align: center;
     }

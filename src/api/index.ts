@@ -6,7 +6,7 @@ import router from '@/router'
 import { useUserStore } from '@/store/modules/user'
 
 export const api = new Api({
-    baseURL: VITE_API_BASE_URL,
+    // baseURL: VITE_API_BASE_URL,
     timeout: 10000,
 })
 /**

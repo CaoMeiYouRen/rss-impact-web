@@ -1316,14 +1316,14 @@ export interface WebhookLog {
    */
   headers?: object;
   /**
-   * 订阅源ID
+   * 订阅源
    * @example 1
    */
   feedId: number;
   /** 订阅源 */
   feed: Feed;
   /**
-   * HookID
+   * Hook
    * @example 1
    */
   hookId: number;

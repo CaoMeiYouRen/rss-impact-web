@@ -3,6 +3,7 @@ import { createApp } from 'vue'
 import axios from 'axios'
 import zhLocale from '@smallwei/avue/lib/locale/lang/zh'
 import App from './App.vue'
+import { VITE_API_BASE_URL } from './config/env'
 import router from '@/router'
 import store from '@/store'
 import {
@@ -17,7 +18,13 @@ const app = createApp(App)
     .use(router)
     .use(store)
     .use(ElementPlus)
-    .use(Avue, { axios, locale: zhLocale })
+    .use(Avue, {
+        axios: axios.create({
+            baseURL: VITE_API_BASE_URL,
+            timeout: 10000,
+        }),
+        locale: zhLocale,
+    })
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
