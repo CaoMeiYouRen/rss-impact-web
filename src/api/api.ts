@@ -1224,33 +1224,6 @@ export interface FindResource {
   currentPage: number;
 }
 
-export interface Base {
-  /**
-   * ID
-   * @example 1
-   */
-  id: number;
-  /**
-   * 创建时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  createdAt: Date;
-  /**
-   * 更新时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  updatedAt: Date;
-}
-
-export interface FindPlaceholderDto {
-  data: Base[];
-  total: number;
-  lastPage: number;
-  currentPage: number;
-}
-
 export interface WebhookLog {
   /**
    * ID
@@ -1329,6 +1302,13 @@ export interface WebhookLog {
   hookId: number;
   /** Hook */
   hook: Hook;
+}
+
+export interface FindWebhookLog {
+  data: WebhookLog[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
 }
 
 import type { AxiosInstance, AxiosRequestConfig, HeadersDefaults, ResponseType } from "axios";
@@ -1672,6 +1652,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
+     * @name FeedDicData
+     * @request GET:/api/feed/dicData
+     */
+    feedDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/feed/dicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags feed
      * @name FeedConfig
      * @summary 获取 config
      * @request GET:/api/feed/config
@@ -1770,6 +1765,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       this.request<Feed, void>({
         path: `/api/feed/${id}`,
         method: "DELETE",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags category
+     * @name CategoryDicData
+     * @request GET:/api/category/dicData
+     */
+    categoryDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/category/dicData`,
+        method: "GET",
         format: "json",
         ...params,
       }),
@@ -1884,6 +1894,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
+     * @name ArticleDicData
+     * @request GET:/api/article/dicData
+     */
+    articleDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/article/dicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags article
      * @name ArticleConfig
      * @summary 获取 config
      * @request GET:/api/article/config
@@ -1982,6 +2007,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       this.request<Article, void>({
         path: `/api/article/${id}`,
         method: "DELETE",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags hook
+     * @name HookDicData
+     * @request GET:/api/hook/dicData
+     */
+    hookDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/hook/dicData`,
+        method: "GET",
         format: "json",
         ...params,
       }),
@@ -2127,6 +2167,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags resource
+     * @name ResourceDicData
+     * @request GET:/api/resource/dicData
+     */
+    resourceDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/resource/dicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags resource
      * @name ResourceConfig
      * @summary 获取 config
      * @request GET:/api/resource/config
@@ -2166,6 +2221,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags webhook-log
+     * @name WebhookLogDicData
+     * @request GET:/api/webhook-log/dicData
+     */
+    webhookLogDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/webhook-log/dicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags webhook-log
      * @name WebhookLogConfig
      * @summary 获取 config
      * @request GET:/api/webhook-log/config
@@ -2193,45 +2263,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       },
       params: RequestParams = {},
     ) =>
-      this.request<FindPlaceholderDto, void>({
+      this.request<FindWebhookLog, void>({
         path: `/api/webhook-log`,
         method: "GET",
         query: query,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags webhook-log
-     * @name WebhookLogCreate
-     * @summary 创建记录
-     * @request POST:/api/webhook-log
-     */
-    webhookLogCreate: (data: WebhookLog, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/api/webhook-log`,
-        method: "POST",
-        body: data,
-        type: ContentType.Json,
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags webhook-log
-     * @name WebhookLogUpdate
-     * @summary 更新记录
-     * @request PUT:/api/webhook-log
-     */
-    webhookLogUpdate: (data: WebhookLog, params: RequestParams = {}) =>
-      this.request<WebhookLog, void>({
-        path: `/api/webhook-log`,
-        method: "PUT",
-        body: data,
-        type: ContentType.Json,
         format: "json",
         ...params,
       }),

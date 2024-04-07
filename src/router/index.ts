@@ -115,15 +115,15 @@ export const constantRoutes: RouteConfig[] = [
                     icon: UserFilled,
                 },
             },
-            {
-                path: 'user',
-                name: 'User',
-                component: () => import('@/views/admin/User.vue'),
-                meta: {
-                    title: '用户管理',
-                    icon: Avatar,
-                },
-            },
+            // {
+            //     path: 'user',
+            //     name: 'User',
+            //     component: () => import('@/views/admin/User.vue'),
+            //     meta: {
+            //         title: '用户管理',
+            //         icon: Avatar,
+            //     },
+            // },
         ],
     },
     {
