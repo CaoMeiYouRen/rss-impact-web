@@ -2,7 +2,7 @@ import { computed, onMounted, ref, Ref, unref } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { AvueCrudOption } from '@/interfaces/avue'
 import { ajax } from '@/utils/ajax'
-import { objectValueToString, stringValueToObject } from '@/utils/helper'
+import { objectValueToString, remove$key, stringValueToObject } from '@/utils/helper'
 
 const Message = ElMessage
 const MessageBox = ElMessageBox
@@ -115,7 +115,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
         return false
     }).map((e) => e.prop || '').filter(Boolean))
 
-    const searchWhere = computed(() => search.value)
+    const searchWhere = computed(() => remove$key(search.value))
 
     const { postGet, preSave, preUpdate, globalWhere = {} } = transform
 
@@ -154,15 +154,14 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
                     query: JSON.stringify({
                         limit: page.value.pageSize,
                         page: page.value.currentPage,
-                        // TODO 修改 排序 和 查询逻辑
-                        // sort: {
-                        //     createdAt: -1,
-                        //     ...sort || {},
-                        // },
-                        // where: {
-                        //     ...globalWhere,
-                        //     ...where || {},
-                        // },
+                        sort: {
+                            createdAt: 'DESC', // 倒序
+                            ...sort || {},
+                        },
+                        where: {
+                            ...globalWhere,
+                            ...where || {},
+                        },
                     }),
                 },
             })
@@ -299,13 +298,27 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
                     value,
                 ]
             }
+            if ((column?.type === 'url' || column?.type === 'img') && column?.alone && Array.isArray(value)) { // 如果为 url/img 单选
+                if (value?.length && value[0]) {
+                    return [
+                        key,
+                        value[0],
+                    ]
+                }
+                return [
+                    key,
+                    undefined,
+                ]
+            }
             if (column?.type === 'datetime' && column?.searchRange && Array.isArray(value)) { // 如果为日期且为范围选择
                 if (value.length === 2) {
                     return [
                         key,
                         {
-                            $gte: value[0], // 大于等于第一个时间
-                            $lt: value[1], // 小于第二个时间，左闭右开 [date1,date2)
+                            $op: 'Between',
+                            value,
+                            // 大于等于第一个时间
+                            // 小于第二个时间，左闭右开 [date1,date2)
                         },
                     ]
                 }
@@ -320,7 +333,10 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
                     return [
                         key,
                         {
-                            $in: value,
+                            // $op: 'In',
+                            // value,
+                            $op: 'ILike', // 模糊查询
+                            value: `%${JSON.stringify(value).replaceAll('%', '\\%')}%`, // 模糊查询
                         },
                     ]
                 }
@@ -333,7 +349,8 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
                 return [
                     key,
                     {
-                        $regex: value, // 模糊查询
+                        $op: 'ILike', // 模糊查询
+                        value: `%${value?.replaceAll('%', '\\%')}%`, // 模糊查询
                     },
                 ]
             }

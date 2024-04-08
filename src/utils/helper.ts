@@ -1,4 +1,16 @@
 /**
+ * 移除对象中 $ 开头的 key
+ *
+ * @author CaoMeiYouRen
+ * @export
+ * @param obj
+ * @returns
+ */
+export function remove$key(obj: Record<string, unknown>) {
+    return Object.fromEntries(Object.entries(obj).filter(([key]) => !String(key).startsWith('$')))
+}
+
+/**
  *
  * 转换 object 到 string
  * @author CaoMeiYouRen
