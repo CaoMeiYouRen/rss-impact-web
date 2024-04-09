@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
+import { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
 import { VITE_API_BASE_URL } from '@/config/env'
 import { instance } from '@/api'
 

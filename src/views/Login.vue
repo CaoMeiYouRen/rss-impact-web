@@ -51,7 +51,6 @@ const loginForm = ref<LoginDto>({
 })
 const redirect = ref('')
 const otherQuery = ref<Dictionary<string>>({})
-const loading = ref(false)
 
 const option = {
     column: {

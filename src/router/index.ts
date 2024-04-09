@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteLocationNormalized, RouteRecordRaw, RouterOptions } from 'vue-router'
-import { HomeFilled, List, DocumentAdd, InfoFilled, Avatar, UserFilled, Histogram, Grid } from '@element-plus/icons-vue'
+import { HomeFilled, InfoFilled, UserFilled, Histogram, Grid } from '@element-plus/icons-vue'
 import Layout from '@/layout/Layout.vue'
 import { Role } from '@/constant/role'
 

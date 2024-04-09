@@ -1,7 +1,6 @@
 import { AxiosError } from 'axios'
 import { ElMessage } from 'element-plus'
 import { Api } from './api'
-import { VITE_API_BASE_URL } from '@/config/env'
 import router from '@/router'
 import { useUserStore } from '@/store/modules/user'
 

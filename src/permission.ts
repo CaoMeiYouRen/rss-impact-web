@@ -1,5 +1,4 @@
 import NProgress from 'nprogress'
-import { ElMessage } from 'element-plus'
 import router from './router'
 import '@/styles/nprogress.scss'
 import { useUserStore } from './store/modules/user'
