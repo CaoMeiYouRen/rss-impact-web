@@ -47,14 +47,17 @@ const props = defineProps({
     config: {
         type: Object as PropType<AjaxConfig>,
     },
+    disabled: {
+        type: Boolean,
+    },
 })
 const emit = defineEmits(['submit', 'reset-change', 'success', 'fail'])
 
-const { url, method, optionUrl, option, defaultValue, config } = toRefs(props)
-const loading = ref(false)
+const { url, method, optionUrl, option, defaultValue, config, disabled } = toRefs(props)
 
 const form = defineModel<Form>({ default: {} as Form })
-// const form = ref<Form>({} as any)
+
+const loading = ref(false)
 const formDom = ref()
 const formOption: Ref<AvueFormOption> = ref({ ...defaultAvueFormOption })
 
@@ -104,6 +107,7 @@ const getOption = async () => {
                 form.value[col.prop] = col.value
             }
         })
+        formOption.value.disabled = disabled.value
     } catch (error) {
         Message.error('获取表单配置失败')
     } finally {
