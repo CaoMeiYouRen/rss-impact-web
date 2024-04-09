@@ -112,6 +112,9 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
         if (e.type === 'select' && e.multiple) {
             return true
         }
+        if (e.component === 'CrudForm') {
+            return true
+        }
         return false
     }).map((e) => e.prop || '').filter(Boolean))
 
@@ -220,10 +223,9 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
             obj = preUpdate(obj)
         }
         obj = stringValueToObject(obj, excludeKeys.value)
-        const id = obj.id
         try {
             const newObj = await ajax({
-                url: `${unref(model)}/${id}`,
+                url: `${unref(model)}`,
                 method: 'PUT',
                 baseURL: '/api',
                 data: obj,

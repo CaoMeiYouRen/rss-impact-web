@@ -102,7 +102,7 @@ export declare interface AvueFormOption {
      * @author CaoMeiYouRen
      * @date 2022-02-22
      */
-    column: Field[]
+    column?: Field[]
     /**
      *分组表单,放入正常的column配置就行
      *

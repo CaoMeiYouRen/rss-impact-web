@@ -2,7 +2,7 @@ import axios, { AxiosResponse, Method, AxiosRequestHeaders } from 'axios'
 import { VITE_API_BASE_URL } from '@/config/env'
 import { instance } from '@/api'
 
-interface AjaxConfig {
+export interface AjaxConfig {
     url: string
     query?: Record<string, unknown>
     data?: Record<string, unknown>

@@ -4,14 +4,14 @@ import Breadcrumb from './Breadcrumb.vue'
 import CrudList from './CrudList.vue'
 // import DataPanel from './DataPanel.vue'
 import Hamburger from './Hamburger.vue'
-// import CrudForm from './CrudForm.vue'
+import CrudForm from './CrudForm.vue'
 
 const components = {
     Breadcrumb,
     CrudList,
     // DataPanel,
     Hamburger,
-    // CrudForm,
+    CrudForm,
 }
 
 export default components

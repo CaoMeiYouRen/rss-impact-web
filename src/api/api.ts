@@ -425,7 +425,7 @@ export interface Article {
   /** 附件 */
   enclosure?: EnclosureImpl;
   /**
-   * 订阅源ID
+   * 订阅源
    * @example 1
    */
   feedId: number;
@@ -638,7 +638,7 @@ export interface Feed {
    */
   isEnabled: boolean;
   /**
-   * 分组ID
+   * 分组
    * @example 1
    */
   categoryId: number;
@@ -712,7 +712,7 @@ export interface CreateFeed {
    */
   isEnabled: boolean;
   /**
-   * 分组ID
+   * 分组
    * @example 1
    */
   categoryId: number;
@@ -784,7 +784,7 @@ export interface UpdateFeed {
    */
   isEnabled?: boolean;
   /**
-   * 分组ID
+   * 分组
    * @example 1
    */
   categoryId?: number;
