@@ -103,6 +103,9 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
     const slotColumns = computed(() => option.value.column?.filter((e) => e.slot))
     // 排除转换的 key
     const excludeKeys = computed(() => option.value.column?.filter((e) => {
+        if (e.component === 'CrudForm') {
+            return true
+        }
         if (!e.type) {
             return false
         }
@@ -110,9 +113,6 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
             return true
         }
         if (e.type === 'select' && e.multiple) {
-            return true
-        }
-        if (e.component === 'CrudForm') {
             return true
         }
         return false

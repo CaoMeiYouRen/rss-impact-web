@@ -317,19 +317,19 @@ export interface Category {
 
 export interface EnclosureImpl {
   /**
-   * 附件URL
+   * URL
    * @minLength 0
    * @maxLength 1024
    * @example "http://v2.uploadbt.com"
    */
   url: string;
   /**
-   * 附件长度
+   * 长度
    * @example 114514
    */
   length?: number;
   /**
-   * 附件媒体类型
+   * 媒体类型
    * @minLength 0
    * @maxLength 128
    * @example "application/x-bittorrent"
@@ -436,9 +436,16 @@ export interface Article {
 export interface Filter {
   /**
    * 条数限制
+   * 限制最大条数，主要用于排行榜类 RSS。默认值 20。
    * @example 20
    */
   limit?: number;
+  /**
+   * 过滤时间(秒)
+   * 过滤时间，返回指定时间范围内的内容。设置为 0 禁用
+   * @example 3600
+   */
+  time?: number;
   /**
    * 过滤标题
    * @minLength 0
@@ -462,42 +469,39 @@ export interface Filter {
   author?: string;
   /**
    * 过滤分类
+   * 分类正则中有一个对得上就保留
    * @minLength 0
    * @maxLength 256
    * @example "tag1|tag2"
    */
   categories?: string;
-  /**
-   * 过滤时间(秒)
-   * @example 3600
-   */
-  time?: number;
 }
 
 export interface FilterOut {
   /**
-   * 过滤标题
+   * 排除标题
    * @minLength 0
    * @maxLength 256
    * @example "标题1|标题2"
    */
   title?: string;
   /**
-   * 过滤总结
+   * 排除总结
    * @minLength 0
    * @maxLength 1024
    * @example "总结1|总结2"
    */
   summary?: string;
   /**
-   * 过滤作者
+   * 排除作者
    * @minLength 0
    * @maxLength 128
    * @example "CaoMeiYouRen"
    */
   author?: string;
   /**
-   * 过滤分类
+   * 排除分类
+   * 分类正则中有一个对得上就排除
    * @minLength 0
    * @maxLength 256
    * @example "tag1|tag2"
@@ -539,11 +543,9 @@ export interface Hook {
   name: string;
   /**
    * 类型
-   * @minLength 0
-   * @maxLength 128
    * @example "webhook"
    */
-  type: string;
+  type: "notification" | "webhook" | "download" | "bitTorrent";
   /**
    * 配置
    * @example {}
@@ -551,12 +553,12 @@ export interface Hook {
   config: object;
   /**
    * 过滤条件
-   * 保留想要的内容
+   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
    */
   filter: Filter;
   /**
-   * 过滤出条件
-   * 去掉不要的内容
+   * 排除条件
+   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
    */
   filterout: FilterOut;
   /**
@@ -627,11 +629,20 @@ export interface Feed {
   imageUrl?: string;
   /**
    * Cron
-   * @minLength 0
-   * @maxLength 256
    * @example "EVERY_10_MINUTES"
    */
-  cron: string;
+  cron:
+    | "EVERY_10_MINUTES"
+    | "EVERY_20_MINUTES"
+    | "EVERY_30_MINUTES"
+    | "EVERY_1_HOUR"
+    | "EVERY_2_HOURS"
+    | "EVERY_3_HOURS"
+    | "EVERY_4_HOURS"
+    | "EVERY_6_HOURS"
+    | "EVERY_8_HOURS"
+    | "EVERY_12_HOURS"
+    | "EVERY_DAY";
   /**
    * 是否启用
    * @example true
@@ -701,11 +712,20 @@ export interface CreateFeed {
   imageUrl?: string;
   /**
    * Cron
-   * @minLength 0
-   * @maxLength 256
    * @example "EVERY_10_MINUTES"
    */
-  cron: string;
+  cron:
+    | "EVERY_10_MINUTES"
+    | "EVERY_20_MINUTES"
+    | "EVERY_30_MINUTES"
+    | "EVERY_1_HOUR"
+    | "EVERY_2_HOURS"
+    | "EVERY_3_HOURS"
+    | "EVERY_4_HOURS"
+    | "EVERY_6_HOURS"
+    | "EVERY_8_HOURS"
+    | "EVERY_12_HOURS"
+    | "EVERY_DAY";
   /**
    * 是否启用
    * @example true
@@ -773,11 +793,20 @@ export interface UpdateFeed {
   imageUrl?: string;
   /**
    * Cron
-   * @minLength 0
-   * @maxLength 256
    * @example "EVERY_10_MINUTES"
    */
-  cron?: string;
+  cron?:
+    | "EVERY_10_MINUTES"
+    | "EVERY_20_MINUTES"
+    | "EVERY_30_MINUTES"
+    | "EVERY_1_HOUR"
+    | "EVERY_2_HOURS"
+    | "EVERY_3_HOURS"
+    | "EVERY_4_HOURS"
+    | "EVERY_6_HOURS"
+    | "EVERY_8_HOURS"
+    | "EVERY_12_HOURS"
+    | "EVERY_DAY";
   /**
    * 是否启用
    * @example true
@@ -903,11 +932,9 @@ export interface CreateHook {
   name: string;
   /**
    * 类型
-   * @minLength 0
-   * @maxLength 128
    * @example "webhook"
    */
-  type: string;
+  type: "notification" | "webhook" | "download" | "bitTorrent";
   /**
    * 配置
    * @example {}
@@ -915,12 +942,12 @@ export interface CreateHook {
   config: object;
   /**
    * 过滤条件
-   * 保留想要的内容
+   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
    */
   filter: Filter;
   /**
-   * 过滤出条件
-   * 去掉不要的内容
+   * 排除条件
+   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
    */
   filterout: FilterOut;
   /**
@@ -958,11 +985,9 @@ export interface UpdateHook {
   name?: string;
   /**
    * 类型
-   * @minLength 0
-   * @maxLength 128
    * @example "webhook"
    */
-  type?: string;
+  type?: "notification" | "webhook" | "download" | "bitTorrent";
   /**
    * 配置
    * @example {}
@@ -970,12 +995,12 @@ export interface UpdateHook {
   config?: object;
   /**
    * 过滤条件
-   * 保留想要的内容
+   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
    */
   filter?: Filter;
   /**
-   * 过滤出条件
-   * 去掉不要的内容
+   * 排除条件
+   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
    */
   filterout?: FilterOut;
   /**
@@ -1099,11 +1124,6 @@ export interface WebhookLog {
   /** 所属用户 */
   user: User;
   /**
-   * 响应体
-   * @example {"message":"OK"}
-   */
-  data?: object;
-  /**
    * 状态码
    * @min 100
    * @max 600
@@ -1132,6 +1152,11 @@ export interface WebhookLog {
    * @example "OK"
    */
   statusText: string;
+  /**
+   * 响应体
+   * @example {"message":"OK"}
+   */
+  data?: object;
   /**
    * 响应头
    * @example {}
@@ -1744,21 +1769,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
-     * @name ArticleDicData
-     * @request GET:/api/article/dicData
-     */
-    articleDicData: (params: RequestParams = {}) =>
-      this.request<DicData[], void>({
-        path: `/api/article/dicData`,
-        method: "GET",
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags article
      * @name ArticleConfig
      * @summary 获取 config
      * @request GET:/api/article/config
@@ -1951,6 +1961,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags resource
+     * @name ResourceTypeDicData
+     * @request GET:/api/resource/typeDicData
+     */
+    resourceTypeDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/resource/typeDicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags resource
      * @name ResourceDelete
      * @summary 删除记录
      * @request DELETE:/api/resource/{id}
@@ -1973,21 +1998,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     resourceFindOne: (id: number, params: RequestParams = {}) =>
       this.request<Resource, void>({
         path: `/api/resource/${id}`,
-        method: "GET",
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags resource
-     * @name ResourceDicData
-     * @request GET:/api/resource/dicData
-     */
-    resourceDicData: (params: RequestParams = {}) =>
-      this.request<DicData[], void>({
-        path: `/api/resource/dicData`,
         method: "GET",
         format: "json",
         ...params,
@@ -2028,21 +2038,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/api/resource`,
         method: "GET",
         query: query,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags webhook-log
-     * @name WebhookLogDicData
-     * @request GET:/api/webhook-log/dicData
-     */
-    webhookLogDicData: (params: RequestParams = {}) =>
-      this.request<DicData[], void>({
-        path: `/api/webhook-log/dicData`,
-        method: "GET",
         format: "json",
         ...params,
       }),

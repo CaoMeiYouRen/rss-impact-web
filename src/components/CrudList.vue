@@ -32,7 +32,7 @@
 <script lang="ts" setup>
 import { PropType, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { useCrudAjax } from '@/hooks/useCrudAjax'
+import { useCrudAjax } from '@/hooks/use-crud-ajax'
 
 const route = useRoute()
 

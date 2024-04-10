@@ -9,7 +9,6 @@ export const useUserStore = defineStore('user', () => {
     const user = ref<User | null>(storage.getUser() || null)
     const isLoadRoutes = ref(false)
     const isLogin = computed(() => Boolean(user.value))
-    const { remove } = useCookies()
 
     const setIsLoadRoutes = (value: boolean) => {
         isLoadRoutes.value = value

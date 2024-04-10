@@ -26,6 +26,7 @@ export default defineComponent( {
             default: false,
         },
     },
+    emits: ['toggleClick'],
     methods: {
         toggleClick(): void {
             this.$emit('toggleClick')

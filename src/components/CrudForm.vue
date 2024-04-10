@@ -1,15 +1,20 @@
 <template>
     <div>
-        <h3 v-if="formOption.title">
-            {{ formOption.title }}
-        </h3>
-        <avue-form
-            ref="formDom"
-            v-model="form"
-            :option="option"
-            @submit="submit"
-            @reset-change="resetChange"
-        />
+        <template v-if="form">
+            <h3 v-if="formOption.title">
+                {{ formOption.title }}
+            </h3>
+            <avue-form
+                ref="formDom"
+                v-model="form"
+                :option="option"
+                @submit="submit"
+                @reset-change="resetChange"
+            />
+        </template>
+        <template v-else>
+            <span>无数据</span>
+        </template>
     </div>
 </template>
 
