@@ -60,18 +60,30 @@ export function stringValueToObject(obj: Record<string, unknown>, excludeKeys: s
  * 格式化流量数据
  *
  * @author CaoMeiYouRen
- * @date 2019-07-25
+ * @date 2024-04-12
  * @export
- * @param {number} data 单位B
- * @returns {string}
+ * @param data 单位B
  */
-export function dataFormat(data: number): string {
-    const arr = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
-    for (let i = 0; i < arr.length; i++) {
-        if (data < 1024) {
-            return `${data.toFixed(2)} ${arr[i]}`
+export function dataFormat(data: number | bigint): string {
+    const arr = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
+    let i = 0
+    let value: number | bigint
+
+    if (typeof data === 'bigint' || data > Number.MAX_SAFE_INTEGER) {
+        value = BigInt(data)
+        while (value >= 1024n && i < arr.length - 1) {
+            value /= 1024n
+            i++
         }
-        data /= 1024
+        return `${value} ${arr[i]}`
     }
-    return `${data.toFixed(2)} PB`
+    value = data
+    while (value >= 1024 && i < arr.length - 1) {
+        value /= 1024
+        i++
+    }
+    if (i === 0) {
+        return `${value} ${arr[i]}`
+    }
+    return `${value.toFixed(2)} ${arr[i]}`
 }
