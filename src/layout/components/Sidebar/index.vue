@@ -26,11 +26,11 @@ import { computed } from 'vue'
 import SidebarItem from './SidebarItem.vue'
 import { useAppStore } from '@/store/modules/app'
 import variables from '@/styles/variables'
-import { constantRoutes } from '@/router'
-
+import { usePermissionStore } from '@/store/modules/permission'
+const permissionStore = usePermissionStore()
 const state = useAppStore()
 // TODO 修改 routes
-const routes = constantRoutes
+const routes = computed(() => permissionStore.routes)
 const isCollapse = computed(() => !state.sidebar.opened)
 </script>
 

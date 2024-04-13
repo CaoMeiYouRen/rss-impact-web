@@ -106,35 +106,6 @@ export const constantRoutes: RouteConfig[] = [
         ],
     },
     {
-        path: '/admin',
-        component: Layout,
-        meta: {
-            title: '后台管理',
-            icon: Grid,
-            roles: [Role.admin],
-        },
-        children: [
-            {
-                path: 'user',
-                name: 'User',
-                component: () => import('@/views/admin/User.vue'),
-                meta: {
-                    title: '用户管理',
-                    icon: UserFilled,
-                },
-            },
-            // {
-            //     path: 'user',
-            //     name: 'User',
-            //     component: () => import('@/views/admin/User.vue'),
-            //     meta: {
-            //         title: '用户管理',
-            //         icon: Avatar,
-            //     },
-            // },
-        ],
-    },
-    {
         path: '/about',
         component: Layout,
         children: [
@@ -156,7 +127,28 @@ export const constantRoutes: RouteConfig[] = [
     },
 ]
 
-export const asyncRoutes: RouteConfig[] = []
+export const asyncRoutes: RouteConfig[] = [
+    {
+        path: '/admin',
+        component: Layout,
+        meta: {
+            title: '后台管理',
+            icon: Grid,
+            roles: [Role.admin],
+        },
+        children: [
+            {
+                path: 'user',
+                name: 'User',
+                component: () => import('@/views/admin/User.vue'),
+                meta: {
+                    title: '用户管理',
+                    icon: UserFilled,
+                },
+            },
+        ],
+    },
+]
 
 const options: RouterOptions = {
     history: createWebHistory(import.meta.env.BASE_URL),
