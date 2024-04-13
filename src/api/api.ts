@@ -269,52 +269,6 @@ export interface LoginDto {
   password: string;
 }
 
-export interface Category {
-  /**
-   * ID
-   * @example 1
-   */
-  id: number;
-  /**
-   * 创建时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  createdAt: Date;
-  /**
-   * 更新时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  updatedAt: Date;
-  /**
-   * 所属用户
-   * @example 1
-   */
-  userId: number;
-  /** 所属用户 */
-  user: User;
-  /**
-   * 分组名称
-   * @minLength 0
-   * @maxLength 256
-   * @example "分组A"
-   */
-  name: string;
-  /**
-   * 分组简介
-   * @minLength 0
-   * @maxLength 2048
-   * @example "分组A"
-   */
-  description?: string;
-  /**
-   * 订阅链接
-   * @example []
-   */
-  feeds: Feed[];
-}
-
 export interface EnclosureImpl {
   /**
    * URL
@@ -431,6 +385,168 @@ export interface Article {
   feedId: number;
   /** 订阅源 */
   feed: Feed;
+}
+
+export interface NotificationConfig {
+  /**
+   * 推送类型
+   * push-all-in-one 支持的推送类型
+   * @example "ServerChanTurbo"
+   */
+  type:
+    | "ServerChanTurbo"
+    | "Dingtalk"
+    | "CustomEmail"
+    | "WechatRobot"
+    | "WechatApp"
+    | "PushDeer"
+    | "PushPlus"
+    | "IGot"
+    | "Qmsg"
+    | "XiZhi"
+    | "CoolPush"
+    | "Email"
+    | "UniPush"
+    | "Telegram"
+    | "Discord"
+    | "OneBot";
+  /**
+   * 推送配置
+   * 具体配置请参考 push-all-in-one 文档
+   * @example {"SCTKEY":""}
+   */
+  config: object;
+  /**
+   * 合并推送
+   * 在一次轮询中检测到多条 RSS 更新，将合并为一条推送
+   * @example true
+   */
+  isMergePush: boolean;
+  /**
+   * Markdown
+   * 对于支持 markdown 格式的渠道，将使用 markdown 格式推送
+   * @example true
+   */
+  isMarkdown: boolean;
+  /**
+   * 纯文本
+   * 去除 HTML，仅保留纯文本部分
+   * @example false
+   */
+  isSnippet: boolean;
+  /**
+   * 最大长度
+   * 一次推送文本的最大长度。默认值为 4096
+   * @example 4096
+   */
+  maxLength: number;
+}
+
+export interface WebhookConfig {
+  /**
+   * 请求链接
+   * @minLength 0
+   * @maxLength 1024
+   * @example "http://127.0.0.1:3000"
+   */
+  url: string;
+  /**
+   * 查询字符串
+   * @example {"key":"114514"}
+   */
+  query?: object;
+  /**
+   * 请求体
+   * @example {}
+   */
+  data?: object;
+  /**
+   * 请求方法
+   * @example {}
+   */
+  method?: "GET" | "DELETE" | "HEAD" | "OPTIONS" | "POST" | "PUT" | "PATCH" | "PURGE" | "LINK" | "UNLINK";
+  /**
+   * 请求头
+   * @example {}
+   */
+  headers?: object;
+  /**
+   * 超时时间(秒)
+   * 默认 60 秒。
+   * @example 60
+   */
+  timeout?: number;
+}
+
+export interface DownloadConfig {
+  /**
+   * 匹配后缀名
+   * 要下载的文件的后缀名，支持正则。例如：.(jpe?g|png|gif|webp|bmp)$
+   * @minLength 0
+   * @maxLength 256
+   * @example ".(jpe?g|png|gif|webp|bmp)$"
+   */
+  suffixes: string;
+  /**
+   * 跳过文件
+   * 要跳过的文件 md5，逗号分割。例如：4cf24fe8401f7ab2eba2c6cb82dffb0e
+   * @minLength 0
+   * @maxLength 256
+   * @example "d41d8cd98f00b204e9800998ecf8427e"
+   */
+  skipHashes: string;
+  /**
+   * 超时时间(秒)
+   * 默认 60 秒。
+   * @example 60
+   */
+  timeout?: number;
+}
+
+export interface BitTorrentConfig {
+  /**
+   * 类型
+   * BT下载器类型。目前仅支持 qBittorrent
+   * @minLength 0
+   * @maxLength 16
+   * @example "qBittorrent"
+   */
+  type: "qBittorrent";
+  /**
+   * 服务器地址
+   * BT服务器地址，例如 http://localhost:8080/
+   * @minLength 0
+   * @maxLength 1024
+   * @example "http://localhost:8080/"
+   */
+  baseUrl: string;
+  /**
+   * 用户名
+   * @minLength 0
+   * @maxLength 128
+   * @example "admin"
+   */
+  username: string;
+  /**
+   * 密码
+   * @minLength 0
+   * @maxLength 128
+   * @example "adminadmin"
+   */
+  password: string;
+  /**
+   * 下载路径
+   * @minLength 0
+   * @maxLength 256
+   * @example "服务器上的地址，要保存到的路径。留空则为 BT 下载器的默认设置"
+   */
+  downloadPath?: string;
+  /**
+   * 最大体积(B)
+   * 过滤资源体积，超过体积的资源不会下载。单位为 B (字节)。设置为 0 禁用
+   * @example 114514
+   */
+  maxSize?: number;
 }
 
 export interface Filter {
@@ -550,7 +666,7 @@ export interface Hook {
    * 配置
    * @example {}
    */
-  config: object;
+  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig;
   /**
    * 过滤条件
    * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
@@ -667,11 +783,50 @@ export interface Feed {
   hooks: Hook[];
 }
 
-export interface FindFeed {
-  data: Feed[];
-  total: number;
-  lastPage: number;
-  currentPage: number;
+export interface Category {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 分组名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "分组A"
+   */
+  name: string;
+  /**
+   * 分组简介
+   * @minLength 0
+   * @maxLength 2048
+   * @example "分组A"
+   */
+  description?: string;
+  /**
+   * 订阅链接
+   * @example []
+   */
+  feeds: Feed[];
 }
 
 export interface CreateFeed {
@@ -831,6 +986,13 @@ export interface UpdateFeed {
   hooks?: Hook[];
 }
 
+export interface FindFeed {
+  data: Feed[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
+}
+
 export interface FindCategory {
   data: Category[];
   total: number;
@@ -939,7 +1101,7 @@ export interface CreateHook {
    * 配置
    * @example {}
    */
-  config: object;
+  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig;
   /**
    * 过滤条件
    * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
@@ -992,7 +1154,7 @@ export interface UpdateHook {
    * 配置
    * @example {}
    */
-  config?: object;
+  config?: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig;
   /**
    * 过滤条件
    * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
@@ -1061,7 +1223,7 @@ export interface Resource {
    * @maxLength 2048
    * @example "/data/download/favicon-16x16-next.png"
    */
-  path: string;
+  path?: string;
   /**
    * 文件类型
    * @minLength 0
@@ -1527,14 +1689,16 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
-     * @name FeedDicData
-     * @request GET:/api/feed/dicData
+     * @name FeedCreate
+     * @summary 创建记录
+     * @request POST:/api/feed
      */
-    feedDicData: (params: RequestParams = {}) =>
-      this.request<DicData[], void>({
-        path: `/api/feed/dicData`,
-        method: "GET",
-        format: "json",
+    feedCreate: (data: CreateFeed, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/feed`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
         ...params,
       }),
 
@@ -1542,14 +1706,16 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
-     * @name FeedConfig
-     * @summary 获取 config
-     * @request GET:/api/feed/config
+     * @name FeedUpdate
+     * @summary 更新记录
+     * @request PUT:/api/feed
      */
-    feedConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
-        path: `/api/feed/config`,
-        method: "GET",
+    feedUpdate: (data: UpdateFeed, params: RequestParams = {}) =>
+      this.request<UpdateFeed, void>({
+        path: `/api/feed`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
         format: "json",
         ...params,
       }),
@@ -1581,33 +1747,14 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
-     * @name FeedCreate
-     * @summary 创建记录
-     * @request POST:/api/feed
+     * @name FeedDelete
+     * @summary 删除记录
+     * @request DELETE:/api/feed/{id}
      */
-    feedCreate: (data: CreateFeed, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/api/feed`,
-        method: "POST",
-        body: data,
-        type: ContentType.Json,
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags feed
-     * @name FeedUpdate
-     * @summary 更新记录
-     * @request PUT:/api/feed
-     */
-    feedUpdate: (data: UpdateFeed, params: RequestParams = {}) =>
+    feedDelete: (id: number, params: RequestParams = {}) =>
       this.request<Feed, void>({
-        path: `/api/feed`,
-        method: "PUT",
-        body: data,
-        type: ContentType.Json,
+        path: `/api/feed/${id}`,
+        method: "DELETE",
         format: "json",
         ...params,
       }),
@@ -1632,14 +1779,29 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
-     * @name FeedDelete
-     * @summary 删除记录
-     * @request DELETE:/api/feed/{id}
+     * @name FeedDicData
+     * @request GET:/api/feed/dicData
      */
-    feedDelete: (id: number, params: RequestParams = {}) =>
-      this.request<Feed, void>({
-        path: `/api/feed/${id}`,
-        method: "DELETE",
+    feedDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/feed/dicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags feed
+     * @name FeedConfig
+     * @summary 获取 config
+     * @request GET:/api/feed/config
+     */
+    feedConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/feed/config`,
+        method: "GET",
         format: "json",
         ...params,
       }),

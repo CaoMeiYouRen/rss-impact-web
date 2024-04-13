@@ -55,14 +55,13 @@ const props = defineProps({
         default: () => ({}),
     },
 })
-
-const crud = useCrudAjax(props.model, props, true)
+const form = defineModel<any>({ default: {} as any })
+const crud = useCrudAjax(form, props.model, props, true)
 const {
     option,
     loading,
     list,
     page,
-    form,
     formDom,
     rowUpdate,
     rowSave,
@@ -86,6 +85,7 @@ watch(
         }
     },
 )
+
 </script>
 
 <style lang="scss" scoped>

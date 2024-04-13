@@ -84,7 +84,7 @@ const defaultOption: AvueCrudOption = {
  * @returns
  */
 // eslint-disable-next-line max-lines-per-function
-export function useCrudAjax<T extends Record<string, unknown> = any>(model: string | Ref<string>, transform: IProps = {}, autoMount: boolean = true) {
+export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T>, model: string | Ref<string>, transform: IProps = {}, autoMount: boolean = true) {
 
     const option = ref<AvueCrudOption>({ ...defaultOption })
     const list = ref<T[]>([])
@@ -98,7 +98,6 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(model: stri
     })
     const search = ref<Record<string, unknown>>({})
 
-    const form = ref<T>({} as any)
     const formDom = ref()
     const slotColumns = computed(() => option.value.column?.filter((e) => e.slot))
     // 排除转换的 key

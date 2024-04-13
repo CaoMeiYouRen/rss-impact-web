@@ -1,13 +1,13 @@
 <template>
     <div>
-        <template v-if="form">
+        <template v-if="form && formOption">
             <h3 v-if="formOption.title">
                 {{ formOption.title }}
             </h3>
             <avue-form
                 ref="formDom"
                 v-model="form"
-                :option="option"
+                :option="formOption"
                 @submit="submit"
                 @reset-change="resetChange"
             />
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, Ref, ref, toRefs, onMounted } from 'vue'
+import { PropType, Ref, ref, toRefs, onMounted, watch } from 'vue'
 import { Method } from 'axios'
 import { ElMessage as Message } from 'element-plus'
 import { AjaxConfig, ajax } from '@/utils/ajax'
@@ -55,10 +55,13 @@ const props = defineProps({
     disabled: {
         type: Boolean,
     },
+    dynamicOption: {
+        type: Array as PropType<AvueFormOption[]>,
+    },
 })
 const emit = defineEmits(['submit', 'reset-change', 'success', 'fail'])
 
-const { url, method, optionUrl, option, defaultValue, config, disabled } = toRefs(props)
+const { url, method, optionUrl, option, defaultValue, config, disabled, dynamicOption } = toRefs(props)
 
 const form = defineModel<Form>({ default: {} as Form })
 
@@ -92,10 +95,12 @@ const resetChange = () => {
 
 const getOption = async () => {
     try {
-        if (option?.value) {
+        loading.value = true
+        if (dynamicOption?.value?.length) { // 解决 Hook 的动态配置
+            formOption.value = dynamicOption.value.find((e) => e.optionId === form.value?._type) as AvueFormOption
+        } else if (option?.value) {
             formOption.value = option.value
         } else {
-            loading.value = true
             const _url = optionUrl?.value || `${url?.value}/option`
             const response = await ajax<AvueFormOption>({
                 url: _url,
@@ -107,13 +112,18 @@ const getOption = async () => {
             }
             formOption.value = response
         }
-        formOption.value.column?.forEach((col) => {
-            if (typeof col.value !== 'undefined' && col.prop) {
-                form.value[col.prop] = col.value
-            }
-        })
-        formOption.value.disabled = disabled.value
+
+        if (formOption.value) {
+            formOption.value.disabled = disabled.value
+            // 初始化默认值
+            formOption.value.column?.forEach((col) => {
+                if (typeof col.value !== 'undefined' && col.prop && !form.value[col.prop]) {
+                    form.value[col.prop] = col.value
+                }
+            })
+        }
     } catch (error) {
+        console.error(error)
         Message.error('获取表单配置失败')
     } finally {
         loading.value = false
@@ -123,7 +133,8 @@ const getOption = async () => {
 // 更新字典
 const updateDic = async() => {
     try {
-        await formDom.value?.updateDic()
+        // await formDom.value?.updateDic()
+        await formDom.value?.dicInit()
     } catch (error) {
         console.error(error)
     }
@@ -136,6 +147,11 @@ onMounted(async () => {
         form.value = {
             ...defaultValue.value,
         }
+    }
+    if (dynamicOption?.value?.length) { // 解决 Hook 的动态配置
+        watch(() => form.value?._type, async () => {
+            await getOption()
+        })
     }
 })
 
