@@ -6,6 +6,14 @@
                 :option="option"
                 @submit="submit"
             />
+            <el-row class="row-bg" justify="end">
+                <el-col :span="6">
+                    <el-button type="success" @click="$router.push('/login')">
+                        <el-icon><CaretLeft /></el-icon>
+                        <span>返回</span>
+                    </el-button>
+                </el-col>
+            </el-row>
         </div>
     </div>
 </template>

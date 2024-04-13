@@ -6,6 +6,14 @@
                 :option="option"
                 @submit="submit"
             />
+            <el-row class="row-bg" justify="end">
+                <el-col :span="6">
+                    <el-button type="success" @click="$router.push('/register')">
+                        <el-icon><Position /></el-icon>
+                        <span>注册</span>
+                    </el-button>
+                </el-col>
+            </el-row>
         </div>
     </div>
 </template>
