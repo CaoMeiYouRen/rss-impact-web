@@ -25,6 +25,14 @@ export const constantRoutes: RouteConfig[] = [
         },
     },
     {
+        path: '/register',
+        component: () => import('@/views/Register.vue'),
+        meta: {
+            hidden: true,
+            title: '注册',
+        },
+    },
+    {
         path: '/',
         component: Layout,
         children: [

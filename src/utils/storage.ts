@@ -40,7 +40,7 @@ const {
     setState: setUser,
     getState: getUser,
     removeState: removeUser,
-} = useMyLocalStorage<User>(userKey, {} as any)
+} = useMyLocalStorage<User>(userKey, null as any)
 export {
     userStorage,
     setUser,

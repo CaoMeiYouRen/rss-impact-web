@@ -1,8 +1,8 @@
 <template>
-    <div class="login-container">
-        <div class="login-form">
+    <div class="register-container">
+        <div class="register-form">
             <avue-form
-                v-model="loginForm"
+                v-model="registerForm"
                 :option="option"
                 @submit="submit"
             />
@@ -11,33 +11,22 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { LoginDto } from '@/api/api'
-import { baseValidatePassword, isValidUsername } from '@/utils/validate'
-import { useUserStore } from '@/store/modules/user'
+import { ElMessage } from 'element-plus'
+import { RegisterDto } from '@/api/api'
+import { baseValidatePassword, isEmail, isValidUsername } from '@/utils/validate'
+import { api } from '@/api'
 
 const router = useRouter()
-const userStore = useUserStore()
 
-type Dictionary<T> = { [key: string]: T }
-
-function getOtherQuery(query: Dictionary<string>) {
-    return Object.keys(query).reduce((acc, cur) => {
-        if (cur !== 'redirect') {
-            acc[cur] = query[cur]
-        }
-        return acc
-    }, {} as Dictionary<string>)
-}
-
-const validateUsername = (rule: any, value: string, callback: (error?: Error) => void) => {
+const validateUsername = (_rule: any, value: string, callback: (error?: Error) => void) => {
     if (isValidUsername(value)) {
         return callback(new Error('请输入用户名'))
     }
     callback()
 }
-const validatePassword = (rule: any, value: string, callback: (error?: Error) => void) => {
+const validatePassword = (_rule: any, value: string, callback: (error?: Error) => void) => {
     const error = baseValidatePassword(value)
     if (error) {
         return callback(error)
@@ -45,15 +34,21 @@ const validatePassword = (rule: any, value: string, callback: (error?: Error) =>
     callback()
 }
 
-const loginForm = ref<LoginDto>({
+const validateEmail = (_rule: any, value: string, callback: (error?: Error) => void) => {
+    if (!isEmail(value)) {
+        return callback(new Error('邮箱格式有误'))
+    }
+    callback()
+}
+
+const registerForm = ref<RegisterDto>({
     username: '',
     password: '',
+    email: '',
 })
-const redirect = ref('')
-const otherQuery = ref<Dictionary<string>>({})
 
 const option = {
-    submitText: '登录',
+    submitText: '注册',
     column: {
         username: {
             span: 24,
@@ -63,6 +58,16 @@ const option = {
             rules: [
                 { required: true, message: '请输入用户名', trigger: 'blur' },
                 { validator: validateUsername, trigger: 'blur' },
+            ],
+        },
+        email: {
+            span: 24,
+            label: '邮箱',
+            prefixIcon: 'el-icon-message',
+            autocomplete: 'off',
+            rules: [
+                { required: true, message: '请输入邮箱', trigger: 'blur' },
+                { validator: validateEmail, trigger: 'blur' },
             ],
         },
         password: {
@@ -79,14 +84,15 @@ const option = {
     },
 }
 
-const submit = async (form: LoginDto, done: () => void) => {
+const submit = async (form: RegisterDto, done: () => void) => {
     try {
-        await userStore.login(form)
-        await userStore.getUserInfo()
-        await router.push({
-            path: redirect.value || '/',
-            query: otherQuery.value,
-        })
+        await api.api.authRegister(form)
+        ElMessage.success('注册成功！即将跳转到登录页面')
+        setTimeout(async () => {
+            await router.push({
+                path: '/login',
+            })
+        }, 3000)
     } catch (error) {
         console.error(error)
     } finally {
@@ -94,21 +100,15 @@ const submit = async (form: LoginDto, done: () => void) => {
     }
 }
 
-onMounted(() => {
-    const query = router.currentRoute.value.query as Dictionary<string>
-    redirect.value = query?.redirect
-    otherQuery.value = getOtherQuery(query)
-})
-
 </script>
 
 <style lang="scss" scoped>
-.login-container {
+.register-container {
     display: flex;
     width: 100%;
     height: 100%;
 
-    .login-form {
+    .register-form {
         margin: auto;
         margin-top: 15%;
         width: 400px;

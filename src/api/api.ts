@@ -269,6 +269,30 @@ export interface LoginDto {
   password: string;
 }
 
+export interface RegisterDto {
+  /**
+   * 用户名
+   * @minLength 0
+   * @maxLength 128
+   * @example "user"
+   */
+  username: string;
+  /**
+   * 密码
+   * @minLength 6
+   * @maxLength 128
+   * @example "123456"
+   */
+  password: string;
+  /**
+   * 邮箱
+   * @minLength 0
+   * @maxLength 128
+   * @example "user@example.com"
+   */
+  email: string;
+}
+
 export interface EnclosureImpl {
   /**
    * URL
@@ -451,6 +475,11 @@ export interface WebhookConfig {
    */
   url: string;
   /**
+   * 请求方法
+   * @example {}
+   */
+  method?: "GET" | "DELETE" | "HEAD" | "OPTIONS" | "POST" | "PUT" | "PATCH" | "PURGE" | "LINK" | "UNLINK";
+  /**
    * 查询字符串
    * @example {"key":"114514"}
    */
@@ -460,11 +489,6 @@ export interface WebhookConfig {
    * @example {}
    */
   data?: object;
-  /**
-   * 请求方法
-   * @example {}
-   */
-  method?: "GET" | "DELETE" | "HEAD" | "OPTIONS" | "POST" | "PUT" | "PATCH" | "PURGE" | "LINK" | "UNLINK";
   /**
    * 请求头
    * @example {}
@@ -1681,6 +1705,24 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       this.request<ResponseDto, any>({
         path: `/api/auth/logout`,
         method: "POST",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags auth
+     * @name AuthRegister
+     * @summary 注册
+     * @request POST:/api/auth/register
+     */
+    authRegister: (data: RegisterDto, params: RequestParams = {}) =>
+      this.request<User, any>({
+        path: `/api/auth/register`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
         format: "json",
         ...params,
       }),

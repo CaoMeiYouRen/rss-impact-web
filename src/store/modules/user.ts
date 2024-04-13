@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { useCookies } from '@vueuse/integrations/useCookies'
+import { isEmpty } from 'lodash-es'
 import { LoginDto, User } from '@/api/api'
 import { api } from '@/api'
 import * as storage from '@/utils/storage'
@@ -8,7 +8,7 @@ import * as storage from '@/utils/storage'
 export const useUserStore = defineStore('user', () => {
     const user = ref<User | null>(storage.getUser() || null)
     const isLoadRoutes = ref(false)
-    const isLogin = computed(() => Boolean(user.value))
+    const isLogin = computed(() => !isEmpty(user.value))
 
     const setIsLoadRoutes = (value: boolean) => {
         isLoadRoutes.value = value

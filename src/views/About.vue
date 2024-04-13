@@ -1,5 +1,5 @@
 <template>
     <div class="about">
-        <h1>This is an about page</h1>
+        <h1>RSS Impact - 一个基于 RSS 的 Hook 系统</h1>
     </div>
 </template>

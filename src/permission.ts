@@ -6,7 +6,7 @@ import { usePermissionStore } from './store/modules/permission'
 
 NProgress.configure({ showSpinner: false })
 
-const whiteList = ['/login', '/404']
+const whiteList = ['/login', '/register', '/404']
 
 router.beforeEach(async (to, _, next) => {
     const userStore = useUserStore()

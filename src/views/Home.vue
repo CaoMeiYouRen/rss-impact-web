@@ -6,18 +6,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 import { useUserStore } from '@/store/modules/user'
 const userStore = useUserStore()
 
-onMounted(() => {
-
-})
 </script>
 
 <style lang="scss" scoped>
-.home {
-    // color: red;
-    // text-align: center;
-}
+
 </style>
