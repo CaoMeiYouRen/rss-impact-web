@@ -10,14 +10,22 @@
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
-import { Hook } from '@/api/api'
+import { Hook, NotificationConfig } from '@/api/api'
 import { remove$key } from '@/utils/helper'
 const form = ref<Hook>({} as any)
-const postGet = (data: Hook) => data
+const postGet = (data: Hook) => {
+    if (data.type === 'notification' && typeof (data.config as NotificationConfig).config === 'object') {
+        (data.config as any).config = JSON.stringify((data.config as NotificationConfig).config, null, 4)
+    }
+    return data
+}
 
 const pre = (data: Hook) => {
     if ((data?.config as any)?._type ) {
         delete (data.config as any)._type
+    }
+    if (data.type === 'notification' && typeof (data.config as NotificationConfig).config === 'string') {
+        (data.config as any).config = JSON.parse((data.config as any).config)
     }
     data.config = remove$key(data.config as any) as any
     return data
