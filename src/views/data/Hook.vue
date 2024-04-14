@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
+import { omit } from 'lodash-es'
 import { Hook, NotificationConfig } from '@/api/api'
 import { remove$key } from '@/utils/helper'
 const form = ref<Hook>({} as any)
@@ -26,7 +27,9 @@ const pre = (data: Hook) => {
     }
     if (data.type === 'notification' && typeof (data.config as NotificationConfig).config === 'string') {
         (data.config as any).config = JSON.parse((data.config as any).config)
+
     }
+    data.config = omit(data.config as any, ['0', '1']) as any
     data.config = remove$key(data.config as any) as any
     return data
 }

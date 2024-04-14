@@ -1,4 +1,4 @@
-import { computed, onMounted, ref, Ref, unref } from 'vue'
+import { computed, onMounted, ref, Ref, unref, shallowRef } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { AvueCrudOption } from '@/interfaces/avue'
 import { ajax } from '@/utils/ajax'
@@ -98,7 +98,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
     })
     const search = ref<Record<string, unknown>>({})
 
-    const formDom = ref()
+    const formDom = shallowRef()
     const slotColumns = computed(() => option.value.column?.filter((e) => e.slot))
     // 排除转换的 key
     const excludeKeys = computed(() => option.value.column?.filter((e) => {
@@ -391,7 +391,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
             return
         }
         try {
-            await formDom.value?.updateDic()
+            await formDom.value?.dicInit()
         } catch (error) {
             console.error(error)
         }

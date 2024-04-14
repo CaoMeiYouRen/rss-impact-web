@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, Ref, ref, toRefs, onMounted, watch } from 'vue'
+import { PropType, Ref, ref, toRefs, onMounted, watch, shallowRef } from 'vue'
 import { Method } from 'axios'
 import { ElMessage as Message } from 'element-plus'
 import { AjaxConfig, ajax } from '@/utils/ajax'
@@ -58,24 +58,31 @@ const props = defineProps({
     dynamicOption: {
         type: Array as PropType<AvueFormOption[]>,
     },
+    preSubmit: {
+        type: Function as PropType<(data: any) => any>,
+    },
 })
 const emit = defineEmits(['submit', 'reset-change', 'success', 'fail'])
 
-const { url, method, optionUrl, option, defaultValue, config, disabled, dynamicOption } = toRefs(props)
+const { url, method, optionUrl, option, defaultValue, config, disabled, dynamicOption, preSubmit } = toRefs(props)
 
 const form = defineModel<Form>({ default: {} as Form })
 
 const loading = ref(false)
-const formDom = ref()
+const formDom = shallowRef()
 const formOption: Ref<AvueFormOption> = ref({ ...defaultAvueFormOption })
 
 const submit = async (data: any, done: () => void) => {
     try {
+        let reqData = remove$key({ ...data })
+        if (preSubmit?.value) {
+            reqData = preSubmit?.value(reqData)
+        }
         const response = await ajax({
             ...config?.value || {},
             url: url?.value || '',
             method: method.value,
-            data: remove$key({ ...data }),
+            data: reqData,
         })
         emit('submit', response)
         emit('success', response)
@@ -143,7 +150,7 @@ const updateDic = async() => {
 onMounted(async () => {
     await getOption()
     await updateDic()
-    if (defaultValue?.value) {
+    if (defaultValue?.value && typeof defaultValue?.value === 'object') {
         form.value = {
             ...defaultValue.value,
         }

@@ -853,6 +853,47 @@ export interface Category {
   feeds: Feed[];
 }
 
+export interface QuickCreateFeed {
+  /**
+   * URL
+   * @minLength 0
+   * @maxLength 2048
+   * @example "https://blog.cmyr.ltd/atom.xml"
+   */
+  url: string;
+  /**
+   * Cron
+   * @example "EVERY_10_MINUTES"
+   */
+  cron:
+    | "EVERY_10_MINUTES"
+    | "EVERY_20_MINUTES"
+    | "EVERY_30_MINUTES"
+    | "EVERY_1_HOUR"
+    | "EVERY_2_HOURS"
+    | "EVERY_3_HOURS"
+    | "EVERY_4_HOURS"
+    | "EVERY_6_HOURS"
+    | "EVERY_8_HOURS"
+    | "EVERY_12_HOURS"
+    | "EVERY_DAY";
+  /**
+   * 是否启用
+   * @example true
+   */
+  isEnabled: boolean;
+  /**
+   * 分组
+   * @example 1
+   */
+  categoryId: number;
+  /**
+   * Hook列表
+   * @example []
+   */
+  hooks: Hook[];
+}
+
 export interface CreateFeed {
   /**
    * 所属用户
@@ -1731,6 +1772,39 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags feed
+     * @name FeedQuickCreateOption
+     * @summary 快速添加订阅的配置项
+     * @request GET:/api/feed/quickCreate/option
+     */
+    feedQuickCreateOption: (params: RequestParams = {}) =>
+      this.request<Feed, void>({
+        path: `/api/feed/quickCreate/option`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags feed
+     * @name FeedQuickCreate
+     * @summary 快速添加订阅
+     * @request POST:/api/feed/quickCreate
+     */
+    feedQuickCreate: (data: QuickCreateFeed, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/feed/quickCreate`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags feed
      * @name FeedCreate
      * @summary 创建记录
      * @request POST:/api/feed
@@ -1753,7 +1827,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request PUT:/api/feed
      */
     feedUpdate: (data: UpdateFeed, params: RequestParams = {}) =>
-      this.request<UpdateFeed, void>({
+      this.request<Feed, void>({
         path: `/api/feed`,
         method: "PUT",
         body: data,
