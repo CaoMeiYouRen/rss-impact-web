@@ -98,7 +98,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
     })
     const search = ref<Record<string, unknown>>({})
 
-    const formDom = shallowRef()
+    const formDom = shallowRef<any>(null)
     const slotColumns = computed(() => option.value.column?.filter((e) => e.slot))
     // 排除转换的 key
     const excludeKeys = computed(() => option.value.column?.filter((e) => {

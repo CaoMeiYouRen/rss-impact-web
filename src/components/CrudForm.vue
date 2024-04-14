@@ -121,19 +121,25 @@ const getOption = async () => {
         }
 
         if (formOption.value) {
-            formOption.value.disabled = disabled.value
-            // 初始化默认值
-            formOption.value.column?.forEach((col) => {
-                if (typeof col.value !== 'undefined' && col.prop && !form.value[col.prop]) {
-                    form.value[col.prop] = col.value
-                }
-            })
+            initForm()
         }
     } catch (error) {
         console.error(error)
         Message.error('获取表单配置失败')
     } finally {
         loading.value = false
+    }
+}
+
+const initForm = () => {
+    if (formOption.value) {
+        formOption.value.disabled = disabled.value
+        // 初始化默认值
+        formOption.value.column?.forEach((col) => {
+            if (typeof col.value !== 'undefined' && col.prop && !form.value[col.prop]) {
+                form.value[col.prop] = col.value
+            }
+        })
     }
 }
 
@@ -160,6 +166,13 @@ onMounted(async () => {
             await getOption()
         })
     }
+})
+
+defineExpose({
+    updateDic,
+    resetChange,
+    getOption,
+    initForm,
 })
 
 </script>
