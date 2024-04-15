@@ -29,7 +29,7 @@
     "path-to-regexp": "^6.2.2",
     "pinia": "^2.1.7",
     "universal-cookie": "^7.1.4",
-    "vue": "^3.4.21",
+    "vue": "^3.4.22",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
