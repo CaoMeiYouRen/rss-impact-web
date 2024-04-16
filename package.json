@@ -106,7 +106,8 @@
   "pnpm": {
     "overrides": {
       "compare-func": "2.0.0",
-      "postcss": "^8.4.31"
+      "postcss": "^8.4.31",
+      "yargs-parser": "^21.1.1"
     }
   }
 }
