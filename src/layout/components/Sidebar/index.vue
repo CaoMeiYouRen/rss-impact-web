@@ -29,7 +29,7 @@ import variables from '@/styles/variables'
 import { usePermissionStore } from '@/store/modules/permission'
 const permissionStore = usePermissionStore()
 const state = useAppStore()
-// TODO 修改 routes
+
 const routes = computed(() => permissionStore.routes)
 const isCollapse = computed(() => !state.sidebar.opened)
 </script>

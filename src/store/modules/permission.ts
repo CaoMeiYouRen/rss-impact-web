@@ -34,7 +34,6 @@ export const usePermissionStore = defineStore('permission', () => {
     const routes = ref<RouteConfig[]>([])
     const dynamicRoutes = ref<RouteConfig[]>([])
 
-    // TODO 修改 admin 路由逻辑，处理 404
     const generateRoutes = (roles: string[]) => {
         let accessedRoutes: RouteConfig[] = []
         if (roles.includes(Role.admin)) {
