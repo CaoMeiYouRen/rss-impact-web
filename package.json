@@ -102,5 +102,11 @@
       "npm run lint",
       "git add"
     ]
+  },
+  "pnpm": {
+    "overrides": {
+      "compare-func": "2.0.0",
+      "postcss": "^8.4.31"
+    }
   }
 }
