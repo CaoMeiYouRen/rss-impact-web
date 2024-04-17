@@ -297,8 +297,7 @@ export interface EnclosureImpl {
   /**
    * URL
    * @minLength 0
-   * @maxLength 1024
-   * @example "http://v2.uploadbt.com"
+   * @maxLength 65000
    */
   url: string;
   /**
@@ -1271,7 +1270,7 @@ export interface Resource {
   /**
    * URL
    * @minLength 0
-   * @maxLength 2048
+   * @maxLength 65000
    * @example "https://blog.cmyr.ltd/images/favicon-16x16-next.png"
    */
   url: string;
@@ -1281,7 +1280,7 @@ export interface Resource {
    * @maxLength 1024
    * @example "favicon-16x16-next.png"
    */
-  name: string;
+  name?: string;
   /**
    * 文件路径
    * @minLength 0
