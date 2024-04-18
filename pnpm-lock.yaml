@@ -59,8 +59,8 @@ dependencies:
     specifier: ^3.4.23
     version: 3.4.23(typescript@5.4.5)
   vue-router:
-    specifier: ^4.3.1
-    version: 4.3.1(vue@3.4.23)
+    specifier: ^4.3.2
+    version: 4.3.2(vue@3.4.23)
 
 devDependencies:
   '@cao-mei-you-ren/avue-types':
@@ -9129,8 +9129,8 @@ packages:
       - supports-color
     dev: true
 
-  /vue-router@4.3.1(vue@3.4.23):
-    resolution: {integrity: sha512-D0h3oyP6vp28BOvxv2hVpiqFTjTJizCf1BuMmCibc8UW0Ll/N80SWqDd/hqPMaZfzW1j+s2s+aTRyBIP9ElzOw==}
+  /vue-router@4.3.2(vue@3.4.23):
+    resolution: {integrity: sha512-hKQJ1vDAZ5LVkKEnHhmm1f9pMiWIBNGF5AwU67PdH7TyXCj/a4hTccuUuYCAMgJK6rO/NVYtQIEN3yL8CECa7Q==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
