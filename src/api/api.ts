@@ -1305,6 +1305,12 @@ export interface Resource {
    */
   size: number;
   /**
+   * 文件大小(B)
+   * 单位为 B
+   * @example "114.51 MiB"
+   */
+  sizeFormat?: string;
+  /**
    * 文件哈希
    * @minLength 0
    * @maxLength 128
