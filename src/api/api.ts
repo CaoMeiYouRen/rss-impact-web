@@ -164,7 +164,7 @@ export interface User {
    * @maxLength 128
    * @example "123456"
    */
-  password: string;
+  password?: string;
   /**
    * 邮箱
    * @minLength 0
@@ -206,7 +206,7 @@ export interface CreateUser {
    * @maxLength 128
    * @example "123456"
    */
-  password: string;
+  password?: string;
   /**
    * 邮箱
    * @minLength 0
@@ -298,6 +298,7 @@ export interface EnclosureImpl {
    * URL
    * @minLength 0
    * @maxLength 65000
+   * @example "http://bt.example.com"
    */
   url: string;
   /**
@@ -370,7 +371,7 @@ export interface Article {
    * @format date-time
    * @example "2023-12-31T16:00:00.000Z"
    */
-  publishDate?: Date;
+  pubDate?: Date;
   /**
    * 作者
    * @minLength 0
@@ -408,6 +409,8 @@ export interface Article {
   feedId: number;
   /** 订阅源 */
   feed: Feed;
+  /** @format date-time */
+  publishDate?: Date;
 }
 
 export interface NotificationConfig {
