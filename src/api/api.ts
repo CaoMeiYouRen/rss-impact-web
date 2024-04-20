@@ -293,6 +293,47 @@ export interface RegisterDto {
   email: string;
 }
 
+export interface ProxyConfig {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 代理名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "代理A"
+   */
+  name: string;
+  /**
+   * 代理URL
+   * @minLength 0
+   * @maxLength 2048
+   * @example "http://127.0.0.1:8080"
+   */
+  url: string;
+}
+
 export interface EnclosureImpl {
   /**
    * URL
@@ -798,6 +839,18 @@ export interface Feed {
   /** 分组 */
   category: Category;
   /**
+   * 是否启用代理
+   * @example false
+   */
+  isEnableProxy: boolean;
+  /**
+   * 代理配置
+   * @example 1
+   */
+  proxyConfigId?: number;
+  /** 代理配置 */
+  proxyConfig: ProxyConfig;
+  /**
    * 文章列表
    * @example []
    */
@@ -961,6 +1014,18 @@ export interface CreateFeed {
   /** 分组 */
   category: Category;
   /**
+   * 是否启用代理
+   * @example false
+   */
+  isEnableProxy: boolean;
+  /**
+   * 代理配置
+   * @example 1
+   */
+  proxyConfigId?: number;
+  /** 代理配置 */
+  proxyConfig: ProxyConfig;
+  /**
    * 文章列表
    * @example []
    */
@@ -1041,6 +1106,18 @@ export interface UpdateFeed {
   categoryId?: number;
   /** 分组 */
   category?: Category;
+  /**
+   * 是否启用代理
+   * @example false
+   */
+  isEnableProxy?: boolean;
+  /**
+   * 代理配置
+   * @example 1
+   */
+  proxyConfigId?: number;
+  /** 代理配置 */
+  proxyConfig?: ProxyConfig;
   /**
    * 文章列表
    * @example []
@@ -1418,6 +1495,66 @@ export interface FindWebhookLog {
   total: number;
   lastPage: number;
   currentPage: number;
+}
+
+export interface FindProxyConfig {
+  data: ProxyConfig[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
+}
+
+export interface CreateProxyConfig {
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 代理名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "代理A"
+   */
+  name: string;
+  /**
+   * 代理URL
+   * @minLength 0
+   * @maxLength 2048
+   * @example "http://127.0.0.1:8080"
+   */
+  url: string;
+}
+
+export interface UpdateProxyConfig {
+  /**
+   * ID
+   * @example 1
+   */
+  id?: number;
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId?: number;
+  /** 所属用户 */
+  user?: User;
+  /**
+   * 代理名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "代理A"
+   */
+  name?: string;
+  /**
+   * 代理URL
+   * @minLength 0
+   * @maxLength 2048
+   * @example "http://127.0.0.1:8080"
+   */
+  url?: string;
 }
 
 import type { AxiosInstance, AxiosRequestConfig, HeadersDefaults, ResponseType } from "axios";
@@ -2394,6 +2531,127 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     webhookLogDelete: (id: number, params: RequestParams = {}) =>
       this.request<WebhookLog, void>({
         path: `/api/webhook-log/${id}`,
+        method: "DELETE",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags proxy-config
+     * @name ProxyConfigDicData
+     * @request GET:/api/proxy-config/dicData
+     */
+    proxyConfigDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/proxy-config/dicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags proxy-config
+     * @name ProxyConfigConfig
+     * @summary 获取 config
+     * @request GET:/api/proxy-config/config
+     */
+    proxyConfigConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/proxy-config/config`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags proxy-config
+     * @name ProxyConfigFind
+     * @summary 查找所有记录
+     * @request GET:/api/proxy-config
+     */
+    proxyConfigFind: (
+      query?: {
+        /** Query options */
+        query?: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<FindProxyConfig, void>({
+        path: `/api/proxy-config`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags proxy-config
+     * @name ProxyConfigCreate
+     * @summary 创建记录
+     * @request POST:/api/proxy-config
+     */
+    proxyConfigCreate: (data: CreateProxyConfig, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/proxy-config`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags proxy-config
+     * @name ProxyConfigUpdate
+     * @summary 更新记录
+     * @request PUT:/api/proxy-config
+     */
+    proxyConfigUpdate: (data: UpdateProxyConfig, params: RequestParams = {}) =>
+      this.request<ProxyConfig, void>({
+        path: `/api/proxy-config`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags proxy-config
+     * @name ProxyConfigFindOne
+     * @summary 查找记录
+     * @request GET:/api/proxy-config/{id}
+     */
+    proxyConfigFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<ProxyConfig, void>({
+        path: `/api/proxy-config/${id}`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags proxy-config
+     * @name ProxyConfigDelete
+     * @summary 删除记录
+     * @request DELETE:/api/proxy-config/{id}
+     */
+    proxyConfigDelete: (id: number, params: RequestParams = {}) =>
+      this.request<ProxyConfig, void>({
+        path: `/api/proxy-config/${id}`,
         method: "DELETE",
         format: "json",
         ...params,

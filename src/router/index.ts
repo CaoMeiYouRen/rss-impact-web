@@ -88,6 +88,14 @@ export const constantRoutes: RouteConfig[] = [
                 },
             },
             {
+                path: 'proxy-config',
+                component: () => import('@/views/data/ProxyConfig.vue'),
+                meta: {
+                    title: '代理管理',
+                    icon: 'iconfont icon-proxy',
+                },
+            },
+            {
                 path: 'resource',
                 component: () => import('@/views/data/Resource.vue'),
                 meta: {

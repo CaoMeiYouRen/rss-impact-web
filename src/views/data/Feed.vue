@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-collapse>
+        <el-collapse v-model="activeNames">
             <el-collapse-item name="1">
                 <template #title>
                     <h3>快速添加订阅</h3>
@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import { ElMessage } from 'element-plus'
-import { shallowRef, watch } from 'vue'
+import { shallowRef, watch, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useIdTransformer } from '@/hooks/use-id-transformer'
 import CrudForm from '@/components/CrudForm.vue'
@@ -38,6 +38,8 @@ const route = useRoute()
 const { postGet, preSave, preUpdate } = useIdTransformer(['hooks'])
 const crudFormDom = shallowRef<InstanceType<typeof CrudForm> | null>(null)
 const crudListDom = shallowRef<InstanceType<typeof CrudList> | null>(null)
+const activeNames = ref(['1'])
+
 const onSuccess = async () => {
     ElMessage.success('添加成功！！')
     await crudListDom.value?.updateDic()
