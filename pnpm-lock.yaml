@@ -15,7 +15,7 @@ dependencies:
     version: 2.3.1(vue@3.4.23)
   '@smallwei/avue':
     specifier: ^3.4.1
-    version: 3.4.1(element-plus@2.7.0)(vue@3.4.23)
+    version: 3.4.1(element-plus@2.7.1)(vue@3.4.23)
   '@vueuse/core':
     specifier: ^10.9.0
     version: 10.9.0(vue@3.4.23)
@@ -32,8 +32,8 @@ dependencies:
     specifier: ^1.11.10
     version: 1.11.10
   element-plus:
-    specifier: ^2.7.0
-    version: 2.7.0(vue@3.4.23)
+    specifier: ^2.7.1
+    version: 2.7.1(vue@3.4.23)
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
@@ -1241,7 +1241,7 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /@smallwei/avue@3.4.1(element-plus@2.7.0)(vue@3.4.23):
+  /@smallwei/avue@3.4.1(element-plus@2.7.1)(vue@3.4.23):
     resolution: {integrity: sha512-lrShpMgM8BUg8LfgNE5D1RGw6d5wnZQs5giKVF+5DbNx9kaPf9YZNtLOC1QKGnIPTizzyKwKt0zAzLazT44NuA==}
     peerDependencies:
       element-plus: '>=2.2.0'
@@ -1250,7 +1250,7 @@ packages:
       '@element-plus/icons-vue': 2.3.1(vue@3.4.23)
       countup.js: 1.9.3
       dayjs: 1.11.10
-      element-plus: 2.7.0(vue@3.4.23)
+      element-plus: 2.7.1(vue@3.4.23)
       vue: 3.4.23(typescript@5.4.5)
     dev: false
 
@@ -3278,8 +3278,8 @@ packages:
     resolution: {integrity: sha512-RTRvkmRkGhNBPPpdrgtDKvmOEYTrPlXDfc0J/Nfq5s29tEahAwhiX4mmhNzj6febWMleulxVYPh7QwCSL/EldA==}
     dev: true
 
-  /element-plus@2.7.0(vue@3.4.23):
-    resolution: {integrity: sha512-WAiaFLavuWFxof9qwkC27jvkh9nRcNnB506g1vvJSiVaVqjCBWUFCIyJKeN11M1qcv2cS5VV5PfSLjTIkrw87A==}
+  /element-plus@2.7.1(vue@3.4.23):
+    resolution: {integrity: sha512-yk/vXFwJp0flMrd2kfcR0XlumhwtPjB19HJvwcf0n3DvRE7UK8LeSK14LVghSzk0TzPsFFElweMnZEEv7+MYuQ==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
