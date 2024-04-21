@@ -327,6 +327,7 @@ export interface ProxyConfig {
   name: string;
   /**
    * 代理URL
+   * 支持 http/https/socks/socks5 协议。例如 http://127.0.0.1:8080
    * @minLength 0
    * @maxLength 2048
    * @example "http://127.0.0.1:8080"
@@ -751,6 +752,14 @@ export interface Hook {
    */
   isReversed: boolean;
   /**
+   * 代理配置
+   * 选择不代理后保存即可禁用代理
+   * @example 1
+   */
+  proxyConfigId?: number;
+  /** 代理配置 */
+  proxyConfig: ProxyConfig;
+  /**
    * 订阅源列表
    * @example []
    */
@@ -839,17 +848,13 @@ export interface Feed {
   /** 分组 */
   category: Category;
   /**
-   * 是否启用代理
-   * @example false
-   */
-  isEnableProxy: boolean;
-  /**
    * 代理配置
+   * 选择不代理后保存即可禁用代理
    * @example 1
    */
   proxyConfigId?: number;
   /** 代理配置 */
-  proxyConfig: ProxyConfig;
+  proxyConfig?: ProxyConfig;
   /**
    * 文章列表
    * @example []
@@ -1014,17 +1019,13 @@ export interface CreateFeed {
   /** 分组 */
   category: Category;
   /**
-   * 是否启用代理
-   * @example false
-   */
-  isEnableProxy: boolean;
-  /**
    * 代理配置
+   * 选择不代理后保存即可禁用代理
    * @example 1
    */
   proxyConfigId?: number;
   /** 代理配置 */
-  proxyConfig: ProxyConfig;
+  proxyConfig?: ProxyConfig;
   /**
    * 文章列表
    * @example []
@@ -1107,12 +1108,8 @@ export interface UpdateFeed {
   /** 分组 */
   category?: Category;
   /**
-   * 是否启用代理
-   * @example false
-   */
-  isEnableProxy?: boolean;
-  /**
    * 代理配置
+   * 选择不代理后保存即可禁用代理
    * @example 1
    */
   proxyConfigId?: number;
@@ -1263,6 +1260,14 @@ export interface CreateHook {
    */
   isReversed: boolean;
   /**
+   * 代理配置
+   * 选择不代理后保存即可禁用代理
+   * @example 1
+   */
+  proxyConfigId?: number;
+  /** 代理配置 */
+  proxyConfig: ProxyConfig;
+  /**
    * 订阅源列表
    * @example []
    */
@@ -1315,6 +1320,14 @@ export interface UpdateHook {
    * @example false
    */
   isReversed?: boolean;
+  /**
+   * 代理配置
+   * 选择不代理后保存即可禁用代理
+   * @example 1
+   */
+  proxyConfigId?: number;
+  /** 代理配置 */
+  proxyConfig?: ProxyConfig;
   /**
    * 订阅源列表
    * @example []
@@ -1521,6 +1534,7 @@ export interface CreateProxyConfig {
   name: string;
   /**
    * 代理URL
+   * 支持 http/https/socks/socks5 协议。例如 http://127.0.0.1:8080
    * @minLength 0
    * @maxLength 2048
    * @example "http://127.0.0.1:8080"
@@ -1550,11 +1564,149 @@ export interface UpdateProxyConfig {
   name?: string;
   /**
    * 代理URL
+   * 支持 http/https/socks/socks5 协议。例如 http://127.0.0.1:8080
    * @minLength 0
    * @maxLength 2048
    * @example "http://127.0.0.1:8080"
    */
   url?: string;
+}
+
+export interface CustomQuery {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "查询A"
+   */
+  name: string;
+  /**
+   * 输出格式
+   * @minLength 0
+   * @maxLength 32
+   * @example "rss2.0"
+   */
+  format: "rss2.0" | "atom" | "json";
+  /** 输出路径 */
+  url?: string;
+  /**
+   * 过滤条件
+   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
+   */
+  filter: Filter;
+  /**
+   * 排除条件
+   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
+   */
+  filterout: FilterOut;
+}
+
+export interface FindCustomQuery {
+  data: CustomQuery[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
+}
+
+export interface CreateCustomQuery {
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "查询A"
+   */
+  name: string;
+  /**
+   * 输出格式
+   * @minLength 0
+   * @maxLength 32
+   * @example "rss2.0"
+   */
+  format: "rss2.0" | "atom" | "json";
+  /** 输出路径 */
+  url?: string;
+  /**
+   * 过滤条件
+   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
+   */
+  filter: Filter;
+  /**
+   * 排除条件
+   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
+   */
+  filterout: FilterOut;
+}
+
+export interface UpdateCustomQuery {
+  /**
+   * ID
+   * @example 1
+   */
+  id?: number;
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId?: number;
+  /** 所属用户 */
+  user?: User;
+  /**
+   * 名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "查询A"
+   */
+  name?: string;
+  /**
+   * 输出格式
+   * @minLength 0
+   * @maxLength 32
+   * @example "rss2.0"
+   */
+  format?: "rss2.0" | "atom" | "json";
+  /** 输出路径 */
+  url?: string;
+  /**
+   * 过滤条件
+   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
+   */
+  filter?: Filter;
+  /**
+   * 排除条件
+   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
+   */
+  filterout?: FilterOut;
 }
 
 import type { AxiosInstance, AxiosRequestConfig, HeadersDefaults, ResponseType } from "axios";
@@ -2652,6 +2804,112 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     proxyConfigDelete: (id: number, params: RequestParams = {}) =>
       this.request<ProxyConfig, void>({
         path: `/api/proxy-config/${id}`,
+        method: "DELETE",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags custom-query
+     * @name CustomQueryConfig
+     * @summary 获取 config
+     * @request GET:/api/custom-query/config
+     */
+    customQueryConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/custom-query/config`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags custom-query
+     * @name CustomQueryFind
+     * @summary 查找所有记录
+     * @request GET:/api/custom-query
+     */
+    customQueryFind: (
+      query?: {
+        /** Query options */
+        query?: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<FindCustomQuery, void>({
+        path: `/api/custom-query`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags custom-query
+     * @name CustomQueryCreate
+     * @summary 创建记录
+     * @request POST:/api/custom-query
+     */
+    customQueryCreate: (data: CreateCustomQuery, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/custom-query`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags custom-query
+     * @name CustomQueryUpdate
+     * @summary 更新记录
+     * @request PUT:/api/custom-query
+     */
+    customQueryUpdate: (data: UpdateCustomQuery, params: RequestParams = {}) =>
+      this.request<CustomQuery, void>({
+        path: `/api/custom-query`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags custom-query
+     * @name CustomQueryFindOne
+     * @summary 查找记录
+     * @request GET:/api/custom-query/{id}
+     */
+    customQueryFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<CustomQuery, void>({
+        path: `/api/custom-query/${id}`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags custom-query
+     * @name CustomQueryDelete
+     * @summary 删除记录
+     * @request DELETE:/api/custom-query/{id}
+     */
+    customQueryDelete: (id: number, params: RequestParams = {}) =>
+      this.request<CustomQuery, void>({
+        path: `/api/custom-query/${id}`,
         method: "DELETE",
         format: "json",
         ...params,

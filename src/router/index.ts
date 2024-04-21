@@ -6,7 +6,7 @@ import { Role } from '@/constant/role'
 export type RouteConfig = RouteRecordRaw
 
 export type Route = RouteLocationNormalized
-
+// TODO 增加个人中心页面
 export const constantRoutes: RouteConfig[] = [
     {
         path: '/404',
@@ -85,6 +85,14 @@ export const constantRoutes: RouteConfig[] = [
                 meta: {
                     title: 'Hook管理',
                     icon: 'iconfont icon-webhook',
+                },
+            },
+            {
+                path: 'custom-query',
+                component: () => import('@/views/data/CustomQuery.vue'),
+                meta: {
+                    title: '自定义查询',
+                    icon: 'iconfont icon-custom-query',
                 },
             },
             {
