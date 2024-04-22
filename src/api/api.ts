@@ -894,17 +894,17 @@ export interface Category {
   /** 所属用户 */
   user: User;
   /**
-   * 分类名称
+   * 名称
    * @minLength 0
    * @maxLength 256
-   * @example "分类A"
+   * @example "分组A"
    */
   name: string;
   /**
-   * 分类简介
+   * 简介
    * @minLength 0
    * @maxLength 2048
-   * @example "分类A"
+   * @example "分组A"
    */
   description?: string;
   /**
@@ -1151,17 +1151,17 @@ export interface CreateCategory {
   /** 所属用户 */
   user: User;
   /**
-   * 分类名称
+   * 名称
    * @minLength 0
    * @maxLength 256
-   * @example "分类A"
+   * @example "分组A"
    */
   name: string;
   /**
-   * 分类简介
+   * 简介
    * @minLength 0
    * @maxLength 2048
-   * @example "分类A"
+   * @example "分组A"
    */
   description?: string;
   /**
@@ -1185,17 +1185,17 @@ export interface UpdateCategory {
   /** 所属用户 */
   user?: User;
   /**
-   * 分类名称
+   * 名称
    * @minLength 0
    * @maxLength 256
-   * @example "分类A"
+   * @example "分组A"
    */
   name?: string;
   /**
-   * 分类简介
+   * 简介
    * @minLength 0
    * @maxLength 2048
-   * @example "分类A"
+   * @example "分组A"
    */
   description?: string;
   /**
