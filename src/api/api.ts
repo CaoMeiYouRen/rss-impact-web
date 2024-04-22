@@ -453,6 +453,7 @@ export interface Article {
   feed: Feed;
   /** @format date-time */
   publishDate?: Date;
+  aiSummary?: string;
 }
 
 export interface NotificationConfig {
@@ -1611,6 +1612,13 @@ export interface CustomQuery {
    * @example "rss2.0"
    */
   format: "rss2.0" | "atom" | "json";
+  /**
+   * 访问秘钥
+   * @minLength 0
+   * @maxLength 256
+   * @example "custom-query-key:2c28d0b6-47db-43a4-aff4-439edbe29200"
+   */
+  key: string;
   /** 输出路径 */
   url?: string;
   /**
@@ -2344,12 +2352,34 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
+     * @name ArticleCustomQuery
+     * @request GET:/api/article/custom-query/{id}
+     */
+    articleCustomQuery: (
+      id: number,
+      query: {
+        key: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<object, any>({
+        path: `/api/article/custom-query/${id}`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags article
      * @name ArticleConfig
      * @summary 获取 config
      * @request GET:/api/article/config
      */
     articleConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<AvueCrudConfigImpl, any>({
         path: `/api/article/config`,
         method: "GET",
         format: "json",
@@ -2371,7 +2401,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       },
       params: RequestParams = {},
     ) =>
-      this.request<FindArticle, void>({
+      this.request<FindArticle, any>({
         path: `/api/article`,
         method: "GET",
         query: query,
@@ -2388,7 +2418,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/article/{id}
      */
     articleFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<Article, void>({
+      this.request<Article, any>({
         path: `/api/article/${id}`,
         method: "GET",
         format: "json",
@@ -2404,7 +2434,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request DELETE:/api/article/{id}
      */
     articleDelete: (id: number, params: RequestParams = {}) =>
-      this.request<Article, void>({
+      this.request<Article, any>({
         path: `/api/article/${id}`,
         method: "DELETE",
         format: "json",
