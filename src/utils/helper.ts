@@ -87,3 +87,7 @@ export function dataFormat(data: number | bigint): string {
     }
     return `${value.toFixed(2)} ${arr[i]}`
 }
+
+export function isNullOrUndefined(value: unknown) {
+    return typeof value === 'undefined' || value === null
+}

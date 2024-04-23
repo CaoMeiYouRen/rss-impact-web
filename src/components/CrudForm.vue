@@ -24,7 +24,7 @@ import { Method } from 'axios'
 import { ElMessage as Message } from 'element-plus'
 import { AjaxConfig, ajax } from '@/utils/ajax'
 import { AvueFormOption } from '@/interfaces/avue'
-import { remove$key } from '@/utils/helper'
+import { isNullOrUndefined, remove$key } from '@/utils/helper'
 
 type Form = Record<string, unknown>
 
@@ -136,7 +136,7 @@ const initForm = () => {
         formOption.value.disabled = disabled.value
         // 初始化默认值
         formOption.value.column?.forEach((col) => {
-            if (typeof col.value !== 'undefined' && col.prop && !form.value[col.prop]) {
+            if (!isNullOrUndefined(col.value) && col.prop && isNullOrUndefined(form.value[col.prop])) {
                 form.value[col.prop] = col.value
             }
         })

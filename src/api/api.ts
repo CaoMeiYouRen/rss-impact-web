@@ -688,10 +688,15 @@ export interface AIConfig {
    */
   minContentLength?: number;
   /**
-   * 仅总结为空时
+   * 总结为空
    * 仅在总结为空时启用 AI 总结
    */
   isOnlySummaryEmpty: boolean;
+  /**
+   * 分段总结
+   * 如果正文的长度超过 最大 token 数，是否分段进行总结
+   */
+  isSplit: boolean;
   /**
    * 包含标题
    * 提交给 ChatGPT 的内容是否包含标题。如果启用，标题长度也将计算在正文长度中
@@ -899,7 +904,7 @@ export interface Feed {
    * @maxLength 4096
    * @example "这是一段简介"
    */
-  description: string;
+  description?: string;
   /**
    * 封面 URL
    * @minLength 0
@@ -1070,7 +1075,7 @@ export interface CreateFeed {
    * @maxLength 4096
    * @example "这是一段简介"
    */
-  description: string;
+  description?: string;
   /**
    * 封面 URL
    * @minLength 0
