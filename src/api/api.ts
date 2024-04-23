@@ -437,6 +437,13 @@ export interface Article {
    */
   summary?: string;
   /**
+   * AI 总结
+   * @minLength 0
+   * @maxLength 65536
+   * @example "这是一段 AI 总结"
+   */
+  aiSummary?: string;
+  /**
    * 分类列表
    * RSS 源定义的分类，和 本地RSS 的分组不是同一个
    * @example ["tag1","tag2"]
@@ -453,7 +460,6 @@ export interface Article {
   feed: Feed;
   /** @format date-time */
   publishDate?: Date;
-  aiSummary?: string;
 }
 
 export interface NotificationConfig {
@@ -618,6 +624,87 @@ export interface BitTorrentConfig {
   maxSize?: number;
 }
 
+export interface AIConfig {
+  /**
+   * 类型
+   * AI 大模型。目前仅支持 OpenAI
+   * @example "openAI"
+   */
+  type: "openAI";
+  /**
+   * API Key
+   * OpenAI API Key
+   * @minLength 0
+   * @maxLength 128
+   */
+  apiKey: string;
+  /**
+   * 模型名称
+   * OpenAI 模型名称。默认 gpt-3.5-turbo
+   * @minLength 0
+   * @maxLength 128
+   * @example "gpt-3.5-turbo"
+   */
+  model?: string;
+  /**
+   * API 地址
+   * OpenAI API 地址
+   * @minLength 0
+   * @maxLength 2048
+   * @example "https://api.openai.com/v1"
+   */
+  endpoint?: string;
+  /**
+   * 提示语
+   * OpenAI 提示语。通过修改提示语也可以实现翻译等功能
+   * @minLength 0
+   * @maxLength 2048
+   */
+  prompt?: string;
+  /**
+   * 超时时间(秒)
+   * 默认值 120 秒
+   * @example 120
+   */
+  timeout?: number;
+  /**
+   * 温度参数
+   * OpenAI 温度参数，越高越随机，反之越稳定。默认值 0
+   * @min 0
+   * @max 1
+   * @example 0.1
+   */
+  temperature?: number;
+  /**
+   * 最大 token 数
+   * OpenAI 最大 token 数。注意一定要比模型的 最大上下文 小，否则可能会总结失败。默认值 2048
+   * @example 2048
+   */
+  maxTokens?: number;
+  /**
+   * 最小正文长度
+   * 当 RSS 的正文超过这个数字时，才启用 AI 总结。默认值 1024。设置为 0 则不限制。
+   * @example 1024
+   */
+  minContentLength?: number;
+  /**
+   * 仅总结为空时
+   * 仅在总结为空时启用 AI 总结
+   */
+  isOnlySummaryEmpty: boolean;
+  /**
+   * 包含标题
+   * 提交给 ChatGPT 的内容是否包含标题。如果启用，标题长度也将计算在正文长度中
+   */
+  isIncludeTitle: boolean;
+  /**
+   * 总结格式
+   * 如果为 纯文本，则使用 摘要 输出 纯文本总结；如果为 HTML，则使用正文输出 HTML 总结。正文长度也将分别计算。
+   * @example "text"
+   */
+  contentType: "text" | "html";
+}
+
 export interface Filter {
   /**
    * 条数限制
@@ -730,12 +817,12 @@ export interface Hook {
    * 类型
    * @example "webhook"
    */
-  type: "notification" | "webhook" | "download" | "bitTorrent";
+  type: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary";
   /**
    * 配置
    * @example {}
    */
-  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig;
+  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig;
   /**
    * 过滤条件
    * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
@@ -1238,12 +1325,12 @@ export interface CreateHook {
    * 类型
    * @example "webhook"
    */
-  type: "notification" | "webhook" | "download" | "bitTorrent";
+  type: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary";
   /**
    * 配置
    * @example {}
    */
-  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig;
+  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig;
   /**
    * 过滤条件
    * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
@@ -1299,12 +1386,12 @@ export interface UpdateHook {
    * 类型
    * @example "webhook"
    */
-  type?: "notification" | "webhook" | "download" | "bitTorrent";
+  type?: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary";
   /**
    * 配置
    * @example {}
    */
-  config?: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig;
+  config?: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig;
   /**
    * 过滤条件
    * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。

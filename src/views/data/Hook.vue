@@ -30,6 +30,9 @@ const pre = (data: Hook) => {
     }
     data.config = omit(data.config as any, ['0', '1']) as any
     data.config = remove$key(data.config as any) as any
+    if (!data.proxyConfigId) {
+        delete data.proxyConfigId
+    }
     return data
 }
 const preSave = pre
