@@ -1723,7 +1723,18 @@ export interface CustomQuery {
    */
   format: "rss2.0" | "atom" | "json";
   /**
+   * 使用 AI 总结
+   * 如果是，则用 AI 总结替换原本的总结
+   */
+  useAiSummary: boolean;
+  /**
+   * 增加 AI 总结
+   * 如果是，则将 AI 总结 增加 到正文前，以方便通过 RSS 阅读器阅读
+   */
+  appendAiSummary: boolean;
+  /**
    * 访问秘钥
+   * 通过访问秘钥即可无需登录访问 RSS 订阅。一旦泄露，请立即修改！
    * @minLength 0
    * @maxLength 256
    * @example "custom-query-key:2c28d0b6-47db-43a4-aff4-439edbe29200"
@@ -1790,6 +1801,16 @@ export interface CreateCustomQuery {
    * @example "rss2.0"
    */
   format: "rss2.0" | "atom" | "json";
+  /**
+   * 使用 AI 总结
+   * 如果是，则用 AI 总结替换原本的总结
+   */
+  useAiSummary: boolean;
+  /**
+   * 增加 AI 总结
+   * 如果是，则将 AI 总结 增加 到正文前，以方便通过 RSS 阅读器阅读
+   */
+  appendAiSummary: boolean;
   /** 输出路径 */
   url?: string;
   /**
@@ -1849,6 +1870,16 @@ export interface UpdateCustomQuery {
    * @example "rss2.0"
    */
   format?: "rss2.0" | "atom" | "json";
+  /**
+   * 使用 AI 总结
+   * 如果是，则用 AI 总结替换原本的总结
+   */
+  useAiSummary?: boolean;
+  /**
+   * 增加 AI 总结
+   * 如果是，则将 AI 总结 增加 到正文前，以方便通过 RSS 阅读器阅读
+   */
+  appendAiSummary?: boolean;
   /** 输出路径 */
   url?: string;
   /**
@@ -2498,28 +2529,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
-     * @name ArticleCustomQuery
-     * @request GET:/api/article/custom-query/{id}
-     */
-    articleCustomQuery: (
-      id: number,
-      query: {
-        key: string;
-      },
-      params: RequestParams = {},
-    ) =>
-      this.request<object, any>({
-        path: `/api/article/custom-query/${id}`,
-        method: "GET",
-        query: query,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags article
      * @name ArticleConfig
      * @summary 获取 config
      * @request GET:/api/article/config
@@ -2981,6 +2990,28 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       this.request<ProxyConfig, void>({
         path: `/api/proxy-config/${id}`,
         method: "DELETE",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags custom-query
+     * @name CustomQueryCustomQuery
+     * @request GET:/api/custom-query/rss/{id}
+     */
+    customQueryCustomQuery: (
+      id: number,
+      query: {
+        key: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<object, void>({
+        path: `/api/custom-query/rss/${id}`,
+        method: "GET",
+        query: query,
         format: "json",
         ...params,
       }),

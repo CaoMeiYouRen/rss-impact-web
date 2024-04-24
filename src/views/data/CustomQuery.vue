@@ -2,14 +2,24 @@
     <CrudList
         model="custom-query"
         :post-get="postGet"
-        :pre-save="preSave"
-        :pre-update="preUpdate"
+        :pre-save="customPreSave"
+        :pre-update="customPreSave"
     />
 </template>
 
 <script lang="ts" setup>
+import { CustomQuery } from '@/api/api'
 import { useIdTransformer } from '@/hooks/use-id-transformer'
-const { postGet, preSave, preUpdate } = useIdTransformer(['categories'])
+const { postGet, preSave } = useIdTransformer(['categories'])
+
+const customPreSave = (data: CustomQuery) => {
+    data = preSave(data)
+    if (!data.feedId) {
+        data.feedId = null as any
+    }
+    return data
+}
+
 </script>
 
 <style lang="scss" scoped>
