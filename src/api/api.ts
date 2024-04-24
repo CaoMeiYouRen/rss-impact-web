@@ -1698,9 +1698,27 @@ export interface CustomQuery {
    */
   name: string;
   /**
+   * 查询范围
+   * 指定分组和指定订阅的配置互斥，只按照本项指定的范围查询
+   * @example "all"
+   */
+  scope: "all" | "category" | "feed";
+  /**
+   * 指定分组
+   * 支持选择多个分类
+   * @example []
+   */
+  categories?: Category[];
+  /**
+   * 指定订阅
+   * 注意：订阅的查询是单选的
+   * @example 1
+   */
+  feedId?: number;
+  /** 订阅源 */
+  feed?: Feed;
+  /**
    * 输出格式
-   * @minLength 0
-   * @maxLength 32
    * @example "rss2.0"
    */
   format: "rss2.0" | "atom" | "json";
@@ -1748,9 +1766,27 @@ export interface CreateCustomQuery {
    */
   name: string;
   /**
+   * 查询范围
+   * 指定分组和指定订阅的配置互斥，只按照本项指定的范围查询
+   * @example "all"
+   */
+  scope: "all" | "category" | "feed";
+  /**
+   * 指定分组
+   * 支持选择多个分类
+   * @example []
+   */
+  categories?: Category[];
+  /**
+   * 指定订阅
+   * 注意：订阅的查询是单选的
+   * @example 1
+   */
+  feedId?: number;
+  /** 订阅源 */
+  feed?: Feed;
+  /**
    * 输出格式
-   * @minLength 0
-   * @maxLength 32
    * @example "rss2.0"
    */
   format: "rss2.0" | "atom" | "json";
@@ -1789,9 +1825,27 @@ export interface UpdateCustomQuery {
    */
   name?: string;
   /**
+   * 查询范围
+   * 指定分组和指定订阅的配置互斥，只按照本项指定的范围查询
+   * @example "all"
+   */
+  scope?: "all" | "category" | "feed";
+  /**
+   * 指定分组
+   * 支持选择多个分类
+   * @example []
+   */
+  categories?: Category[];
+  /**
+   * 指定订阅
+   * 注意：订阅的查询是单选的
+   * @example 1
+   */
+  feedId?: number;
+  /** 订阅源 */
+  feed?: Feed;
+  /**
    * 输出格式
-   * @minLength 0
-   * @maxLength 32
    * @example "rss2.0"
    */
   format?: "rss2.0" | "atom" | "json";
