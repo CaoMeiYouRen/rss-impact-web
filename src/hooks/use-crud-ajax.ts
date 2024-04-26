@@ -2,7 +2,7 @@ import { computed, onMounted, ref, Ref, unref, shallowRef } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { AvueCrudOption } from '@/interfaces/avue'
 import { ajax } from '@/utils/ajax'
-import { objectValueToString, remove$key, stringValueToObject } from '@/utils/helper'
+import { emptyToNull, objectValueToString, remove$key, stringValueToObject } from '@/utils/helper'
 
 const Message = ElMessage
 const MessageBox = ElMessageBox
@@ -196,6 +196,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
         }
         delete obj.id
         obj = stringValueToObject(obj, excludeKeys.value) as any
+        obj = emptyToNull(obj, option.value.column || []) as any
         try {
             const newObj = await ajax({
                 url: unref(model),
@@ -222,6 +223,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
             obj = preUpdate(obj)
         }
         obj = stringValueToObject(obj, excludeKeys.value)
+        obj = emptyToNull(obj, option.value.column || []) as any
         try {
             const newObj = await ajax({
                 url: `${unref(model)}`,

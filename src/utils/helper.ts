@@ -1,3 +1,5 @@
+import { Field } from '@/interfaces/avue'
+
 /**
  * 移除对象中 $ 开头的 key
  *
@@ -91,3 +93,21 @@ export function dataFormat(data: number | bigint): string {
 export function isNullOrUndefined(value: unknown) {
     return typeof value === 'undefined' || value === null
 }
+
+/**
+ * 将 obj 中的支持 nullable 的字段 替换为 null
+ *
+ * @author CaoMeiYouRen
+ * @date 2024-04-26
+ * @param obj
+ * @param column
+ */
+export function emptyToNull(obj: Record<string, unknown>, column: Field[]) {
+    return Object.fromEntries(Object.entries(obj).map(([key, value]) => {
+        if (!value && column.find((e) => e.prop === key)?.nullable) {
+            return [key, null]
+        }
+        return [key, value]
+    }))
+}
+
