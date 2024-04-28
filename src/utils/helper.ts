@@ -104,6 +104,11 @@ export function isNullOrUndefined(value: unknown) {
  */
 export function emptyToNull(obj: Record<string, unknown>, column: Field[]) {
     return Object.fromEntries(Object.entries(obj).map(([key, value]) => {
+        // 除了 boolean 类型的字段
+        if (typeof value === 'boolean') {
+            return [key, value]
+        }
+        // 对于 nullable 的字段，如果为 空，则设置为 null；
         if (!value && column.find((e) => e.prop === key)?.nullable) {
             return [key, null]
         }
