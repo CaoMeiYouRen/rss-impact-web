@@ -29,8 +29,8 @@ dependencies:
     specifier: ^1.6.8
     version: 1.6.8
   dayjs:
-    specifier: ^1.11.10
-    version: 1.11.10
+    specifier: ^1.11.11
+    version: 1.11.11
   element-plus:
     specifier: ^2.7.2
     version: 2.7.2(vue@3.4.25)
@@ -1257,7 +1257,7 @@ packages:
     dependencies:
       '@element-plus/icons-vue': 2.3.1(vue@3.4.25)
       countup.js: 1.9.3
-      dayjs: 1.11.10
+      dayjs: 1.11.11
       element-plus: 2.7.2(vue@3.4.25)
       vue: 3.4.25(typescript@5.4.5)
     dev: false
@@ -3032,8 +3032,8 @@ packages:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
     dev: true
 
-  /dayjs@1.11.10:
-    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+  /dayjs@1.11.11:
+    resolution: {integrity: sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==}
     dev: false
 
   /de-indent@1.0.2:
@@ -3299,7 +3299,7 @@ packages:
       '@types/lodash-es': 4.17.12
       '@vueuse/core': 9.13.0(vue@3.4.25)
       async-validator: 4.2.5
-      dayjs: 1.11.10
+      dayjs: 1.11.11
       escape-html: 1.0.3
       lodash: 4.17.21
       lodash-es: 4.17.21
