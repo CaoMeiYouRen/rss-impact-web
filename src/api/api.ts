@@ -344,17 +344,23 @@ export interface EnclosureImpl {
    */
   url: string;
   /**
-   * 长度
-   * @example 114514
-   */
-  length?: number;
-  /**
    * 媒体类型
    * @minLength 0
    * @maxLength 128
    * @example "application/x-bittorrent"
    */
   type?: string;
+  /**
+   * 文件体积(B)
+   * @example 114514
+   */
+  length?: number;
+  /**
+   * 文件体积
+   * 单位为 B
+   * @example "114.51 MiB"
+   */
+  lengthFormat?: string;
 }
 
 export interface Article {
@@ -752,6 +758,26 @@ export interface Filter {
    * @example "tag1|tag2"
    */
   categories?: string;
+  /**
+   * 过滤附件URL
+   * @minLength 0
+   * @maxLength 1024
+   * @example "url1|url2"
+   */
+  enclosureUrl?: string;
+  /**
+   * 过滤附件类型
+   * @minLength 0
+   * @maxLength 128
+   * @example "url1|url2"
+   */
+  enclosureType?: string;
+  /**
+   * 过滤附件体积(B)
+   * 单位为 B。设置为 0 禁用
+   * @example 114514
+   */
+  enclosureLength?: number;
 }
 
 export interface FilterOut {
@@ -784,6 +810,26 @@ export interface FilterOut {
    * @example "tag1|tag2"
    */
   categories?: string;
+  /**
+   * 排除附件URL
+   * @minLength 0
+   * @maxLength 1024
+   * @example "url1|url2"
+   */
+  enclosureUrl?: string;
+  /**
+   * 排除附件类型
+   * @minLength 0
+   * @maxLength 128
+   * @example "url1|url2"
+   */
+  enclosureType?: string;
+  /**
+   * 排除附件体积(B)
+   * 单位为 B。设置为 0 禁用
+   * @example 114514
+   */
+  enclosureLength?: number;
 }
 
 export interface Hook {
@@ -851,7 +897,7 @@ export interface Hook {
    */
   proxyConfigId?: number;
   /** 代理配置 */
-  proxyConfig: ProxyConfig;
+  proxyConfig?: ProxyConfig;
   /**
    * 订阅源列表
    * @example []
@@ -1359,7 +1405,7 @@ export interface CreateHook {
    */
   proxyConfigId?: number;
   /** 代理配置 */
-  proxyConfig: ProxyConfig;
+  proxyConfig?: ProxyConfig;
   /**
    * 订阅源列表
    * @example []
@@ -1482,13 +1528,13 @@ export interface Resource {
    */
   type: string;
   /**
-   * 文件大小(B)
+   * 文件体积(B)
    * 单位为 B
    * @example 114514
    */
   size: number;
   /**
-   * 文件大小(B)
+   * 文件体积(B)
    * 单位为 B
    * @example "114.51 MiB"
    */
@@ -2534,7 +2580,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/article/config
      */
     articleConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, any>({
+      this.request<AvueCrudConfigImpl, void>({
         path: `/api/article/config`,
         method: "GET",
         format: "json",
@@ -2556,7 +2602,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       },
       params: RequestParams = {},
     ) =>
-      this.request<FindArticle, any>({
+      this.request<FindArticle, void>({
         path: `/api/article`,
         method: "GET",
         query: query,
@@ -2573,7 +2619,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/article/{id}
      */
     articleFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<Article, any>({
+      this.request<Article, void>({
         path: `/api/article/${id}`,
         method: "GET",
         format: "json",
@@ -2589,7 +2635,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request DELETE:/api/article/{id}
      */
     articleDelete: (id: number, params: RequestParams = {}) =>
-      this.request<Article, any>({
+      this.request<Article, void>({
         path: `/api/article/${id}`,
         method: "DELETE",
         format: "json",
@@ -3008,7 +3054,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       },
       params: RequestParams = {},
     ) =>
-      this.request<object, void>({
+      this.request<object, any>({
         path: `/api/custom-query/rss/${id}`,
         method: "GET",
         query: query,
@@ -3025,7 +3071,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/custom-query/config
      */
     customQueryConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<AvueCrudConfigImpl, any>({
         path: `/api/custom-query/config`,
         method: "GET",
         format: "json",
@@ -3047,7 +3093,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       },
       params: RequestParams = {},
     ) =>
-      this.request<FindCustomQuery, void>({
+      this.request<FindCustomQuery, any>({
         path: `/api/custom-query`,
         method: "GET",
         query: query,
@@ -3064,11 +3110,12 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request POST:/api/custom-query
      */
     customQueryCreate: (data: CreateCustomQuery, params: RequestParams = {}) =>
-      this.request<void, void>({
+      this.request<CustomQuery, any>({
         path: `/api/custom-query`,
         method: "POST",
         body: data,
         type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 
@@ -3081,7 +3128,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request PUT:/api/custom-query
      */
     customQueryUpdate: (data: UpdateCustomQuery, params: RequestParams = {}) =>
-      this.request<CustomQuery, void>({
+      this.request<CustomQuery, any>({
         path: `/api/custom-query`,
         method: "PUT",
         body: data,
@@ -3099,7 +3146,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/custom-query/{id}
      */
     customQueryFindOne: (id: number, params: RequestParams = {}) =>
-      this.request<CustomQuery, void>({
+      this.request<CustomQuery, any>({
         path: `/api/custom-query/${id}`,
         method: "GET",
         format: "json",
@@ -3115,7 +3162,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request DELETE:/api/custom-query/{id}
      */
     customQueryDelete: (id: number, params: RequestParams = {}) =>
-      this.request<CustomQuery, void>({
+      this.request<CustomQuery, any>({
         path: `/api/custom-query/${id}`,
         method: "DELETE",
         format: "json",
