@@ -774,7 +774,7 @@ export interface Filter {
   enclosureType?: string;
   /**
    * 过滤附件体积(B)
-   * 单位为 B。设置为 0 禁用
+   * 单位为 B。设置为 0 禁用。
    * @example 114514
    */
   enclosureLength?: number;
@@ -824,12 +824,6 @@ export interface FilterOut {
    * @example "url1|url2"
    */
   enclosureType?: string;
-  /**
-   * 排除附件体积(B)
-   * 单位为 B。设置为 0 禁用
-   * @example 114514
-   */
-  enclosureLength?: number;
 }
 
 export interface Hook {
@@ -1091,6 +1085,14 @@ export interface QuickCreateFeed {
    * @example []
    */
   hooks: Hook[];
+}
+
+export interface FileUploadDto {
+  /**
+   * 要上传的文件
+   * @format binary
+   */
+  file: File;
 }
 
 export interface CreateFeed {
@@ -2326,6 +2328,39 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         method: "POST",
         body: data,
         type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags feed
+     * @name FeedImportByOpml
+     * @summary 从 OPML 文件导入订阅
+     * @request POST:/api/feed/import
+     */
+    feedImportByOpml: (data: FileUploadDto, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/feed/import`,
+        method: "POST",
+        body: data,
+        type: ContentType.FormData,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags feed
+     * @name FeedExportByOpml
+     * @summary 导出订阅为 OPML 文件
+     * @request GET:/api/feed/export
+     */
+    feedExportByOpml: (params: RequestParams = {}) =>
+      this.request<string, void>({
+        path: `/api/feed/export`,
+        method: "GET",
+        format: "json",
         ...params,
       }),
 
