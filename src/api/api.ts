@@ -716,6 +716,25 @@ export interface AIConfig {
   contentType: "text" | "html";
 }
 
+export interface RegularConfig {
+  /**
+   * 正文正则
+   * 匹配正则
+   * @minLength 0
+   * @maxLength 2048
+   * @example ""
+   */
+  contentRegular: string;
+  /**
+   * 正文替换内容
+   * 用该内容替换正文的内容
+   * @minLength 0
+   * @maxLength 2048
+   * @example ""
+   */
+  contentReplace: string;
+}
+
 export interface Filter {
   /**
    * 条数限制
@@ -862,12 +881,12 @@ export interface Hook {
    * 类型
    * @example "webhook"
    */
-  type: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary";
+  type: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary" | "regular";
   /**
    * 配置
    * @example {}
    */
-  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig;
+  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig | RegularConfig;
   /**
    * 过滤条件
    * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
@@ -1378,12 +1397,12 @@ export interface CreateHook {
    * 类型
    * @example "webhook"
    */
-  type: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary";
+  type: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary" | "regular";
   /**
    * 配置
    * @example {}
    */
-  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig;
+  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig | RegularConfig;
   /**
    * 过滤条件
    * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
@@ -1439,12 +1458,12 @@ export interface UpdateHook {
    * 类型
    * @example "webhook"
    */
-  type?: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary";
+  type?: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary" | "regular";
   /**
    * 配置
    * @example {}
    */
-  config?: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig;
+  config?: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig | RegularConfig;
   /**
    * 过滤条件
    * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
