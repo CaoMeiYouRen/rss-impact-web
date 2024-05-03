@@ -293,181 +293,6 @@ export interface RegisterDto {
   email: string;
 }
 
-export interface ProxyConfig {
-  /**
-   * ID
-   * @example 1
-   */
-  id: number;
-  /**
-   * 创建时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  createdAt: Date;
-  /**
-   * 更新时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  updatedAt: Date;
-  /**
-   * 所属用户
-   * @example 1
-   */
-  userId: number;
-  /** 所属用户 */
-  user: User;
-  /**
-   * 代理名称
-   * @minLength 0
-   * @maxLength 256
-   * @example "代理A"
-   */
-  name: string;
-  /**
-   * 代理URL
-   * 支持 http/https/socks/socks5 协议。例如 http://127.0.0.1:8080
-   * @minLength 0
-   * @maxLength 2048
-   * @example "http://127.0.0.1:8080"
-   */
-  url: string;
-}
-
-export interface EnclosureImpl {
-  /**
-   * URL
-   * @minLength 0
-   * @maxLength 65000
-   * @example "http://bt.example.com"
-   */
-  url: string;
-  /**
-   * 媒体类型
-   * @minLength 0
-   * @maxLength 128
-   * @example "application/x-bittorrent"
-   */
-  type?: string;
-  /**
-   * 文件体积(B)
-   * @example 114514
-   */
-  length?: number;
-  /**
-   * 文件体积
-   * 单位为 B
-   * @example "114.51 MiB"
-   */
-  lengthFormat?: string;
-}
-
-export interface Article {
-  /**
-   * ID
-   * @example 1
-   */
-  id: number;
-  /**
-   * 创建时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  createdAt: Date;
-  /**
-   * 更新时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  updatedAt: Date;
-  /**
-   * 所属用户
-   * @example 1
-   */
-  userId: number;
-  /** 所属用户 */
-  user: User;
-  /**
-   * 全局索引
-   * @example "499d4cee"
-   */
-  guid: string;
-  /**
-   * 链接
-   * @minLength 0
-   * @maxLength 2048
-   * @example "https://blog.cmyr.ltd/archives/499d4cee.html"
-   */
-  link?: string;
-  /**
-   * 标题
-   * @minLength 0
-   * @maxLength 256
-   * @example "这是一个标题"
-   */
-  title?: string;
-  /**
-   * 正文
-   * @minLength 0
-   * @maxLength 1048576
-   * @example "这是一段正文"
-   */
-  content?: string;
-  /**
-   * 发布日期
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  pubDate?: Date;
-  /**
-   * 作者
-   * @minLength 0
-   * @maxLength 128
-   * @example "CaoMeiYouRen"
-   */
-  author?: string;
-  /**
-   * 摘要
-   * 纯文本格式，无 HTML
-   * @minLength 0
-   * @maxLength 65536
-   * @example "这是一段内容摘要"
-   */
-  contentSnippet?: string;
-  /**
-   * 总结
-   * @minLength 0
-   * @maxLength 1024
-   * @example "这是一段总结"
-   */
-  summary?: string;
-  /**
-   * AI 总结
-   * @minLength 0
-   * @maxLength 65536
-   * @example "这是一段 AI 总结"
-   */
-  aiSummary?: string;
-  /**
-   * 分类列表
-   * RSS 源定义的分类，和 本地RSS 的分组不是同一个
-   * @example ["tag1","tag2"]
-   */
-  categories?: string[];
-  /** 附件 */
-  enclosure?: EnclosureImpl;
-  /**
-   * 订阅源
-   * @example 1
-   */
-  feedId: number;
-  /** 订阅源 */
-  feed: Feed;
-  /** @format date-time */
-  publishDate?: Date;
-}
-
 export interface NotificationConfig {
   /**
    * 推送类型
@@ -845,7 +670,49 @@ export interface FilterOut {
   enclosureType?: string;
 }
 
-export interface Hook {
+export interface ProxyConfig {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 代理名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "代理A"
+   */
+  name: string;
+  /**
+   * 代理URL
+   * 支持 http/https/socks/socks5 协议。例如 http://127.0.0.1:8080
+   * @minLength 0
+   * @maxLength 2048
+   * @example "http://127.0.0.1:8080"
+   */
+  url: string;
+}
+
+export interface Category {
   /**
    * ID
    * @example 1
@@ -874,48 +741,154 @@ export interface Hook {
    * 名称
    * @minLength 0
    * @maxLength 256
-   * @example "Hook1"
+   * @example "分组A"
    */
   name: string;
   /**
-   * 类型
-   * @example "webhook"
+   * 简介
+   * @minLength 0
+   * @maxLength 2048
+   * @example "分组A"
    */
-  type: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary" | "regular";
+  description?: string;
   /**
-   * 配置
-   * @example {}
-   */
-  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig | RegularConfig;
-  /**
-   * 过滤条件
-   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
-   */
-  filter: Filter;
-  /**
-   * 排除条件
-   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
-   */
-  filterout: FilterOut;
-  /**
-   * 反转模式
-   * 如果服务可访问，则认为是故障
-   * @example false
-   */
-  isReversed: boolean;
-  /**
-   * 代理配置
-   * 选择不代理后保存即可禁用代理
-   * @example 1
-   */
-  proxyConfigId?: number;
-  /** 代理配置 */
-  proxyConfig?: ProxyConfig;
-  /**
-   * 订阅源列表
+   * 订阅链接
    * @example []
    */
   feeds: Feed[];
+}
+
+export interface EnclosureImpl {
+  /**
+   * URL
+   * @minLength 0
+   * @maxLength 65000
+   * @example "http://bt.example.com"
+   */
+  url: string;
+  /**
+   * 媒体类型
+   * @minLength 0
+   * @maxLength 128
+   * @example "application/x-bittorrent"
+   */
+  type?: string;
+  /**
+   * 文件体积(B)
+   * @example 114514
+   */
+  length?: number;
+  /**
+   * 文件体积
+   * 单位为 B
+   * @example "114.51 MiB"
+   */
+  lengthFormat?: string;
+}
+
+export interface Article {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 全局索引
+   * @example "499d4cee"
+   */
+  guid: string;
+  /**
+   * 链接
+   * @minLength 0
+   * @maxLength 2048
+   * @example "https://blog.cmyr.ltd/archives/499d4cee.html"
+   */
+  link?: string;
+  /**
+   * 标题
+   * @minLength 0
+   * @maxLength 256
+   * @example "这是一个标题"
+   */
+  title?: string;
+  /**
+   * 正文
+   * @minLength 0
+   * @maxLength 1048576
+   * @example "这是一段正文"
+   */
+  content?: string;
+  /**
+   * 发布日期
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  pubDate?: Date;
+  /**
+   * 作者
+   * @minLength 0
+   * @maxLength 128
+   * @example "CaoMeiYouRen"
+   */
+  author?: string;
+  /**
+   * 摘要
+   * 纯文本格式，无 HTML
+   * @minLength 0
+   * @maxLength 65536
+   * @example "这是一段内容摘要"
+   */
+  contentSnippet?: string;
+  /**
+   * 总结
+   * @minLength 0
+   * @maxLength 1024
+   * @example "这是一段总结"
+   */
+  summary?: string;
+  /**
+   * AI 总结
+   * @minLength 0
+   * @maxLength 65536
+   * @example "这是一段 AI 总结"
+   */
+  aiSummary?: string;
+  /**
+   * 分类列表
+   * RSS 源定义的分类，和 本地RSS 的分组不是同一个
+   * @example ["tag1","tag2"]
+   */
+  categories?: string[];
+  /** 附件 */
+  enclosure?: EnclosureImpl;
+  /**
+   * 订阅源
+   * @example 1
+   */
+  feedId: number;
+  /** 订阅源 */
+  feed: Feed;
+  /** @format date-time */
+  publishDate?: Date;
 }
 
 export interface Feed {
@@ -1019,7 +992,7 @@ export interface Feed {
   hooks: Hook[];
 }
 
-export interface Category {
+export interface Hook {
   /**
    * ID
    * @example 1
@@ -1048,18 +1021,45 @@ export interface Category {
    * 名称
    * @minLength 0
    * @maxLength 256
-   * @example "分组A"
+   * @example "Hook1"
    */
   name: string;
   /**
-   * 简介
-   * @minLength 0
-   * @maxLength 2048
-   * @example "分组A"
+   * 类型
+   * @example "webhook"
    */
-  description?: string;
+  type: "notification" | "webhook" | "download" | "bitTorrent" | "aiSummary" | "regular";
   /**
-   * 订阅链接
+   * 配置
+   * @example {}
+   */
+  config: NotificationConfig | WebhookConfig | DownloadConfig | BitTorrentConfig | AIConfig | RegularConfig;
+  /**
+   * 过滤条件
+   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
+   */
+  filter: Filter;
+  /**
+   * 排除条件
+   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
+   */
+  filterout: FilterOut;
+  /**
+   * 反转模式
+   * 如果服务可访问，则认为是故障
+   * @example false
+   */
+  isReversed: boolean;
+  /**
+   * 代理配置
+   * 选择不代理后保存即可禁用代理
+   * @example 1
+   */
+  proxyConfigId?: number;
+  /** 代理配置 */
+  proxyConfig?: ProxyConfig;
+  /**
+   * 订阅源列表
    * @example []
    */
   feeds: Feed[];
@@ -1294,13 +1294,6 @@ export interface FindFeed {
   currentPage: number;
 }
 
-export interface FindCategory {
-  data: Category[];
-  total: number;
-  lastPage: number;
-  currentPage: number;
-}
-
 export interface CreateCategory {
   /**
    * 所属用户
@@ -1362,6 +1355,13 @@ export interface UpdateCategory {
    * @example []
    */
   feeds?: Feed[];
+}
+
+export interface FindCategory {
+  data: Category[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
 }
 
 export interface FindArticle {
@@ -2326,7 +2326,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/feed/quickCreate/option
      */
     feedQuickCreateOption: (params: RequestParams = {}) =>
-      this.request<Feed, void>({
+      this.request<object, void>({
         path: `/api/feed/quickCreate/option`,
         method: "GET",
         format: "json",
@@ -2347,6 +2347,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         method: "POST",
         body: data,
         type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags feed
+     * @name FeedImportByOpmlOption
+     * @summary 快速添加订阅的配置项
+     * @request GET:/api/feed/import/option
+     */
+    feedImportByOpmlOption: (params: RequestParams = {}) =>
+      this.request<object, void>({
+        path: `/api/feed/import/option`,
+        method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -2508,14 +2524,16 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags category
-     * @name CategoryDicData
-     * @request GET:/api/category/dicData
+     * @name CategoryCreate
+     * @summary 创建记录
+     * @request POST:/api/category
      */
-    categoryDicData: (params: RequestParams = {}) =>
-      this.request<DicData[], void>({
-        path: `/api/category/dicData`,
-        method: "GET",
-        format: "json",
+    categoryCreate: (data: CreateCategory, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/category`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
         ...params,
       }),
 
@@ -2523,14 +2541,16 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags category
-     * @name CategoryConfig
-     * @summary 获取 config
-     * @request GET:/api/category/config
+     * @name CategoryUpdate
+     * @summary 更新记录
+     * @request PUT:/api/category
      */
-    categoryConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
-        path: `/api/category/config`,
-        method: "GET",
+    categoryUpdate: (data: UpdateCategory, params: RequestParams = {}) =>
+      this.request<Category, void>({
+        path: `/api/category`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
         format: "json",
         ...params,
       }),
@@ -2562,16 +2582,14 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags category
-     * @name CategoryCreate
-     * @summary 创建记录
-     * @request POST:/api/category
+     * @name CategoryDicData
+     * @request GET:/api/category/dicData
      */
-    categoryCreate: (data: CreateCategory, params: RequestParams = {}) =>
-      this.request<void, void>({
-        path: `/api/category`,
-        method: "POST",
-        body: data,
-        type: ContentType.Json,
+    categoryDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/category/dicData`,
+        method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -2579,16 +2597,14 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags category
-     * @name CategoryUpdate
-     * @summary 更新记录
-     * @request PUT:/api/category
+     * @name CategoryConfig
+     * @summary 获取 config
+     * @request GET:/api/category/config
      */
-    categoryUpdate: (data: UpdateCategory, params: RequestParams = {}) =>
-      this.request<Category, void>({
-        path: `/api/category`,
-        method: "PUT",
-        body: data,
-        type: ContentType.Json,
+    categoryConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, void>({
+        path: `/api/category/config`,
+        method: "GET",
         format: "json",
         ...params,
       }),

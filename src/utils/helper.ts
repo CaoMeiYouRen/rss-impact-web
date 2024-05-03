@@ -116,3 +116,11 @@ export function emptyToNull(obj: Record<string, unknown>, column: Field[]) {
     }))
 }
 
+/**
+ * 获取安全的文件名
+ * @param filename
+ */
+export function getSafeFileName(filename: string) {
+    const pattern = /[^\u4E00-\u9FA5A-Za-z0-9_-]/g
+    return filename.replace(pattern, '_')
+}
