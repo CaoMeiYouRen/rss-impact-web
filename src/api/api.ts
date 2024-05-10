@@ -2355,7 +2355,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      *
      * @tags feed
      * @name FeedImportByOpmlOption
-     * @summary 快速添加订阅的配置项
+     * @summary 导入 OPML 文件的配置项
      * @request GET:/api/feed/import/option
      */
     feedImportByOpmlOption: (params: RequestParams = {}) =>
