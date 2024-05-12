@@ -163,8 +163,8 @@ devDependencies:
     specifier: ^5.2.11
     version: 5.2.11(@types/node@20.12.3)(sass@1.77.1)
   vite-plugin-swagger-typescript-api:
-    specifier: ^1.0.0
-    version: 1.0.0(swagger-typescript-api@13.0.3)(vite@5.2.11)
+    specifier: ^1.0.1
+    version: 1.0.1(swagger-typescript-api@13.0.3)(vite@5.2.11)
   vite-tsconfig-paths:
     specifier: ^4.3.2
     version: 4.3.2(typescript@5.4.5)(vite@5.2.11)
@@ -9030,8 +9030,8 @@ packages:
       vfile-message: 3.1.4
     dev: true
 
-  /vite-plugin-swagger-typescript-api@1.0.0(swagger-typescript-api@13.0.3)(vite@5.2.11):
-    resolution: {integrity: sha512-Z+VQ6ZiRjwbynSdWSHTjZw33QFQ3K4wFkqYeVnTHeUWHMAb6AjtKRHeoK/yX58mUb9WfkMDbgknENn1OUfQryw==}
+  /vite-plugin-swagger-typescript-api@1.0.1(swagger-typescript-api@13.0.3)(vite@5.2.11):
+    resolution: {integrity: sha512-A3TgZsWEL/P1gXdSXHRf3o9L1i/fbJPi3f6C1n3UsgYPnEDAEG8oVG2ckTNv8ipwvGZlQuEaZ3To8mnujmGmXA==}
     engines: {node: '>=12'}
     peerDependencies:
       swagger-typescript-api: '>=9'
