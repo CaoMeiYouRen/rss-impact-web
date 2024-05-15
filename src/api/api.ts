@@ -987,6 +987,12 @@ export interface Feed {
   /** 代理配置 */
   proxyConfig?: ProxyConfig;
   /**
+   * 重试次数
+   * 至多重试几次。默认为 0，即不重试。
+   * @example 3
+   */
+  maxRetries?: number;
+  /**
    * 文章列表
    * @example []
    */
@@ -1193,6 +1199,12 @@ export interface CreateFeed {
   /** 代理配置 */
   proxyConfig?: ProxyConfig;
   /**
+   * 重试次数
+   * 至多重试几次。默认为 0，即不重试。
+   * @example 3
+   */
+  maxRetries?: number;
+  /**
    * 文章列表
    * @example []
    */
@@ -1281,6 +1293,12 @@ export interface UpdateFeed {
   proxyConfigId?: number;
   /** 代理配置 */
   proxyConfig?: ProxyConfig;
+  /**
+   * 重试次数
+   * 至多重试几次。默认为 0，即不重试。
+   * @example 3
+   */
+  maxRetries?: number;
   /**
    * 文章列表
    * @example []
@@ -1738,6 +1756,75 @@ export interface UpdateProxyConfig {
   url?: string;
 }
 
+export interface UpdateCustomQuery {
+  /**
+   * ID
+   * @example 1
+   */
+  id?: number;
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId?: number;
+  /** 所属用户 */
+  user?: User;
+  /**
+   * 名称
+   * @minLength 0
+   * @maxLength 256
+   * @example "查询A"
+   */
+  name?: string;
+  /**
+   * 查询范围
+   * 指定分组和指定订阅的配置互斥，只按照本项指定的范围查询
+   * @example "all"
+   */
+  scope?: "all" | "category" | "feed";
+  /**
+   * 指定分组
+   * 支持选择多个分类
+   * @example []
+   */
+  categories?: Category[];
+  /**
+   * 指定订阅
+   * 注意：订阅的查询是单选的
+   * @example 1
+   */
+  feedId?: number;
+  /** 订阅源 */
+  feed?: Feed;
+  /**
+   * 输出格式
+   * @example "rss2.0"
+   */
+  format?: "rss2.0" | "atom" | "json";
+  /**
+   * 使用 AI 总结
+   * 如果是，则用 AI 总结替换原本的总结
+   */
+  useAiSummary?: boolean;
+  /**
+   * 增加 AI 总结
+   * 如果是，则将 AI 总结 增加 到正文前，以方便通过 RSS 阅读器阅读
+   */
+  appendAiSummary?: boolean;
+  /** 输出路径 */
+  url?: string;
+  /**
+   * 过滤条件
+   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
+   */
+  filter?: Filter;
+  /**
+   * 排除条件
+   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
+   */
+  filterout?: FilterOut;
+}
+
 export interface CustomQuery {
   /**
    * ID
@@ -1896,75 +1983,6 @@ export interface CreateCustomQuery {
    * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
    */
   filterout: FilterOut;
-}
-
-export interface UpdateCustomQuery {
-  /**
-   * ID
-   * @example 1
-   */
-  id?: number;
-  /**
-   * 所属用户
-   * @example 1
-   */
-  userId?: number;
-  /** 所属用户 */
-  user?: User;
-  /**
-   * 名称
-   * @minLength 0
-   * @maxLength 256
-   * @example "查询A"
-   */
-  name?: string;
-  /**
-   * 查询范围
-   * 指定分组和指定订阅的配置互斥，只按照本项指定的范围查询
-   * @example "all"
-   */
-  scope?: "all" | "category" | "feed";
-  /**
-   * 指定分组
-   * 支持选择多个分类
-   * @example []
-   */
-  categories?: Category[];
-  /**
-   * 指定订阅
-   * 注意：订阅的查询是单选的
-   * @example 1
-   */
-  feedId?: number;
-  /** 订阅源 */
-  feed?: Feed;
-  /**
-   * 输出格式
-   * @example "rss2.0"
-   */
-  format?: "rss2.0" | "atom" | "json";
-  /**
-   * 使用 AI 总结
-   * 如果是，则用 AI 总结替换原本的总结
-   */
-  useAiSummary?: boolean;
-  /**
-   * 增加 AI 总结
-   * 如果是，则将 AI 总结 增加 到正文前，以方便通过 RSS 阅读器阅读
-   */
-  appendAiSummary?: boolean;
-  /** 输出路径 */
-  url?: string;
-  /**
-   * 过滤条件
-   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
-   */
-  filter?: Filter;
-  /**
-   * 排除条件
-   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
-   */
-  filterout?: FilterOut;
 }
 
 import type { AxiosInstance, AxiosRequestConfig, HeadersDefaults, ResponseType } from "axios";
@@ -3142,14 +3160,16 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags custom-query
-     * @name CustomQueryConfig
-     * @summary 获取 config
-     * @request GET:/api/custom-query/config
+     * @name CustomQueryUpdate
+     * @summary 更新 CustomQuery
+     * @request PUT:/api/custom-query
      */
-    customQueryConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, any>({
-        path: `/api/custom-query/config`,
-        method: "GET",
+    customQueryUpdate: (data: UpdateCustomQuery, params: RequestParams = {}) =>
+      this.request<CustomQuery, any>({
+        path: `/api/custom-query`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
         format: "json",
         ...params,
       }),
@@ -3199,16 +3219,14 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags custom-query
-     * @name CustomQueryUpdate
-     * @summary 更新记录
-     * @request PUT:/api/custom-query
+     * @name CustomQueryConfig
+     * @summary 获取 config
+     * @request GET:/api/custom-query/config
      */
-    customQueryUpdate: (data: UpdateCustomQuery, params: RequestParams = {}) =>
-      this.request<CustomQuery, any>({
-        path: `/api/custom-query`,
-        method: "PUT",
-        body: data,
-        type: ContentType.Json,
+    customQueryConfig: (params: RequestParams = {}) =>
+      this.request<AvueCrudConfigImpl, any>({
+        path: `/api/custom-query/config`,
+        method: "GET",
         format: "json",
         ...params,
       }),
