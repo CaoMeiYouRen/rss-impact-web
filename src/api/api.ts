@@ -341,6 +341,12 @@ export interface NotificationConfig {
    */
   isSnippet: boolean;
   /**
+   * 仅总结
+   * 如果有总结的话，只推送总结部分；否则从 摘要 中截取前 512 个字符
+   * @example false
+   */
+  onlySummary: boolean;
+  /**
    * 最大长度
    * 一次推送文本的最大长度。默认值为 4096
    * @example 4096
@@ -520,12 +526,12 @@ export interface AIConfig {
   minContentLength?: number;
   /**
    * 总结为空
-   * 仅在总结为空时启用 AI 总结
+   * 仅在总结为空时启用 AI 大模型
    */
   isOnlySummaryEmpty: boolean;
   /**
-   * 分段总结
-   * 如果正文的长度超过 最大 token 数，是否分段进行总结
+   * 分段提交
+   * 如果正文的长度超过 最大 token 数，是否分段提交给 AI 大模型。如果为否，则只提交不超过 最大 token 数 的内容
    */
   isSplit: boolean;
   /**
@@ -534,7 +540,7 @@ export interface AIConfig {
    */
   isIncludeTitle: boolean;
   /**
-   * 总结格式
+   * 输出格式
    * 如果为 纯文本，则使用 摘要 输出 纯文本总结；如果为 HTML，则使用正文输出 HTML 总结。正文长度也将分别计算。
    * @example "text"
    */

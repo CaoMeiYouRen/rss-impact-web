@@ -294,7 +294,16 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
             return true
         }).map(([key, value]) => {
             const column = option.value.column?.find((e) => e.prop === key)
-            if (column?.type === 'select' && !column?.multiple) { // 如果为单选则精确匹配
+            if (column?.type === 'select') { // 如果为单选则精确匹配
+                if (column?.multiple) {
+                    return [
+                        key,
+                        {
+                            $op: 'In',
+                            value,
+                        },
+                    ]
+                }
                 return [
                     key,
                     value,
