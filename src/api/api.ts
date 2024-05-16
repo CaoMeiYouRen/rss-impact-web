@@ -347,6 +347,16 @@ export interface NotificationConfig {
    */
   onlySummary: boolean;
   /**
+   * 使用 AI 总结
+   * 如果是，则用 AI 总结替换原本的总结
+   */
+  useAiSummary: boolean;
+  /**
+   * 增加 AI 总结
+   * 如果是，则将 AI 总结 增加 到正文前，以方便通过 RSS 阅读器阅读
+   */
+  appendAiSummary: boolean;
+  /**
    * 最大长度
    * 一次推送文本的最大长度。默认值为 4096
    * @example 4096
