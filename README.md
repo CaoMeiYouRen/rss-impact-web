@@ -12,7 +12,7 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
   <a href="https://github.com/CaoMeiYouRen/rss-impact-web/blob/master/LICENSE" target="_blank">
-    <img alt="License: AGPL--3.0" src="https://img.shields.io/github/license/CaoMeiYouRen/rss-impact-web?color=yellow" />
+    <img alt="License: AGPL-3.0" src="https://img.shields.io/github/license/CaoMeiYouRen/rss-impact-web?color=yellow" />
   </a>
 </p>
 > RSS + Hook = RSS Impact
@@ -99,7 +99,7 @@ npm run commit
 2. 额外条件请参考 [License](https://github.com/CaoMeiYouRen/rss-impact-server?tab=readme-ov-file#-license)
 
 Copyright © 2024 [CaoMeiYouRen](https://github.com/CaoMeiYouRen).<br />
-This project is [AGPL--3.0](https://github.com/CaoMeiYouRen/rss-impact-web/blob/master/LICENSE) licensed.
+This project is [AGPL-3.0](https://github.com/CaoMeiYouRen/rss-impact-web/blob/master/LICENSE) licensed.
 
 ***
 _This README was generated with ❤️ by [cmyr-template-cli](https://github.com/CaoMeiYouRen/cmyr-template-cli)_
