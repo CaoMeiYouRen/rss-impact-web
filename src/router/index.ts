@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteLocationNormalized, RouteRecordRaw, RouterOptions } from 'vue-router'
-import { HomeFilled, InfoFilled, UserFilled, Histogram, Grid } from '@element-plus/icons-vue'
+import { HomeFilled, InfoFilled, UserFilled, Histogram, Grid, Setting } from '@element-plus/icons-vue'
 import Layout from '@/layout/Layout.vue'
 import { Role } from '@/constant/role'
 
@@ -7,6 +7,7 @@ export type RouteConfig = RouteRecordRaw
 
 export type Route = RouteLocationNormalized
 // TODO 增加个人中心页面
+// TODO 增加系统信息页面
 export const constantRoutes: RouteConfig[] = [
     {
         path: '/404',
@@ -122,6 +123,21 @@ export const constantRoutes: RouteConfig[] = [
         ],
     },
     {
+        path: '/',
+        component: Layout,
+        children: [
+            {
+                path: 'personal',
+                name: 'Personal',
+                component: () => import('@/views/user/Personal.vue'),
+                meta: {
+                    title: '个人中心',
+                    icon: UserFilled,
+                },
+            },
+        ],
+    },
+    {
         path: '/about',
         component: Layout,
         children: [
@@ -160,6 +176,15 @@ export const asyncRoutes: RouteConfig[] = [
                 meta: {
                     title: '用户管理',
                     icon: UserFilled,
+                },
+            },
+            {
+                path: 'system',
+                name: 'System',
+                component: () => import('@/views/admin/System.vue'),
+                meta: {
+                    title: '系统管理',
+                    icon: Setting,
                 },
             },
         ],

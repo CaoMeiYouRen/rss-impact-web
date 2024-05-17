@@ -1995,6 +1995,27 @@ export interface CreateCustomQuery {
   filterout: FilterOut;
 }
 
+export interface DatabaseInfoDto {
+  /**
+   * 数据库类型
+   * 参考 typeorm 支持的数据库类型。
+   * @example "sqlite"
+   */
+  type: string;
+  /**
+   * 文件体积(B)
+   * 单位为 B
+   * @example 114514
+   */
+  size: number;
+  /**
+   * 文件体积(B)
+   * 单位为 B
+   * @example "114.51 MiB"
+   */
+  sizeFormat: string;
+}
+
 import type { AxiosInstance, AxiosRequestConfig, HeadersDefaults, ResponseType } from "axios";
 import axios from "axios";
 
@@ -3268,6 +3289,37 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       this.request<CustomQuery, any>({
         path: `/api/custom-query/${id}`,
         method: "DELETE",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags system
+     * @name SystemGetDatabaseInfoOption
+     * @summary 获取数据库信息
+     * @request GET:/api/system/getDatabaseInfo/option
+     */
+    systemGetDatabaseInfoOption: (params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/system/getDatabaseInfo/option`,
+        method: "GET",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags system
+     * @name SystemGetDatabaseInfo
+     * @summary 获取数据库信息
+     * @request GET:/api/system/getDatabaseInfo
+     */
+    systemGetDatabaseInfo: (params: RequestParams = {}) =>
+      this.request<DatabaseInfoDto, void>({
+        path: `/api/system/getDatabaseInfo`,
+        method: "GET",
         format: "json",
         ...params,
       }),
