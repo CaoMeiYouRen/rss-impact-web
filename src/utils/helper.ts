@@ -127,7 +127,7 @@ export function transformObjectByColumns<T extends object = Record<string, unkno
             value = value[0]
         }
         // 对于 支持nullable 的字段，如果为 空字符串，则设置为 null；
-        if (value === '' && column?.nullable) {
+        if (column?.nullable && (value === '' || value === 0)) {   // 解决 可选 id 的问题
             return [key, null]
         }
         return [key, value]
