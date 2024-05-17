@@ -1997,23 +1997,82 @@ export interface CreateCustomQuery {
 
 export interface DatabaseInfoDto {
   /**
-   * 数据库类型
+   * 类型
    * 参考 typeorm 支持的数据库类型。
    * @example "sqlite"
    */
   type: string;
   /**
-   * 文件体积(B)
+   * 体积(B)
    * 单位为 B
    * @example 114514
    */
   size: number;
   /**
-   * 文件体积(B)
+   * 体积(B)
    * 单位为 B
    * @example "114.51 MiB"
    */
   sizeFormat: string;
+  /**
+   * 实体类数量
+   * typeorm 的实体类数量，即 SQL 表数量
+   * @example 10
+   */
+  entitiesLength: number;
+}
+
+export interface OsInfoDto {
+  /**
+   * Node.js 版本
+   * @example ""
+   */
+  nodeVersion: string;
+  /**
+   * 主机名
+   * @example ""
+   */
+  hostname: string;
+  /**
+   * 操作系统类型
+   * @example ""
+   */
+  type: string;
+  /**
+   * 操作系统平台
+   * @example ""
+   */
+  platform: string;
+  /**
+   * 系统架构
+   * @example ""
+   */
+  arch: string;
+  /**
+   * 系统版本
+   * @example ""
+   */
+  release: string;
+  /**
+   * 总内存
+   * @example ""
+   */
+  totalmem: string;
+  /**
+   * 可用内存
+   * @example ""
+   */
+  freemem: string;
+  /**
+   * CPU 内核数
+   * @example ""
+   */
+  cpuNum: number;
+  /**
+   * 运行时间
+   * @example ""
+   */
+  uptime: string;
 }
 
 import type { AxiosInstance, AxiosRequestConfig, HeadersDefaults, ResponseType } from "axios";
@@ -3298,7 +3357,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      *
      * @tags system
      * @name SystemGetDatabaseInfoOption
-     * @summary 获取数据库信息
+     * @summary 获取数据库信息 option
      * @request GET:/api/system/getDatabaseInfo/option
      */
     systemGetDatabaseInfoOption: (params: RequestParams = {}) =>
@@ -3319,6 +3378,37 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     systemGetDatabaseInfo: (params: RequestParams = {}) =>
       this.request<DatabaseInfoDto, void>({
         path: `/api/system/getDatabaseInfo`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags system
+     * @name SystemGetOsInfoOption
+     * @summary 获取系统信息 option
+     * @request GET:/api/system/getOsInfo/option
+     */
+    systemGetOsInfoOption: (params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/system/getOsInfo/option`,
+        method: "GET",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags system
+     * @name SystemGetOsInfo
+     * @summary 获取系统信息
+     * @request GET:/api/system/getOsInfo
+     */
+    systemGetOsInfo: (params: RequestParams = {}) =>
+      this.request<OsInfoDto, void>({
+        path: `/api/system/getOsInfo`,
         method: "GET",
         format: "json",
         ...params,
