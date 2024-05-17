@@ -108,12 +108,30 @@ export function emptyToNull(obj: Record<string, unknown>, column: Field[]) {
         if (typeof value === 'boolean') {
             return [key, value]
         }
-        // 对于 nullable 的字段，如果为 空，则设置为 null；
+        // 对于 支持nullable 的字段，如果为 空，则设置为 null；
         if (!value && column.find((e) => e.prop === key)?.nullable) {
             return [key, null]
         }
         return [key, value]
     }))
+}
+
+export function transformObjectByColumns<T extends object = Record<string, unknown>>(obj: T, columns: Field[]) {
+    return Object.fromEntries(Object.entries(obj).map(([key, value]) => {
+        // 除了 boolean 类型的字段
+        if (typeof value === 'boolean') {
+            return [key, value]
+        }
+        const column = columns.find((e) => e.prop === key)
+        if (['url', 'img'].includes(column?.type || '') && column?.alone && Array.isArray(value)) { // 解决 url/img 的问题
+            value = value[0]
+        }
+        // 对于 支持nullable 的字段，如果为 空字符串，则设置为 null；
+        if (value === '' && column?.nullable) {
+            return [key, null]
+        }
+        return [key, value]
+    })) as T
 }
 
 /**
