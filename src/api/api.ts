@@ -998,7 +998,7 @@ export interface Feed {
   proxyConfig?: ProxyConfig;
   /**
    * 重试次数
-   * 至多重试几次。默认为 0，即不重试。
+   * 至多重试几次。默认为 0，即不重试。重试次数至多不超过 20
    * @example 3
    */
   maxRetries?: number;
@@ -1210,7 +1210,7 @@ export interface CreateFeed {
   proxyConfig?: ProxyConfig;
   /**
    * 重试次数
-   * 至多重试几次。默认为 0，即不重试。
+   * 至多重试几次。默认为 0，即不重试。重试次数至多不超过 20
    * @example 3
    */
   maxRetries?: number;
@@ -1305,7 +1305,7 @@ export interface UpdateFeed {
   proxyConfig?: ProxyConfig;
   /**
    * 重试次数
-   * 至多重试几次。默认为 0，即不重试。
+   * 至多重试几次。默认为 0，即不重试。重试次数至多不超过 20
    * @example 3
    */
   maxRetries?: number;
@@ -3175,12 +3175,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request PUT:/api/custom-query
      */
     customQueryUpdate: (data: UpdateCustomQuery, params: RequestParams = {}) =>
-      this.request<CustomQuery, any>({
+      this.request<void, void>({
         path: `/api/custom-query`,
         method: "PUT",
         body: data,
         type: ContentType.Json,
-        format: "json",
         ...params,
       }),
 

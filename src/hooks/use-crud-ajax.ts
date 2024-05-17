@@ -108,7 +108,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
         if (!e.type) {
             return false
         }
-        if (['array', 'img', 'password'].includes(e.type)) {
+        if (['array', 'img', 'url', 'password'].includes(e.type)) {
             return true
         }
         if (e.type === 'select' && e.multiple) {
