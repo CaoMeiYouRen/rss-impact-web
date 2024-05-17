@@ -347,7 +347,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
                             // $op: 'In',
                             // value,
                             $op: 'ILike', // 模糊查询
-                            value: `%${JSON.stringify(value).replaceAll('%', '\\%')}%`, // 模糊查询
+                            value: `%${value.map((e) => e.replaceAll('%', '\\%')).join('%')}%`, // 模糊查询
                         },
                     ]
                 }
