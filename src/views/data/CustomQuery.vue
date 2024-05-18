@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import { CustomQuery } from '@/api/api'
 import { useIdTransformer } from '@/hooks/use-id-transformer'
-const { postGet, preSave } = useIdTransformer(['categories'])
+const { postGet, preSave } = useIdTransformer(['categories', 'feeds'])
 
 const customPreSave = (data: CustomQuery) => {
     data = preSave(data)
