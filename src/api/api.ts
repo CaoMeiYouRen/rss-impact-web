@@ -903,8 +903,6 @@ export interface Article {
   feedId: number;
   /** 订阅源 */
   feed: Feed;
-  /** @format date-time */
-  publishDate?: Date;
 }
 
 export interface Feed {
@@ -1807,6 +1805,12 @@ export interface UpdateCustomQuery {
   /** 订阅源 */
   feed?: Feed;
   /**
+   * 指定订阅
+   * 支持选择多个订阅
+   * @example []
+   */
+  feeds?: Feed[];
+  /**
    * 输出格式
    * @example "rss2.0"
    */
@@ -1888,6 +1892,12 @@ export interface CustomQuery {
   /** 订阅源 */
   feed?: Feed;
   /**
+   * 指定订阅
+   * 支持选择多个订阅
+   * @example []
+   */
+  feeds?: Feed[];
+  /**
    * 输出格式
    * @example "rss2.0"
    */
@@ -1966,6 +1976,12 @@ export interface CreateCustomQuery {
   feedId?: number;
   /** 订阅源 */
   feed?: Feed;
+  /**
+   * 指定订阅
+   * 支持选择多个订阅
+   * @example []
+   */
+  feeds?: Feed[];
   /**
    * 输出格式
    * @example "rss2.0"
