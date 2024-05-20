@@ -21,13 +21,13 @@ dependencies:
     version: 10.9.0(vue@3.4.27)
   '@vueuse/integrations':
     specifier: ^10.9.0
-    version: 10.9.0(axios@1.7.0)(nprogress@0.2.0)(universal-cookie@7.1.4)(vue@3.4.27)
+    version: 10.9.0(axios@1.7.1)(nprogress@0.2.0)(universal-cookie@7.1.4)(vue@3.4.27)
   animate.css:
     specifier: ^4.1.1
     version: 4.1.1
   axios:
-    specifier: ^1.7.0
-    version: 1.7.0
+    specifier: ^1.7.1
+    version: 1.7.1
   dayjs:
     specifier: ^1.11.11
     version: 1.11.11
@@ -1826,7 +1826,7 @@ packages:
       - vue
     dev: false
 
-  /@vueuse/integrations@10.9.0(axios@1.7.0)(nprogress@0.2.0)(universal-cookie@7.1.4)(vue@3.4.27):
+  /@vueuse/integrations@10.9.0(axios@1.7.1)(nprogress@0.2.0)(universal-cookie@7.1.4)(vue@3.4.27):
     resolution: {integrity: sha512-acK+A01AYdWSvL4BZmCoJAcyHJ6EqhmkQEXbQLwev1MY7NBnS+hcEMx/BzVoR9zKI+UqEPMD9u6PsyAuiTRT4Q==}
     peerDependencies:
       async-validator: '*'
@@ -1869,7 +1869,7 @@ packages:
     dependencies:
       '@vueuse/core': 10.9.0(vue@3.4.27)
       '@vueuse/shared': 10.9.0(vue@3.4.27)
-      axios: 1.7.0
+      axios: 1.7.1
       nprogress: 0.2.0
       universal-cookie: 7.1.4
       vue-demi: 0.14.7(vue@3.4.27)
@@ -2224,8 +2224,8 @@ packages:
       possible-typed-array-names: 1.0.0
     dev: true
 
-  /axios@1.7.0:
-    resolution: {integrity: sha512-IiB0wQeKyPRdsFVhBgIo31FbzOyf2M6wYl7/NVutFwFBRMiAbjNiydJIHKeLmPugF4kJLfA1uWZ82Is2QzqqFA==}
+  /axios@1.7.1:
+    resolution: {integrity: sha512-+LV37nQcd1EpFalkXksWNBiA17NZ5m5/WspmHGmZmdx1qBOg/VNq/c4eRJiA9VQQHBOs+N0ZhhdU10h2TyNK7Q==}
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
