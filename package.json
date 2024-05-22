@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@smallwei/avue": "^3.4.2",
+    "@smallwei/avue": "^3.4.3",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
     "animate.css": "^4.1.1",
