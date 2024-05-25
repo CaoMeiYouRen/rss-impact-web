@@ -2085,7 +2085,12 @@ export interface OsInfoDto {
    */
   cpuNum: number;
   /**
-   * 运行时间
+   * 系统运行时间
+   * @example ""
+   */
+  osUptime: string;
+  /**
+   * 进程运行时间
    * @example ""
    */
   uptime: string;
