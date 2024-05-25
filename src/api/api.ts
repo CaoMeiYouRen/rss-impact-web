@@ -469,6 +469,12 @@ export interface BitTorrentConfig {
    * @example 114514
    */
   maxSize?: number;
+  /**
+   * 磁盘最小空间(B)
+   * 保留磁盘空间的最小值，小于这个值是将不会下载资源。单位为 B (字节)。设置为 0 禁用
+   * @example 114514
+   */
+  minDiskSize?: number;
 }
 
 export interface AIConfig {
@@ -634,10 +640,10 @@ export interface Filter {
   enclosureType?: string;
   /**
    * 过滤附件体积(B)
-   * 单位为 B。设置为 0 禁用。
-   * @example 114514
+   * 单位为 B，支持带单位，例如：1 GiB。设置为 空 禁用
+   * @example "1 GiB"
    */
-  enclosureLength?: number;
+  enclosureLength?: string;
 }
 
 export interface FilterOut {
