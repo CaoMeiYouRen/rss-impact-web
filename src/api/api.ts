@@ -465,16 +465,16 @@ export interface BitTorrentConfig {
   downloadPath?: string;
   /**
    * 最大体积(B)
-   * 过滤资源体积，超过体积的资源不会下载。单位为 B (字节)。设置为 0 禁用
-   * @example 114514
+   * 过滤资源体积，超过体积的资源不会下载。单位为 B (字节)。支持带单位，例如：1 GiB。设置为空禁用
+   * @example "1 GiB"
    */
-  maxSize?: number;
+  maxSize?: string;
   /**
    * 磁盘最小空间(B)
-   * 保留磁盘空间的最小值，小于这个值是将不会下载资源。单位为 B (字节)。设置为 0 禁用
-   * @example 114514
+   * 保留磁盘空间的最小值，小于这个值是将不会下载资源。单位为 B (字节)。支持带单位，例如：1 GiB。设置为空禁用
+   * @example "1 GiB"
    */
-  minDiskSize?: number;
+  minDiskSize?: string;
 }
 
 export interface AIConfig {
@@ -640,7 +640,7 @@ export interface Filter {
   enclosureType?: string;
   /**
    * 过滤附件体积(B)
-   * 单位为 B，支持带单位，例如：1 GiB。设置为 空 禁用
+   * 单位为 B(字节)。支持带单位，例如：1 GiB。设置为空禁用
    * @example "1 GiB"
    */
   enclosureLength?: string;

@@ -95,28 +95,16 @@ export function isNullOrUndefined(value: unknown) {
 }
 
 /**
- * 将 obj 中的支持 nullable 的字段 替换为 null
+ * 基于 columns 转换 object
  *
  * @author CaoMeiYouRen
- * @date 2024-04-26
+ * @date 2024-05-26
+ * @export
+ * @template T
  * @param obj
- * @param column
+ * @param columns
  */
-export function emptyToNull(obj: Record<string, unknown>, column: Field[]) {
-    return Object.fromEntries(Object.entries(obj).map(([key, value]) => {
-        // 除了 boolean 类型的字段
-        if (typeof value === 'boolean') {
-            return [key, value]
-        }
-        // 对于 支持nullable 的字段，如果为 空，则设置为 null；
-        if (!value && column.find((e) => e.prop === key)?.nullable) {
-            return [key, null]
-        }
-        return [key, value]
-    }))
-}
-
-export function transformObjectByColumns<T extends object = Record<string, unknown>>(obj: T, columns: Field[]) {
+export function transformObjectByColumns<T extends object = Record<string, unknown>>(obj: T, columns: Field[]): T {
     return Object.fromEntries(Object.entries(obj).map(([key, value]) => {
         // 除了 boolean 类型的字段
         if (typeof value === 'boolean') {
@@ -125,15 +113,18 @@ export function transformObjectByColumns<T extends object = Record<string, unkno
         const column = columns.find((e) => e.prop === key)
         if (['url', 'img'].includes(column?.type || '') && column?.alone && Array.isArray(value)) { // 解决 url/img 的问题
             value = value[0]
+            return [key, value]
         }
         // 对于 支持nullable 的字段，如果为 空字符串，则设置为 null；
         if (column?.nullable && (value === '' || value === 0)) {   // 解决 可选 id 的问题
             return [key, null]
         }
+        if (typeof value === 'object' && value !== null && column?.params?.option?.column) { // 如果 value 是 object ，则递归
+            return [key, transformObjectByColumns(value as any, column?.params?.option?.column)]
+        }
         return [key, value]
     })) as T
 }
-
 /**
  * 获取安全的文件名
  * @param filename
