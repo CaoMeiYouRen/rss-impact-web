@@ -603,6 +603,13 @@ export interface Filter {
    */
   title?: string;
   /**
+   * 过滤正文
+   * @minLength 0
+   * @maxLength 2048
+   * @example "正文1|正文2"
+   */
+  content?: string;
+  /**
    * 过滤总结
    * @minLength 0
    * @maxLength 1024
@@ -613,7 +620,7 @@ export interface Filter {
    * 过滤作者
    * @minLength 0
    * @maxLength 128
-   * @example "CaoMeiYouRen"
+   * @example "author1|author2"
    */
   author?: string;
   /**
@@ -635,7 +642,7 @@ export interface Filter {
    * 过滤附件类型
    * @minLength 0
    * @maxLength 128
-   * @example "url1|url2"
+   * @example "type1|type2"
    */
   enclosureType?: string;
   /**
@@ -655,6 +662,13 @@ export interface FilterOut {
    */
   title?: string;
   /**
+   * 排除正文
+   * @minLength 0
+   * @maxLength 2048
+   * @example "正文1|正文2"
+   */
+  content?: string;
+  /**
    * 排除总结
    * @minLength 0
    * @maxLength 1024
@@ -665,7 +679,7 @@ export interface FilterOut {
    * 排除作者
    * @minLength 0
    * @maxLength 128
-   * @example "CaoMeiYouRen"
+   * @example "author1|author2"
    */
   author?: string;
   /**
@@ -687,7 +701,7 @@ export interface FilterOut {
    * 排除附件类型
    * @minLength 0
    * @maxLength 128
-   * @example "url1|url2"
+   * @example "type1|type2"
    */
   enclosureType?: string;
 }
