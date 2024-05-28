@@ -131,15 +131,30 @@ const getOption = async () => {
     }
 }
 
-const initForm = () => {
+const initForm = async () => {
     if (formOption.value) {
         formOption.value.disabled = disabled.value
+        // 过滤 hide
+        formOption.value.column = formOption.value.column?.filter((col) => !col.hide)
         // 初始化默认值
         formOption.value.column?.forEach((col) => {
             if (!isNullOrUndefined(col.value) && col.prop && isNullOrUndefined(form.value[col.prop])) {
                 form.value[col.prop] = col.value
             }
         })
+        // 如果是 get ，则获取数据
+        if (method.value?.toUpperCase() === 'GET' && url?.value) {
+            const _url = url?.value
+            const response = await ajax<Form>({
+                url: _url,
+                method: 'GET',
+            })
+            if (!response) {
+                Message.error('获取表单内容失败')
+                return
+            }
+            form.value = response
+        }
     }
 }
 

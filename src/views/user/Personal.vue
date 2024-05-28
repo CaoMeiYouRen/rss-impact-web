@@ -1,6 +1,17 @@
 <template>
     <div>
-        <p>Hello Personal.vue</p>
+        <el-row :gutter="20">
+            <el-col
+                :sm="24"
+                :md="12"
+                :lg="8"
+            >
+                <CrudForm
+                    method="GET"
+                    url="/user/me"
+                />
+            </el-col>
+        </el-row>
     </div>
 </template>
 
