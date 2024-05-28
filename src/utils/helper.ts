@@ -113,7 +113,6 @@ export function transformObjectByColumns<T extends object = Record<string, unkno
         const column = columns.find((e) => e.prop === key)
         if (['url', 'img'].includes(column?.type || '') && column?.alone && Array.isArray(value)) { // 解决 url/img 的问题
             value = value[0]
-            return [key, value]
         }
         // 对于 支持nullable 的字段，如果为 空字符串，则设置为 null；
         if (column?.nullable && (value === '' || value === 0)) {   // 解决 可选 id 的问题
