@@ -129,8 +129,8 @@ export interface Option {
   width?: number;
 }
 
-export interface AvueCrudConfigImpl {
-  option: Option;
+export interface Config {
+  option?: Option;
 }
 
 export interface User {
@@ -2295,7 +2295,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/user/config
      */
     userConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<Config, void>({
         path: `/api/user/config`,
         method: "GET",
         format: "json",
@@ -2353,6 +2353,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         method: "PUT",
         body: data,
         type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags user
+     * @name UserMeOption
+     * @summary 获取个人信息 option
+     * @request GET:/api/user/me/option
+     */
+    userMeOption: (params: RequestParams = {}) =>
+      this.request<Option, void>({
+        path: `/api/user/me/option`,
+        method: "GET",
         format: "json",
         ...params,
       }),
@@ -2481,7 +2497,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/feed/quickCreate/option
      */
     feedQuickCreateOption: (params: RequestParams = {}) =>
-      this.request<object, void>({
+      this.request<Option, void>({
         path: `/api/feed/quickCreate/option`,
         method: "GET",
         format: "json",
@@ -2514,7 +2530,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/feed/import/option
      */
     feedImportByOpmlOption: (params: RequestParams = {}) =>
-      this.request<object, void>({
+      this.request<Option, void>({
         path: `/api/feed/import/option`,
         method: "GET",
         format: "json",
@@ -2668,7 +2684,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/feed/config
      */
     feedConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<Config, void>({
         path: `/api/feed/config`,
         method: "GET",
         format: "json",
@@ -2757,7 +2773,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/category/config
      */
     categoryConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<Config, void>({
         path: `/api/category/config`,
         method: "GET",
         format: "json",
@@ -2805,7 +2821,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/article/config
      */
     articleConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<Config, void>({
         path: `/api/article/config`,
         method: "GET",
         format: "json",
@@ -2891,7 +2907,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/hook/config
      */
     hookConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<Config, void>({
         path: `/api/hook/config`,
         method: "GET",
         format: "json",
@@ -3043,7 +3059,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/resource/config
      */
     resourceConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<Config, void>({
         path: `/api/resource/config`,
         method: "GET",
         format: "json",
@@ -3082,7 +3098,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/webhook-log/config
      */
     webhookLogConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<Config, void>({
         path: `/api/webhook-log/config`,
         method: "GET",
         format: "json",
@@ -3168,7 +3184,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/proxy-config/config
      */
     proxyConfigConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, void>({
+      this.request<Config, void>({
         path: `/api/proxy-config/config`,
         method: "GET",
         format: "json",
@@ -3354,7 +3370,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/custom-query/config
      */
     customQueryConfig: (params: RequestParams = {}) =>
-      this.request<AvueCrudConfigImpl, any>({
+      this.request<Config, any>({
         path: `/api/custom-query/config`,
         method: "GET",
         format: "json",
@@ -3402,9 +3418,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/system/getDatabaseInfo/option
      */
     systemGetDatabaseInfoOption: (params: RequestParams = {}) =>
-      this.request<void, void>({
+      this.request<Option, void>({
         path: `/api/system/getDatabaseInfo/option`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -3433,9 +3450,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/api/system/getOsInfo/option
      */
     systemGetOsInfoOption: (params: RequestParams = {}) =>
-      this.request<void, void>({
+      this.request<Option, void>({
         path: `/api/system/getOsInfo/option`,
         method: "GET",
+        format: "json",
         ...params,
       }),
 

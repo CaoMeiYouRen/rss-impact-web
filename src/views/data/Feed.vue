@@ -63,7 +63,7 @@ const crudListDom = shallowRef<InstanceType<typeof CrudList> | null>(null)
 const activeNames = ref(['1'])
 
 const onSuccess = async () => {
-    ElMessage.success('添加成功！！')
+    ElMessage.success('添加成功！')
     await crudListDom.value?.updateDic()
     await crudListDom.value?.refreshChange()
 
@@ -74,7 +74,7 @@ const onReset = async () => {
 }
 
 const onImportSuccess = async () => {
-    ElMessage.success('添加成功！！')
+    ElMessage.success('添加成功！')
     await crudListDom.value?.updateDic()
     await crudListDom.value?.refreshChange()
 
@@ -95,7 +95,7 @@ const download = async () => {
 watch(
     () => route.path,
     async () => {
-        if (route.path.includes('/feed')) {
+        if (route.path.includes('/subscribe')) {
             await crudFormDom.value?.updateDic()  // 显示当前页面时刷新字典，解决新增用户等字典未更新问题
         }
     },
