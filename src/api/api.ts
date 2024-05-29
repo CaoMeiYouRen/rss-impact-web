@@ -192,6 +192,28 @@ export interface FindUser {
   currentPage: number;
 }
 
+export interface UpdateMe {
+  /**
+   * ID
+   * @example 1
+   */
+  id?: number;
+  /**
+   * 用户名
+   * @minLength 0
+   * @maxLength 128
+   * @example "admin"
+   */
+  username?: string;
+  /**
+   * 邮箱
+   * @minLength 0
+   * @maxLength 128
+   * @example "admin@example.com"
+   */
+  email?: string;
+}
+
 export interface CreateUser {
   /**
    * 用户名
@@ -2386,6 +2408,23 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/api/user/me`,
         method: "GET",
         format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags user
+     * @name UserUpdateMe
+     * @summary 更新个人信息
+     * @request POST:/api/user/me
+     */
+    userUpdateMe: (data: UpdateMe, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/user/me`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
         ...params,
       }),
 
