@@ -14,8 +14,8 @@ dependencies:
     specifier: ^2.3.1
     version: 2.3.1(vue@3.4.27)
   '@smallwei/avue':
-    specifier: ^3.4.3
-    version: 3.4.3(element-plus@2.7.4)(vue@3.4.27)
+    specifier: ^3.4.4
+    version: 3.4.4(element-plus@2.7.4)(vue@3.4.27)
   '@vueuse/core':
     specifier: ^10.10.0
     version: 10.10.0(vue@3.4.27)
@@ -1247,8 +1247,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /@smallwei/avue@3.4.3(element-plus@2.7.4)(vue@3.4.27):
-    resolution: {integrity: sha512-CgiS4SSnwNQhIQpFY80t3GjLH3687DYGlz7Ge8KyeDqVwZ5PqQ1Mh1FMAGpEScCf6T/yw8jUcAX4tOuamyCBzg==}
+  /@smallwei/avue@3.4.4(element-plus@2.7.4)(vue@3.4.27):
+    resolution: {integrity: sha512-z39S+veE5YHgKpE9bateFqAD6GX79yLTpYonL6GaCAejBlfripkNnZaOmVhdKxb7dsC8ilmEmSG0WQxn1quHKQ==}
     peerDependencies:
       element-plus: '>=2.2.0'
       vue: '>=3.2.0'
