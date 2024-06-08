@@ -37,6 +37,7 @@ jobs:
           restore-keys: pnpm-${{ runner.os }}
       - run: pnpm i --frozen-lockfile
       - run: pnpm run lint
+      - run: pnpm run lint:css
       - run: pnpm run build
       # - env:
       #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

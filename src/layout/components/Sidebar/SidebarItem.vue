@@ -138,6 +138,7 @@ export default defineComponent({
         a {
             text-decoration: none !important; /* 移除下划线 */
         }
+
         .nest-menu .el-sub-menu > .el-sub-menu__title,
         .el-sub-menu .el-menu-item {
             min-width: $sideBarWidth !important;
@@ -145,7 +146,6 @@ export default defineComponent({
 
             &:hover {
                 background-color: $subMenuHover !important;
-
             }
         }
     }
@@ -191,6 +191,7 @@ export default defineComponent({
 
     i[class^="iconfont"] {
         width: 24px;
+
         // margin-right: 16px;
         margin-left: 4px;
         text-align: center;

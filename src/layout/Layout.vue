@@ -24,7 +24,6 @@ const classObj = computed(() => ({
 </script>
 
 <style lang="scss" scoped>
-
 .app-wrapper {
     @include clearfix;
 
@@ -105,4 +104,3 @@ const classObj = computed(() => ({
     }
 }
 </style>
-@/store/modules/app
