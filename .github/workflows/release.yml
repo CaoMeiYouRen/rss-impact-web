@@ -7,6 +7,9 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -36,5 +39,5 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run build
       # - env:
-      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #   run: pnpm run release
