@@ -21,7 +21,7 @@
     "animate.css": "^4.1.1",
     "axios": "^1.7.2",
     "dayjs": "^1.11.11",
-    "element-plus": "^2.7.4",
+    "element-plus": "^2.7.5",
     "file-saver": "^2.0.5",
     "lodash-es": "^4.17.21",
     "normalize.css": "^8.0.1",
