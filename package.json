@@ -111,7 +111,8 @@
     "overrides": {
       "compare-func": "2.0.0",
       "postcss": "^8.4.31",
-      "yargs-parser": "^21.1.1"
+      "yargs-parser": "^21.1.1",
+      "braces": "^3.0.3"
     }
   }
 }
