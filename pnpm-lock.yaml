@@ -137,8 +137,8 @@ devDependencies:
     specifier: ^4.0.9
     version: 4.0.9(postcss@8.4.38)
   sass:
-    specifier: ^1.77.4
-    version: 1.77.4
+    specifier: ^1.77.5
+    version: 1.77.5
   semantic-release:
     specifier: 21.0.1
     version: 21.0.1(typescript@5.4.5)
@@ -168,7 +168,7 @@ devDependencies:
     version: 5.4.5
   vite:
     specifier: ^5.2.13
-    version: 5.2.13(@types/node@20.12.12)(sass@1.77.4)
+    version: 5.2.13(@types/node@20.12.12)(sass@1.77.5)
   vite-plugin-swagger-typescript-api:
     specifier: ^1.0.1
     version: 1.0.1(swagger-typescript-api@13.0.3)(vite@5.2.13)
@@ -1564,7 +1564,7 @@ packages:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.2.13(@types/node@20.12.12)(sass@1.77.4)
+      vite: 5.2.13(@types/node@20.12.12)(sass@1.77.5)
       vue: 3.4.27(typescript@5.4.5)
     dev: true
 
@@ -7522,8 +7522,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass@1.77.4:
-    resolution: {integrity: sha512-vcF3Ckow6g939GMA4PeU7b2K/9FALXk2KF9J87txdHzXbUF9XRQRwSxcAs/fGaTnJeBFd7UoV22j3lzMLdM0Pw==}
+  /sass@1.77.5:
+    resolution: {integrity: sha512-oDfX1mukIlxacPdQqNb6mV2tVCrnE+P3nVYioy72V5tlk56CPNcO4TCuFcaCRKKfJ1M3lH95CleRS+dVKL2qMg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -8910,7 +8910,7 @@ packages:
       vite: '>=2'
     dependencies:
       swagger-typescript-api: 13.0.3
-      vite: 5.2.13(@types/node@20.12.12)(sass@1.77.4)
+      vite: 5.2.13(@types/node@20.12.12)(sass@1.77.5)
     dev: true
 
   /vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.2.13):
@@ -8924,13 +8924,13 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 3.0.3(typescript@5.4.5)
-      vite: 5.2.13(@types/node@20.12.12)(sass@1.77.4)
+      vite: 5.2.13(@types/node@20.12.12)(sass@1.77.5)
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /vite@5.2.13(@types/node@20.12.12)(sass@1.77.4):
+  /vite@5.2.13(@types/node@20.12.12)(sass@1.77.5):
     resolution: {integrity: sha512-SSq1noJfY9pR3I1TUENL3rQYDQCFqgD+lM6fTRAM8Nv6Lsg5hDLaXkjETVeBt+7vZBCMoibD+6IWnT2mJ+Zb/A==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -8962,7 +8962,7 @@ packages:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.18.0
-      sass: 1.77.4
+      sass: 1.77.5
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
