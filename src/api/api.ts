@@ -2935,6 +2935,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags article
+     * @name ArticleTypeDicData
+     * @request GET:/api/article/typeDicData
+     */
+    articleTypeDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/article/typeDicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags article
      * @name ArticleConfig
      * @summary 获取 config
      * @request GET:/api/article/config
