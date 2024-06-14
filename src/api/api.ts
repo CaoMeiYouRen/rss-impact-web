@@ -2121,10 +2121,22 @@ export interface DatabaseInfoDto {
   sizeFormat: string;
   /**
    * 实体类数量
-   * typeorm 的实体类数量，即 SQL 表数量
+   * typeorm 的实体类数量
    * @example 10
    */
   entitiesLength: number;
+  /**
+   * 表格数量
+   * SQL 表数量
+   * @example 10
+   */
+  tableCount: number;
+  /**
+   * 索引数量
+   * SQL 索引数量
+   * @example 10
+   */
+  indexCount: number;
 }
 
 export interface OsInfoDto {
