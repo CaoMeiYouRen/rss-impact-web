@@ -658,7 +658,7 @@ export interface Filter {
   /**
    * 过滤作者
    * @minLength 0
-   * @maxLength 128
+   * @maxLength 256
    * @example "author1|author2"
    */
   author?: string;
@@ -673,14 +673,14 @@ export interface Filter {
   /**
    * 过滤附件URL
    * @minLength 0
-   * @maxLength 1024
+   * @maxLength 2048
    * @example "url1|url2"
    */
   enclosureUrl?: string;
   /**
    * 过滤附件类型
    * @minLength 0
-   * @maxLength 128
+   * @maxLength 256
    * @example "type1|type2"
    */
   enclosureType?: string;
@@ -717,7 +717,7 @@ export interface FilterOut {
   /**
    * 排除作者
    * @minLength 0
-   * @maxLength 128
+   * @maxLength 256
    * @example "author1|author2"
    */
   author?: string;
@@ -732,14 +732,14 @@ export interface FilterOut {
   /**
    * 排除附件URL
    * @minLength 0
-   * @maxLength 1024
+   * @maxLength 2048
    * @example "url1|url2"
    */
   enclosureUrl?: string;
   /**
    * 排除附件类型
    * @minLength 0
-   * @maxLength 128
+   * @maxLength 256
    * @example "type1|type2"
    */
   enclosureType?: string;
@@ -855,7 +855,7 @@ export interface EnclosureImpl {
   length?: number;
   /**
    * 文件体积
-   * 单位为 B
+   * 单位为 B(字节)
    * @example "114.51 MiB"
    */
   lengthFormat?: string;
@@ -955,6 +955,32 @@ export interface Article {
   categories?: string[];
   /** 附件 */
   enclosure?: EnclosureImpl;
+  /**
+   * 附件URL
+   * @minLength 0
+   * @maxLength 65000
+   * @example "http://bt.example.com"
+   */
+  enclosureUrl?: string;
+  /**
+   * 附件类型
+   * @minLength 0
+   * @maxLength 128
+   * @example "application/x-bittorrent"
+   */
+  enclosureType?: string;
+  /**
+   * 附件体积(B)
+   * 单位为 B(字节)
+   * @example 114514
+   */
+  enclosureLength?: number;
+  /**
+   * 附件体积
+   * 单位为 B(字节)
+   * @example "114.51 MiB"
+   */
+  enclosureLengthFormat?: string;
   /**
    * 订阅源
    * @example 1
