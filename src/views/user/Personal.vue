@@ -14,6 +14,19 @@
                     @fail="onFail"
                 />
             </el-col>
+            <el-col
+                :sm="24"
+                :md="12"
+                :lg="8"
+            >
+                <CrudForm
+                    v-model="passwordForm"
+                    method="POST"
+                    url="/user/resetPassword"
+                    @success="onSuccess"
+                    @fail="onFail"
+                />
+            </el-col>
         </el-row>
     </div>
 </template>
@@ -24,6 +37,8 @@ import { ElMessage } from 'element-plus'
 import { api } from '@/api'
 
 const userForm = ref({})
+
+const passwordForm = ref({})
 
 const onSuccess = () => {
     ElMessage.success('修改成功！')

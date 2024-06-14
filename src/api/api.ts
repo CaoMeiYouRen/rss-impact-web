@@ -214,6 +214,23 @@ export interface UpdateMe {
   email?: string;
 }
 
+export interface ResetPasswordDto {
+  /**
+   * 旧密码
+   * @minLength 6
+   * @maxLength 256
+   * @example "123456"
+   */
+  oldPassword: string;
+  /**
+   * 新密码
+   * @minLength 6
+   * @maxLength 256
+   * @example "654123"
+   */
+  newPassword: string;
+}
+
 export interface CreateUser {
   /**
    * 用户名
@@ -1005,6 +1022,7 @@ export interface Feed {
    * @example "EVERY_10_MINUTES"
    */
   cron:
+    | "EVERY_5_MINUTES"
     | "EVERY_10_MINUTES"
     | "EVERY_20_MINUTES"
     | "EVERY_30_MINUTES"
@@ -1140,6 +1158,7 @@ export interface QuickCreateFeed {
    * @example "EVERY_10_MINUTES"
    */
   cron:
+    | "EVERY_5_MINUTES"
     | "EVERY_10_MINUTES"
     | "EVERY_20_MINUTES"
     | "EVERY_30_MINUTES"
@@ -1217,6 +1236,7 @@ export interface CreateFeed {
    * @example "EVERY_10_MINUTES"
    */
   cron:
+    | "EVERY_5_MINUTES"
     | "EVERY_10_MINUTES"
     | "EVERY_20_MINUTES"
     | "EVERY_30_MINUTES"
@@ -1312,6 +1332,7 @@ export interface UpdateFeed {
    * @example "EVERY_10_MINUTES"
    */
   cron?:
+    | "EVERY_5_MINUTES"
     | "EVERY_10_MINUTES"
     | "EVERY_20_MINUTES"
     | "EVERY_30_MINUTES"
@@ -2422,6 +2443,39 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     userUpdateMe: (data: UpdateMe, params: RequestParams = {}) =>
       this.request<void, void>({
         path: `/api/user/me`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags user
+     * @name UserResetPasswordOption
+     * @summary 获取重置密码 option
+     * @request GET:/api/user/resetPassword/option
+     */
+    userResetPasswordOption: (params: RequestParams = {}) =>
+      this.request<Option, void>({
+        path: `/api/user/resetPassword/option`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags user
+     * @name UserResetPassword
+     * @summary 重置密码
+     * @request POST:/api/user/resetPassword
+     */
+    userResetPassword: (data: ResetPasswordDto, params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/user/resetPassword`,
         method: "POST",
         body: data,
         type: ContentType.Json,

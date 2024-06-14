@@ -6,7 +6,7 @@ import { Role } from '@/constant/role'
 export type RouteConfig = RouteRecordRaw
 
 export type Route = RouteLocationNormalized
-// TODO 增加个人中心页面
+
 export const constantRoutes: RouteConfig[] = [
     {
         path: '/404',
