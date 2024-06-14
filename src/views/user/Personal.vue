@@ -23,7 +23,7 @@
                     v-model="passwordForm"
                     method="POST"
                     url="/user/resetPassword"
-                    @success="onSuccess"
+                    @success="onResetPasswordSuccess"
                     @fail="onFail"
                 />
             </el-col>
@@ -34,10 +34,12 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { ElMessage } from 'element-plus'
+import { useRouter } from 'vue-router'
 import { api } from '@/api'
 
-const userForm = ref({})
+const router = useRouter()
 
+const userForm = ref({})
 const passwordForm = ref({})
 
 const onSuccess = () => {
@@ -46,6 +48,15 @@ const onSuccess = () => {
 
 const onFail = () => {
     ElMessage.error('修改失败！')
+}
+
+const onResetPasswordSuccess = () => {
+    ElMessage.success('修改成功！即将跳转到登录页面重新登录')
+    setTimeout(async () => {
+        await router.push({
+            path: '/login',
+        })
+    }, 3000)
 }
 
 onMounted(async () => {

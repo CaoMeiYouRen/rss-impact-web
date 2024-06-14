@@ -34,6 +34,7 @@ const validateUsername = (_rule: any, value: string, callback: (error?: Error) =
     }
     callback()
 }
+
 const validatePassword = (_rule: any, value: string, callback: (error?: Error) => void) => {
     const error = baseValidatePassword(value)
     if (error) {
