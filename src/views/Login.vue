@@ -1,6 +1,24 @@
 <template>
     <div class="login-container">
         <div class="login-form">
+            <div class="logo" tabindex="-1">
+                <el-image
+                    :src="logo"
+                    tabindex="-1"
+                    lazy
+                >
+                    <template #placeholder>
+                        <div class="image-slot">
+                            Loading<span class="dot">...</span>
+                        </div>
+                    </template>
+                    <template #error>
+                        <div class="image-slot">
+                            <el-icon><icon-picture /></el-icon>
+                        </div>
+                    </template>
+                </el-image>
+            </div>
             <avue-form
                 v-model="loginForm"
                 :option="option"
@@ -24,6 +42,7 @@ import { useRouter } from 'vue-router'
 import { LoginDto } from '@/api/api'
 import { baseValidatePassword, isValidUsername } from '@/utils/validate'
 import { useUserStore } from '@/store/modules/user'
+import logo from '@/assets/images/logo.png'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -117,8 +136,13 @@ onMounted(() => {
     height: 100%;
 
     .login-form {
+        .logo {
+            margin: auto;
+            margin-bottom: 12%;
+            width: 250px;
+        }
         margin: auto;
-        margin-top: 15%;
+        margin-top: 5%;
         width: 400px;
     }
 }
