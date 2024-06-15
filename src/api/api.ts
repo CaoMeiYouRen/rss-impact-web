@@ -816,14 +816,14 @@ export interface Category {
    * 名称
    * @minLength 0
    * @maxLength 256
-   * @example "分组A"
+   * @example "分类A"
    */
   name: string;
   /**
    * 简介
    * @minLength 0
    * @maxLength 2048
-   * @example "分组A"
+   * @example "分类A"
    */
   description?: string;
   /**
@@ -831,34 +831,6 @@ export interface Category {
    * @example []
    */
   feeds: Feed[];
-}
-
-export interface EnclosureImpl {
-  /**
-   * URL
-   * @minLength 0
-   * @maxLength 65000
-   * @example "http://bt.example.com"
-   */
-  url: string;
-  /**
-   * 媒体类型
-   * @minLength 0
-   * @maxLength 128
-   * @example "application/x-bittorrent"
-   */
-  type?: string;
-  /**
-   * 文件体积(B)
-   * @example 114514
-   */
-  length?: number;
-  /**
-   * 文件体积
-   * 单位为 B(字节)
-   * @example "114.51 MiB"
-   */
-  lengthFormat?: string;
 }
 
 export interface Article {
@@ -949,16 +921,14 @@ export interface Article {
   aiSummary?: string;
   /**
    * 分类列表
-   * RSS 源定义的分类，和 本地RSS 的分组不是同一个
+   * RSS 源定义的分类，和 本地RSS 的分类不是同一个
    * @example ["tag1","tag2"]
    */
   categories?: string[];
-  /** 附件 */
-  enclosure?: EnclosureImpl;
   /**
    * 附件URL
    * @minLength 0
-   * @maxLength 65000
+   * @maxLength 65536
    * @example "http://bt.example.com"
    */
   enclosureUrl?: string;
@@ -1066,11 +1036,11 @@ export interface Feed {
    */
   isEnabled: boolean;
   /**
-   * 分组
+   * 分类
    * @example 1
    */
   categoryId: number;
-  /** 分组 */
+  /** 分类 */
   category: Category;
   /**
    * 代理配置
@@ -1202,7 +1172,7 @@ export interface QuickCreateFeed {
    */
   isEnabled: boolean;
   /**
-   * 分组
+   * 分类
    * @example 1
    */
   categoryId: number;
@@ -1280,11 +1250,11 @@ export interface CreateFeed {
    */
   isEnabled: boolean;
   /**
-   * 分组
+   * 分类
    * @example 1
    */
   categoryId: number;
-  /** 分组 */
+  /** 分类 */
   category: Category;
   /**
    * 代理配置
@@ -1376,11 +1346,11 @@ export interface UpdateFeed {
    */
   isEnabled?: boolean;
   /**
-   * 分组
+   * 分类
    * @example 1
    */
   categoryId?: number;
-  /** 分组 */
+  /** 分类 */
   category?: Category;
   /**
    * 代理配置
@@ -1427,14 +1397,14 @@ export interface CreateCategory {
    * 名称
    * @minLength 0
    * @maxLength 256
-   * @example "分组A"
+   * @example "分类A"
    */
   name: string;
   /**
    * 简介
    * @minLength 0
    * @maxLength 2048
-   * @example "分组A"
+   * @example "分类A"
    */
   description?: string;
   /**
@@ -1461,14 +1431,14 @@ export interface UpdateCategory {
    * 名称
    * @minLength 0
    * @maxLength 256
-   * @example "分组A"
+   * @example "分类A"
    */
   name?: string;
   /**
    * 简介
    * @minLength 0
    * @maxLength 2048
-   * @example "分组A"
+   * @example "分类A"
    */
   description?: string;
   /**
@@ -1875,12 +1845,12 @@ export interface UpdateCustomQuery {
   name?: string;
   /**
    * 查询范围
-   * 指定分组和指定订阅的配置互斥，只按照本项指定的范围查询
+   * 指定分类和指定订阅的配置互斥，只按照本项指定的范围查询
    * @example "all"
    */
   scope?: "all" | "category" | "feed";
   /**
-   * 指定分组
+   * 指定分类
    * 支持选择多个分类
    * @example []
    */
@@ -1962,12 +1932,12 @@ export interface CustomQuery {
   name: string;
   /**
    * 查询范围
-   * 指定分组和指定订阅的配置互斥，只按照本项指定的范围查询
+   * 指定分类和指定订阅的配置互斥，只按照本项指定的范围查询
    * @example "all"
    */
   scope: "all" | "category" | "feed";
   /**
-   * 指定分组
+   * 指定分类
    * 支持选择多个分类
    * @example []
    */
@@ -2047,12 +2017,12 @@ export interface CreateCustomQuery {
   name: string;
   /**
    * 查询范围
-   * 指定分组和指定订阅的配置互斥，只按照本项指定的范围查询
+   * 指定分类和指定订阅的配置互斥，只按照本项指定的范围查询
    * @example "all"
    */
   scope: "all" | "category" | "feed";
   /**
-   * 指定分组
+   * 指定分类
    * 支持选择多个分类
    * @example []
    */
