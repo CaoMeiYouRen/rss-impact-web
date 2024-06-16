@@ -1,6 +1,6 @@
 <h1 align="center">rss-impact-web </h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/github/package-json/v/CaoMeiYouRen/rss-impact-web" />
   <a href="https://github.com/CaoMeiYouRen/rss-impact-web/actions?query=workflow%3ARelease" target="_blank">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/CaoMeiYouRen/rss-impact-web/release.yml?branch=master">
   </a>
