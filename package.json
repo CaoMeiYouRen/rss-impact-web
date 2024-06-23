@@ -27,7 +27,7 @@
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "path-browserify": "^1.0.1",
-    "path-to-regexp": "^6.2.2",
+    "path-to-regexp": "^7.0.0",
     "pinia": "^2.1.7",
     "universal-cookie": "^7.1.4",
     "vue": "^3.4.29",
