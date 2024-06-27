@@ -2,6 +2,7 @@ import 'normalize.css'
 import { createApp } from 'vue'
 import axios from 'axios'
 import zhLocale from '@smallwei/avue/lib/locale/lang/zh'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import App from './App.vue'
 import { VITE_API_BASE_URL } from './config/env'
 import router from '@/router'
@@ -17,7 +18,9 @@ import components from '@/components'
 const app = createApp(App)
     .use(router)
     .use(store)
-    .use(ElementPlus)
+    .use(ElementPlus, {
+        locale: zhCn,
+    })
     .use(Avue, {
         axios: axios.create({
             baseURL: VITE_API_BASE_URL,

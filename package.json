@@ -21,6 +21,7 @@
     "animate.css": "^4.1.1",
     "axios": "^1.7.2",
     "dayjs": "^1.11.11",
+    "echarts": "^5.5.1",
     "element-plus": "^2.7.6",
     "file-saver": "^2.0.5",
     "lodash-es": "^4.17.21",
@@ -31,6 +32,7 @@
     "pinia": "^2.1.7",
     "universal-cookie": "^7.1.4",
     "vue": "^3.4.30",
+    "vue-echarts": "^6.7.3",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {

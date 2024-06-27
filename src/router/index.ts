@@ -186,6 +186,15 @@ export const asyncRoutes: RouteConfig[] = [
                     icon: Setting,
                 },
             },
+            {
+                path: 'daily-count',
+                name: 'DailyCount',
+                component: () => import('@/views/admin/DailyCount.vue'),
+                meta: {
+                    title: '使用统计',
+                    icon: Setting,
+                },
+            },
         ],
     },
 ]

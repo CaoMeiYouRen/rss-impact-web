@@ -2167,6 +2167,55 @@ export interface OsInfoDto {
   uptime: string;
 }
 
+export interface DailyCount {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+  /**
+   * 日期
+   * @minLength 0
+   * @maxLength 16
+   * @example "2024-01-01"
+   */
+  date: string;
+  /**
+   * 文章数量
+   * @example 114
+   */
+  articleCount: number;
+  /**
+   * 资源数量
+   * @example 514
+   */
+  resourceCount: number;
+  /**
+   * Webhook和通知日志数量
+   * @example 233
+   */
+  webhookLogCount: number;
+}
+
+export interface FindDailyCount {
+  data: DailyCount[];
+  total: number;
+  lastPage: number;
+  currentPage: number;
+}
+
 import type { AxiosInstance, AxiosRequestConfig, HeadersDefaults, ResponseType } from "axios";
 import axios from "axios";
 
@@ -3584,6 +3633,61 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     systemGetOsInfo: (params: RequestParams = {}) =>
       this.request<OsInfoDto, void>({
         path: `/api/system/getOsInfo`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags daily-count
+     * @name DailyCountConfig
+     * @summary 获取 config
+     * @request GET:/api/daily-count/config
+     */
+    dailyCountConfig: (params: RequestParams = {}) =>
+      this.request<Config, void>({
+        path: `/api/daily-count/config`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags daily-count
+     * @name DailyCountFind
+     * @summary 查找所有记录
+     * @request GET:/api/daily-count
+     */
+    dailyCountFind: (
+      query?: {
+        /** Query options */
+        query?: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<FindDailyCount, void>({
+        path: `/api/daily-count`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags daily-count
+     * @name DailyCountFindOne
+     * @summary 查找记录
+     * @request GET:/api/daily-count/{id}
+     */
+    dailyCountFindOne: (id: number, params: RequestParams = {}) =>
+      this.request<DailyCount, void>({
+        path: `/api/daily-count/${id}`,
         method: "GET",
         format: "json",
         ...params,
