@@ -46,4 +46,22 @@ export default defineConfig({
             },
         },
     },
+    build: {
+        // 增大代码块大小警告的阈值
+        chunkSizeWarningLimit: 1024,
+        minify: 'esbuild',
+        rollupOptions: {
+            output: {
+                // 手动划分代码块
+                manualChunks: {
+                    // vendor: ['vue', 'vue-router', 'pinia'],
+                    // components: ['@/components/*'],
+                    // views: ['@/views/*'],
+                    // utils: ['@/utils/*'],
+                    // 其他自定义的代码块
+                },
+            },
+        },
+    },
+
 })
