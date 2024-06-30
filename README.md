@@ -19,7 +19,7 @@
 
 > RSS + Hook = RSS Impact
 >
-> 一个基于 RSS 的 Hook 系统。
+> 一个支持 Hook 的 RSS 订阅工具。
 >
 > 本项目为前端部分，后端部分请参考 [rss-impact-server](https://github.com/CaoMeiYouRen/rss-impact-server)。
 

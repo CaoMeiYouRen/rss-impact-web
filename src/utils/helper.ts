@@ -132,3 +132,10 @@ export function getSafeFileName(filename: string) {
     const pattern = /[^\u4E00-\u9FA5A-Za-z0-9_-]/g
     return filename.replace(pattern, '_')
 }
+
+/**
+ * 检测是否为 http/https 开头的 url
+ * @param url
+ * @returns
+ */
+export const isHttpURL = (url: string) => /^(https?:\/\/)/.test(url)

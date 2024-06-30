@@ -3,9 +3,11 @@ import { ElMessage } from 'element-plus'
 import { Api } from './api'
 import router from '@/router'
 import { useUserStore } from '@/store/modules/user'
+import { VITE_API_BASE_URL } from '@/config/env'
+import { isHttpURL } from '@/utils/helper'
 
 export const api = new Api({
-    // baseURL: VITE_API_BASE_URL,
+    baseURL: isHttpURL(VITE_API_BASE_URL) ? new URL(VITE_API_BASE_URL).origin : undefined,
     timeout: 10000,
 })
 /**
