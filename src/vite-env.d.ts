@@ -10,6 +10,8 @@ interface ImportMetaEnv {
     // 环境变量
     readonly VITE_API_BASE_URL: string
 
+    readonly VITE_WITH_CREDENTIALS: string
+
 }
 
 interface ImportMeta {

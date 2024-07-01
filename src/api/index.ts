@@ -3,12 +3,13 @@ import { ElMessage } from 'element-plus'
 import { Api } from './api'
 import router from '@/router'
 import { useUserStore } from '@/store/modules/user'
-import { VITE_API_BASE_URL } from '@/config/env'
+import { VITE_API_BASE_URL, VITE_WITH_CREDENTIALS } from '@/config/env'
 import { isHttpURL } from '@/utils/helper'
 
 export const api = new Api({
     baseURL: isHttpURL(VITE_API_BASE_URL) ? new URL(VITE_API_BASE_URL).origin : undefined,
     timeout: 10000,
+    withCredentials: VITE_WITH_CREDENTIALS === 'true',
 })
 /**
  * axios 实例
