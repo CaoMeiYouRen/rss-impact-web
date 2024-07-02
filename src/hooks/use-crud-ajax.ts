@@ -127,7 +127,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
             const response = await ajax<GetConfigResponse>({
                 url: `${unref(model)}/config`,
                 method: 'GET',
-                baseURL: '/api',
+                // baseURL: '/api',
             })
             if (!response) {
                 Message.error('获取表格配置失败')
@@ -151,7 +151,6 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
             const response = await ajax<GetListResponse<T>>({
                 url: unref(model),
                 method: 'GET',
-                baseURL: '/api',
                 query: {
                     query: JSON.stringify({
                         limit: page.value.pageSize,
@@ -201,7 +200,6 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
             const newObj = await ajax({
                 url: unref(model),
                 method: 'POST',
-                baseURL: '/api',
                 data: obj,
             })
             if (!newObj) {
@@ -228,7 +226,6 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
             const newObj = await ajax({
                 url: `${unref(model)}`,
                 method: 'PUT',
-                baseURL: '/api',
                 data: obj,
             })
             if (!newObj) {
@@ -256,7 +253,6 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
             const newObj = await ajax({
                 url: `${unref(model)}/${id}`,
                 method: 'DELETE',
-                baseURL: '/api',
             })
             if (!newObj) {
                 Message.error('删除失败')
