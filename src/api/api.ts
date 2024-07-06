@@ -514,6 +514,12 @@ export interface BitTorrentConfig {
    * @example "1 GiB"
    */
   minDiskSize?: string;
+  /**
+   * 自动删除文件
+   * 当磁盘空间不足时，是否自动删除最大的文件。如果未设置磁盘最小空间或禁用本项均不会生效
+   * @example true
+   */
+  autoRemove?: boolean;
 }
 
 export interface AIConfig {
