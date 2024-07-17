@@ -31,7 +31,7 @@
     "path-to-regexp": "^7.1.0",
     "pinia": "^2.1.7",
     "universal-cookie": "^7.1.4",
-    "vue": "^3.4.31",
+    "vue": "^3.4.32",
     "vue-echarts": "^6.7.3",
     "vue-router": "^4.4.0"
   },
