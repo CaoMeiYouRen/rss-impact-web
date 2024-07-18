@@ -20,7 +20,7 @@
     "@vueuse/integrations": "^10.10.1",
     "animate.css": "^4.1.1",
     "axios": "^1.7.2",
-    "dayjs": "^1.11.11",
+    "dayjs": "^1.11.12",
     "echarts": "^5.5.1",
     "element-plus": "^2.7.7",
     "file-saver": "^2.0.5",
