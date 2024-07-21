@@ -30,7 +30,7 @@
     "path-browserify": "^1.0.1",
     "path-to-regexp": "^7.1.0",
     "pinia": "^2.1.7",
-    "universal-cookie": "^7.1.4",
+    "universal-cookie": "^7.2.0",
     "vue": "^3.4.32",
     "vue-echarts": "^6.7.3",
     "vue-router": "^4.4.0"
