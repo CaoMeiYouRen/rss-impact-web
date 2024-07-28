@@ -1049,6 +1049,12 @@ export interface Feed {
   /** 分类 */
   category: Category;
   /**
+   * 是否抓取全文
+   * 启用后，将用抓取到的结果替换文章中的正文部分。抓取全文功能为自动抓取，文本质量不做保证。
+   * @example false
+   */
+  isFullText: boolean;
+  /**
    * 代理配置
    * 选择不代理后保存即可禁用代理
    * @example 1
@@ -1263,6 +1269,12 @@ export interface CreateFeed {
   /** 分类 */
   category: Category;
   /**
+   * 是否抓取全文
+   * 启用后，将用抓取到的结果替换文章中的正文部分。抓取全文功能为自动抓取，文本质量不做保证。
+   * @example false
+   */
+  isFullText: boolean;
+  /**
    * 代理配置
    * 选择不代理后保存即可禁用代理
    * @example 1
@@ -1358,6 +1370,12 @@ export interface UpdateFeed {
   categoryId?: number;
   /** 分类 */
   category?: Category;
+  /**
+   * 是否抓取全文
+   * 启用后，将用抓取到的结果替换文章中的正文部分。抓取全文功能为自动抓取，文本质量不做保证。
+   * @example false
+   */
+  isFullText?: boolean;
   /**
    * 代理配置
    * 选择不代理后保存即可禁用代理
