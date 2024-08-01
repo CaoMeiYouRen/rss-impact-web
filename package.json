@@ -33,7 +33,7 @@
     "universal-cookie": "^7.2.0",
     "vue": "^3.4.35",
     "vue-echarts": "^6.7.3",
-    "vue-router": "^4.4.1"
+    "vue-router": "^4.4.2"
   },
   "devDependencies": {
     "@cao-mei-you-ren/avue-types": "^1.1.0",
