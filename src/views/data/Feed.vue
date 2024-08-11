@@ -36,6 +36,7 @@
         <CrudList
             ref="crudListDom"
             model="feed"
+            alias="subscribe"
             :post-get="postGet"
             :pre-save="preSave"
             :pre-update="preUpdate"

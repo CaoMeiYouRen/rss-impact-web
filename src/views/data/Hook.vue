@@ -37,10 +37,7 @@ const pre = (data: Hook) => {
 }
 const preSave = pre
 const preUpdate = pre
-
 watch(() => form.value?.type, (type) => {
-    // console.log(form.value)
-    // console.log(type)
     if (form.value?.config && type) {
         form.value.config = {    // 将 type 同步到 config
             ...form.value.config,

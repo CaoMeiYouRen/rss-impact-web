@@ -907,7 +907,7 @@ export interface Article {
    * 摘要
    * 纯文本格式，无 HTML
    * @minLength 0
-   * @maxLength 65536
+   * @maxLength 65535
    * @example "这是一段内容摘要"
    */
   contentSnippet?: string;
@@ -921,7 +921,7 @@ export interface Article {
   /**
    * AI 总结
    * @minLength 0
-   * @maxLength 65536
+   * @maxLength 65535
    * @example "这是一段 AI 总结"
    */
   aiSummary?: string;
@@ -934,7 +934,7 @@ export interface Article {
   /**
    * 附件URL
    * @minLength 0
-   * @maxLength 65536
+   * @maxLength 65535
    * @example "http://bt.example.com"
    */
   enclosureUrl?: string;

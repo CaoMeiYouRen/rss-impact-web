@@ -41,6 +41,9 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    alias: { // 别名
+        type: String,
+    },
     postGet: {
         type: Function as PropType<(data: any) => any>,
     },
@@ -78,7 +81,7 @@ const {
 watch(
     () => route.path,
     async () => {
-        if (route.path.includes(props.model)) {
+        if ([`/${props.model}`, `/${props.alias}`].includes(route.path)) {
             document.title = option.value.title || document.title
             await updateDic() // 显示当前页面时刷新字典，解决新增用户等字典未更新问题
             await refreshChange() // 重新载入数据，确保数据同步
