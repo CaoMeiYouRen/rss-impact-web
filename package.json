@@ -16,7 +16,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "@smallwei/avue": "^3.4.8",
-    "@vueuse/core": "^10.11.0",
+    "@vueuse/core": "^10.11.1",
     "@vueuse/integrations": "^10.10.1",
     "animate.css": "^4.1.1",
     "axios": "^1.7.3",
@@ -29,11 +29,11 @@
     "nprogress": "^0.2.0",
     "path-browserify": "^1.0.1",
     "path-to-regexp": "^7.1.0",
-    "pinia": "^2.2.0",
+    "pinia": "^2.2.1",
     "universal-cookie": "^7.2.0",
-    "vue": "^3.4.35",
+    "vue": "^3.4.37",
     "vue-echarts": "^7.0.1",
-    "vue-router": "^4.4.2"
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@cao-mei-you-ren/avue-types": "^1.1.0",
@@ -69,9 +69,9 @@
     "stylelint-order": "^6.0.1",
     "stylelint-scss": "^6.5.0",
     "typescript": "^5.5.4",
-    "vite": "^5.3.5",
+    "vite": "^5.4.0",
     "vite-plugin-swagger-typescript-api": "^1.0.1",
-    "vite-tsconfig-paths": "^4.3.2",
+    "vite-tsconfig-paths": "^5.0.0",
     "vue-tsc": "^2.0.29"
   },
   "config": {
