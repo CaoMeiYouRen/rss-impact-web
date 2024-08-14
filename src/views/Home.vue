@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <h1>欢迎用户 {{ userStore.user?.username }} 访问 RSS Impact</h1>
-        <p>这是一个基于 RSS 的 Hook 系统。</p>
+        <p>这是一个支持 Hook 的 RSS 订阅工具。</p>
     </div>
 </template>
 
