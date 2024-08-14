@@ -19,19 +19,19 @@ importers:
         version: 2.3.1(vue@3.4.37(typescript@5.5.4))
       '@smallwei/avue':
         specifier: ^3.4.8
-        version: 3.4.8(element-plus@2.7.8(vue@3.4.37(typescript@5.5.4)))(vue@3.4.37(typescript@5.5.4))
+        version: 3.4.8(element-plus@2.8.0(vue@3.4.37(typescript@5.5.4)))(vue@3.4.37(typescript@5.5.4))
       '@vueuse/core':
         specifier: ^10.11.1
         version: 10.11.1(vue@3.4.37(typescript@5.5.4))
       '@vueuse/integrations':
         specifier: ^10.10.1
-        version: 10.10.1(async-validator@4.2.5)(axios@1.7.3)(nprogress@0.2.0)(universal-cookie@7.2.0)(vue@3.4.37(typescript@5.5.4))
+        version: 10.10.1(async-validator@4.2.5)(axios@1.7.4)(nprogress@0.2.0)(universal-cookie@7.2.0)(vue@3.4.37(typescript@5.5.4))
       animate.css:
         specifier: ^4.1.1
         version: 4.1.1
       axios:
-        specifier: ^1.7.3
-        version: 1.7.3
+        specifier: ^1.7.4
+        version: 1.7.4
       dayjs:
         specifier: ^1.11.12
         version: 1.11.12
@@ -39,8 +39,8 @@ importers:
         specifier: ^5.5.1
         version: 5.5.1
       element-plus:
-        specifier: ^2.7.8
-        version: 2.7.8(vue@3.4.37(typescript@5.5.4))
+        specifier: ^2.8.0
+        version: 2.8.0(vue@3.4.37(typescript@5.5.4))
       file-saver:
         specifier: ^2.0.5
         version: 2.0.5
@@ -69,8 +69,8 @@ importers:
         specifier: ^3.4.37
         version: 3.4.37(typescript@5.5.4)
       vue-echarts:
-        specifier: ^7.0.1
-        version: 7.0.1(@vue/runtime-core@3.4.37)(echarts@5.5.1)(vue@3.4.37(typescript@5.5.4))
+        specifier: ^7.0.2
+        version: 7.0.2(@vue/runtime-core@3.4.37)(echarts@5.5.1)(vue@3.4.37(typescript@5.5.4))
       vue-router:
         specifier: ^4.4.3
         version: 4.4.3(vue@3.4.37(typescript@5.5.4))
@@ -136,8 +136,8 @@ importers:
         specifier: ^9.1.4
         version: 9.1.4
       lint-staged:
-        specifier: ^15.2.8
-        version: 15.2.8
+        specifier: ^15.2.9
+        version: 15.2.9
       postcss-html:
         specifier: ^1.7.0
         version: 1.7.0
@@ -181,8 +181,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1(swagger-typescript-api@13.0.3)(vite@5.4.0(@types/node@20.12.12)(sass@1.77.8)(sugarss@2.0.0))
       vite-tsconfig-paths:
-        specifier: ^5.0.0
-        version: 5.0.0(typescript@5.5.4)(vite@5.4.0(@types/node@20.12.12)(sass@1.77.8)(sugarss@2.0.0))
+        specifier: ^5.0.1
+        version: 5.0.1(typescript@5.5.4)(vite@5.4.0(@types/node@20.12.12)(sass@1.77.8)(sugarss@2.0.0))
       vue-tsc:
         specifier: ^2.0.29
         version: 2.0.29(typescript@5.5.4)
@@ -1242,8 +1242,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axios@1.7.3:
-    resolution: {integrity: sha512-Ar7ND9pU99eJ9GpoGQKhKf58GpUOgnzuaB7ueNQ5BMi0p+LZ5oaEnfF999fAArcTIBwXTCHAmGcHOZJaWPq9Nw==}
+  axios@1.7.4:
+    resolution: {integrity: sha512-DukmaFRnY6AzAALSH4J2M3k6PkaC+MfaAGdEERRWcC9q3/TWQwLpHR8ZRLKTdQ3aBDL64EdluRDjJqKw+BPZEw==}
 
   bail@1.0.5:
     resolution: {integrity: sha512-xFbRxM1tahm08yHBP16MMjVUAvDaBMD38zsM9EMAUN61omwLmKlOpB/Zku5QkjZ8TZ4vn53pj+t518cH0S03RQ==}
@@ -1823,8 +1823,8 @@ packages:
   electron-to-chromium@1.4.783:
     resolution: {integrity: sha512-bT0jEz/Xz1fahQpbZ1D7LgmPYZ3iHVY39NcWWro1+hA2IvjiPeaXtfSqrQ+nXjApMvQRE2ASt1itSLRrebHMRQ==}
 
-  element-plus@2.7.8:
-    resolution: {integrity: sha512-h6dx2XihAbQaud0v+6O7Fy0b0G3YNplNVH7QnK3csTcvQd4y4raiyMRQpf9EKbRbTMdNrFsqAZrs9ok9DMcJHg==}
+  element-plus@2.8.0:
+    resolution: {integrity: sha512-7ngapVlVlQAjocVqD4MUKvKXlBneT9DSDk2mmBOSLRFWNm/HLDT15ozmsvUBfy18sajnyUeSIHTtINE8gfrGMg==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -2951,8 +2951,8 @@ packages:
     resolution: {integrity: sha512-wM1+Z03eypVAVUCE7QdSqpVIvelbOakn1M0bPDoA4SGWPx3sNDVUiMo3L6To6WWGClB7VyXnhQ4Sn7gxiJbE6A==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  lint-staged@15.2.8:
-    resolution: {integrity: sha512-PUWFf2zQzsd9EFU+kM1d7UP+AZDbKFKuj+9JNVTBkhUFhbg4MAt6WfyMMwBfM4lYqd4D2Jwac5iuTu9rVj4zCQ==}
+  lint-staged@15.2.9:
+    resolution: {integrity: sha512-BZAt8Lk3sEnxw7tfxM7jeZlPRuT4M68O0/CwZhhaw6eeWu0Lz5eERE3m386InivXB64fp/mDID452h48tvKlRQ==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -4877,8 +4877,8 @@ packages:
       swagger-typescript-api: '>=9'
       vite: '>=2'
 
-  vite-tsconfig-paths@5.0.0:
-    resolution: {integrity: sha512-sCdKc6uC7ir102lW8deBiMnS0NGEs0100OJX8WZQmf3Uf7tJ/T3uQnzznq/tZWph7tkG+44JYOsKE7YTZjDn+Q==}
+  vite-tsconfig-paths@5.0.1:
+    resolution: {integrity: sha512-yqwv+LstU7NwPeNqajZzLEBVpUFU6Dugtb2P84FXuvaoYA+/70l9MHE+GYfYAycVyPSDYZ7mjOFuYBRqlEpTig==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:
@@ -4952,8 +4952,8 @@ packages:
       '@vue/composition-api':
         optional: true
 
-  vue-echarts@7.0.1:
-    resolution: {integrity: sha512-P+u6mwAtHuPKC3uDQ+sqIhwBBTvrvEFvgHYzV2Ba1/7+rSzRd6o3Dv/A8PuLP24hB1zPPNfu6BvNyD139X1qbg==}
+  vue-echarts@7.0.2:
+    resolution: {integrity: sha512-7a+3yKOpmn5enVmigut1QEJKw31DgIWGhzYlGCPi8pNBK5+l1d6XGZMVD/5BgijP5w2aOH3lgEF1Bou1c1QfTw==}
     peerDependencies:
       '@vue/runtime-core': ^3.0.0
       echarts: ^5.5.1
@@ -5712,12 +5712,12 @@ snapshots:
 
   '@sindresorhus/is@3.1.2': {}
 
-  '@smallwei/avue@3.4.8(element-plus@2.7.8(vue@3.4.37(typescript@5.5.4)))(vue@3.4.37(typescript@5.5.4))':
+  '@smallwei/avue@3.4.8(element-plus@2.8.0(vue@3.4.37(typescript@5.5.4)))(vue@3.4.37(typescript@5.5.4))':
     dependencies:
       '@element-plus/icons-vue': 2.3.1(vue@3.4.37(typescript@5.5.4))
       countup.js: 1.9.3
       dayjs: 1.11.12
-      element-plus: 2.7.8(vue@3.4.37(typescript@5.5.4))
+      element-plus: 2.8.0(vue@3.4.37(typescript@5.5.4))
       vue: 3.4.37(typescript@5.5.4)
 
   '@sxzz/popperjs-es@2.11.7': {}
@@ -6021,14 +6021,14 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/integrations@10.10.1(async-validator@4.2.5)(axios@1.7.3)(nprogress@0.2.0)(universal-cookie@7.2.0)(vue@3.4.37(typescript@5.5.4))':
+  '@vueuse/integrations@10.10.1(async-validator@4.2.5)(axios@1.7.4)(nprogress@0.2.0)(universal-cookie@7.2.0)(vue@3.4.37(typescript@5.5.4))':
     dependencies:
       '@vueuse/core': 10.10.1(vue@3.4.37(typescript@5.5.4))
       '@vueuse/shared': 10.10.1(vue@3.4.37(typescript@5.5.4))
       vue-demi: 0.14.8(vue@3.4.37(typescript@5.5.4))
     optionalDependencies:
       async-validator: 4.2.5
-      axios: 1.7.3
+      axios: 1.7.4
       nprogress: 0.2.0
       universal-cookie: 7.2.0
     transitivePeerDependencies:
@@ -6247,7 +6247,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
-  axios@1.7.3:
+  axios@1.7.4:
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
@@ -6865,7 +6865,7 @@ snapshots:
 
   electron-to-chromium@1.4.783: {}
 
-  element-plus@2.7.8(vue@3.4.37(typescript@5.5.4)):
+  element-plus@2.8.0(vue@3.4.37(typescript@5.5.4)):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
       '@element-plus/icons-vue': 2.3.1(vue@3.4.37(typescript@5.5.4))
@@ -8080,7 +8080,7 @@ snapshots:
 
   lines-and-columns@2.0.4: {}
 
-  lint-staged@15.2.8:
+  lint-staged@15.2.9:
     dependencies:
       chalk: 5.3.0
       commander: 12.1.0
@@ -10408,7 +10408,7 @@ snapshots:
       swagger-typescript-api: 13.0.3
       vite: 5.4.0(@types/node@20.12.12)(sass@1.77.8)(sugarss@2.0.0)
 
-  vite-tsconfig-paths@5.0.0(typescript@5.5.4)(vite@5.4.0(@types/node@20.12.12)(sass@1.77.8)(sugarss@2.0.0)):
+  vite-tsconfig-paths@5.0.1(typescript@5.5.4)(vite@5.4.0(@types/node@20.12.12)(sass@1.77.8)(sugarss@2.0.0)):
     dependencies:
       debug: 4.3.6
       globrex: 0.1.2
@@ -10444,7 +10444,7 @@ snapshots:
     dependencies:
       vue: 3.4.37(typescript@5.5.4)
 
-  vue-echarts@7.0.1(@vue/runtime-core@3.4.37)(echarts@5.5.1)(vue@3.4.37(typescript@5.5.4)):
+  vue-echarts@7.0.2(@vue/runtime-core@3.4.37)(echarts@5.5.1)(vue@3.4.37(typescript@5.5.4)):
     dependencies:
       echarts: 5.5.1
       vue: 3.4.37(typescript@5.5.4)
