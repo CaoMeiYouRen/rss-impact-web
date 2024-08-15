@@ -29,7 +29,7 @@
     "nprogress": "^0.2.0",
     "path-browserify": "^1.0.1",
     "path-to-regexp": "^7.1.0",
-    "pinia": "^2.2.1",
+    "pinia": "^2.2.2",
     "universal-cookie": "^7.2.0",
     "vue": "^3.4.37",
     "vue-echarts": "^7.0.2",
