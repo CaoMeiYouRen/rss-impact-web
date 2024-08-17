@@ -14,6 +14,7 @@ import {
 import Avue from '@/plugins/avue'
 import '@/permission'
 import components from '@/components'
+import '@/plugins/xlsx'
 
 const app = createApp(App)
     .use(router)
