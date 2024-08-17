@@ -11,6 +11,8 @@
         "esModuleInterop": true,
         "noImplicitAny": false,
         "allowSyntheticDefaultImports": true,
+        "strictPropertyInitialization": false,
+        "incremental": false,
         "lib": [
             "ESNext",
             "DOM"
