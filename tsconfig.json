@@ -10,6 +10,7 @@
         "isolatedModules": true,
         "esModuleInterop": true,
         "noImplicitAny": false,
+        "allowSyntheticDefaultImports": true,
         "lib": [
             "ESNext",
             "DOM"
