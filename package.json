@@ -22,7 +22,7 @@
     "axios": "^1.7.4",
     "dayjs": "^1.11.13",
     "echarts": "^5.5.1",
-    "element-plus": "^2.8.0",
+    "element-plus": "^2.8.1",
     "file-saver": "^2.0.5",
     "lodash-es": "^4.17.21",
     "normalize.css": "^8.0.1",
