@@ -19,7 +19,7 @@
     "@vueuse/core": "^11.0.1",
     "@vueuse/integrations": "^11.0.3",
     "animate.css": "^4.1.1",
-    "axios": "^1.7.4",
+    "axios": "^1.7.5",
     "dayjs": "^1.11.13",
     "echarts": "^5.5.1",
     "element-plus": "^2.8.1",
