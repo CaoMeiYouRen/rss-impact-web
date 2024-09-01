@@ -574,6 +574,12 @@ export interface AIConfig {
    */
   temperature?: number;
   /**
+   * 最大上下文长度
+   * OpenAI 最大上下文长度。即一次提交多少 token 的字符。注意：提示文本加上"最大 token 数"的 token 数量不能超过模型的上下文长度。默认值 4096
+   * @example 4096
+   */
+  maxContextLength?: number;
+  /**
    * 最大 token 数
    * OpenAI 最大 token 数。注意一定要比模型的 最大上下文 小，否则可能会总结失败。默认值 2048
    * @example 2048

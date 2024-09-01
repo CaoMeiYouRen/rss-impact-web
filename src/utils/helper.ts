@@ -114,9 +114,14 @@ export function transformObjectByColumns<T extends object = Record<string, unkno
         if (['url', 'img'].includes(column?.type || '') && column?.alone && Array.isArray(value)) { // 解决 url/img 的问题
             value = value[0]
         }
-        // 对于 支持nullable 的字段，如果为 空字符串，则设置为 null；
-        if (column?.nullable && (value === '' || value === 0)) {   // 解决 可选 id 的问题
-            return [key, null]
+        // 对于支持 nullable 的字段，
+        if (column?.nullable) {
+            if (column?.isId && !value) { // 如果为 id，且为 假值，则设置为 null，解决 可选 id 的问题
+                return [key, null]
+            }
+            if (value === '') { // 如果是空字符串，则设置为 null，解决 可选字段 的问题
+                return [key, null]
+            }
         }
         if (typeof value === 'object' && value !== null && column?.params?.option?.column) { // 如果 value 是 object ，则递归
             return [key, transformObjectByColumns(value as any, column?.params?.option?.column)]
