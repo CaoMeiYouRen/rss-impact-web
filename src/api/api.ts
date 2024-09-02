@@ -1771,12 +1771,6 @@ export interface UpdateCustomQuery {
   categories?: Category[];
   /**
    * 指定订阅
-   * 注意：订阅的查询是单选的
-   * @example 1
-   */
-  feedId?: number;
-  /**
-   * 指定订阅
    * 支持选择多个订阅
    * @example []
    */
@@ -1854,12 +1848,6 @@ export interface CustomQuery {
   categories?: Category[];
   /**
    * 指定订阅
-   * 注意：订阅的查询是单选的
-   * @example 1
-   */
-  feedId?: number;
-  /**
-   * 指定订阅
    * 支持选择多个订阅
    * @example []
    */
@@ -1931,12 +1919,6 @@ export interface CreateCustomQuery {
    * @example []
    */
   categories?: Category[];
-  /**
-   * 指定订阅
-   * 注意：订阅的查询是单选的
-   * @example 1
-   */
-  feedId?: number;
   /**
    * 指定订阅
    * 支持选择多个订阅
