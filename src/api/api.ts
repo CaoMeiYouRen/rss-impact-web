@@ -153,22 +153,16 @@ export interface User {
   updatedAt: Date;
   /**
    * 用户名
-   * @minLength 0
-   * @maxLength 128
    * @example "admin"
    */
   username: string;
   /**
    * 密码
-   * @minLength 0
-   * @maxLength 128
    * @example "123456"
    */
   password?: string;
   /**
    * 邮箱
-   * @minLength 0
-   * @maxLength 128
    * @example "admin@example.com"
    */
   email: string;
@@ -200,15 +194,11 @@ export interface UpdateMe {
   id?: number;
   /**
    * 用户名
-   * @minLength 0
-   * @maxLength 128
    * @example "admin"
    */
   username?: string;
   /**
    * 邮箱
-   * @minLength 0
-   * @maxLength 128
    * @example "admin@example.com"
    */
   email?: string;
@@ -234,22 +224,16 @@ export interface ResetPasswordDto {
 export interface CreateUser {
   /**
    * 用户名
-   * @minLength 0
-   * @maxLength 128
    * @example "admin"
    */
   username: string;
   /**
    * 密码
-   * @minLength 0
-   * @maxLength 128
    * @example "123456"
    */
   password?: string;
   /**
    * 邮箱
-   * @minLength 0
-   * @maxLength 128
    * @example "admin@example.com"
    */
   email: string;
@@ -268,22 +252,16 @@ export interface UpdateUser {
   id?: number;
   /**
    * 用户名
-   * @minLength 0
-   * @maxLength 128
    * @example "admin"
    */
   username?: string;
   /**
    * 密码
-   * @minLength 0
-   * @maxLength 128
    * @example "123456"
    */
   password?: string;
   /**
    * 邮箱
-   * @minLength 0
-   * @maxLength 128
    * @example "admin@example.com"
    */
   email?: string;
@@ -546,7 +524,7 @@ export interface AIConfig {
   model?: string;
   /**
    * API 地址
-   * OpenAI API 地址
+   * OpenAI API 地址。注意需要带有版本号。默认 https://api.openai.com/v1
    * @minLength 0
    * @maxLength 2048
    * @example "https://api.openai.com/v1"
@@ -784,16 +762,12 @@ export interface ProxyConfig {
   user: User;
   /**
    * 代理名称
-   * @minLength 0
-   * @maxLength 256
    * @example "代理A"
    */
   name: string;
   /**
    * 代理URL
    * 支持 http/https/socks/socks5 协议。例如 http://127.0.0.1:8080
-   * @minLength 0
-   * @maxLength 2048
    * @example "http://127.0.0.1:8080"
    */
   url: string;
@@ -826,15 +800,11 @@ export interface Category {
   user: User;
   /**
    * 名称
-   * @minLength 0
-   * @maxLength 256
    * @example "分类A"
    */
   name: string;
   /**
    * 简介
-   * @minLength 0
-   * @maxLength 2048
    * @example "分类A"
    */
   description?: string;
@@ -877,22 +847,16 @@ export interface Article {
   guid: string;
   /**
    * 链接
-   * @minLength 0
-   * @maxLength 2048
    * @example "https://blog.cmyr.ltd/archives/499d4cee.html"
    */
   link?: string;
   /**
    * 标题
-   * @minLength 0
-   * @maxLength 256
    * @example "这是一个标题"
    */
   title?: string;
   /**
    * 正文
-   * @minLength 0
-   * @maxLength 1048576
    * @example "这是一段正文"
    */
   content?: string;
@@ -904,30 +868,22 @@ export interface Article {
   pubDate?: Date;
   /**
    * 作者
-   * @minLength 0
-   * @maxLength 128
    * @example "CaoMeiYouRen"
    */
   author?: string;
   /**
    * 摘要
    * 纯文本格式，无 HTML
-   * @minLength 0
-   * @maxLength 65535
    * @example "这是一段内容摘要"
    */
   contentSnippet?: string;
   /**
    * 总结
-   * @minLength 0
-   * @maxLength 1024
    * @example "这是一段总结"
    */
   summary?: string;
   /**
    * AI 总结
-   * @minLength 0
-   * @maxLength 65535
    * @example "这是一段 AI 总结"
    */
   aiSummary?: string;
@@ -939,15 +895,11 @@ export interface Article {
   categories?: string[];
   /**
    * 附件URL
-   * @minLength 0
-   * @maxLength 65535
    * @example "http://bt.example.com"
    */
   enclosureUrl?: string;
   /**
    * 附件类型
-   * @minLength 0
-   * @maxLength 128
    * @example "application/x-bittorrent"
    */
   enclosureType?: string;
@@ -999,29 +951,21 @@ export interface Feed {
   user: User;
   /**
    * URL
-   * @minLength 0
-   * @maxLength 2048
    * @example "https://blog.cmyr.ltd/atom.xml"
    */
   url: string;
   /**
    * 标题
-   * @minLength 0
-   * @maxLength 256
    * @example "这是一个标题"
    */
   title: string;
   /**
    * 简介
-   * @minLength 0
-   * @maxLength 4096
    * @example "这是一段简介"
    */
   description?: string;
   /**
    * 封面 URL
-   * @minLength 0
-   * @maxLength 2048
    * @example "https://blog.cmyr.ltd/images/logo.svg"
    */
   imageUrl?: string;
@@ -1113,8 +1057,6 @@ export interface Hook {
   user: User;
   /**
    * 名称
-   * @minLength 0
-   * @maxLength 256
    * @example "Hook1"
    */
   name: string;
@@ -1162,8 +1104,6 @@ export interface Hook {
 export interface QuickCreateFeed {
   /**
    * URL
-   * @minLength 0
-   * @maxLength 2048
    * @example "https://blog.cmyr.ltd/atom.xml"
    */
   url: string;
@@ -1219,29 +1159,21 @@ export interface CreateFeed {
   user: User;
   /**
    * URL
-   * @minLength 0
-   * @maxLength 2048
    * @example "https://blog.cmyr.ltd/atom.xml"
    */
   url: string;
   /**
    * 标题
-   * @minLength 0
-   * @maxLength 256
    * @example "这是一个标题"
    */
   title: string;
   /**
    * 简介
-   * @minLength 0
-   * @maxLength 4096
    * @example "这是一段简介"
    */
   description?: string;
   /**
    * 封面 URL
-   * @minLength 0
-   * @maxLength 2048
    * @example "https://blog.cmyr.ltd/images/logo.svg"
    */
   imageUrl?: string;
@@ -1321,29 +1253,21 @@ export interface UpdateFeed {
   user?: User;
   /**
    * URL
-   * @minLength 0
-   * @maxLength 2048
    * @example "https://blog.cmyr.ltd/atom.xml"
    */
   url?: string;
   /**
    * 标题
-   * @minLength 0
-   * @maxLength 256
    * @example "这是一个标题"
    */
   title?: string;
   /**
    * 简介
-   * @minLength 0
-   * @maxLength 4096
    * @example "这是一段简介"
    */
   description?: string;
   /**
    * 封面 URL
-   * @minLength 0
-   * @maxLength 2048
    * @example "https://blog.cmyr.ltd/images/logo.svg"
    */
   imageUrl?: string;
@@ -1425,15 +1349,11 @@ export interface CreateCategory {
   user: User;
   /**
    * 名称
-   * @minLength 0
-   * @maxLength 256
    * @example "分类A"
    */
   name: string;
   /**
    * 简介
-   * @minLength 0
-   * @maxLength 2048
    * @example "分类A"
    */
   description?: string;
@@ -1459,15 +1379,11 @@ export interface UpdateCategory {
   user?: User;
   /**
    * 名称
-   * @minLength 0
-   * @maxLength 256
    * @example "分类A"
    */
   name?: string;
   /**
    * 简介
-   * @minLength 0
-   * @maxLength 2048
    * @example "分类A"
    */
   description?: string;
@@ -1509,8 +1425,6 @@ export interface CreateHook {
   user: User;
   /**
    * 名称
-   * @minLength 0
-   * @maxLength 256
    * @example "Hook1"
    */
   name: string;
@@ -1570,8 +1484,6 @@ export interface UpdateHook {
   user?: User;
   /**
    * 名称
-   * @minLength 0
-   * @maxLength 256
    * @example "Hook1"
    */
   name?: string;
@@ -1643,29 +1555,21 @@ export interface Resource {
   user: User;
   /**
    * URL
-   * @minLength 0
-   * @maxLength 65000
    * @example "https://blog.cmyr.ltd/images/favicon-16x16-next.png"
    */
   url: string;
   /**
    * 文件名称
-   * @minLength 0
-   * @maxLength 1024
    * @example "favicon-16x16-next.png"
    */
   name?: string;
   /**
    * 文件路径
-   * @minLength 0
-   * @maxLength 2048
    * @example "/data/download/favicon-16x16-next.png"
    */
   path?: string;
   /**
    * 文件类型
-   * @minLength 0
-   * @maxLength 128
    * @example "image/png"
    */
   type: string;
@@ -1683,18 +1587,14 @@ export interface Resource {
   sizeFormat?: string;
   /**
    * 文件哈希
-   * @minLength 0
-   * @maxLength 128
    * @example "d41d8cd98f00b204e9800998ecf8427e"
    */
   hash: string;
   /**
    * 文件状态
-   * @minLength 0
-   * @maxLength 16
    * @example "success"
    */
-  status: object;
+  status: "success" | "fail" | "skip" | "unknown";
 }
 
 export interface FindResource {
@@ -1739,22 +1639,16 @@ export interface WebhookLog {
   /**
    * 类型
    * webhook 或 notification
-   * @minLength 0
-   * @maxLength 16
    * @example "webhook"
    */
-  type: object;
+  type: "notification" | "webhook";
   /**
    * 状态
-   * @minLength 0
-   * @maxLength 16
    * @example "success"
    */
-  status: object;
+  status: "success" | "fail" | "unknown";
   /**
    * 状态码名称
-   * @minLength 0
-   * @maxLength 128
    * @example "OK"
    */
   statusText: string;
@@ -1808,16 +1702,12 @@ export interface CreateProxyConfig {
   user: User;
   /**
    * 代理名称
-   * @minLength 0
-   * @maxLength 256
    * @example "代理A"
    */
   name: string;
   /**
    * 代理URL
    * 支持 http/https/socks/socks5 协议。例如 http://127.0.0.1:8080
-   * @minLength 0
-   * @maxLength 2048
    * @example "http://127.0.0.1:8080"
    */
   url: string;
@@ -1838,16 +1728,12 @@ export interface UpdateProxyConfig {
   user?: User;
   /**
    * 代理名称
-   * @minLength 0
-   * @maxLength 256
    * @example "代理A"
    */
   name?: string;
   /**
    * 代理URL
    * 支持 http/https/socks/socks5 协议。例如 http://127.0.0.1:8080
-   * @minLength 0
-   * @maxLength 2048
    * @example "http://127.0.0.1:8080"
    */
   url?: string;
@@ -1868,8 +1754,6 @@ export interface UpdateCustomQuery {
   user?: User;
   /**
    * 名称
-   * @minLength 0
-   * @maxLength 256
    * @example "查询A"
    */
   name?: string;
@@ -1891,8 +1775,6 @@ export interface UpdateCustomQuery {
    * @example 1
    */
   feedId?: number;
-  /** 订阅源 */
-  feed?: Feed;
   /**
    * 指定订阅
    * 支持选择多个订阅
@@ -1955,8 +1837,6 @@ export interface CustomQuery {
   user: User;
   /**
    * 名称
-   * @minLength 0
-   * @maxLength 256
    * @example "查询A"
    */
   name: string;
@@ -1978,8 +1858,6 @@ export interface CustomQuery {
    * @example 1
    */
   feedId?: number;
-  /** 订阅源 */
-  feed?: Feed;
   /**
    * 指定订阅
    * 支持选择多个订阅
@@ -2004,8 +1882,6 @@ export interface CustomQuery {
   /**
    * 访问秘钥
    * 通过访问秘钥即可无需登录访问 RSS 订阅。一旦泄露，请立即修改！
-   * @minLength 0
-   * @maxLength 256
    * @example "custom-query-key:2c28d0b6-47db-43a4-aff4-439edbe29200"
    */
   key: string;
@@ -2040,8 +1916,6 @@ export interface CreateCustomQuery {
   user: User;
   /**
    * 名称
-   * @minLength 0
-   * @maxLength 256
    * @example "查询A"
    */
   name: string;
@@ -2063,8 +1937,6 @@ export interface CreateCustomQuery {
    * @example 1
    */
   feedId?: number;
-  /** 订阅源 */
-  feed?: Feed;
   /**
    * 指定订阅
    * 支持选择多个订阅
@@ -2217,8 +2089,6 @@ export interface DailyCount {
   updatedAt: Date;
   /**
    * 日期
-   * @minLength 0
-   * @maxLength 16
    * @example "2024-01-01"
    */
   date: string;
