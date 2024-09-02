@@ -14,9 +14,6 @@ const { postGet, preSave } = useIdTransformer(['categories', 'feeds'])
 
 const customPreSave = (data: CustomQuery) => {
     data = preSave(data)
-    if (!data.feedId) {
-        data.feedId = null as any
-    }
     return data
 }
 
