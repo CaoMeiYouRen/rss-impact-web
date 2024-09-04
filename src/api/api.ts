@@ -508,6 +508,12 @@ export interface AIConfig {
    */
   type: "openAI";
   /**
+   * 操作
+   * 要 AI 大模型进行的操作。默认为 总结正文。
+   * @example "summary"
+   */
+  action: "summary" | "generateCategory";
+  /**
    * API Key
    * OpenAI API Key
    * @minLength 0
