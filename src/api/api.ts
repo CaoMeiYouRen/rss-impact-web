@@ -1643,6 +1643,11 @@ export interface WebhookLog {
    */
   type: "notification" | "webhook";
   /**
+   * 文章列表
+   * @example []
+   */
+  articles?: Article[];
+  /**
    * 状态
    * @example "success"
    */
@@ -2854,6 +2859,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     articleTypeDicData: (params: RequestParams = {}) =>
       this.request<DicData[], void>({
         path: `/api/article/typeDicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags article
+     * @name ArticleDicData
+     * @request GET:/api/article/dicData
+     */
+    articleDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], void>({
+        path: `/api/article/dicData`,
         method: "GET",
         format: "json",
         ...params,
