@@ -1,5 +1,17 @@
 <template>
     <div class="about">
-        <h1>RSS Impact - 一个基于 RSS 的 Hook 系统</h1>
+        <iframe
+            id="about"
+            src="https://rss-docs.cmyr.dev/"
+            height="100%"
+            width="100%"
+            frameborder="0"
+        />
     </div>
 </template>
+
+<style lang="scss" scoped>
+.about {
+    height: calc(100vh - 90px);
+}
+</style>

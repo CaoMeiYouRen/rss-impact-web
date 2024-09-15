@@ -20,7 +20,7 @@
                         <component :is="theOnlyOneChild.meta.icon" v-else />
                     </el-icon>
                     <span
-                        v-if="theOnlyOneChild.meta.title && !isCollapse"
+                        v-if="theOnlyOneChild.meta.title && (!isFirstLevel || !isCollapse)"
                     >{{ theOnlyOneChild.meta.title }}</span>
                 </el-menu-item>
             </SidebarItemLink>
@@ -165,8 +165,7 @@ export default defineComponent({
                 overflow: hidden;
 
                 & > .el-sub-menu__title {
-                    padding: 0 !important;
-
+                    padding: 0 15px;
                     .el-sub-menu__icon-arrow {
                         display: none;
                     }
@@ -192,7 +191,7 @@ export default defineComponent({
     i[class^="iconfont"] {
         width: 24px;
 
-        // margin-right: 16px;
+        margin-right: 16px;
         margin-left: 4px;
         text-align: center;
     }
