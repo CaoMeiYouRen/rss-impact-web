@@ -3549,6 +3549,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags system
+     * @name SystemSqliteVacuum
+     * @summary 释放 sqlite 数据库未使用空间
+     * @request POST:/api/system/sqliteVacuum
+     */
+    systemSqliteVacuum: (params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/system/sqliteVacuum`,
+        method: "POST",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
      * @tags daily-count
      * @name DailyCountConfig
      * @summary 获取 config
