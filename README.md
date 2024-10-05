@@ -22,6 +22,10 @@
 > 一个支持 Hook 的 RSS 订阅工具。
 >
 > 本项目为前端部分，后端部分请参考 [rss-impact-server](https://github.com/CaoMeiYouRen/rss-impact-server)。
+>
+> **rss-impact-plus** 正在众筹中，详情请点击链接查看：[rss-impact-plus 众筹](https://afdian.com/project/73a4fc8e6de911efa0f95254001e7c00)。
+>
+> 当 RSS Impact 开发完毕的时候，您将收到通知邮件，**[点击链接立即加入等待名单](https://waitlist.cmyr.dev)**。
 
 ## 🏠 主页
 
