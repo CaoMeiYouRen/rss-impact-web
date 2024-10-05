@@ -6,6 +6,7 @@
             height="100%"
             width="100%"
             frameborder="0"
+            sandbox="allow-forms allow-same-origin allow-scripts"
         />
     </div>
 </template>
