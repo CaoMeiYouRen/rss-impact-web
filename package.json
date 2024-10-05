@@ -35,7 +35,7 @@
     "vue": "^3.5.11",
     "vue-echarts": "^7.0.3",
     "vue-router": "^4.4.5",
-    "xlsx": "^0.18.5"
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
     "@cao-mei-you-ren/avue-types": "^1.1.0",
@@ -116,7 +116,11 @@
       "compare-func": "2.0.0",
       "postcss": "^8.4.31",
       "yargs-parser": "^21.1.1",
-      "braces": "^3.0.3"
+      "braces": "^3.0.3",
+      "trim-newlines": "^4.1.1",
+      "trim": "^1.0.1",
+      "micromatch": "^4.0.8",
+      "cookie": "^0.7.0"
     }
   }
 }
