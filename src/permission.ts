@@ -28,7 +28,7 @@ router.beforeEach(async (to, _, next) => {
                 return
             } catch (error: any) {
                 console.error(error)
-                // await userStore.logout()
+                await userStore.logout()
                 // ElMessage.error(error?.message || '出现错误！')
                 // next(`/login?redirect=${to.path}`)
                 if (_.path !== '/login') {
