@@ -32,6 +32,8 @@ const userStore = useUserStore()
     width: 100%;
     height: 100vh;
     // background: linear-gradient(135deg, #83a4d4, #b6fbff);
+    // 设置背景颜色为浅灰色
+    // background-color: rgba(245, 245, 245, 0.9);
     color: #333;
     font-family: 'Helvetica Neue', Arial, sans-serif;
 

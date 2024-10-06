@@ -142,7 +142,7 @@ const option: AvueFormOption = {
 }
 
 const onLogin = () => {
-    formRef.value.submit()
+    formRef.value?.submit()
 }
 
 const submit = async (form: LoginDto, done: () => void) => {

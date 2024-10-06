@@ -20,6 +20,7 @@
                 </el-image>
             </div>
             <avue-form
+                ref="formRef"
                 v-model="registerForm"
                 :option="option"
                 @submit="submit"
@@ -149,7 +150,7 @@ const option: AvueFormOption = {
 }
 
 const onRegister = () => {
-    formRef.value.submit()
+    formRef.value?.submit()
 }
 
 const submit = async (form: RegisterDto, done: () => void) => {

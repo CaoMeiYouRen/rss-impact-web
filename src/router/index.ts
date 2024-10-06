@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteLocationNormalized, RouteRecordRaw, RouterOptions } from 'vue-router'
-import { HomeFilled, InfoFilled, UserFilled, Histogram, Grid, Setting } from '@element-plus/icons-vue'
+import { HomeFilled, InfoFilled, UserFilled, Histogram, Grid, Setting, Document } from '@element-plus/icons-vue'
 import Layout from '@/layout/Layout.vue'
 import { Role } from '@/constant/role'
 
@@ -132,6 +132,21 @@ export const constantRoutes: RouteConfig[] = [
                 meta: {
                     title: '个人中心',
                     icon: UserFilled,
+                },
+            },
+        ],
+    },
+    {
+        path: '/docs',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                name: 'Docs',
+                component: () => import('@/views/Docs.vue'),
+                meta: {
+                    title: '文档',
+                    icon: Document,
                 },
             },
         ],
