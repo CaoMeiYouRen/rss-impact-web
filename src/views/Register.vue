@@ -1,30 +1,81 @@
 <template>
     <div class="register-container">
         <div class="register-form">
+            <div class="logo" tabindex="-1">
+                <el-image
+                    :src="logo"
+                    tabindex="-1"
+                    lazy
+                >
+                    <template #placeholder>
+                        <div class="image-slot">
+                            Loading<span class="dot">...</span>
+                        </div>
+                    </template>
+                    <template #error>
+                        <div class="image-slot">
+                            <el-icon><icon-picture /></el-icon>
+                        </div>
+                    </template>
+                </el-image>
+            </div>
             <avue-form
                 v-model="registerForm"
                 :option="option"
                 @submit="submit"
-            />
-            <el-row class="row-bg" justify="end">
-                <el-col :span="6">
-                    <el-button type="success" @click="$router.push('/login')">
-                        <el-icon><CaretLeft /></el-icon>
-                        <span>返回</span>
-                    </el-button>
-                </el-col>
-            </el-row>
+            >
+                <template #menu-form="{size}">
+                    <el-row class="button-row" justify="space-between">
+                        <el-col :span="11">
+                            <el-button
+                                type="success"
+                                native-type="submit"
+                                class="register-button"
+                                :size="size"
+                                @click="onRegister"
+                            >
+                                <el-icon><Position /></el-icon>
+                                <span>注册</span>
+                            </el-button>
+                        </el-col>
+                        <el-col :span="11">
+                            <el-button
+                                type="danger"
+                                class="clear-button"
+                                :size="size"
+                                @click="clearForm"
+                            >
+                                <el-icon><Delete /></el-icon>
+                                <span>清空</span>
+                            </el-button>
+                        </el-col>
+                        <el-col :span="11">
+                            <el-button
+                                type="primary"
+                                class="login-button"
+                                :size="size"
+                                @click="$router.push('/login')"
+                            >
+                                <el-icon><CaretLeft /></el-icon>
+                                <span>返回登录</span>
+                            </el-button>
+                        </el-col>
+                    </el-row>
+                </template>
+            </avue-form>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { RegisterDto } from '@/api/api'
 import { baseValidatePassword, isEmail, isValidUsername } from '@/utils/validate'
 import { api } from '@/api'
+import logo from '@/assets/images/logo.png'
+import { AvueFormOption } from '@/interfaces/avue'
 
 const router = useRouter()
 
@@ -50,14 +101,18 @@ const validateEmail = (_rule: any, value: string, callback: (error?: Error) => v
     callback()
 }
 
+const formRef = shallowRef<any>(null)
+
 const registerForm = ref<RegisterDto>({
     username: '',
     password: '',
     email: '',
 })
 
-const option = {
+const option: AvueFormOption = {
+    submitBtn: false,
     submitText: '注册',
+    emptyBtn: false,
     column: {
         username: {
             span: 24,
@@ -90,7 +145,11 @@ const option = {
                 { validator: validatePassword, trigger: 'blur' },
             ],
         },
-    },
+    } as any,
+}
+
+const onRegister = () => {
+    formRef.value.submit()
 }
 
 const submit = async (form: RegisterDto, done: () => void) => {
@@ -109,18 +168,86 @@ const submit = async (form: RegisterDto, done: () => void) => {
     }
 }
 
+const clearForm = () => {
+    registerForm.value = {
+        username: '',
+        password: '',
+        email: '',
+    }
+}
 </script>
 
 <style lang="scss" scoped>
 .register-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #83a4d4, #b6fbff);
 
     .register-form {
-        margin: auto;
-        margin-top: 15%;
+        background: rgba(255, 255, 255, 1);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         width: 400px;
+        text-align: center;
+
+        .logo {
+            margin: 0 auto 20px;
+            width: 150px;
+        }
+
+        .el-form-item {
+            margin-bottom: 20px;
+        }
+
+        .button-row {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .el-button {
+            width: 100%;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #66bb6a;
+            }
+        }
+
+        .clear-button {
+            background-color: #f56c6c;
+            border-color: #f56c6c;
+
+            &:hover {
+                background-color: #f78989;
+                border-color: #f78989;
+            }
+        }
+
+        .register-button {
+            background-color: #42b983;
+            border-color: #42b983;
+
+            &:hover {
+                background-color: #3da87a;
+                border-color: #3da87a;
+            }
+        }
+
+        .login-button {
+            margin-top: 20px;
+            background-color: #409eff;
+            border-color: #409eff;
+
+            &:hover {
+                background-color: #66b1ff;
+                border-color: #66b1ff;
+            }
+        }
     }
 }
 </style>
