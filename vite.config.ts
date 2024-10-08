@@ -5,6 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import { vitePluginSwaggerTypescriptApi, GenerateApiOption } from 'vite-plugin-swagger-typescript-api'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,6 +25,9 @@ export default defineConfig({
             } as any),
             unwrapResponseData: true, // 解包 response 中的 data
         } as GenerateApiOption),
+        AutoImport({
+            resolvers: [ElementPlusResolver()],
+        }),
         Components({
             resolvers: [ElementPlusResolver()],
         }),
@@ -59,11 +63,12 @@ export default defineConfig({
             output: {
                 // 手动划分代码块
                 manualChunks: {
-                    vendor: ['vue', 'vue-router', 'pinia', '@sentry/vue', '@vueuse/core', '@vueuse/integrations'],
-                    elementPlus: ['element-plus', '@element-plus/icons-vue'],
-                    avue: ['@smallwei/avue'],
+                    vendor: ['vue', 'vue-router', 'pinia', '@sentry/vue', '@vueuse/core'],
+                    elementPlusIcons: ['@element-plus/icons-vue'],
+                    // elementPlus: ['element-plus'],
+                    // avue: ['@smallwei/avue'],
                     echarts: ['echarts', 'vue-echarts'],
-                    utils: ['axios', 'dayjs', 'lodash-es', 'file-saver', 'nprogress', 'path-browserify', 'path-to-regexp', 'universal-cookie'],
+                    utils: ['axios', 'dayjs', 'lodash-es', 'file-saver', 'nprogress', 'path-browserify', 'path-to-regexp'],
                 },
             },
         },

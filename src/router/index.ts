@@ -56,7 +56,8 @@ export const constantRoutes: RouteConfig[] = [
         },
         children: [
             {
-                path: 'subscribe', // 避免 RSSHub Radar 匹配到 /feed 路由
+                path: 'feed', // subscribe 订阅
+                // // 避免 RSSHub Radar 匹配到 /feed 路由
                 component: () => import('@/views/data/Feed.vue'),
                 meta: {
                     title: '订阅管理',
