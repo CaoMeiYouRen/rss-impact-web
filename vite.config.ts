@@ -59,13 +59,11 @@ export default defineConfig({
             output: {
                 // 手动划分代码块
                 manualChunks: {
-                    vendor: ['vue', 'vue-router', 'pinia'],
+                    vendor: ['vue', 'vue-router', 'pinia', '@sentry/vue', '@vueuse/core', '@vueuse/integrations'],
                     elementPlus: ['element-plus', '@element-plus/icons-vue'],
                     avue: ['@smallwei/avue'],
                     echarts: ['echarts', 'vue-echarts'],
                     utils: ['axios', 'dayjs', 'lodash-es', 'file-saver', 'nprogress', 'path-browserify', 'path-to-regexp', 'universal-cookie'],
-                    sentry: ['@sentry/vue'],
-                    vueuse: ['@vueuse/core', '@vueuse/integrations'],
                 },
             },
         },

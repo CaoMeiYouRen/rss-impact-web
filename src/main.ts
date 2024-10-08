@@ -10,7 +10,6 @@ import router from '@/router'
 import store from '@/store'
 import {
     ElementPlus,
-    ElementPlusIconsVue,
 } from '@/plugins/element-plus'
 import Avue from '@/plugins/avue'
 import '@/permission'
