@@ -8,7 +8,7 @@ import { isHttpURL } from '@/utils/helper'
 
 export const api = new Api({
     baseURL: isHttpURL(VITE_API_BASE_URL) ? new URL(VITE_API_BASE_URL).origin : undefined,
-    timeout: 10000,
+    timeout: 20000,
     withCredentials: VITE_WITH_CREDENTIALS === 'true',
 })
 /**

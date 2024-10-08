@@ -26,7 +26,7 @@ const app = createApp(App)
     .use(Avue, {
         axios: axios.create({
             baseURL: VITE_API_BASE_URL,
-            timeout: 10000,
+            timeout: 20000,
         }),
         locale: zhLocale,
     })
@@ -47,9 +47,9 @@ if (__PROD__ && VITE_SENTRY_DSN) {
     })
 }
 
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    app.component(key, component)
-}
+// for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+//     app.component(key, component)
+// }
 
 for (const [key, component] of Object.entries(components)) {
     app.component(key, component)

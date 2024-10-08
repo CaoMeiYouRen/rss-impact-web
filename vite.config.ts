@@ -3,6 +3,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { vitePluginSwaggerTypescriptApi, GenerateApiOption } from 'vite-plugin-swagger-typescript-api'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,6 +24,9 @@ export default defineConfig({
             } as any),
             unwrapResponseData: true, // 解包 response 中的 data
         } as GenerateApiOption),
+        Components({
+            resolvers: [ElementPlusResolver()],
+        }),
     ],
     server: {
         port: 4400,
@@ -54,11 +59,13 @@ export default defineConfig({
             output: {
                 // 手动划分代码块
                 manualChunks: {
-                    // vendor: ['vue', 'vue-router', 'pinia'],
-                    // components: ['@/components/*'],
-                    // views: ['@/views/*'],
-                    // utils: ['@/utils/*'],
-                    // 其他自定义的代码块
+                    vendor: ['vue', 'vue-router', 'pinia'],
+                    elementPlus: ['element-plus', '@element-plus/icons-vue'],
+                    avue: ['@smallwei/avue'],
+                    echarts: ['echarts', 'vue-echarts'],
+                    utils: ['axios', 'dayjs', 'lodash-es', 'file-saver', 'nprogress', 'path-browserify', 'path-to-regexp', 'universal-cookie'],
+                    sentry: ['@sentry/vue'],
+                    vueuse: ['@vueuse/core', '@vueuse/integrations'],
                 },
             },
         },
