@@ -61,7 +61,7 @@
     "lint-staged": "^15.2.10",
     "postcss-html": "^1.7.0",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.79.4",
+    "sass": "^1.79.5",
     "semantic-release": "21.0.1",
     "stylelint": "^16.10.0",
     "stylelint-config-cmyr": "^0.2.1",
