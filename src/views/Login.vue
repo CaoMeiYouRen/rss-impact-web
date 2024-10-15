@@ -24,10 +24,7 @@
                     RSS Impact
                 </h1>
             </div>
-            <el-tabs
-                v-model="activeTab"
-                @tab-click="handleTabClick"
-            >
+            <el-tabs v-model="activeTab" @tab-click="handleTabClick">
                 <el-tab-pane
                     v-if="!disableForm"
                     label="表单登录"
@@ -49,7 +46,9 @@
                                         size="large"
                                         @click="$router.push('/register')"
                                     >
-                                        <el-icon><Position /></el-icon>
+                                        <el-icon>
+                                            <Position />
+                                        </el-icon>
                                         <span>前往注册</span>
                                     </el-button>
                                 </el-col>
@@ -61,7 +60,9 @@
                                         size="large"
                                         @click="onLogin"
                                     >
-                                        <el-icon><Lock /></el-icon>
+                                        <el-icon>
+                                            <Lock />
+                                        </el-icon>
                                         <span>登录</span>
                                     </el-button>
                                 </el-col>
@@ -82,7 +83,9 @@
                                 size="large"
                                 @click="onOneClickRegister"
                             >
-                                <el-icon><Position /></el-icon>
+                                <el-icon>
+                                    <Position />
+                                </el-icon>
                                 <span>一键注册</span>
                             </el-button>
                         </el-col>
@@ -92,7 +95,9 @@
                                 size="large"
                                 @click="onOneClickLogin"
                             >
-                                <el-icon><Lock /></el-icon>
+                                <el-icon>
+                                    <Lock />
+                                </el-icon>
                                 <span>一键登录</span>
                             </el-button>
                         </el-col>
@@ -113,6 +118,7 @@ import { useUserStore } from '@/store/modules/user'
 import logo from '@/assets/images/logo.png'
 import { AvueFormOption } from '@/interfaces/avue'
 import { useAppStore } from '@/store/modules/app'
+import { Dictionary, getOtherQuery } from '@/utils/helper'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -124,17 +130,6 @@ const disablePasswordRegister = computed(() => state.authMeta.disablePasswordReg
 const enableAuth0 = computed(() => state.authMeta.enableAuth0)
 
 const disableForm = computed(() => disablePasswordLogin.value && disablePasswordRegister.value)
-
-type Dictionary<T> = { [key: string]: T }
-
-function getOtherQuery(query: Dictionary<string>) {
-    return Object.keys(query).reduce((acc, cur) => {
-        if (cur !== 'redirect') {
-            acc[cur] = query[cur]
-        }
-        return acc
-    }, {} as Dictionary<string>)
-}
 
 const validateUsername = (rule: any, value: string, callback: (error?: Error) => void) => {
     if (isValidUsername(value)) {
@@ -233,10 +228,27 @@ const onOneClickLogin = () => {
     window.location.href = url.href
 }
 
-onMounted(() => {
+const onAuth0LoginCallback = async () => {
+    try {
+        if (otherQuery.value?.state?.startsWith('auth0_login_')) { // 如果从 auth0 回调
+            await userStore.getUserInfo()
+            await router.push({
+                path: redirect.value || '/',
+                query: {},
+            })
+        }
+
+    } catch (error) {
+        console.error(error)
+        await userStore.logout()
+    }
+}
+
+onMounted(async () => {
     const query = router.currentRoute.value.query as Dictionary<string>
     redirect.value = query?.redirect
     otherQuery.value = getOtherQuery(query)
+    await onAuth0LoginCallback()
 })
 
 </script>
@@ -263,8 +275,8 @@ onMounted(() => {
             width: 150px;
         }
 
-        .logo-title{
-            color:rgb(20, 34, 51);
+        .logo-title {
+            color: rgb(20, 34, 51);
         }
 
         .el-form-item {

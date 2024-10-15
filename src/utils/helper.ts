@@ -144,3 +144,14 @@ export function getSafeFileName(filename: string) {
  * @returns
  */
 export const isHttpURL = (url: string) => /^(https?:\/\/)/.test(url)
+
+export type Dictionary<T> = { [key: string]: T }
+
+export function getOtherQuery(query: Dictionary<string>) {
+    return Object.keys(query).reduce((acc, cur) => {
+        if (cur !== 'redirect') {
+            acc[cur] = query[cur]
+        }
+        return acc
+    }, {} as Dictionary<string>)
+}

@@ -3,6 +3,7 @@ import router from './router'
 import '@/styles/nprogress.scss'
 import { useUserStore } from './store/modules/user'
 import { usePermissionStore } from './store/modules/permission'
+import { Dictionary, getOtherQuery } from './utils/helper'
 
 NProgress.configure({ showSpinner: false })
 
@@ -13,6 +14,13 @@ router.beforeEach(async (to, _, next) => {
     const permissionStore = usePermissionStore()
     NProgress.start()
 
+    const otherQuery = getOtherQuery(to.query as Dictionary<string>)
+    const query = {
+        ...otherQuery,
+        redirect: to.path,
+    }
+    const search = new URLSearchParams(query)
+    const loginUrl = `/login?${search}`
     if (userStore.isLogin) { // 如果已登录
         if (!userStore.isLoadRoutes) { // 未载入异步路由
             try {
@@ -32,10 +40,11 @@ router.beforeEach(async (to, _, next) => {
                 // ElMessage.error(error?.message || '出现错误！')
                 // next(`/login?redirect=${to.path}`)
                 if (_.path !== '/login') {
-                    next(`/login?redirect=${_.path}`)
+                    next(loginUrl)
                     return
                 }
-                next('/login?redirect=/')
+                search.set('redirect', '/')
+                next(`/login?${search}`)
                 return
             }
         }
@@ -60,9 +69,9 @@ router.beforeEach(async (to, _, next) => {
         next()
         return
     }
-    await userStore.logout()
+    // await userStore.logout()
     // 其他情况回到 login 页面要求登录
-    next(`/login?redirect=${to.path}`)
+    next(loginUrl)
 })
 
 router.afterEach((to) => {
