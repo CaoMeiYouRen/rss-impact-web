@@ -28,6 +28,7 @@ export const useAppStore = defineStore('app', () => {
         enableRegister: false,
         disablePasswordLogin: false,
         disablePasswordRegister: false,
+        enableAuth0: false,
     })
 
     function toggleSidebar(withoutAnimation: boolean) {
