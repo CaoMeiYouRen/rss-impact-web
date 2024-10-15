@@ -1,28 +1,34 @@
 <template>
     <div class="register-container">
         <div class="register-form">
-            <div class="logo" tabindex="-1">
-                <el-image
-                    :src="logo"
-                    tabindex="-1"
-                    lazy
-                >
-                    <template #placeholder>
-                        <div class="image-slot">
-                            Loading<span class="dot">...</span>
-                        </div>
-                    </template>
-                    <template #error>
-                        <div class="image-slot">
-                            <el-icon><icon-picture /></el-icon>
-                        </div>
-                    </template>
-                </el-image>
+            <div>
+                <div class="logo" tabindex="-1">
+                    <el-image
+                        :src="logo"
+                        tabindex="-1"
+                        lazy
+                    >
+                        <template #placeholder>
+                            <div class="image-slot">
+                                Loading<span class="dot">...</span>
+                            </div>
+                        </template>
+                        <template #error>
+                            <div class="image-slot">
+                                <el-icon><icon-picture /></el-icon>
+                            </div>
+                        </template>
+                    </el-image>
+                </div>
+                <h1 class="logo-title">
+                    RSS Impact
+                </h1>
             </div>
             <avue-form
                 ref="formRef"
                 v-model="registerForm"
                 :option="option"
+
                 @submit="submit"
             >
                 <template #menu-form="{size}">
@@ -42,7 +48,7 @@
                             <el-button
                                 type="primary"
                                 class="login-button"
-                                :size="size"
+                                size="large"
                                 @click="$router.push('/login')"
                             >
                                 <el-icon><CaretLeft /></el-icon>
@@ -54,7 +60,8 @@
                                 type="success"
                                 native-type="submit"
                                 class="register-button"
-                                :size="size"
+                                size="large"
+                                :disabled="disablePasswordRegister"
                                 @click="onRegister"
                             >
                                 <el-icon><Position /></el-icon>
@@ -69,7 +76,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, shallowRef } from 'vue'
+import { computed, ref, shallowRef } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { RegisterDto } from '@/api/api'
@@ -77,8 +84,12 @@ import { baseValidatePassword, isEmail, isValidUsername } from '@/utils/validate
 import { api } from '@/api'
 import logo from '@/assets/images/logo.png'
 import { AvueFormOption } from '@/interfaces/avue'
+import { useAppStore } from '@/store/modules/app'
 
 const router = useRouter()
+const state = useAppStore()
+
+const disablePasswordRegister = computed(() => state.authMeta.disablePasswordRegister)
 
 const validateUsername = (_rule: any, value: string, callback: (error?: Error) => void) => {
     if (isValidUsername(value)) {
@@ -200,6 +211,10 @@ const clearForm = () => {
             width: 150px;
         }
 
+        .logo-title{
+            color:rgb(20, 34, 51);
+        }
+
         .el-form-item {
             margin-bottom: 20px;
         }
@@ -214,9 +229,9 @@ const clearForm = () => {
             border-radius: 5px;
             transition: background-color 0.3s ease;
 
-            &:hover {
-                background-color: #66bb6a;
-            }
+            // &:hover {
+            //     background-color: #66bb6a;
+            // }
         }
 
         .clear-button {
@@ -230,24 +245,24 @@ const clearForm = () => {
         }
 
         .register-button {
-            background-color: #42b983;
-            border-color: #42b983;
+            // background-color: #42b983;
+            // border-color: #42b983;
 
-            &:hover {
-                background-color: #3da87a;
-                border-color: #3da87a;
-            }
+            // &:hover {
+            //     background-color: #3da87a;
+            //     border-color: #3da87a;
+            // }
         }
 
         .login-button {
             // margin-top: 20px;
-            background-color: #409eff;
-            border-color: #409eff;
+            // background-color: #409eff;
+            // border-color: #409eff;
 
-            &:hover {
-                background-color: #66b1ff;
-                border-color: #66b1ff;
-            }
+            // &:hover {
+            //     background-color: #66b1ff;
+            //     border-color: #66b1ff;
+            // }
         }
     }
 }

@@ -339,6 +339,7 @@ export interface AuthMeta {
   enableRegister: boolean;
   disablePasswordLogin: boolean;
   disablePasswordRegister: boolean;
+  enableAuth0: boolean;
 }
 
 export interface LoginDto {

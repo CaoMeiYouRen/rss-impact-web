@@ -1,86 +1,129 @@
 <template>
     <div class="login-container">
         <div class="login-form">
-            <div class="logo" tabindex="-1">
-                <el-image
-                    :src="logo"
-                    tabindex="-1"
-                    lazy
-                >
-                    <template #placeholder>
-                        <div class="image-slot">
-                            Loading<span class="dot">...</span>
-                        </div>
-                    </template>
-                    <template #error>
-                        <div class="image-slot">
-                            <el-icon><icon-picture /></el-icon>
-                        </div>
-                    </template>
-                </el-image>
+            <div>
+                <div class="logo" tabindex="-1">
+                    <el-image
+                        :src="logo"
+                        tabindex="-1"
+                        lazy
+                    >
+                        <template #placeholder>
+                            <div class="image-slot">
+                                Loading<span class="dot">...</span>
+                            </div>
+                        </template>
+                        <template #error>
+                            <div class="image-slot">
+                                <el-icon><icon-picture /></el-icon>
+                            </div>
+                        </template>
+                    </el-image>
+                </div>
+                <h1 class="logo-title">
+                    RSS Impact
+                </h1>
             </div>
-            <avue-form
-                ref="formRef"
-                v-model="loginForm"
-                :option="option"
-                @submit="submit"
+            <el-tabs
+                v-model="activeTab"
+                @tab-click="handleTabClick"
             >
-                <template #menu-form="{size}">
-                    <el-row class="button-row" justify="space-between">
-                        <!-- <el-col :span="11">
-                            <el-button
-                                type="danger"
-                                class="clear-button"
-                                :size="size"
-                                @click="clearForm"
-                            >
-                                <el-icon><Delete /></el-icon>
-                                <span>清空</span>
-                            </el-button>
-                        </el-col> -->
-
-                        <!-- <el-col :span="11"></el-col> -->
+                <el-tab-pane
+                    v-if="!disableForm"
+                    label="表单登录"
+                    name="legacy"
+                >
+                    <avue-form
+                        ref="formRef"
+                        v-model="loginForm"
+                        :option="option"
+                        @submit="submit"
+                    >
+                        <template #menu-form="{size}">
+                            <el-row class="button-row" justify="space-between">
+                                <el-col :span="11">
+                                    <el-button
+                                        v-if="!disablePasswordRegister"
+                                        type="success"
+                                        class="register-button"
+                                        size="large"
+                                        @click="$router.push('/register')"
+                                    >
+                                        <el-icon><Position /></el-icon>
+                                        <span>前往注册</span>
+                                    </el-button>
+                                </el-col>
+                                <el-col :span="11">
+                                    <el-button
+                                        type="primary"
+                                        native-type="submit"
+                                        class="login-button"
+                                        size="large"
+                                        @click="onLogin"
+                                    >
+                                        <el-icon><Lock /></el-icon>
+                                        <span>登录</span>
+                                    </el-button>
+                                </el-col>
+                            </el-row>
+                        </template>
+                    </avue-form>
+                </el-tab-pane>
+                <el-tab-pane
+                    v-if="enableAuth0"
+                    label="一键登录"
+                    name="one-click"
+                >
+                    <el-row class="one-click-button-row" justify="space-between">
                         <el-col :span="11">
                             <el-button
+                                v-if="enableRegister"
                                 type="success"
-                                class="register-button"
-                                :size="size"
-                                @click="$router.push('/register')"
+                                size="large"
+                                @click="onOneClickRegister"
                             >
                                 <el-icon><Position /></el-icon>
-                                <span>前往注册</span>
+                                <span>一键注册</span>
                             </el-button>
                         </el-col>
                         <el-col :span="11">
                             <el-button
                                 type="primary"
-                                native-type="submit"
-                                class="login-button"
-                                :size="size"
-                                @click="onLogin"
+                                size="large"
+                                @click="onOneClickLogin"
                             >
                                 <el-icon><Lock /></el-icon>
-                                <span>登录</span>
+                                <span>一键登录</span>
                             </el-button>
                         </el-col>
                     </el-row>
-                </template>
-            </avue-form>
+                </el-tab-pane>
+            </el-tabs>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, shallowRef } from 'vue'
+import { computed, onMounted, ref, shallowRef } from 'vue'
 import { useRouter } from 'vue-router'
+import { TabsPaneContext } from 'element-plus'
 import { LoginDto } from '@/api/api'
 import { baseValidatePassword, isValidUsername } from '@/utils/validate'
 import { useUserStore } from '@/store/modules/user'
 import logo from '@/assets/images/logo.png'
 import { AvueFormOption } from '@/interfaces/avue'
+import { useAppStore } from '@/store/modules/app'
 
 const router = useRouter()
 const userStore = useUserStore()
+const state = useAppStore()
+
+const enableRegister = computed(() => state.authMeta.enableRegister)
+const disablePasswordLogin = computed(() => state.authMeta.disablePasswordLogin)
+const disablePasswordRegister = computed(() => state.authMeta.disablePasswordRegister)
+const enableAuth0 = computed(() => state.authMeta.enableAuth0)
+
+const disableForm = computed(() => disablePasswordLogin.value && disablePasswordRegister.value)
 
 type Dictionary<T> = { [key: string]: T }
 
@@ -168,6 +211,27 @@ const clearForm = () => {
         password: '',
     }
 }
+// one-click 一键登录
+// legacy 表单登录
+const activeTab = ref('one-click')
+
+const handleTabClick = (tab: TabsPaneContext, event: Event) => {
+
+}
+
+const onOneClickRegister = () => {
+    const url = new URL(window.location.href)
+    url.pathname = '/api/auth/register'
+    url.searchParams.set('redirect', window.location.origin)
+    window.location.href = url.href
+}
+
+const onOneClickLogin = () => {
+    const url = new URL(window.location.href)
+    url.pathname = '/api/auth/login'
+    url.searchParams.set('redirect', window.location.origin)
+    window.location.href = url.href
+}
 
 onMounted(() => {
     const query = router.currentRoute.value.query as Dictionary<string>
@@ -199,12 +263,21 @@ onMounted(() => {
             width: 150px;
         }
 
+        .logo-title{
+            color:rgb(20, 34, 51);
+        }
+
         .el-form-item {
             margin-bottom: 20px;
         }
 
         .button-row {
-            margin-top: 20px;
+            // margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .one-click-button-row {
+            margin-top: 30px;
             margin-bottom: 20px;
         }
 
@@ -213,9 +286,9 @@ onMounted(() => {
             border-radius: 5px;
             transition: background-color 0.3s ease;
 
-            &:hover {
-                background-color: #66bb6a;
-            }
+            // &:hover {
+            //     background-color: #66bb6a;
+            // }
         }
 
         .clear-button {
@@ -229,24 +302,24 @@ onMounted(() => {
         }
 
         .login-button {
-            background-color: #409eff;
-            border-color: #409eff;
+            // background-color: #409eff;
+            // border-color: #409eff;
 
-            &:hover {
-                background-color: #66b1ff;
-                border-color: #66b1ff;
-            }
+            // &:hover {
+            //     background-color: #66b1ff;
+            //     border-color: #66b1ff;
+            // }
         }
 
         .register-button {
             // margin-top: 20px;
-            background-color: #42b983;
-            border-color: #42b983;
+            // background-color: #42b983;
+            // border-color: #42b983;
 
-            &:hover {
-                background-color: #3da87a;
-                border-color: #3da87a;
-            }
+            // &:hover {
+            //     background-color: #3da87a;
+            //     border-color: #3da87a;
+            // }
         }
     }
 }
