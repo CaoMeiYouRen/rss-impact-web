@@ -27,6 +27,30 @@
             >
                 <template #menu-form="{size}">
                     <el-row class="button-row" justify="space-between">
+                        <!-- <el-col :span="11">
+                            <el-button
+                                type="danger"
+                                class="clear-button"
+                                :size="size"
+                                @click="clearForm"
+                            >
+                                <el-icon><Delete /></el-icon>
+                                <span>清空</span>
+                            </el-button>
+                        </el-col> -->
+
+                        <!-- <el-col :span="11"></el-col> -->
+                        <el-col :span="11">
+                            <el-button
+                                type="success"
+                                class="register-button"
+                                :size="size"
+                                @click="$router.push('/register')"
+                            >
+                                <el-icon><Position /></el-icon>
+                                <span>前往注册</span>
+                            </el-button>
+                        </el-col>
                         <el-col :span="11">
                             <el-button
                                 type="primary"
@@ -37,28 +61,6 @@
                             >
                                 <el-icon><Lock /></el-icon>
                                 <span>登录</span>
-                            </el-button>
-                        </el-col>
-                        <el-col :span="11">
-                            <el-button
-                                type="danger"
-                                class="clear-button"
-                                :size="size"
-                                @click="clearForm"
-                            >
-                                <el-icon><Delete /></el-icon>
-                                <span>清空</span>
-                            </el-button>
-                        </el-col>
-                        <el-col :span="11">
-                            <el-button
-                                type="success"
-                                class="register-button"
-                                :size="size"
-                                @click="$router.push('/register')"
-                            >
-                                <el-icon><Position /></el-icon>
-                                <span>注册</span>
                             </el-button>
                         </el-col>
                     </el-row>
@@ -237,7 +239,7 @@ onMounted(() => {
         }
 
         .register-button {
-            margin-top: 20px;
+            // margin-top: 20px;
             background-color: #42b983;
             border-color: #42b983;
 

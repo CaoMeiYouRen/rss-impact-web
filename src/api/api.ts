@@ -167,6 +167,21 @@ export interface User {
    */
   email: string;
   /**
+   * 邮箱是否已验证
+   * @example true
+   */
+  emailVerified: boolean;
+  /**
+   * 禁用密码登录
+   * @example false
+   */
+  disablePasswordLogin: boolean;
+  /**
+   * 头像
+   * @example "URL_ADDRESS"
+   */
+  avatar?: string;
+  /**
    * 角色
    * @example ["admin"]
    */
@@ -177,6 +192,12 @@ export interface User {
    * @example "rss-impact:fef26d6e-040f-4a7b-8d6a-4e4f12e107b6"
    */
   accessToken: string;
+  /**
+   * Auth0 ID
+   * 绑定的 auth0 账号
+   * @example "github|114514"
+   */
+  auth0Id?: string;
 }
 
 export interface FindUser {
@@ -238,10 +259,31 @@ export interface CreateUser {
    */
   email: string;
   /**
+   * 邮箱是否已验证
+   * @example true
+   */
+  emailVerified: boolean;
+  /**
+   * 禁用密码登录
+   * @example false
+   */
+  disablePasswordLogin: boolean;
+  /**
+   * 头像
+   * @example "URL_ADDRESS"
+   */
+  avatar?: string;
+  /**
    * 角色
    * @example ["admin"]
    */
   roles: string[];
+  /**
+   * Auth0 ID
+   * 绑定的 auth0 账号
+   * @example "github|114514"
+   */
+  auth0Id?: string;
 }
 
 export interface UpdateUser {
@@ -266,10 +308,37 @@ export interface UpdateUser {
    */
   email?: string;
   /**
+   * 邮箱是否已验证
+   * @example true
+   */
+  emailVerified?: boolean;
+  /**
+   * 禁用密码登录
+   * @example false
+   */
+  disablePasswordLogin?: boolean;
+  /**
+   * 头像
+   * @example "URL_ADDRESS"
+   */
+  avatar?: string;
+  /**
    * 角色
    * @example ["admin"]
    */
   roles?: string[];
+  /**
+   * Auth0 ID
+   * 绑定的 auth0 账号
+   * @example "github|114514"
+   */
+  auth0Id?: string;
+}
+
+export interface AuthMeta {
+  enableRegister: boolean;
+  disablePasswordLogin: boolean;
+  disablePasswordRegister: boolean;
 }
 
 export interface LoginDto {
@@ -284,6 +353,12 @@ export interface LoginDto {
    * @example "123456"
    */
   password: string;
+}
+
+export interface Auth0CallbackData {
+  id_token: string;
+  state?: string;
+  sid?: string;
 }
 
 export interface RegisterDto {
@@ -2483,6 +2558,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags auth
+     * @name AuthMeta
+     * @summary 登录注册相关的元信息
+     * @request GET:/api/auth/meta
+     */
+    authMeta: (params: RequestParams = {}) =>
+      this.request<AuthMeta, any>({
+        path: `/api/auth/meta`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags auth
      * @name AuthLogin
      * @summary 登录
      * @request POST:/api/auth/login
@@ -2501,15 +2592,41 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags auth
-     * @name AuthLogout
-     * @summary 登出
-     * @request POST:/api/auth/logout
+     * @name AuthLoginByAuth0
+     * @summary 基于 Auth0 登录
+     * @request GET:/api/auth/login
      */
-    authLogout: (params: RequestParams = {}) =>
-      this.request<ResponseDto, any>({
-        path: `/api/auth/logout`,
-        method: "POST",
-        format: "json",
+    authLoginByAuth0: (
+      query: {
+        redirect: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<void, any>({
+        path: `/api/auth/login`,
+        method: "GET",
+        query: query,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags auth
+     * @name AuthRegisterByAuth0
+     * @summary 基于 Auth0 注册
+     * @request GET:/api/auth/register
+     */
+    authRegisterByAuth0: (
+      query: {
+        redirect: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<void, any>({
+        path: `/api/auth/register`,
+        method: "GET",
+        query: query,
         ...params,
       }),
 
@@ -2527,6 +2644,39 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         method: "POST",
         body: data,
         type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags auth
+     * @name AuthCallback
+     * @summary 处理 Auth0 回调
+     * @request POST:/api/auth/callback
+     */
+    authCallback: (data: Auth0CallbackData, params: RequestParams = {}) =>
+      this.request<void, any>({
+        path: `/api/auth/callback`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags auth
+     * @name AuthLogout
+     * @summary 登出
+     * @request POST:/api/auth/logout
+     */
+    authLogout: (params: RequestParams = {}) =>
+      this.request<ResponseDto, any>({
+        path: `/api/auth/logout`,
+        method: "POST",
         format: "json",
         ...params,
       }),

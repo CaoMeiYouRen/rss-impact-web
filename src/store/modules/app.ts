@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { getSidebarStatus, setSidebarStatus } from '@/utils/storage'
+import { AuthMeta } from '@/api/api'
 
 export enum DeviceType {
     Mobile,
@@ -23,6 +24,11 @@ export const useAppStore = defineStore('app', () => {
         opened: getSidebarStatus() !== 'closed',
         withoutAnimation: false,
     })
+    const authMeta = ref<AuthMeta>({
+        enableRegister: false,
+        disablePasswordLogin: false,
+        disablePasswordRegister: false,
+    })
 
     function toggleSidebar(withoutAnimation: boolean) {
         sidebar.value.opened = !sidebar.value.opened
@@ -44,5 +50,9 @@ export const useAppStore = defineStore('app', () => {
         device.value = deviceType
     }
 
-    return { device, sidebar, toggleSidebar, closeSidebar, toggleDevice }
+    function setAuthMeta(meta: AuthMeta) {
+        authMeta.value = meta
+    }
+
+    return { device, sidebar, toggleSidebar, closeSidebar, toggleDevice, setAuthMeta, authMeta }
 })

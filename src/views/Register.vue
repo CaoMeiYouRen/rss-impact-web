@@ -27,6 +27,28 @@
             >
                 <template #menu-form="{size}">
                     <el-row class="button-row" justify="space-between">
+                        <!-- <el-col :span="11">
+                            <el-button
+                                type="danger"
+                                class="clear-button"
+                                :size="size"
+                                @click="clearForm"
+                            >
+                                <el-icon><Delete /></el-icon>
+                                <span>清空</span>
+                            </el-button>
+                        </el-col> -->
+                        <el-col :span="11">
+                            <el-button
+                                type="primary"
+                                class="login-button"
+                                :size="size"
+                                @click="$router.push('/login')"
+                            >
+                                <el-icon><CaretLeft /></el-icon>
+                                <span>返回登录</span>
+                            </el-button>
+                        </el-col>
                         <el-col :span="11">
                             <el-button
                                 type="success"
@@ -37,28 +59,6 @@
                             >
                                 <el-icon><Position /></el-icon>
                                 <span>注册</span>
-                            </el-button>
-                        </el-col>
-                        <el-col :span="11">
-                            <el-button
-                                type="danger"
-                                class="clear-button"
-                                :size="size"
-                                @click="clearForm"
-                            >
-                                <el-icon><Delete /></el-icon>
-                                <span>清空</span>
-                            </el-button>
-                        </el-col>
-                        <el-col :span="11">
-                            <el-button
-                                type="primary"
-                                class="login-button"
-                                :size="size"
-                                @click="$router.push('/login')"
-                            >
-                                <el-icon><CaretLeft /></el-icon>
-                                <span>返回登录</span>
                             </el-button>
                         </el-col>
                     </el-row>
@@ -240,7 +240,7 @@ const clearForm = () => {
         }
 
         .login-button {
-            margin-top: 20px;
+            // margin-top: 20px;
             background-color: #409eff;
             border-color: #409eff;
 

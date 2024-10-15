@@ -10,6 +10,7 @@ import router from '@/router'
 import store from '@/store'
 import {
     ElementPlus,
+    ElementPlusIconsVue,
 } from '@/plugins/element-plus'
 import Avue from '@/plugins/avue'
 import '@/permission'
@@ -46,9 +47,9 @@ if (__PROD__ && VITE_SENTRY_DSN) {
     })
 }
 
-// for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-//     app.component(key, component)
-// }
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+}
 
 for (const [key, component] of Object.entries(components)) {
     app.component(key, component)
