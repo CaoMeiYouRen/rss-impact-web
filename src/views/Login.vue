@@ -245,6 +245,11 @@ const onAuth0LoginCallback = async () => {
 }
 
 onMounted(async () => {
+    if (enableAuth0.value) {
+        activeTab.value = 'one-click'
+    } else {
+        activeTab.value = 'legacy'
+    }
     const query = router.currentRoute.value.query as Dictionary<string>
     redirect.value = query?.redirect
     otherQuery.value = getOtherQuery(query)
