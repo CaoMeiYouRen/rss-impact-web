@@ -15,6 +15,7 @@
                 />
             </el-col>
             <el-col
+                v-if="!disablePasswordLogin"
                 :sm="24"
                 :md="12"
                 :lg="8"
@@ -32,12 +33,18 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { api } from '@/api'
+import { useAppStore } from '@/store/modules/app'
+import { useUserStore } from '@/store/modules/user'
 
 const router = useRouter()
+const state = useAppStore()
+const userStore = useUserStore()
+// 是否禁用密码登录，如果禁用了，则隐藏修改密码表单
+const disablePasswordLogin = computed(() => Boolean(state.authMeta.disablePasswordLogin || userStore.user?.disablePasswordLogin))
 
 const userForm = ref({})
 const passwordForm = ref({})
