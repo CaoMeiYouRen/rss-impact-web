@@ -9,10 +9,10 @@ declare module '*.vue' {
 interface ImportMetaEnv {
     // 环境变量
     readonly VITE_API_BASE_URL: string
-
     readonly VITE_WITH_CREDENTIALS: string
-
     readonly VITE_SENTRY_DSN: string
+    readonly VITE_BAIDU_STATISTICS: string
+    readonly VITE_DOMAIN: string
 
 }
 

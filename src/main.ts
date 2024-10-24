@@ -5,7 +5,7 @@ import zhLocale from '@smallwei/avue/lib/locale/lang/zh'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import * as Sentry from '@sentry/vue'
 import App from './App.vue'
-import { __PROD__, VITE_API_BASE_URL, VITE_SENTRY_DSN } from './config/env'
+import { __PROD__, VITE_API_BASE_URL, VITE_DOMAIN, VITE_SENTRY_DSN } from './config/env'
 import router from '@/router'
 import store from '@/store'
 import {
@@ -31,7 +31,7 @@ const app = createApp(App)
         locale: zhLocale,
     })
 
-if (__PROD__ && VITE_SENTRY_DSN) {
+if (__PROD__ && VITE_SENTRY_DSN && location.host.endsWith(VITE_DOMAIN)) {
     Sentry.init({
         app,
         dsn: VITE_SENTRY_DSN,
