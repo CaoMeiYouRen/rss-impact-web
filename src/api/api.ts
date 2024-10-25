@@ -167,7 +167,7 @@ export interface User {
    */
   email: string;
   /**
-   * 邮箱是否已验证
+   * 邮箱已验证
    * @example true
    */
   emailVerified: boolean;
@@ -259,7 +259,7 @@ export interface CreateUser {
    */
   email: string;
   /**
-   * 邮箱是否已验证
+   * 邮箱已验证
    * @example true
    */
   emailVerified: boolean;
@@ -308,7 +308,7 @@ export interface UpdateUser {
    */
   email?: string;
   /**
-   * 邮箱是否已验证
+   * 邮箱已验证
    * @example true
    */
   emailVerified?: boolean;
@@ -394,6 +394,7 @@ export interface NotificationConfig {
    */
   type:
     | "ServerChanTurbo"
+    | "ServerChanV3"
     | "Dingtalk"
     | "CustomEmail"
     | "WechatRobot"
@@ -707,6 +708,13 @@ export interface Filter {
    */
   time?: number;
   /**
+   * 过滤链接
+   * @minLength 0
+   * @maxLength 2048
+   * @example "url1|url2"
+   */
+  link?: string;
+  /**
    * 过滤标题
    * @minLength 0
    * @maxLength 256
@@ -765,6 +773,13 @@ export interface Filter {
 }
 
 export interface FilterOut {
+  /**
+   * 排除链接
+   * @minLength 0
+   * @maxLength 2048
+   * @example "url1|url2"
+   */
+  link?: string;
   /**
    * 排除标题
    * @minLength 0
