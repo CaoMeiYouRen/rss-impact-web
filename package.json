@@ -16,7 +16,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "@sentry/vue": "^8.35.0",
-    "@smallwei/avue": "^3.5.3",
+    "@smallwei/avue": "^3.5.4",
     "@vueuse/core": "^11.1.0",
     "@vueuse/integrations": "^11.1.0",
     "animate.css": "^4.1.1",
@@ -61,7 +61,7 @@
     "lint-staged": "^15.2.10",
     "postcss-html": "^1.7.0",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.80.3",
+    "sass": "^1.80.4",
     "semantic-release": "21.0.1",
     "stylelint": "^16.10.0",
     "stylelint-config-cmyr": "^0.2.1",
