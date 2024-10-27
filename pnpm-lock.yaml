@@ -25,8 +25,8 @@ importers:
         specifier: ^8.35.0
         version: 8.35.0(pinia@2.2.4(typescript@5.6.3)(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
       '@smallwei/avue':
-        specifier: ^3.5.4
-        version: 3.5.4(element-plus@2.8.6(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
+        specifier: ^3.5.5
+        version: 3.5.5(element-plus@2.8.6(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
       '@vueuse/core':
         specifier: ^11.1.0
         version: 11.1.0(vue@3.5.12(typescript@5.6.3))
@@ -916,8 +916,8 @@ packages:
     resolution: {integrity: sha512-JiX9vxoKMmu8Y3Zr2RVathBL1Cdu4Nt4MuNWemt1Nc06A0RAin9c5FArkhGsyMBWfCu4zj+9b+GxtjAnE4qqLQ==}
     engines: {node: '>=10'}
 
-  '@smallwei/avue@3.5.4':
-    resolution: {integrity: sha512-PjegK4K1yPmM1QuGkbdPJSapQWbLsj7/mi6J9W/X8Nist5S/MK2A/n73oWcJweryVFscD8rmSboo1pKowrqUyw==}
+  '@smallwei/avue@3.5.5':
+    resolution: {integrity: sha512-EYHU19FlmPtN3q0iBqcXn3KKahVwpg/SSSx2AjBbaNOz/MIjlE/hGB+HBDZP5x1mWktYJqwLi8fyY/CfZYJWcA==}
     peerDependencies:
       element-plus: '>=2.2.0'
       vue: '>=3.2.0'
@@ -5807,7 +5807,7 @@ snapshots:
 
   '@sindresorhus/is@3.1.2': {}
 
-  '@smallwei/avue@3.5.4(element-plus@2.8.6(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))':
+  '@smallwei/avue@3.5.5(element-plus@2.8.6(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))':
     dependencies:
       '@element-plus/icons-vue': 2.3.1(vue@3.5.12(typescript@5.6.3))
       countup.js: 1.9.3
