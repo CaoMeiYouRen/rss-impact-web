@@ -1,11 +1,16 @@
 <template>
     <div class="home-container">
         <div class="home-content">
-            <h1 class="welcome-title">
+            <p class="welcome-title">
                 欢迎用户 {{ userStore.user?.username }} 访问 RSS Impact
-            </h1>
+            </p>
             <p class="description">
-                这是一个支持 Hook 的 RSS 订阅工具。
+                这是一个支持 Hook 的 RSS 订阅工具。<br>
+                了解更多：<a
+                    href="https://rss-docs.cmyr.dev/"
+                    target="_blank"
+                    title="rss-impact-server docs"
+                >文档</a>
             </p>
             <p class="powered-by">
                 由  <a
@@ -14,6 +19,13 @@
                     title="rss-impact-server"
                 >rss-impact-server</a>
                 强力驱动
+            </p>
+            <p class="issues">
+                问题反馈： <a
+                    href="https://github.com/CaoMeiYouRen/rss-impact-server/issues"
+                    target="_blank"
+                    title="rss-impact-server/issues"
+                >issues</a>
             </p>
         </div>
     </div>
@@ -47,7 +59,7 @@ const userStore = useUserStore()
         width: 100%;
 
         .welcome-title {
-            font-size: 2.5rem;
+            font-size: 1.5em;
             margin-bottom: 20px;
             color: #409eff;
         }
@@ -56,9 +68,18 @@ const userStore = useUserStore()
             font-size: 1.2rem;
             margin-bottom: 20px;
             color: #666;
+            a {
+                color: #409eff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: #66b1ff;
+                }
+            }
         }
 
-        .powered-by {
+        .powered-by ,.issues{
             font-size: 1rem;
             color: #888;
 
