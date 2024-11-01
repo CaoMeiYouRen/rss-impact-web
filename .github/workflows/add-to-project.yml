@@ -9,13 +9,16 @@ jobs:
     permissions:
       issues: write
       repository-projects: write
+      contents: read
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Add Issue to Project
-        uses: alex-page/github-project-automation-plus@v0.9.0
+      - name: Add To GitHub projects
+        uses: actions/add-to-project@v1.0.2
         with:
-          project: "RSS Impact 项目"
-          column: "Todo"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          action: "add"
+          # You can target a project in a different organization
+          # to the issue
+          project-url: https://github.com/users/CaoMeiYouRen/projects/1
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labeled: bug, enhancement, todo
+          label-operator: OR
