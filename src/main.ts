@@ -5,7 +5,7 @@ import zhLocale from '@smallwei/avue/lib/locale/lang/zh'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import * as Sentry from '@sentry/vue'
 import App from './App.vue'
-import { __PROD__, VITE_API_BASE_URL, VITE_DOMAIN, VITE_SENTRY_DSN } from './config/env'
+import { __PROD__, VITE_API_BASE_URL, VITE_DOMAIN, VITE_SENTRY_DSN, VITE_WITH_CREDENTIALS } from './config/env'
 import router from '@/router'
 import store from '@/store'
 import {
@@ -27,6 +27,7 @@ const app = createApp(App)
         axios: axios.create({
             baseURL: VITE_API_BASE_URL,
             timeout: 20000,
+            withCredentials: VITE_WITH_CREDENTIALS === 'true',
         }),
         locale: zhLocale,
     })
