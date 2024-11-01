@@ -6,6 +6,9 @@ on:
 
 jobs:
   add-to-project:
+    permissions:
+      issues: write
+      repository-projects: write
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
