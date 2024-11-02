@@ -6,16 +6,10 @@
             class="hamburger-container"
             @toggle-click="toggleSideBar"
         />
-        <Breadcrumb
-            id="breadcrumb-container"
-            class="breadcrumb-container"
-        />
+        <Breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
 
         <div class="right-menu">
-            <el-dropdown
-                class="avatar-container hover-effect right-menu-item"
-                trigger="click"
-            >
+            <el-dropdown class="avatar-container hover-effect right-menu-item" trigger="click">
                 <div class="avatar-wrapper">
                     <!-- <p>RSS Impact</p> -->
                     <!-- <img
@@ -29,23 +23,14 @@
                 </div>
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <div
-                            v-for="(item,index) in navbar"
-                            :key="item.title"
-                        >
-                            <router-link
-                                v-if="item.to"
-                                :to="item.to"
-                            >
-                                <el-dropdown-item :divided="index>1">
+                        <div v-for="(item, index) in navbar" :key="item.title">
+                            <router-link v-if="item.to" :to="item.to">
+                                <el-dropdown-item :divided="index > 1">
                                     {{ item.title }}
                                 </el-dropdown-item>
                             </router-link>
-                            <span
-                                v-else
-                                @click="item.click"
-                            >
-                                <el-dropdown-item :divided="index>1">
+                            <span v-else @click="item.click">
+                                <el-dropdown-item :divided="index > 1">
                                     {{ item.title }}
                                 </el-dropdown-item>
                             </span>
@@ -80,8 +65,11 @@ const navbar = [
     {
         title: '退出',
         click: async () => {
-            await userStore.logout()
-            await router.push('/login')
+            await Promise.all([
+                userStore.logout(),
+                router.push('/login'),
+            ])
+
         },
     },
 ]
@@ -170,4 +158,3 @@ function toggleSideBar() {
     }
 }
 </style>
-

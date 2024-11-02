@@ -24,7 +24,7 @@
                     RSS Impact
                 </h1>
             </div>
-            <el-tabs v-model="activeTab" @tab-click="handleTabClick">
+            <el-tabs v-model="activeTab">
                 <el-tab-pane
                     v-if="!disableForm"
                     label="表单登录"
@@ -209,10 +209,6 @@ const clearForm = () => {
 // one-click 一键登录
 // legacy 表单登录
 const activeTab = ref('one-click')
-
-const handleTabClick = (tab: TabsPaneContext, event: Event) => {
-
-}
 
 const onOneClickRegister = () => {
     const url = new URL(window.location.href)

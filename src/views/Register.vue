@@ -243,27 +243,6 @@ const clearForm = () => {
                 border-color: #f78989;
             }
         }
-
-        .register-button {
-            // background-color: #42b983;
-            // border-color: #42b983;
-
-            // &:hover {
-            //     background-color: #3da87a;
-            //     border-color: #3da87a;
-            // }
-        }
-
-        .login-button {
-            // margin-top: 20px;
-            // background-color: #409eff;
-            // border-color: #409eff;
-
-            // &:hover {
-            //     background-color: #66b1ff;
-            //     border-color: #66b1ff;
-            // }
-        }
     }
 }
 </style>
