@@ -59,13 +59,13 @@ const userStore = useUserStore()
         width: 100%;
 
         .welcome-title {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-bottom: 20px;
             color: #409eff;
         }
 
         .description {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-bottom: 20px;
             color: #666;
             a {
@@ -80,7 +80,7 @@ const userStore = useUserStore()
         }
 
         .powered-by ,.issues{
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: #888;
 
             a {

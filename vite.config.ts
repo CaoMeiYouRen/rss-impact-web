@@ -1,4 +1,6 @@
 import path from 'path'
+import { execSync } from 'child_process'
+import { env } from 'process'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import tsconfigPaths from 'vite-tsconfig-paths'
@@ -6,6 +8,21 @@ import { vitePluginSwaggerTypescriptApi, GenerateApiOption } from 'vite-plugin-s
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+
+// 生成 gitHash
+let gitHash = process.env.HEROKU_SLUG_COMMIT?.slice(0, 8) || process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 8)
+let gitDate: string | undefined
+if (!gitHash) {
+    try {
+        gitHash = execSync('git rev-parse HEAD').toString().trim().slice(0, 8)
+        gitDate = new Date(execSync('git log -1 --format=%cd').toString().trim()).toISOString()
+    } catch {
+        gitHash = 'unknown'
+        gitDate = 'unknown'
+    }
+}
+env.VITE_GIT_HASH = gitHash
+env.VITE_GIT_DATE = gitDate
 
 // https://vitejs.dev/config/
 export default defineConfig({

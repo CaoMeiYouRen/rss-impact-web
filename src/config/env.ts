@@ -9,3 +9,6 @@ export const VITE_DOMAIN = import.meta.env.VITE_DOMAIN
 
 export const __PROD__ = import.meta.env.PROD
 export const __DEV__ = import.meta.env.DEV
+
+export const VITE_GIT_HASH = import.meta.env.VITE_GIT_HASH
+export const VITE_GIT_DATE = import.meta.env.VITE_GIT_DATE

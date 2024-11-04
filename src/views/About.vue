@@ -29,9 +29,26 @@
                 <br>
                 Demo: <a href="https://rss-demo.cmyr.dev" target="_blank">Demo 站</a>
             </p>
+
+            <h2 class="about-subtitle">
+                前端构建信息
+            </h2>
+            <p class="about-description">
+                构建哈希：<a :href="commit" :title="VITE_GIT_HASH">{{ VITE_GIT_HASH }}</a><br>
+                构建时间：{{ gitDate }}
+            </p>
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { VITE_GIT_HASH, VITE_GIT_DATE } from '@/config/env'
+import { timeFormat } from '@/utils/time'
+
+const commit = `https://github.com/CaoMeiYouRen/rss-impact-web/commit/${VITE_GIT_HASH}`
+const gitDate = VITE_GIT_DATE && VITE_GIT_DATE !== 'unknown' ? timeFormat(VITE_GIT_DATE) : 'unknown'
+
+</script>
 
 <style lang="scss" scoped>
 .about-container {
@@ -56,13 +73,13 @@
         width: 100%;
 
         .about-title {
-            font-size: 2.5rem;
+            font-size: 1.8em;
             margin-bottom: 20px;
             color: #409eff;
         }
 
         .about-subtitle {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-top: 30px;
             margin-bottom: 15px;
             color: #409eff;

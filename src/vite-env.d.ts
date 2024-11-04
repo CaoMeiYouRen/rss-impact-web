@@ -13,6 +13,8 @@ interface ImportMetaEnv {
     readonly VITE_SENTRY_DSN: string
     readonly VITE_BAIDU_STATISTICS: string
     readonly VITE_DOMAIN: string
+    readonly VITE_GIT_HASH: string
+    readonly VITE_GIT_DATE: string
 
 }
 
