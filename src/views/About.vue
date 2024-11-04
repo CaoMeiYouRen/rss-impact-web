@@ -42,11 +42,12 @@
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs'
 import { VITE_GIT_HASH, VITE_GIT_DATE } from '@/config/env'
 import { timeFormat } from '@/utils/time'
 
 const commit = `https://github.com/CaoMeiYouRen/rss-impact-web/commit/${VITE_GIT_HASH}`
-const gitDate = VITE_GIT_DATE && VITE_GIT_DATE !== 'unknown' ? timeFormat(VITE_GIT_DATE) : 'unknown'
+const gitDate = dayjs(VITE_GIT_DATE).isValid() ? timeFormat(VITE_GIT_DATE) : 'unknown'
 
 </script>
 
