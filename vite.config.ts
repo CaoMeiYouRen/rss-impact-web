@@ -20,7 +20,7 @@ if (!gitHash) {
         if (dayjs(gitDateValue).isValid()) {
             gitDate = gitDateValue.toISOString()
         } else {
-            gitDate = 'unknown'
+            gitDate = new Date().toISOString()
         }
     } catch {
         gitHash = 'unknown'
