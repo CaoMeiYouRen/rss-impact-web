@@ -34,8 +34,16 @@
                 前端构建信息
             </h2>
             <p class="about-description">
-                构建哈希：<a :href="commit" :title="VITE_GIT_HASH">{{ VITE_GIT_HASH }}</a><br>
-                构建时间：{{ gitDate }}
+                构建哈希：<a :href="frontendCommitUrl" :title="frontendCommit">{{ frontendCommit }}</a><br>
+                构建时间：{{ frontendGitDate }}
+            </p>
+            <h2 class="about-subtitle">
+                后端构建信息
+            </h2>
+            <p class="about-description">
+                版本号：{{ backendVersion }}<br>
+                构建哈希：<a :href="backendCommitUrl" :title="backendCommit">{{ backendCommit }}</a><br>
+                构建时间：{{ backendGitDate }}
             </p>
         </div>
     </div>
@@ -43,11 +51,27 @@
 
 <script setup lang="ts">
 import dayjs from 'dayjs'
+import { onMounted, ref } from 'vue'
 import { VITE_GIT_HASH, VITE_GIT_DATE } from '@/config/env'
 import { timeFormat } from '@/utils/time'
+import { api } from '@/api'
 
-const commit = `https://github.com/CaoMeiYouRen/rss-impact-web/commit/${VITE_GIT_HASH}`
-const gitDate = dayjs(VITE_GIT_DATE).isValid() ? timeFormat(VITE_GIT_DATE) : 'unknown'
+const frontendCommit = VITE_GIT_HASH
+const frontendCommitUrl = `https://github.com/CaoMeiYouRen/rss-impact-web/commit/${frontendCommit}`
+const frontendGitDate = dayjs(VITE_GIT_DATE).isValid() ? timeFormat(VITE_GIT_DATE, 'YYYY-MM-DD HH:mm:ss') : 'unknown'
+
+const backendCommit = ref('')
+const backendCommitUrl = ref('')
+const backendGitDate = ref('unknown')
+const backendVersion = ref('unknown')
+
+onMounted(async () => {
+    const res = await api.api.appGetHello() as any
+    backendCommit.value = res.gitHash
+    backendCommitUrl.value = res.commitUrl
+    backendGitDate.value = timeFormat(res.gitDate, 'YYYY-MM-DD HH:mm:ss')
+    backendVersion.value = res.version
+})
 
 </script>
 
