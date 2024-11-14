@@ -1,6 +1,6 @@
 name: Feature Request
 description: 新功能请求
-title: "[feature]: "
+title: "[feature] "
 labels: ["enhancement"]
 # assignees: []
 body:

@@ -1,6 +1,6 @@
 name: Question
 description: 使用上的问题。如果是 Bug 请使用 `Bug report` 模板。此外，更建议前往 discussions 讨论。
-title: "[question]: "
+title: "[question] "
 labels: ["question"]
 # assignees: []
 body:

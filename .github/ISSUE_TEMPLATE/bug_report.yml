@@ -1,6 +1,6 @@
 name: Bug Report
 description: 反馈 Bug
-title: "[bug]: "
+title: "[bug] "
 labels: ["bug"]
 # assignees: []
 body:
@@ -22,7 +22,7 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     id: expected-behavior
     attributes:
       label: Expected Behavior
