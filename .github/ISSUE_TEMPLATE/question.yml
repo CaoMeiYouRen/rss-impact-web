@@ -1,56 +1,40 @@
-name: Bug Report
-description: 反馈 Bug
-title: "[bug]: "
-labels: ["bug"]
+name: Question
+description: 使用上的问题。如果是 Bug 请使用 `Bug report` 模板。此外，更建议前往 discussions 讨论。
+title: "[question]: "
+labels: ["question"]
 # assignees: []
 body:
   - type: markdown
     attributes:
       value: |
-        **Describe the bug/描述 bug**
+        **Description/描述**
 
-        对 bug 是什么的清晰简洁的描述。
+        请对您的问题进行清晰详细的描述。包括任何相关的上下文、背景信息或具体细节，以帮助他人理解您的查询。
 
-  - type: input
-    id: bug-description
+  - type: textarea
+    id: question-description
     attributes:
-      label: Bug Description
-      description: 请提供对 bug 的清晰简洁的描述。
-      placeholder: 例如，当我点击按钮时，应用程序崩溃了。
+      label: Question Description
+      description: 请提供对您问题的清晰详细的描述。
+      placeholder: 例如，我在使用某个功能时遇到了困难，具体表现为 [...]
     validations:
       required: true
 
   - type: markdown
     attributes:
       value: |
-        **To Reproduce/再现**
+        **Steps to Reproduce (if applicable)/重现步骤（如适用）**
 
-        再现行为的步骤：
+        如果您的问题与特定问题有关，请提供重现行为的步骤：
 
   - type: textarea
     id: reproduction-steps
     attributes:
       label: Reproduction Steps
-      description: 请提供再现 bug 的步骤。
+      description: 请提供重现问题的步骤。
       placeholder: 1. 打开应用程序。2. 点击按钮。3. 观察到应用程序崩溃。
     validations:
-      required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        **Expected behavior/预期行为**
-
-        对你期望发生的事情的清晰简洁的描述。
-
-  - type: input
-    id: expected-behavior
-    attributes:
-      label: Expected Behavior
-      description: 请描述你期望发生的行为。
-      placeholder: 例如，点击按钮后，应用程序应该正常运行。
-    validations:
-      required: true
+      required: false
 
   - type: markdown
     attributes:
