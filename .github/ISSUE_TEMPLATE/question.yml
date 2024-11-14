@@ -4,50 +4,29 @@ title: "[question]: "
 labels: ["question"]
 # assignees: []
 body:
-  - type: markdown
-    attributes:
-      value: |
-        **Description/描述**
-
-        请对您的问题进行清晰详细的描述。包括任何相关的上下文、背景信息或具体细节，以帮助他人理解您的查询。
-
   - type: textarea
     id: question-description
     attributes:
       label: Question Description
-      description: 请提供对您问题的清晰详细的描述。
+      description: 请对您的问题进行清晰详细的描述。包括任何相关的上下文、背景信息或具体细节，以帮助他人理解您的问题。
       placeholder: 例如，我在使用某个功能时遇到了困难，具体表现为 [...]
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        **Steps to Reproduce (if applicable)/重现步骤（如适用）**
-
-        如果您的问题与特定问题有关，请提供重现行为的步骤：
 
   - type: textarea
     id: reproduction-steps
     attributes:
       label: Reproduction Steps
-      description: 请提供重现问题的步骤。
+      description: 如果适用，请提供重现问题的步骤。
       placeholder: 1. 打开应用程序。2. 点击按钮。3. 观察到应用程序崩溃。
     validations:
       required: false
-
-  - type: markdown
-    attributes:
-      value: |
-        **Screenshots/屏幕截图**
-
-        如果适用，请添加屏幕截图以帮助解释您的问题。
 
   - type: input
     id: screenshots
     attributes:
       label: Screenshots
-      description: 请提供屏幕截图的链接或描述。
+      description: 如果适用，请添加屏幕截图以帮助解释您的问题
       placeholder: 例如，https://example.com/screenshot.png
     validations:
       required: false
@@ -101,13 +80,6 @@ body:
       placeholder: 例如，a593056
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        **Additional context/附加上下文**
-
-        在此处添加有关该问题的任何其他上下文。
 
   - type: textarea
     id: additional-context

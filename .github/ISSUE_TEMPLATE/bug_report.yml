@@ -4,14 +4,7 @@ title: "[bug]: "
 labels: ["bug"]
 # assignees: []
 body:
-  - type: markdown
-    attributes:
-      value: |
-        **Describe the bug/描述 bug**
-
-        对 bug 是什么的清晰简洁的描述。
-
-  - type: input
+  - type: textarea
     id: bug-description
     attributes:
       label: Bug Description
@@ -19,13 +12,6 @@ body:
       placeholder: 例如，当我点击按钮时，应用程序崩溃了。
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        **To Reproduce/再现**
-
-        再现行为的步骤：
 
   - type: textarea
     id: reproduction-steps
@@ -36,13 +22,6 @@ body:
     validations:
       required: true
 
-  - type: markdown
-    attributes:
-      value: |
-        **Expected behavior/预期行为**
-
-        对你期望发生的事情的清晰简洁的描述。
-
   - type: input
     id: expected-behavior
     attributes:
@@ -52,18 +31,11 @@ body:
     validations:
       required: true
 
-  - type: markdown
-    attributes:
-      value: |
-        **Screenshots/屏幕截图**
-
-        如果适用，请添加屏幕截图以帮助解释您的问题。
-
   - type: input
     id: screenshots
     attributes:
       label: Screenshots
-      description: 请提供屏幕截图的链接或描述。
+      description: 如果适用，请添加屏幕截图以帮助解释您的问题。
       placeholder: 例如，https://example.com/screenshot.png
     validations:
       required: false
@@ -118,18 +90,11 @@ body:
     validations:
       required: true
 
-  - type: markdown
-    attributes:
-      value: |
-        **Additional context/附加上下文**
-
-        在此处添加有关该问题的任何其他上下文。
-
   - type: textarea
     id: additional-context
     attributes:
       label: Additional Context
-      description: 请提供任何其他相关的上下文信息。
+      description: 在此处添加有关该问题的任何其他上下文。
       placeholder: 例如，我使用的是最新版本的应用程序。
     validations:
       required: false
