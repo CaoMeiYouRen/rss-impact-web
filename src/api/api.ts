@@ -1021,6 +1021,89 @@ export interface Article {
   feed: Feed;
 }
 
+export interface CustomQuery {
+  /**
+   * ID
+   * @example 1
+   */
+  id: number;
+  /**
+   * 创建时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  createdAt: Date;
+  /**
+   * 更新时间
+   * @format date-time
+   * @example "2023-12-31T16:00:00.000Z"
+   */
+  updatedAt: Date;
+  /**
+   * 所属用户
+   * @example 1
+   */
+  userId: number;
+  /** 所属用户 */
+  user: User;
+  /**
+   * 名称
+   * @example "查询A"
+   */
+  name: string;
+  /**
+   * 查询范围
+   * 指定分类和指定订阅的配置互斥，只按照本项指定的范围查询
+   * @example "all"
+   */
+  scope: "all" | "category" | "feed";
+  /**
+   * 指定分类
+   * 支持选择多个分类
+   * @example []
+   */
+  categories?: Category[];
+  /**
+   * 指定订阅
+   * 支持选择多个订阅
+   * @example []
+   */
+  feeds?: Feed[];
+  /**
+   * 输出格式
+   * @example "rss2.0"
+   */
+  format: "rss2.0" | "atom" | "json";
+  /**
+   * 使用 AI 总结
+   * 如果是，则用 AI 总结替换原本的总结
+   */
+  useAiSummary: boolean;
+  /**
+   * 增加 AI 总结
+   * 如果是，则将 AI 总结 增加 到正文前，以方便通过 RSS 阅读器阅读
+   */
+  appendAiSummary: boolean;
+  /**
+   * 访问秘钥
+   * 通过访问秘钥即可无需登录访问 RSS 订阅。一旦泄露，请立即修改！
+   * @example "custom-query-key:2c28d0b6-47db-43a4-aff4-439edbe29200"
+   */
+  key: string;
+  /** 输出路径 */
+  url?: string;
+  /**
+   * 过滤条件
+   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
+   */
+  filter: Filter;
+  /**
+   * 排除条件
+   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
+   */
+  filterout: FilterOut;
+}
+
 export interface Feed {
   /**
    * ID
@@ -1125,6 +1208,11 @@ export interface Feed {
    * @example []
    */
   hooks: Hook[];
+  /**
+   * 自定义查询列表
+   * @example []
+   */
+  customQueries: CustomQuery[];
 }
 
 export interface Hook {
@@ -1333,6 +1421,11 @@ export interface CreateFeed {
    * @example []
    */
   hooks: Hook[];
+  /**
+   * 自定义查询列表
+   * @example []
+   */
+  customQueries: CustomQuery[];
 }
 
 export interface UpdateFeed {
@@ -1427,6 +1520,11 @@ export interface UpdateFeed {
    * @example []
    */
   hooks?: Hook[];
+  /**
+   * 自定义查询列表
+   * @example []
+   */
+  customQueries?: CustomQuery[];
 }
 
 export interface FindFeed {
@@ -1904,89 +2002,6 @@ export interface UpdateCustomQuery {
    * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
    */
   filterout?: FilterOut;
-}
-
-export interface CustomQuery {
-  /**
-   * ID
-   * @example 1
-   */
-  id: number;
-  /**
-   * 创建时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  createdAt: Date;
-  /**
-   * 更新时间
-   * @format date-time
-   * @example "2023-12-31T16:00:00.000Z"
-   */
-  updatedAt: Date;
-  /**
-   * 所属用户
-   * @example 1
-   */
-  userId: number;
-  /** 所属用户 */
-  user: User;
-  /**
-   * 名称
-   * @example "查询A"
-   */
-  name: string;
-  /**
-   * 查询范围
-   * 指定分类和指定订阅的配置互斥，只按照本项指定的范围查询
-   * @example "all"
-   */
-  scope: "all" | "category" | "feed";
-  /**
-   * 指定分类
-   * 支持选择多个分类
-   * @example []
-   */
-  categories?: Category[];
-  /**
-   * 指定订阅
-   * 支持选择多个订阅
-   * @example []
-   */
-  feeds?: Feed[];
-  /**
-   * 输出格式
-   * @example "rss2.0"
-   */
-  format: "rss2.0" | "atom" | "json";
-  /**
-   * 使用 AI 总结
-   * 如果是，则用 AI 总结替换原本的总结
-   */
-  useAiSummary: boolean;
-  /**
-   * 增加 AI 总结
-   * 如果是，则将 AI 总结 增加 到正文前，以方便通过 RSS 阅读器阅读
-   */
-  appendAiSummary: boolean;
-  /**
-   * 访问秘钥
-   * 通过访问秘钥即可无需登录访问 RSS 订阅。一旦泄露，请立即修改！
-   * @example "custom-query-key:2c28d0b6-47db-43a4-aff4-439edbe29200"
-   */
-  key: string;
-  /** 输出路径 */
-  url?: string;
-  /**
-   * 过滤条件
-   * 保留想要的内容，必须符合全部条件才保留。支持通过正则表达式过滤。留空的规则不会过滤。
-   */
-  filter: Filter;
-  /**
-   * 排除条件
-   * 去掉不要的内容，有一个条件符合就排除。支持通过正则表达式排除。留空的规则不会排除。
-   */
-  filterout: FilterOut;
 }
 
 export interface FindCustomQuery {
@@ -3604,6 +3619,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags custom-query
+     * @name CustomQueryDicData
+     * @request GET:/api/custom-query/dicData
+     */
+    customQueryDicData: (params: RequestParams = {}) =>
+      this.request<DicData[], any>({
+        path: `/api/custom-query/dicData`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags custom-query
      * @name CustomQueryConfig
      * @summary 获取 config
      * @request GET:/api/custom-query/config
@@ -3723,6 +3753,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     systemSqliteVacuum: (params: RequestParams = {}) =>
       this.request<void, void>({
         path: `/api/system/sqliteVacuum`,
+        method: "POST",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags system
+     * @name SystemDisableEmptyFeeds
+     * @summary 禁用不包含任何 Hook 和 自定义查询的订阅
+     * @request POST:/api/system/disableEmptyFeeds
+     */
+    systemDisableEmptyFeeds: (params: RequestParams = {}) =>
+      this.request<void, void>({
+        path: `/api/system/disableEmptyFeeds`,
         method: "POST",
         ...params,
       }),

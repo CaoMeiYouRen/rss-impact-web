@@ -58,7 +58,7 @@ import { timeFormat } from '@/utils/time'
 
 const route = useRoute()
 
-const { postGet, preSave, preUpdate } = useIdTransformer(['hooks'])
+const { postGet, preSave, preUpdate } = useIdTransformer(['hooks', 'customQueries'])
 const crudFormDom = shallowRef<InstanceType<typeof CrudForm> | null>(null)
 const crudListDom = shallowRef<InstanceType<typeof CrudList> | null>(null)
 const activeNames = ref(['1'])
