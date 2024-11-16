@@ -27,6 +27,11 @@ if (!gitHash) {
         gitDate = 'unknown'
     }
 }
+
+if (!gitDate) {
+    gitDate = new Date().toISOString()
+}
+
 env.VITE_GIT_HASH = gitHash
 env.VITE_GIT_DATE = gitDate
 
