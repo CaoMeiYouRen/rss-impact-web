@@ -16,7 +16,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "@sentry/vue": "^8.38.0",
-    "@smallwei/avue": "^3.5.5",
+    "@smallwei/avue": "^3.5.6",
     "@vueuse/core": "^11.2.0",
     "@vueuse/integrations": "^11.2.0",
     "animate.css": "^4.1.1",
