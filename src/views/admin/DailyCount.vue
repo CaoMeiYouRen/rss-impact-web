@@ -46,20 +46,22 @@
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { LineChart } from 'echarts/charts'
-import { TooltipComponent, GridComponent } from 'echarts/components'
+import { TooltipComponent, GridComponent, LegendComponent } from 'echarts/components'
 import VChart from 'vue-echarts'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ref } from 'vue'
 import { useStatistics } from '@/hooks/use-statistics'
 import { api } from '@/api'
 
-use([GridComponent, LineChart, CanvasRenderer, TooltipComponent])
+use([GridComponent, LineChart, CanvasRenderer, TooltipComponent, LegendComponent])
 
 const {
     datetimerange,
     chartOption,
     onSearch,
-} = useStatistics('daily-count', 'date', ['articleCount', 'resourceCount', 'webhookLogCount'])
+} = useStatistics('daily-count', 'date',
+['articleCount', 'resourceCount', 'webhookLogCount', 'feedCount', 'categoryCount', 'hookCount', 'customQueryCount', 'proxyConfigCount', 'userCount'],
+)
 
 const dayNum = ref(30)
 

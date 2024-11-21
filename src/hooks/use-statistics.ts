@@ -46,6 +46,12 @@ export function useStatistics(model: string, category: string, columns: string[]
         tooltip: {
             trigger: 'axis',
         },
+        legend: {
+            data: column.value.map((e) => e.label),
+            orient: 'vertical',
+            right: 10,
+            top: 'center',
+        },
     }))
 
     const onSearch = async () => {
