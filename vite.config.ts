@@ -61,7 +61,7 @@ export default defineConfig({
         }),
     ],
     server: {
-        port: 4400,
+        port: Number(process.env.PORT) || 4400,
         open: true,
         proxy: {
             '/api': {
@@ -80,6 +80,7 @@ export default defineConfig({
         preprocessorOptions: {
             scss: {
                 additionalData: '@import "@/styles/mixins.scss"; @import "@/styles/variables.scss";', // 添加公共样式
+                silenceDeprecations: ['import', 'legacy-js-api'], // 忽略警告
             },
         },
     },
@@ -101,5 +102,4 @@ export default defineConfig({
             },
         },
     },
-
 })

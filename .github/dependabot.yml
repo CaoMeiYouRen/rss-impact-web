@@ -4,7 +4,7 @@ updates:
     directory: /
     open-pull-requests-limit: 20
     schedule:
-      time: "05:00"
+      time: "04:00"
       interval: daily
       timezone: Asia/Shanghai
     ignore:
@@ -12,3 +12,6 @@ updates:
       - dependency-name: "@commitlint/config-conventional"
         versions:
           - ">= 19.0.0"
+      - dependency-name: "sass"
+        versions:
+          - ">= 2.0.0"
