@@ -3833,7 +3833,24 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags daily-count
+     * @name DailyCountReCountOption
+     * @summary 获取 重新统计接口 option
+     * @request GET:/api/daily-count/reCount/option
+     */
+    dailyCountReCountOption: (params: RequestParams = {}) =>
+      this.request<Option, void>({
+        path: `/api/daily-count/reCount/option`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 需要在后台手动执行，将一定时间内的日志重新统计
+     *
+     * @tags daily-count
      * @name DailyCountReCount
+     * @summary 重新统计接口
      * @request POST:/api/daily-count/reCount
      */
     dailyCountReCount: (data: ReCountDto, params: RequestParams = {}) =>

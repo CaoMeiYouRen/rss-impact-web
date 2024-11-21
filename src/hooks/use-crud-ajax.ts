@@ -292,6 +292,12 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
             const column = option.value.column?.find((e) => e.prop === key)
             if (column?.type === 'select') { // 如果为单选则精确匹配
                 if (column?.multiple) {
+                    if ((value as any)?.length === 0) { // 如果为空数组则不查询
+                        return [
+                            key,
+                            undefined,
+                        ]
+                    }
                     return [
                         key,
                         {
