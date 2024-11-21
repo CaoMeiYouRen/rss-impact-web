@@ -1,5 +1,5 @@
 {
-    "framework": "Vite",
+    "framework": "vite",
     "rewrites": [
         {
             "source": "/api/(.*)",
