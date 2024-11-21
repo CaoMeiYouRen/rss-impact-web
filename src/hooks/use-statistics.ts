@@ -62,7 +62,7 @@ export function useStatistics(model: string, category: string, columns: string[]
             {
                 date: 'ASC', // 正序
                 createdAt: 'ASC', // 正序
-                id: 'ASC',
+                // id: 'ASC',
             },
         )
         loading.value = false
