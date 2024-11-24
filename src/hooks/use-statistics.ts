@@ -66,9 +66,10 @@ export function useStatistics(model: string, category: string, columns: string[]
                 },
             },
             {
-                date: 'ASC', // 正序
-                createdAt: 'ASC', // 正序
-                // id: 'ASC',
+                // date: 'ASC', // 正序
+                rawDate: 'ASC', // 正序
+                createdAt: undefined,
+                id: undefined,
             },
         )
         loading.value = false

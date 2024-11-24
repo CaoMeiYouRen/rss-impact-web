@@ -156,6 +156,7 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
                         limit: page.value.pageSize,
                         page: page.value.currentPage,
                         sort: {
+                            id: 'DESC', // 倒序
                             createdAt: 'DESC', // 倒序
                             ...sort || {},
                         },
