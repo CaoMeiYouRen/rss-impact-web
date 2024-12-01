@@ -61,7 +61,7 @@
     "eslint": "^8.57.1",
     "eslint-config-cmyr": "^1.1.32",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-vue": "^9.31.0",
+    "eslint-plugin-vue": "^9.32.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "postcss-html": "^1.7.0",
