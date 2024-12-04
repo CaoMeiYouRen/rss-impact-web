@@ -35,13 +35,13 @@ importers:
         version: 12.0.0(typescript@5.7.2)
       '@vueuse/integrations':
         specifier: ^12.0.0
-        version: 12.0.0(async-validator@4.2.5)(axios@1.7.8)(nprogress@0.2.0)(typescript@5.7.2)(universal-cookie@7.2.2)
+        version: 12.0.0(async-validator@4.2.5)(axios@1.7.9)(nprogress@0.2.0)(typescript@5.7.2)(universal-cookie@7.2.2)
       animate.css:
         specifier: ^4.1.1
         version: 4.1.1
       axios:
-        specifier: ^1.7.8
-        version: 1.7.8
+        specifier: ^1.7.9
+        version: 1.7.9
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
@@ -1542,8 +1542,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axios@1.7.8:
-    resolution: {integrity: sha512-Uu0wb7KNqK2t5K+YQyVCLM76prD5sRFjKHbJYCP1J7JFGEQ6nN7HWn9+04LAeiJ3ji54lgS/gZCH1oxyrf1SPw==}
+  axios@1.7.9:
+    resolution: {integrity: sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==}
 
   bail@1.0.5:
     resolution: {integrity: sha512-xFbRxM1tahm08yHBP16MMjVUAvDaBMD38zsM9EMAUN61omwLmKlOpB/Zku5QkjZ8TZ4vn53pj+t518cH0S03RQ==}
@@ -7007,14 +7007,14 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/integrations@12.0.0(async-validator@4.2.5)(axios@1.7.8)(nprogress@0.2.0)(typescript@5.7.2)(universal-cookie@7.2.2)':
+  '@vueuse/integrations@12.0.0(async-validator@4.2.5)(axios@1.7.9)(nprogress@0.2.0)(typescript@5.7.2)(universal-cookie@7.2.2)':
     dependencies:
       '@vueuse/core': 12.0.0(typescript@5.7.2)
       '@vueuse/shared': 12.0.0(typescript@5.7.2)
       vue: 3.5.13(typescript@5.7.2)
     optionalDependencies:
       async-validator: 4.2.5
-      axios: 1.7.8
+      axios: 1.7.9
       nprogress: 0.2.0
       universal-cookie: 7.2.2
     transitivePeerDependencies:
@@ -7258,7 +7258,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
-  axios@1.7.8:
+  axios@1.7.9:
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
