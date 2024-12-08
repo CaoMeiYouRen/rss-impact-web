@@ -68,7 +68,7 @@ export const constantRoutes: RouteConfig[] = [
                 path: 'category',
                 component: () => import('@/views/data/Category.vue'),
                 meta: {
-                    title: '分组管理',
+                    title: '分类管理',
                     icon: 'iconfont icon-fenlei',
                 },
             },
