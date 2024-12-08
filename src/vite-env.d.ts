@@ -15,6 +15,7 @@ interface ImportMetaEnv {
     readonly VITE_DOMAIN: string
     readonly VITE_GIT_HASH: string
     readonly VITE_GIT_DATE: string
+    readonly VITE_TIMEOUT: string
 
 }
 
