@@ -6,14 +6,19 @@
             </p>
             <p class="description">
                 这是一个支持 Hook 的 RSS 订阅工具。<br>
-                了解更多：<a
-                    href="https://rss-docs.cmyr.dev/"
+                查看使用文档：<a
+                    ref="docs"
+                    href="https://rss-docs.cmyr.dev/docs/usage"
                     target="_blank"
                     title="rss-impact-server docs"
-                >文档</a>
+                >文档</a><br><br>
+                <!-- 您也可以点击按钮启动交互式引导
+                <el-button type="primary" @click="startTour">
+                    打开引导
+                </el-button> -->
             </p>
             <p class="powered-by">
-                由  <a
+                由 <a
                     href="https://github.com/CaoMeiYouRen/rss-impact-server"
                     target="_blank"
                     title="rss-impact-server"
@@ -22,6 +27,7 @@
             </p>
             <p class="issues">
                 问题反馈： <a
+                    ref="issues"
                     href="https://github.com/CaoMeiYouRen/rss-impact-server/issues"
                     target="_blank"
                     title="rss-impact-server/issues"
@@ -32,8 +38,49 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, shallowRef, onBeforeUnmount } from 'vue'
+import { useShepherd } from 'vue-shepherd'
 import { useUserStore } from '@/store/modules/user'
 const userStore = useUserStore()
+
+const docs = shallowRef(null)
+const issues = shallowRef(null)
+
+const tour = useShepherd({
+    useModalOverlay: true,
+})
+
+const startTour = () => {
+    tour.start()
+}
+
+onMounted(() => {
+    tour.addStep({
+        attachTo: { element: docs.value, on: 'top' },
+        text: '如果您更喜欢先查看使用文档，可以点击这里',
+        buttons: [
+            {
+                text: '下一步',
+                action: tour.next,
+            },
+        ],
+    })
+    tour.addStep({
+        attachTo: { element: issues.value, on: 'top' },
+        text: '如果您在使用中遇到了问题，可以点击这里反馈',
+        buttons: [
+            {
+                text: '下一步',
+                action: tour.next,
+            },
+        ],
+    })
+})
+
+onBeforeUnmount(() => {
+    tour.cancel()
+})
+
 </script>
 
 <style lang="scss" scoped>
@@ -68,6 +115,7 @@ const userStore = useUserStore()
             font-size: 1.5rem;
             margin-bottom: 20px;
             color: #666;
+
             a {
                 color: #409eff;
                 text-decoration: none;
@@ -79,7 +127,8 @@ const userStore = useUserStore()
             }
         }
 
-        .powered-by ,.issues{
+        .powered-by,
+        .issues {
             font-size: 1.2rem;
             color: #888;
 
