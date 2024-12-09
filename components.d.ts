@@ -10,6 +10,7 @@ declare module 'vue' {
     Breadcrumb: typeof import('./src/components/Breadcrumb.vue')['default']
     CrudForm: typeof import('./src/components/CrudForm.vue')['default']
     CrudList: typeof import('./src/components/CrudList.vue')['default']
+    ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']

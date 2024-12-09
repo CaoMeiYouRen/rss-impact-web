@@ -39,6 +39,28 @@
                 </template>
             </el-dropdown>
         </div>
+        <el-backtop
+            :right="50"
+            :bottom="50"
+            :visibility-height="100"
+        >
+            <el-tooltip
+                class="box-item"
+                effect="dark"
+                content="返回顶部"
+                placement="top"
+            >
+                <el-button
+                    circle
+                    size="large"
+                    type="primary"
+                >
+                    <el-icon :size="20">
+                        <ArrowUp />
+                    </el-icon>
+                </el-button>
+            </el-tooltip>
+        </el-backtop>
     </div>
 </template>
 

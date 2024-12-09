@@ -2219,6 +2219,12 @@ export interface DailyCount {
    */
   date: string;
   /**
+   * 原始日期
+   * @format date-time
+   * @example "2024-01-01T00:00:00.000Z"
+   */
+  rawDate: Date;
+  /**
    * 文章数量
    * @example 114
    */
