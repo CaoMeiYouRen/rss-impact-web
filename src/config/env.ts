@@ -14,3 +14,5 @@ export const VITE_GIT_HASH = import.meta.env.VITE_GIT_HASH
 export const VITE_GIT_DATE = import.meta.env.VITE_GIT_DATE
 
 export const VITE_TIMEOUT = parseInt(import.meta.env.VITE_TIMEOUT) || 30000
+
+export const VITE_PETERCAT_AI_TOKEN = import.meta.env.VITE_PETERCAT_AI_TOKEN

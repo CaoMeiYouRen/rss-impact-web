@@ -16,7 +16,7 @@ interface ImportMetaEnv {
     readonly VITE_GIT_HASH: string
     readonly VITE_GIT_DATE: string
     readonly VITE_TIMEOUT: string
-
+    readonly VITE_PETERCAT_AI_TOKEN: string
 }
 
 interface ImportMeta {

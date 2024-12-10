@@ -12,7 +12,7 @@
                     target="_blank"
                     title="rss-impact-server docs"
                 >文档</a><br><br>
-                您也可以点击右下角的图标启动 AI 文档助手解答问题
+                <span v-if="hasAI">您也可以点击右下角的图标启动 AI 文档助手解答问题</span>
                 <!-- 您也可以点击按钮启动交互式引导
                 <el-button type="primary" @click="startTour">
                     打开引导
@@ -39,13 +39,16 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, shallowRef, onBeforeUnmount } from 'vue'
+import { onMounted, shallowRef, onBeforeUnmount, computed } from 'vue'
 import { useShepherd } from 'vue-shepherd'
 import { useUserStore } from '@/store/modules/user'
+import { VITE_PETERCAT_AI_TOKEN, VITE_DOMAIN } from '@/config/env'
 const userStore = useUserStore()
 
 const docs = shallowRef(null)
 const issues = shallowRef(null)
+
+const hasAI = computed(() => Boolean(VITE_PETERCAT_AI_TOKEN && location.host.endsWith(VITE_DOMAIN)))
 
 const tour = useShepherd({
     useModalOverlay: true,
