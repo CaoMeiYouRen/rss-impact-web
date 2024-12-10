@@ -7,16 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RSS Impact</title>
     <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4497014_2eqjac6p7rj.css">
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+    <script src="https://unpkg.com/antd@5.22.4/dist/antd.js"></script>
+    <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.js"></script>
+    <script src="https://unpkg.com/@petercatai/assistant@1.0.7/dist/umd/assistant.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@petercatai/assistant@1.0.7/dist/umd/assistant.min.css">
     <script>
         var _hmt = _hmt || [];
         (function () {
             let VITE_BAIDU_STATISTICS = '%VITE_BAIDU_STATISTICS%'
             let VITE_DOMAIN = '%VITE_DOMAIN%'
+            let VITE_PETERCAT_AI_TOKEN = '%VITE_PETERCAT_AI_TOKEN%'
             if (VITE_BAIDU_STATISTICS && location.host.endsWith(VITE_DOMAIN)) {
                 var hm = document.createElement("script");
                 hm.src = "https://hm.baidu.com/hm.js?" + VITE_BAIDU_STATISTICS;
                 var s = document.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(hm, s);
+            }
+            if (VITE_PETERCAT_AI_TOKEN && location.host.endsWith(VITE_DOMAIN)) {
+                window.onload = () => {
+                    window.petercat = PetercatLUI.initAssistant({
+                        apiDomain: 'https://api.petercat.ai',
+                        token: VITE_PETERCAT_AI_TOKEN,
+                        clearMessage: true
+                    });
+                }
             }
         })();
     </script>
