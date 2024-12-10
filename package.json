@@ -65,7 +65,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-vue": "^9.32.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
+    "lint-staged": "^15.2.11",
     "postcss-html": "^1.7.0",
     "postcss-scss": "^4.0.9",
     "sass": "^1.82.0",
