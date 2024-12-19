@@ -23,22 +23,10 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "pnpm"
-      - name: Cache Dependency
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm
-            ~/.yarn
-            ~/.cache/pnpm
-            ~/cache
-            !~/cache/exclude
-            **/node_modules
-          key: pnpm-${{ runner.os }}-${{ hashFiles('package.json') }}
-          restore-keys: pnpm-${{ runner.os }}
       - run: pnpm i --frozen-lockfile
       - run: pnpm run lint
       - run: pnpm run lint:css
       - run: pnpm run build
       # - env:
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #   run: pnpm run release
