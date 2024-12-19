@@ -1,0 +1,1 @@
+function i(s){const u=e=>(s.forEach(n=>{var r;(r=e==null?void 0:e[n])!=null&&r.length&&(e[n]=e[n].map(c=>c.id))}),e),f=e=>(s.forEach(n=>{var r;(r=e==null?void 0:e[n])!=null&&r.length&&(e[n]=e[n].map(c=>({id:c})))}),e);return{postGet:u,preSave:f,preUpdate:f}}export{i as u};
