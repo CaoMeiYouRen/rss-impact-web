@@ -9,6 +9,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import dayjs from 'dayjs'
+import Sonda from 'sonda/vite'
 
 // 生成 gitHash
 let gitHash = process.env.HEROKU_SLUG_COMMIT?.slice(0, 7) || process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7)
@@ -59,6 +60,16 @@ export default defineConfig({
         Components({
             resolvers: [ElementPlusResolver()],
         }),
+        Sonda({
+            enabled: process.env.NODE_ENV === 'production', // 是否启用，仅在生产环境启用
+            format: 'html',
+            filename: 'sonda-report.html',
+            open: false, // 是否自动打开浏览器
+            detailed: true, // 是否显示详细信息
+            sources: true, // 是否显示源码
+            gzip: true, // 是否启用 gzip 压缩
+            brotli: true, // 是否启用 brotli 压缩
+        }),
     ],
     server: {
         port: Number(process.env.PORT) || 4400,
@@ -88,6 +99,7 @@ export default defineConfig({
         // 增大代码块大小警告的阈值
         chunkSizeWarningLimit: 1024,
         minify: 'esbuild',
+        sourcemap: true,
         rollupOptions: {
             output: {
                 // 手动划分代码块
