@@ -1,0 +1,2 @@
+import{_ as r,n as e}from"./index-DgHwXB1z.js";import{o as c,L as t}from"./vendor-CuSlqIw8.js";import"./utils-D0r9SEbO.js";import"./elementPlusIcons-DP5dCSo9.js";const s={};function n(_,a){const o=e;return c(),t(o,{model:"resource"})}const u=r(s,[["render",n]]);export{u as default};
+//# sourceMappingURL=Resource-CPRTrm1C.js.map
