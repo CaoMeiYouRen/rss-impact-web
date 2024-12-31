@@ -173,8 +173,8 @@ importers:
         specifier: 21.0.1
         version: 21.0.1(typescript@5.7.2)
       sonda:
-        specifier: ^0.7.0
-        version: 0.7.0
+        specifier: ^0.7.1
+        version: 0.7.1
       stylelint:
         specifier: ^16.12.0
         version: 16.12.0(typescript@5.7.2)
@@ -4952,8 +4952,9 @@ packages:
     resolution: {integrity: sha512-bSiSngZ/jWeX93BqeIAbImyTbEihizcwNjFoRUIY/T1wWQsfsm2Vw1agPKylXvQTU7iASGdHhyqRlqQzfz+Htg==}
     engines: {node: '>=18'}
 
-  sonda@0.7.0:
-    resolution: {integrity: sha512-JKdTOWEbQGB4EbBfl77uOpG2/PHviIj8/Mum8DXVKEHZZQaO+pg/eX4TOSY3RCKSD3vmalt777Xf3JcmjG16Bg==}
+  sonda@0.7.1:
+    resolution: {integrity: sha512-PCdSdBvspoJXA0uY5GFeRzAolTHDP7gVnnMnr/O74IYIB8CiOFaEbTGNkEmShG6HBtmmFdQfPxdXbI+2vAgjYw==}
+    hasBin: true
 
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
@@ -10990,7 +10991,7 @@ snapshots:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 5.0.0
 
-  sonda@0.7.0:
+  sonda@0.7.1:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@jridgewell/sourcemap-codec': 1.5.0
