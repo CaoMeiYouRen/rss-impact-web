@@ -21,7 +21,7 @@
     "@sentry/vue": "^8.47.0",
     "@smallwei/avue": "^3.6.1",
     "@vercel/node": "^5.0.1",
-    "@vueuse/core": "^12.2.0",
+    "@vueuse/core": "^12.3.0",
     "@vueuse/integrations": "^12.3.0",
     "animate.css": "^4.1.1",
     "axios": "^1.7.9",
