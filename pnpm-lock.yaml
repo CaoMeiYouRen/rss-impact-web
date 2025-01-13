@@ -76,8 +76,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       shepherd.js:
-        specifier: ^14.3.0
-        version: 14.3.0
+        specifier: ^14.4.0
+        version: 14.4.0
       universal-cookie:
         specifier: ^7.2.2
         version: 7.2.2
@@ -593,11 +593,17 @@ packages:
   '@floating-ui/core@1.6.2':
     resolution: {integrity: sha512-+2XpQV9LLZeanU4ZevzRnGFg2neDeKHgFLjP6YLW+tly0IvrhqT4u8enLGjLH3qeh85g19xY5rsAusfwTdn5lg==}
 
+  '@floating-ui/dom@1.6.13':
+    resolution: {integrity: sha512-umqzocjDgNRGTuO7Q8CU32dkHkECqI8ZdMZ5Swb6QAM0t5rnlrN3lGo1hdpscRd3WS8T6DKYK4ephgIH9iRh3w==}
+
   '@floating-ui/dom@1.6.5':
     resolution: {integrity: sha512-Nsdud2X65Dz+1RHjAIP0t8z5e2ff/IRbei6BqFrl1urT8sDVzM1HMQ+R0XcU5ceRfyO3I6ayeqIfh+6Wb8LGTw==}
 
   '@floating-ui/utils@0.2.2':
     resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
+
+  '@floating-ui/utils@0.2.9':
+    resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -4820,8 +4826,8 @@ packages:
     resolution: {integrity: sha512-1lQtQUNQYi+8k9BAmbUZh7D2QxFfkxiWKU0XFTbzYaIrCkB4nR0DLQuarH5G7Ym6L8wfbadxP3hJhZ2HzVktaA==}
     engines: {node: 18.* || >= 20}
 
-  shepherd.js@14.3.0:
-    resolution: {integrity: sha512-m73/+dkcPotaGfCnzLJtWJtY7TYSiyeXQ5uRIFs+Ed5HD7kw9tX8vlFbgF6yJ7H5N3z27/i5H3hBWlTw64PeXA==}
+  shepherd.js@14.4.0:
+    resolution: {integrity: sha512-pXuyhtHPj47Wp6vYESIdhcRrpva67+AolbvVBnJlZNZDa4VBPTwoN+x3R7h1C+RV+z5Tvk3JuLB/8ZgEKMeyEQ==}
     engines: {node: 18.* || >= 20}
 
   should-equal@2.0.0:
@@ -6136,7 +6142,12 @@ snapshots:
 
   '@floating-ui/core@1.6.2':
     dependencies:
-      '@floating-ui/utils': 0.2.2
+      '@floating-ui/utils': 0.2.9
+
+  '@floating-ui/dom@1.6.13':
+    dependencies:
+      '@floating-ui/core': 1.6.2
+      '@floating-ui/utils': 0.2.9
 
   '@floating-ui/dom@1.6.5':
     dependencies:
@@ -6144,6 +6155,8 @@ snapshots:
       '@floating-ui/utils': 0.2.2
 
   '@floating-ui/utils@0.2.2': {}
+
+  '@floating-ui/utils@0.2.9': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -10783,9 +10796,9 @@ snapshots:
       '@scarf/scarf': 1.4.0
       deepmerge-ts: 5.1.0
 
-  shepherd.js@14.3.0:
+  shepherd.js@14.4.0:
     dependencies:
-      '@floating-ui/dom': 1.6.5
+      '@floating-ui/dom': 1.6.13
       '@scarf/scarf': 1.4.0
       deepmerge-ts: 7.1.3
 
