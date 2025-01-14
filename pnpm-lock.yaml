@@ -164,8 +164,8 @@ importers:
         specifier: ^15.3.0
         version: 15.3.0
       postcss-html:
-        specifier: ^1.7.0
-        version: 1.7.0
+        specifier: ^1.8.0
+        version: 1.8.0
       postcss-scss:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.4.38)
@@ -3357,9 +3357,6 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  js-tokens@9.0.0:
-    resolution: {integrity: sha512-WriZw1luRMlmV3LGJaR6QOJjWwgLUTf89OwT2lUOyjX2dJGBwgmIkbcz+7WFZjrZM635JOIR517++e/67CP9dQ==}
-
   js-tokens@9.0.1:
     resolution: {integrity: sha512-mxa9E9ITFOt0ban3j6L5MpjwegGz6lBQmM1IJkWeBZGcMxto50+eWdjC/52xDbS2vy0k7vIMK0Fe2wfL9OQSpQ==}
 
@@ -4393,8 +4390,8 @@ packages:
       postcss: ^8.4.31
       postcss-syntax: '>=0.36.0'
 
-  postcss-html@1.7.0:
-    resolution: {integrity: sha512-MfcMpSUIaR/nNgeVS8AyvyDugXlADjN9AcV7e5rDfrF1wduIAGSkL4q2+wgrZgA3sHVAHLDO9FuauHhZYW2nBw==}
+  postcss-html@1.8.0:
+    resolution: {integrity: sha512-5mMeb1TgLWoRKxZ0Xh9RZDfwUUIqRrcxO2uXO+Ezl1N5lqpCiSU5Gk6+1kZediBfBHFtPCdopr2UZ2SgUsKcgQ==}
     engines: {node: ^12 || >=14}
 
   postcss-jsx@0.36.4:
@@ -9147,8 +9144,6 @@ snapshots:
 
   js-tokens@4.0.0: {}
 
-  js-tokens@9.0.0: {}
-
   js-tokens@9.0.1: {}
 
   js-yaml@3.14.1:
@@ -10259,12 +10254,12 @@ snapshots:
     dependencies:
       htmlparser2: 3.10.1
       postcss: 8.4.38
-      postcss-syntax: 0.36.2(postcss-html@1.7.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38)
+      postcss-syntax: 0.36.2(postcss-html@1.8.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38)
 
-  postcss-html@1.7.0:
+  postcss-html@1.8.0:
     dependencies:
       htmlparser2: 8.0.2
-      js-tokens: 9.0.0
+      js-tokens: 9.0.1
       postcss: 8.4.38
       postcss-safe-parser: 6.0.0(postcss@8.4.38)
 
@@ -10272,7 +10267,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.24.6
       postcss: 8.4.38
-      postcss-syntax: 0.36.2(postcss-html@1.7.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38)
+      postcss-syntax: 0.36.2(postcss-html@1.8.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38)
     transitivePeerDependencies:
       - supports-color
 
@@ -10283,7 +10278,7 @@ snapshots:
   postcss-markdown@0.36.0(postcss-syntax@0.36.2)(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
-      postcss-syntax: 0.36.2(postcss-html@1.7.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38)
+      postcss-syntax: 0.36.2(postcss-html@1.8.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38)
       remark: 10.0.1
       unist-util-find-all-after: 1.0.5
 
@@ -10348,11 +10343,11 @@ snapshots:
     dependencies:
       postcss: 8.4.38
 
-  postcss-syntax@0.36.2(postcss-html@1.7.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38):
+  postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
     optionalDependencies:
-      postcss-html: 1.7.0
+      postcss-html: 1.8.0
       postcss-scss: 4.0.9(postcss@8.4.38)
 
   postcss-value-parser@3.3.1: {}
@@ -11183,7 +11178,7 @@ snapshots:
       postcss-sass: 0.3.5
       postcss-scss: 2.1.1
       postcss-selector-parser: 3.1.2
-      postcss-syntax: 0.36.2(postcss-html@1.7.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38)
+      postcss-syntax: 0.36.2(postcss-html@1.8.0)(postcss-scss@4.0.9(postcss@8.4.38))(postcss@8.4.38)
       postcss-value-parser: 3.3.1
       resolve-from: 4.0.0
       signal-exit: 3.0.7
