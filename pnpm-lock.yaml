@@ -28,8 +28,8 @@ importers:
         specifier: ^8.50.0
         version: 8.50.0(pinia@2.3.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
       '@smallwei/avue':
-        specifier: ^3.6.1
-        version: 3.6.1(element-plus@2.9.3(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
+        specifier: ^3.6.2
+        version: 3.6.2(element-plus@2.9.3(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
       '@vercel/node':
         specifier: ^5.0.2
         version: 5.0.2(rollup@4.24.0)
@@ -992,8 +992,8 @@ packages:
     resolution: {integrity: sha512-JiX9vxoKMmu8Y3Zr2RVathBL1Cdu4Nt4MuNWemt1Nc06A0RAin9c5FArkhGsyMBWfCu4zj+9b+GxtjAnE4qqLQ==}
     engines: {node: '>=10'}
 
-  '@smallwei/avue@3.6.1':
-    resolution: {integrity: sha512-X8PqxxA+6p1D5WDria0ysV0Mx8ILcs/nm3BXAhYVq4uF2yIeXVewKiMN9KDtVp3K2OE7YWbhqib0AmRfEMfibA==}
+  '@smallwei/avue@3.6.2':
+    resolution: {integrity: sha512-Ifkt0o7KLsAMptfoNMG7qYS86OL2pEet761wWZyZGu8e48wuNNPOfqx5jnibGjx2oIoKtYUFh7tFdllOCth2EQ==}
     peerDependencies:
       element-plus: '>=2.2.0'
       vue: '>=3.2.0'
@@ -6572,7 +6572,7 @@ snapshots:
 
   '@sindresorhus/is@3.1.2': {}
 
-  '@smallwei/avue@3.6.1(element-plus@2.9.3(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))':
+  '@smallwei/avue@3.6.2(element-plus@2.9.3(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@element-plus/icons-vue': 2.3.1(vue@3.5.13(typescript@5.7.3))
       countup.js: 1.9.3
