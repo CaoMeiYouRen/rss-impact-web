@@ -183,13 +183,13 @@ importers:
         version: 16.13.2(typescript@5.7.3)
       stylelint-config-cmyr:
         specifier: ^0.2.1
-        version: 0.2.1(stylelint-config-rational-order@0.1.2)(stylelint-config-standard@36.0.1(stylelint@16.13.2(typescript@5.7.3)))(stylelint-order@6.0.4(stylelint@16.13.2(typescript@5.7.3)))(stylelint-scss@6.10.1(stylelint@16.13.2(typescript@5.7.3)))(stylelint@16.13.2(typescript@5.7.3))
+        version: 0.2.1(stylelint-config-rational-order@0.1.2)(stylelint-config-standard@37.0.0(stylelint@16.13.2(typescript@5.7.3)))(stylelint-order@6.0.4(stylelint@16.13.2(typescript@5.7.3)))(stylelint-scss@6.10.1(stylelint@16.13.2(typescript@5.7.3)))(stylelint@16.13.2(typescript@5.7.3))
       stylelint-config-rational-order:
         specifier: ^0.1.2
         version: 0.1.2
       stylelint-config-standard:
-        specifier: ^36.0.1
-        version: 36.0.1(stylelint@16.13.2(typescript@5.7.3))
+        specifier: ^37.0.0
+        version: 37.0.0(stylelint@16.13.2(typescript@5.7.3))
       stylelint-config-standard-scss:
         specifier: ^14.0.0
         version: 14.0.0(postcss@8.4.38)(stylelint@16.13.2(typescript@5.7.3))
@@ -5064,6 +5064,12 @@ packages:
     peerDependencies:
       stylelint: ^16.1.0
 
+  stylelint-config-recommended@15.0.0:
+    resolution: {integrity: sha512-9LejMFsat7L+NXttdHdTq94byn25TD+82bzGRiV1Pgasl99pWnwipXS5DguTpp3nP1XjvLXVnEJIuYBfsRjRkA==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      stylelint: ^16.13.0
+
   stylelint-config-standard-scss@14.0.0:
     resolution: {integrity: sha512-6Pa26D9mHyi4LauJ83ls3ELqCglU6VfCXchovbEqQUiEkezvKdv6VgsIoMy58i00c854wVmOw0k8W5FTpuaVqg==}
     engines: {node: '>=18.12.0'}
@@ -5079,6 +5085,12 @@ packages:
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: ^16.1.0
+
+  stylelint-config-standard@37.0.0:
+    resolution: {integrity: sha512-+6eBlbSTrOn/il2RlV0zYGQwRTkr+WtzuVSs1reaWGObxnxLpbcspCUYajVQHonVfxVw2U+h42azGhrBvcg8OA==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      stylelint: ^16.13.0
 
   stylelint-order@2.2.1:
     resolution: {integrity: sha512-019KBV9j8qp1MfBjJuotse6MgaZqGVtXMc91GU9MsS9Feb+jYUvUU3Z8XiClqPdqJZQ0ryXQJGg3U3PcEjXwfg==}
@@ -11015,11 +11027,11 @@ snapshots:
 
   style-search@0.1.0: {}
 
-  stylelint-config-cmyr@0.2.1(stylelint-config-rational-order@0.1.2)(stylelint-config-standard@36.0.1(stylelint@16.13.2(typescript@5.7.3)))(stylelint-order@6.0.4(stylelint@16.13.2(typescript@5.7.3)))(stylelint-scss@6.10.1(stylelint@16.13.2(typescript@5.7.3)))(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-config-cmyr@0.2.1(stylelint-config-rational-order@0.1.2)(stylelint-config-standard@37.0.0(stylelint@16.13.2(typescript@5.7.3)))(stylelint-order@6.0.4(stylelint@16.13.2(typescript@5.7.3)))(stylelint-scss@6.10.1(stylelint@16.13.2(typescript@5.7.3)))(stylelint@16.13.2(typescript@5.7.3)):
     dependencies:
       stylelint: 16.13.2(typescript@5.7.3)
       stylelint-config-rational-order: 0.1.2
-      stylelint-config-standard: 36.0.1(stylelint@16.13.2(typescript@5.7.3))
+      stylelint-config-standard: 37.0.0(stylelint@16.13.2(typescript@5.7.3))
       stylelint-order: 6.0.4(stylelint@16.13.2(typescript@5.7.3))
       stylelint-scss: 6.10.1(stylelint@16.13.2(typescript@5.7.3))
 
@@ -11043,6 +11055,10 @@ snapshots:
     dependencies:
       stylelint: 16.13.2(typescript@5.7.3)
 
+  stylelint-config-recommended@15.0.0(stylelint@16.13.2(typescript@5.7.3)):
+    dependencies:
+      stylelint: 16.13.2(typescript@5.7.3)
+
   stylelint-config-standard-scss@14.0.0(postcss@8.4.38)(stylelint@16.13.2(typescript@5.7.3)):
     dependencies:
       stylelint: 16.13.2(typescript@5.7.3)
@@ -11055,6 +11071,11 @@ snapshots:
     dependencies:
       stylelint: 16.13.2(typescript@5.7.3)
       stylelint-config-recommended: 14.0.1(stylelint@16.13.2(typescript@5.7.3))
+
+  stylelint-config-standard@37.0.0(stylelint@16.13.2(typescript@5.7.3)):
+    dependencies:
+      stylelint: 16.13.2(typescript@5.7.3)
+      stylelint-config-recommended: 15.0.0(stylelint@16.13.2(typescript@5.7.3))
 
   stylelint-order@2.2.1(stylelint@9.10.1):
     dependencies:
