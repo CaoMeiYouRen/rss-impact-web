@@ -129,7 +129,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.7.3)
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
-        version: 5.2.1(vite@6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.3))
+        version: 5.2.1(vite@6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.3))
       '@vue/eslint-config-typescript':
         specifier: ^13.0.0
         version: 13.0.0(eslint-plugin-vue@9.32.0(eslint@8.57.1))(eslint@8.57.1)(typescript@5.7.3)
@@ -212,14 +212,14 @@ importers:
         specifier: ^39.3.0
         version: 39.3.0(rollup@4.31.0)
       vite:
-        specifier: ^6.0.10
-        version: 6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)
+        specifier: ^6.0.11
+        version: 6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)
       vite-plugin-swagger-typescript-api:
         specifier: ^1.0.1
-        version: 1.0.1(swagger-typescript-api@13.0.3)(vite@6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1))
+        version: 1.0.1(swagger-typescript-api@13.0.3)(vite@6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1))
       vite-tsconfig-paths:
         specifier: ^5.1.4
-        version: 5.1.4(typescript@5.7.3)(vite@6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1))
+        version: 5.1.4(typescript@5.7.3)(vite@6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1))
       vue-tsc:
         specifier: ^2.2.0
         version: 2.2.0(typescript@5.7.3)
@@ -5568,8 +5568,8 @@ packages:
       vite:
         optional: true
 
-  vite@6.0.10:
-    resolution: {integrity: sha512-MEszunEcMo6pFsfXN1GhCFQqnE25tWRH0MA4f0Q7uanACi4y1Us+ZGpTMnITwCTnYzB2b9cpmnelTlxgTBmaBA==}
+  vite@6.0.11:
+    resolution: {integrity: sha512-4VL9mQPKoHy4+FE0NnRE/kbY51TOfaknxAjt3fJbGJxhIpBZiqVzlZDEesWWsuREXHwNdAoOFZ9MkPEVXczHwg==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -6939,9 +6939,9 @@ snapshots:
       json-schema-to-ts: 1.6.4
       ts-morph: 12.0.0
 
-  '@vitejs/plugin-vue@5.2.1(vite@6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.3))':
+  '@vitejs/plugin-vue@5.2.1(vite@6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.3))':
     dependencies:
-      vite: 6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)
+      vite: 6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)
       vue: 3.5.13(typescript@5.7.3)
 
   '@volar/language-core@2.4.11':
@@ -11733,23 +11733,23 @@ snapshots:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  vite-plugin-swagger-typescript-api@1.0.1(swagger-typescript-api@13.0.3)(vite@6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)):
+  vite-plugin-swagger-typescript-api@1.0.1(swagger-typescript-api@13.0.3)(vite@6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)):
     dependencies:
       swagger-typescript-api: 13.0.3
-      vite: 6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)
+      vite: 6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)
 
-  vite-tsconfig-paths@5.1.4(typescript@5.7.3)(vite@6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)):
+  vite-tsconfig-paths@5.1.4(typescript@5.7.3)(vite@6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
       tsconfck: 3.0.3(typescript@5.7.3)
     optionalDependencies:
-      vite: 6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)
+      vite: 6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@6.0.10(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1):
+  vite@6.0.11(@types/node@22.10.7)(jiti@1.21.0)(sass@1.83.4)(sugarss@2.0.0)(yaml@2.6.1):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.1
