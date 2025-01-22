@@ -1,2 +1,0 @@
-import{n}from"./index-CbbNzzes.js";import{u as p}from"./use-id-transformer-41hVxyet.js";import{d as m,o as u,L as c,u as a}from"./vendor-BZMN2w33.js";import"./utils-DdfcVxQu.js";import"./elementPlusIcons-CQtH09lf.js";const C=m({__name:"CustomQuery",setup(_){const{postGet:r,preSave:t}=p(["categories","feeds"]),o=e=>(e=t(e),e);return(e,f)=>{const s=n;return u(),c(s,{model:"custom-query","post-get":a(r),"pre-save":o,"pre-update":o},null,8,["post-get"])}}});export{C as default};
-//# sourceMappingURL=CustomQuery-CgLy4PEb.js.map
