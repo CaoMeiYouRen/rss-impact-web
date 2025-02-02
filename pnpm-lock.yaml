@@ -31,8 +31,8 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2(element-plus@2.9.3(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
       '@vercel/node':
-        specifier: ^5.0.4
-        version: 5.0.4(rollup@4.31.0)
+        specifier: ^5.1.0
+        version: 5.1.0(rollup@4.31.0)
       '@vueuse/core':
         specifier: ^12.5.0
         version: 12.5.0(typescript@5.7.3)
@@ -1178,6 +1178,9 @@ packages:
   '@vercel/build-utils@9.1.0':
     resolution: {integrity: sha512-ccknvdKH6LDB9ZzZaX8a8cOvFbI441APLHvKrunJE/wezY0skmfuEUK1qnfPApXMs4FMWzZQj2LO9qpzfgBPsQ==}
 
+  '@vercel/build-utils@9.2.0':
+    resolution: {integrity: sha512-e6S+gj+UNsaWH93fRF59HDhNbEypqQlOFJWJcrjrxodmLReXs9lHaYrouPVt3O/3wrQPY1GYKAH7lonQ39Op3Q==}
+
   '@vercel/error-utils@2.0.3':
     resolution: {integrity: sha512-CqC01WZxbLUxoiVdh9B/poPbNpY9U+tO1N9oWHwTl5YAZxcqXmmWJ8KNMFItJCUUWdY3J3xv8LvAuQv2KZ5YdQ==}
 
@@ -1207,6 +1210,9 @@ packages:
 
   '@vercel/node@5.0.4':
     resolution: {integrity: sha512-AXpTFDzomabvi/FmxDDTwmnuqRBDfy2i0nzjKwVPM3ch94EucPbiAk3+18iZOX/A+o2mBO4jKc1DmB0ifQF2Rw==}
+
+  '@vercel/node@5.1.0':
+    resolution: {integrity: sha512-ZIFs9qtFcS4yb3Nao8dj2tXvVWkvubtmFhEdsVwEbtOmi1tGp7HViGmXIf+dp50qCTdW1YGu6GPeuYcL8V12wg==}
 
   '@vercel/python@4.7.1':
     resolution: {integrity: sha512-H4g/5e8unII4oQ+KN5IUvTZSzHmj+lLYDkAK15QGYgAxBtE/mHUvEZpPPo7DPUDIyfq8ybWB1bmk7H5kEahubQ==}
@@ -3070,6 +3076,10 @@ packages:
 
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
+    engines: {node: '>=6'}
+
+  import-fresh@3.3.1:
+    resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
     engines: {node: '>=6'}
 
   import-from@4.0.0:
@@ -6792,6 +6802,8 @@ snapshots:
 
   '@vercel/build-utils@9.1.0': {}
 
+  '@vercel/build-utils@9.2.0': {}
+
   '@vercel/error-utils@2.0.3': {}
 
   '@vercel/fun@1.1.2':
@@ -6874,6 +6886,36 @@ snapshots:
       '@edge-runtime/vm': 3.2.0
       '@types/node': 16.18.11
       '@vercel/build-utils': 9.1.0
+      '@vercel/error-utils': 2.0.3
+      '@vercel/nft': 0.27.10(rollup@4.31.0)
+      '@vercel/static-config': 3.0.0
+      async-listen: 3.0.0
+      cjs-module-lexer: 1.2.3
+      edge-runtime: 2.5.9
+      es-module-lexer: 1.4.1
+      esbuild: 0.14.47
+      etag: 1.8.1
+      node-fetch: 2.6.9
+      path-to-regexp: 8.2.0
+      path-to-regexp-updated: path-to-regexp@6.3.0
+      ts-morph: 12.0.0
+      ts-node: 10.9.1(@types/node@16.18.11)(typescript@4.9.5)
+      typescript: 4.9.5
+      undici: 5.28.4
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - encoding
+      - rollup
+      - supports-color
+
+  '@vercel/node@5.1.0(rollup@4.31.0)':
+    dependencies:
+      '@edge-runtime/node-utils': 2.3.0
+      '@edge-runtime/primitives': 4.1.0
+      '@edge-runtime/vm': 3.2.0
+      '@types/node': 16.18.11
+      '@vercel/build-utils': 9.2.0
       '@vercel/error-utils': 2.0.3
       '@vercel/nft': 0.27.10(rollup@4.31.0)
       '@vercel/static-config': 3.0.0
@@ -7671,7 +7713,7 @@ snapshots:
 
   cosmiconfig@8.2.0:
     dependencies:
-      import-fresh: 3.3.0
+      import-fresh: 3.3.1
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
@@ -8930,6 +8972,11 @@ snapshots:
       parent-module: 1.0.1
       resolve-from: 4.0.0
 
+  import-fresh@3.3.1:
+    dependencies:
+      parent-module: 1.0.1
+      resolve-from: 4.0.0
+
   import-from@4.0.0: {}
 
   import-lazy@3.1.0: {}
@@ -9951,14 +9998,14 @@ snapshots:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.15.1
-      semver: 7.7.0
+      semver: 7.6.2
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@6.0.1:
     dependencies:
       hosted-git-info: 7.0.2
       is-core-module: 2.15.1
-      semver: 7.7.0
+      semver: 7.6.3
       validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}
