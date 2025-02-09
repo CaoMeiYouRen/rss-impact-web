@@ -135,6 +135,12 @@
       "path-to-regexp": "$path-to-regexp",
       "nanoid": "^3.3.8",
       "tar": "^6.2.1"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@scarf/scarf",
+      "esbuild",
+      "vue-demi"
+    ]
   }
 }
