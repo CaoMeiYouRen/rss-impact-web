@@ -1,0 +1,2 @@
+import{_ as r,q as c}from"./index-EG8WzMdp.js";import{L as t,o as n}from"./vendor-BnaiFukf.js";import"./utils-BFJ9jvMb.js";import"./elementPlusIcons-DSeBLzWp.js";const e={};function s(_,a){const o=c;return n(),t(o,{model:"proxy-config"})}const d=r(e,[["render",s]]);export{d as default};
+//# sourceMappingURL=ProxyConfig-DQ9RBQ7L.js.map
