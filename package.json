@@ -134,7 +134,9 @@
       "cookie": "^0.7.0",
       "path-to-regexp": "$path-to-regexp",
       "nanoid": "^3.3.8",
-      "tar": "^6.2.1"
+      "tar": "^6.2.1",
+      "undici": "^5.28.5",
+      "esbuild": "^0.25.0"
     },
     "onlyBuiltDependencies": [
       "@parcel/watcher",
