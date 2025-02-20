@@ -78,8 +78,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       shepherd.js:
-        specifier: ^14.4.0
-        version: 14.4.0
+        specifier: ^14.5.0
+        version: 14.5.0
       universal-cookie:
         specifier: ^7.2.2
         version: 7.2.2
@@ -4687,8 +4687,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shepherd.js@14.4.0:
-    resolution: {integrity: sha512-pXuyhtHPj47Wp6vYESIdhcRrpva67+AolbvVBnJlZNZDa4VBPTwoN+x3R7h1C+RV+z5Tvk3JuLB/8ZgEKMeyEQ==}
+  shepherd.js@14.5.0:
+    resolution: {integrity: sha512-23yBjWnrEeaCHFVUukPNol/K0pdvq6NgyqxDeq1qfJuNhxTHpiAvqTB9ULUogndBcGxfkyTRud95PpUyZwGAGQ==}
     engines: {node: 18.* || >= 20}
 
   should-equal@2.0.0:
@@ -10605,7 +10605,7 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shepherd.js@14.4.0:
+  shepherd.js@14.5.0:
     dependencies:
       '@floating-ui/dom': 1.6.13
       '@scarf/scarf': 1.4.0
@@ -11594,7 +11594,7 @@ snapshots:
 
   vue-shepherd@5.0.1(vue@3.5.13(typescript@5.7.3)):
     dependencies:
-      shepherd.js: 14.4.0
+      shepherd.js: 14.5.0
       vue: 3.5.13(typescript@5.7.3)
 
   vue-tsc@2.2.2(typescript@5.7.3):
