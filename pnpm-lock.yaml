@@ -208,8 +208,8 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
       unplugin-auto-import:
-        specifier: ^19.1.0
-        version: 19.1.0(@vueuse/core@12.7.0(typescript@5.7.3))
+        specifier: ^19.1.1
+        version: 19.1.1(@vueuse/core@12.7.0(typescript@5.7.3))
       unplugin-vue-components:
         specifier: ^28.4.0
         version: 28.4.0(@babel/parser@7.26.8)(vue@3.5.13(typescript@5.7.3))
@@ -3355,6 +3355,10 @@ packages:
     resolution: {integrity: sha512-bbgPw/wmroJsil/GgL4qjDzs5YLTBMQ99weRsok1XCDccQeehbHA/I1oRvk2NPtr7KGZgT/Y5tPRnAtMqeG2Kg==}
     engines: {node: '>=14'}
 
+  local-pkg@1.1.0:
+    resolution: {integrity: sha512-xbZBuX6gYIWrlLmZG43aAVer4ocntYO09vPy9lxd6Ns8DnR4U7N+IIeDkubinqFOHHzoMlPxTxwo0jhE7oYjAw==}
+    engines: {node: '>=14'}
+
   locate-path@2.0.0:
     resolution: {integrity: sha512-NCI2kiDkyR7VeEKm27Kda/iQHyKJe1Bu0FlTbYp3CqJu+9IFe9bLyAjMxf5ZDDbEg+iMPzB5zYyUTSm8wVTKmA==}
     engines: {node: '>=4'}
@@ -4415,6 +4419,9 @@ packages:
 
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
+  quansync@0.2.2:
+    resolution: {integrity: sha512-PrJjqc5Sn6Jv3vlIA9LQs0XdyhCTWrFddMgNP8mGyh3OiMh6ofOES4PRIApcfOZ0wLE2jJN+5/2eyOvzTv9tqw==}
+
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -5095,6 +5102,10 @@ packages:
     resolution: {integrity: sha512-32TmKeeKUahv0Go8WmQgiEp9Y21NuxjwjqiRC1nrUB51YacfSwuB44xgXD+HdIppmMRgjQNPdrHyA6vIybYZ+g==}
     engines: {node: '>=12.0.0'}
 
+  tinyglobby@0.2.12:
+    resolution: {integrity: sha512-qkf4trmKSIiMTs/E63cxH+ojC2unam7rJ0WrauAzpT3ECNTxGRMlaXxVbfxMUC/w0LaYk6jQ4y/nGR9uBO3tww==}
+    engines: {node: '>=12.0.0'}
+
   tmp@0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
     engines: {node: '>=0.6.0'}
@@ -5282,8 +5293,8 @@ packages:
   unified@7.1.0:
     resolution: {integrity: sha512-lbk82UOIGuCEsZhPj8rNAkXSDXd6p0QLzIuSsCdxrqnqU56St4eyOB+AlXsVgVeRmetPTYydIuvFfpDIed8mqw==}
 
-  unimport@4.1.1:
-    resolution: {integrity: sha512-j9+fijH6aDd05yv1fXlyt7HSxtOWtGtrZeYTVBsSUg57Iuf+Ps2itIZjeyu7bEQ4k0WOgYhHrdW8m/pJgOpl5g==}
+  unimport@4.1.2:
+    resolution: {integrity: sha512-oVUL7PSlyVV3QRhsdcyYEMaDX8HJyS/CnUonEJTYA3//bWO+o/4gG8F7auGWWWkrrxBQBYOO8DKe+C53ktpRXw==}
     engines: {node: '>=18.12.0'}
 
   uniq@1.0.1:
@@ -5343,8 +5354,8 @@ packages:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
     engines: {node: '>= 0.8'}
 
-  unplugin-auto-import@19.1.0:
-    resolution: {integrity: sha512-B+TGBEBHqY9aR+7YfShfLujETOHstzpV+yaqgy5PkfV0QG7Py+TYMX7vJ9W4SrysHR+UzR+gzcx/nuZjmPeclA==}
+  unplugin-auto-import@19.1.1:
+    resolution: {integrity: sha512-sCGZZrSR1Bc8RfN8Q0RUDxXtC20rdAt7UB4lDyq8MNtKVHiXXh+5af6Nz4JRp9Q+7HjnbgQfQox0TkEymjdUAQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@nuxt/kit': ^3.2.2
@@ -9091,6 +9102,12 @@ snapshots:
       mlly: 1.7.4
       pkg-types: 1.3.1
 
+  local-pkg@1.1.0:
+    dependencies:
+      mlly: 1.7.4
+      pkg-types: 1.3.1
+      quansync: 0.2.2
+
   locate-path@2.0.0:
     dependencies:
       p-locate: 2.0.0
@@ -10203,6 +10220,8 @@ snapshots:
 
   q@1.5.1: {}
 
+  quansync@0.2.2: {}
+
   queue-microtask@1.2.3: {}
 
   quick-lru@1.1.0: {}
@@ -11176,6 +11195,11 @@ snapshots:
       fdir: 6.4.3(picomatch@4.0.2)
       picomatch: 4.0.2
 
+  tinyglobby@0.2.12:
+    dependencies:
+      fdir: 6.4.3(picomatch@4.0.2)
+      picomatch: 4.0.2
+
   tmp@0.0.33:
     dependencies:
       os-tmpdir: 1.0.2
@@ -11353,13 +11377,12 @@ snapshots:
       vfile: 3.0.1
       x-is-string: 0.1.0
 
-  unimport@4.1.1:
+  unimport@4.1.2:
     dependencies:
       acorn: 8.14.0
       escape-string-regexp: 5.0.0
       estree-walker: 3.0.3
-      fast-glob: 3.3.3
-      local-pkg: 1.0.0
+      local-pkg: 1.1.0
       magic-string: 0.30.17
       mlly: 1.7.4
       pathe: 2.0.3
@@ -11367,6 +11390,7 @@ snapshots:
       pkg-types: 1.3.1
       scule: 1.3.0
       strip-literal: 3.0.0
+      tinyglobby: 0.2.12
       unplugin: 2.2.0
       unplugin-utils: 0.2.4
 
@@ -11432,12 +11456,12 @@ snapshots:
 
   unpipe@1.0.0: {}
 
-  unplugin-auto-import@19.1.0(@vueuse/core@12.7.0(typescript@5.7.3)):
+  unplugin-auto-import@19.1.1(@vueuse/core@12.7.0(typescript@5.7.3)):
     dependencies:
-      local-pkg: 1.0.0
+      local-pkg: 1.1.0
       magic-string: 0.30.17
       picomatch: 4.0.2
-      unimport: 4.1.1
+      unimport: 4.1.2
       unplugin: 2.2.0
       unplugin-utils: 0.2.4
     optionalDependencies:
