@@ -121,8 +121,8 @@ importers:
         specifier: ^4.17.12
         version: 4.17.12
       '@types/node':
-        specifier: ^22.13.5
-        version: 22.13.5
+        specifier: ^22.13.8
+        version: 22.13.8
       '@types/nprogress':
         specifier: ^0.2.3
         version: 0.2.3
@@ -134,13 +134,13 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.7.3)
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
-        version: 5.2.1(vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
+        version: 5.2.1(vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))
       '@vue/eslint-config-typescript':
         specifier: ^13.0.0
         version: 13.0.0(eslint-plugin-vue@9.32.0(eslint@8.57.1))(eslint@8.57.1)(typescript@5.7.3)
       commitizen:
         specifier: ^4.3.1
-        version: 4.3.1(@types/node@22.13.5)(typescript@5.7.3)
+        version: 4.3.1(@types/node@22.13.8)(typescript@5.7.3)
       conventional-changelog-cmyr-config:
         specifier: ^2.1.2
         version: 2.1.2
@@ -149,7 +149,7 @@ importers:
         version: 7.0.3
       cz-conventional-changelog-cmyr:
         specifier: ^1.1.1
-        version: 1.1.1(@types/node@22.13.5)(typescript@5.7.3)
+        version: 1.1.1(@types/node@22.13.8)(typescript@5.7.3)
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -218,13 +218,13 @@ importers:
         version: 41.2.2(rollup@4.34.8)
       vite:
         specifier: ^6.2.0
-        version: 6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)
+        version: 6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)
       vite-plugin-swagger-typescript-api:
         specifier: ^1.0.1
-        version: 1.0.1(swagger-typescript-api@13.0.23)(vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0))
+        version: 1.0.1(swagger-typescript-api@13.0.23)(vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0))
       vite-tsconfig-paths:
         specifier: ^5.1.4
-        version: 5.1.4(typescript@5.7.3)(vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0))
+        version: 5.1.4(typescript@5.7.3)(vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0))
       vue-tsc:
         specifier: ^2.2.4
         version: 2.2.4(typescript@5.7.3)
@@ -1063,8 +1063,8 @@ packages:
   '@types/node@16.18.11':
     resolution: {integrity: sha512-3oJbGBUWuS6ahSnEq1eN2XrCyf4YsWI8OyCvo7c64zQJNplk3mO84t53o8lfTk+2ji59g5ycfc6qQ3fdHliHuA==}
 
-  '@types/node@22.13.5':
-    resolution: {integrity: sha512-+lTU0PxZXn0Dr1NBtC7Y8cR21AJr87dLLU953CWA6pMxxv/UDc7jYAY90upcrie1nRcD6XNG5HOYEDtgW5TxAg==}
+  '@types/node@22.13.8':
+    resolution: {integrity: sha512-G3EfaZS+iOGYWLLRCEAXdWK9my08oHNZ+FHluRiggIYJPOXzhOiDgpVCUHaUvyIC5/fj7C/p637jdzC666AOKQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -5828,7 +5828,7 @@ snapshots:
   '@commitlint/execute-rule@19.5.0':
     optional: true
 
-  '@commitlint/load@19.6.1(@types/node@22.13.5)(typescript@5.7.3)':
+  '@commitlint/load@19.6.1(@types/node@22.13.8)(typescript@5.7.3)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
@@ -5836,7 +5836,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.7.3)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.13.5)(cosmiconfig@9.0.0(typescript@5.7.3))(typescript@5.7.3)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.13.8)(cosmiconfig@9.0.0(typescript@5.7.3))(typescript@5.7.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -6477,7 +6477,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
-      '@types/node': 22.13.5
+      '@types/node': 22.13.8
     optional: true
 
   '@types/cookie@0.6.0': {}
@@ -6495,7 +6495,7 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.13.5
+      '@types/node': 22.13.8
 
   '@types/json-schema@7.0.15': {}
 
@@ -6521,7 +6521,7 @@ snapshots:
 
   '@types/node@16.18.11': {}
 
-  '@types/node@22.13.5':
+  '@types/node@22.13.8':
     dependencies:
       undici-types: 6.20.0
 
@@ -6541,7 +6541,7 @@ snapshots:
 
   '@types/vfile@3.0.2':
     dependencies:
-      '@types/node': 22.13.5
+      '@types/node': 22.13.8
       '@types/unist': 2.0.11
       '@types/vfile-message': 2.0.0
 
@@ -6778,9 +6778,9 @@ snapshots:
       json-schema-to-ts: 1.6.4
       ts-morph: 12.0.0
 
-  '@vitejs/plugin-vue@5.2.1(vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))':
+  '@vitejs/plugin-vue@5.2.1(vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.3))':
     dependencies:
-      vite: 6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)
+      vite: 6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)
       vue: 3.5.13(typescript@5.7.3)
 
   '@volar/language-core@2.4.11':
@@ -7428,10 +7428,10 @@ snapshots:
 
   commander@8.3.0: {}
 
-  commitizen@4.3.1(@types/node@22.13.5)(typescript@5.7.3):
+  commitizen@4.3.1(@types/node@22.13.8)(typescript@5.7.3):
     dependencies:
       cachedir: 2.3.0
-      cz-conventional-changelog: 3.3.0(@types/node@22.13.5)(typescript@5.7.3)
+      cz-conventional-changelog: 3.3.0(@types/node@22.13.8)(typescript@5.7.3)
       dedent: 0.7.0
       detect-indent: 6.1.0
       find-node-modules: 2.1.3
@@ -7523,9 +7523,9 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@22.13.5)(cosmiconfig@9.0.0(typescript@5.7.3))(typescript@5.7.3):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@22.13.8)(cosmiconfig@9.0.0(typescript@5.7.3))(typescript@5.7.3):
     dependencies:
-      '@types/node': 22.13.5
+      '@types/node': 22.13.8
       cosmiconfig: 9.0.0(typescript@5.7.3)
       jiti: 2.4.2
       typescript: 5.7.3
@@ -7598,32 +7598,32 @@ snapshots:
     dependencies:
       array-find-index: 1.0.2
 
-  cz-conventional-changelog-cmyr@1.1.1(@types/node@22.13.5)(typescript@5.7.3):
+  cz-conventional-changelog-cmyr@1.1.1(@types/node@22.13.8)(typescript@5.7.3):
     dependencies:
       '@lint-md/core': 2.0.0
       chalk: 4.1.2
-      commitizen: 4.3.1(@types/node@22.13.5)(typescript@5.7.3)
+      commitizen: 4.3.1(@types/node@22.13.8)(typescript@5.7.3)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 19.6.1(@types/node@22.13.5)(typescript@5.7.3)
+      '@commitlint/load': 19.6.1(@types/node@22.13.8)(typescript@5.7.3)
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
       - typescript
 
-  cz-conventional-changelog@3.3.0(@types/node@22.13.5)(typescript@5.7.3):
+  cz-conventional-changelog@3.3.0(@types/node@22.13.8)(typescript@5.7.3):
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.3.1(@types/node@22.13.5)(typescript@5.7.3)
+      commitizen: 4.3.1(@types/node@22.13.8)(typescript@5.7.3)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 19.6.1(@types/node@22.13.5)(typescript@5.7.3)
+      '@commitlint/load': 19.6.1(@types/node@22.13.8)(typescript@5.7.3)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -11556,29 +11556,29 @@ snapshots:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  vite-plugin-swagger-typescript-api@1.0.1(swagger-typescript-api@13.0.23)(vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)):
+  vite-plugin-swagger-typescript-api@1.0.1(swagger-typescript-api@13.0.23)(vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)):
     dependencies:
       swagger-typescript-api: 13.0.23
-      vite: 6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)
+      vite: 6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)
 
-  vite-tsconfig-paths@5.1.4(typescript@5.7.3)(vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)):
+  vite-tsconfig-paths@5.1.4(typescript@5.7.3)(vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)):
     dependencies:
       debug: 4.4.0
       globrex: 0.1.2
       tsconfck: 3.1.5(typescript@5.7.3)
     optionalDependencies:
-      vite: 6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)
+      vite: 6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@6.2.0(@types/node@22.13.5)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0):
+  vite@6.2.0(@types/node@22.13.8)(jiti@2.4.2)(sass@1.85.1)(sugarss@2.0.0)(yaml@2.7.0):
     dependencies:
       esbuild: 0.25.0
       postcss: 8.5.3
       rollup: 4.34.8
     optionalDependencies:
-      '@types/node': 22.13.5
+      '@types/node': 22.13.8
       fsevents: 2.3.3
       jiti: 2.4.2
       sass: 1.85.1
