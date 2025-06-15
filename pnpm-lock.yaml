@@ -189,7 +189,7 @@ importers:
         version: 16.20.0(typescript@5.8.3)
       stylelint-config-cmyr:
         specifier: ^0.2.1
-        version: 0.2.1(stylelint-config-rational-order@0.1.2)(stylelint-config-standard@36.0.1(stylelint@16.20.0(typescript@5.8.3)))(stylelint-order@7.0.0(stylelint@16.20.0(typescript@5.8.3)))(stylelint-scss@6.12.0(stylelint@16.20.0(typescript@5.8.3)))(stylelint@16.20.0(typescript@5.8.3))
+        version: 0.2.1(stylelint-config-rational-order@0.1.2)(stylelint-config-standard@36.0.1(stylelint@16.20.0(typescript@5.8.3)))(stylelint-order@7.0.0(stylelint@16.20.0(typescript@5.8.3)))(stylelint-scss@6.12.1(stylelint@16.20.0(typescript@5.8.3)))(stylelint@16.20.0(typescript@5.8.3))
       stylelint-config-rational-order:
         specifier: ^0.1.2
         version: 0.1.2
@@ -203,8 +203,8 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0(stylelint@16.20.0(typescript@5.8.3))
       stylelint-scss:
-        specifier: ^6.12.0
-        version: 6.12.0(stylelint@16.20.0(typescript@5.8.3))
+        specifier: ^6.12.1
+        version: 6.12.1(stylelint@16.20.0(typescript@5.8.3))
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -5327,8 +5327,8 @@ packages:
     peerDependencies:
       stylelint: ^16.18.0
 
-  stylelint-scss@6.12.0:
-    resolution: {integrity: sha512-U7CKhi1YNkM1pXUXl/GMUXi8xKdhl4Ayxdyceie1nZ1XNIdaUgMV6OArpooWcDzEggwgYD0HP/xIgVJo9a655w==}
+  stylelint-scss@6.12.1:
+    resolution: {integrity: sha512-UJUfBFIvXfly8WKIgmqfmkGKPilKB4L5j38JfsDd+OCg2GBdU0vGUV08Uw82tsRZzd4TbsUURVVNGeOhJVF7pA==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: ^16.0.2
@@ -11517,13 +11517,13 @@ snapshots:
 
   style-search@0.1.0: {}
 
-  stylelint-config-cmyr@0.2.1(stylelint-config-rational-order@0.1.2)(stylelint-config-standard@36.0.1(stylelint@16.20.0(typescript@5.8.3)))(stylelint-order@7.0.0(stylelint@16.20.0(typescript@5.8.3)))(stylelint-scss@6.12.0(stylelint@16.20.0(typescript@5.8.3)))(stylelint@16.20.0(typescript@5.8.3)):
+  stylelint-config-cmyr@0.2.1(stylelint-config-rational-order@0.1.2)(stylelint-config-standard@36.0.1(stylelint@16.20.0(typescript@5.8.3)))(stylelint-order@7.0.0(stylelint@16.20.0(typescript@5.8.3)))(stylelint-scss@6.12.1(stylelint@16.20.0(typescript@5.8.3)))(stylelint@16.20.0(typescript@5.8.3)):
     dependencies:
       stylelint: 16.20.0(typescript@5.8.3)
       stylelint-config-rational-order: 0.1.2
       stylelint-config-standard: 36.0.1(stylelint@16.20.0(typescript@5.8.3))
       stylelint-order: 7.0.0(stylelint@16.20.0(typescript@5.8.3))
-      stylelint-scss: 6.12.0(stylelint@16.20.0(typescript@5.8.3))
+      stylelint-scss: 6.12.1(stylelint@16.20.0(typescript@5.8.3))
 
   stylelint-config-rational-order@0.1.2:
     dependencies:
@@ -11537,7 +11537,7 @@ snapshots:
       postcss-scss: 4.0.9(postcss@8.5.3)
       stylelint: 16.20.0(typescript@5.8.3)
       stylelint-config-recommended: 16.0.0(stylelint@16.20.0(typescript@5.8.3))
-      stylelint-scss: 6.12.0(stylelint@16.20.0(typescript@5.8.3))
+      stylelint-scss: 6.12.1(stylelint@16.20.0(typescript@5.8.3))
     optionalDependencies:
       postcss: 8.5.3
 
@@ -11580,7 +11580,7 @@ snapshots:
       postcss-sorting: 9.1.0(postcss@8.5.3)
       stylelint: 16.20.0(typescript@5.8.3)
 
-  stylelint-scss@6.12.0(stylelint@16.20.0(typescript@5.8.3)):
+  stylelint-scss@6.12.1(stylelint@16.20.0(typescript@5.8.3)):
     dependencies:
       css-tree: 3.1.0
       is-plain-object: 5.0.0
