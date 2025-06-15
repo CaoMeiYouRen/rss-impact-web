@@ -182,8 +182,8 @@ importers:
         specifier: 21.0.1
         version: 21.0.1(typescript@5.8.3)
       sonda:
-        specifier: ^0.7.1
-        version: 0.7.1
+        specifier: ^0.8.0
+        version: 0.8.0
       stylelint:
         specifier: ^16.19.1
         version: 16.20.0(typescript@5.8.3)
@@ -4305,8 +4305,8 @@ packages:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
 
-  open@10.1.0:
-    resolution: {integrity: sha512-mnkeQ1qP5Ue2wd+aivTD3NHd/lZ96Lu0jgf0pwktLPtx6cTZiH7tyeGRRHs0zX0rbrahXPnXlUnbeXyaBBuIaw==}
+  open@10.1.2:
+    resolution: {integrity: sha512-cxN6aIDPz6rm8hbebcP7vrQNhvRcveZoJU72Y7vskh4oIm+BZwBECnx5nTmrlres1Qapvx27Qo1Auukpf8PKXw==}
     engines: {node: '>=18'}
 
   optionator@0.9.4:
@@ -5077,8 +5077,9 @@ packages:
     resolution: {integrity: sha512-bSiSngZ/jWeX93BqeIAbImyTbEihizcwNjFoRUIY/T1wWQsfsm2Vw1agPKylXvQTU7iASGdHhyqRlqQzfz+Htg==}
     engines: {node: '>=18'}
 
-  sonda@0.7.1:
-    resolution: {integrity: sha512-PCdSdBvspoJXA0uY5GFeRzAolTHDP7gVnnMnr/O74IYIB8CiOFaEbTGNkEmShG6HBtmmFdQfPxdXbI+2vAgjYw==}
+  sonda@0.8.0:
+    resolution: {integrity: sha512-NzQXa9lLi4gJUlrQ+GKmbhHBv2L/mFfghq2lnYcXDrpWIDrKi1qQkdykjQm5qPMvcvCTtU4dv/MykUEe3io0aQ==}
+    engines: {node: '>=20.19 || >=22.12'}
     hasBin: true
 
   source-map-js@1.2.1:
@@ -10378,7 +10379,7 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
-  open@10.1.0:
+  open@10.1.2:
     dependencies:
       default-browser: 5.2.1
       define-lazy-prop: 3.0.0
@@ -11270,11 +11271,10 @@ snapshots:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 5.0.0
 
-  sonda@0.7.1:
+  sonda@0.8.0:
     dependencies:
       '@ampproject/remapping': 2.3.0
-      '@jridgewell/sourcemap-codec': 1.5.0
-      open: 10.1.0
+      open: 10.1.2
 
   source-map-js@1.2.1: {}
 
