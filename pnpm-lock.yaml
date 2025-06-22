@@ -182,8 +182,8 @@ importers:
         specifier: 21.0.1
         version: 21.0.1(typescript@5.8.3)
       sonda:
-        specifier: ^0.8.0
-        version: 0.8.0
+        specifier: ^0.8.2
+        version: 0.8.2
       stylelint:
         specifier: ^16.21.0
         version: 16.21.0(typescript@5.8.3)
@@ -5110,8 +5110,8 @@ packages:
     resolution: {integrity: sha512-bSiSngZ/jWeX93BqeIAbImyTbEihizcwNjFoRUIY/T1wWQsfsm2Vw1agPKylXvQTU7iASGdHhyqRlqQzfz+Htg==}
     engines: {node: '>=18'}
 
-  sonda@0.8.0:
-    resolution: {integrity: sha512-NzQXa9lLi4gJUlrQ+GKmbhHBv2L/mFfghq2lnYcXDrpWIDrKi1qQkdykjQm5qPMvcvCTtU4dv/MykUEe3io0aQ==}
+  sonda@0.8.2:
+    resolution: {integrity: sha512-OzLlgd4TVjNzhk+Q7NWrdHc4hAU3gchF9u9ZQ4GcQLKk3IX6OTbaf4U7Itq9XssuuCPVVPTl8p0rGAjBHalxsg==}
     engines: {node: '>=20.19 || >=22.12'}
     hasBin: true
 
@@ -11370,7 +11370,7 @@ snapshots:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 5.0.0
 
-  sonda@0.8.0:
+  sonda@0.8.2:
     dependencies:
       '@ampproject/remapping': 2.3.0
       open: 10.1.2
