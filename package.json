@@ -80,7 +80,7 @@
     "stylelint-scss": "^6.12.1",
     "typescript": "^5.8.3",
     "unplugin-auto-import": "^19.2.0",
-    "unplugin-vue-components": "^28.5.0",
+    "unplugin-vue-components": "^28.8.0",
     "vercel": "^43.3.0",
     "vite": "^6.3.4",
     "vite-plugin-swagger-typescript-api": "^1.0.1",
