@@ -1,0 +1,1 @@
+{"version":3,"file":"ProxyConfig-CKqjSU3k.js","sources":["../../src/views/data/ProxyConfig.vue"],"sourcesContent":["<template>\n    <CrudList\n        model=\"proxy-config\"\n    />\n</template>\n\n<script lang=\"ts\" setup>\n</script>\n\n<style lang=\"scss\" scoped>\n</style>\n"],"names":["_createBlock","_component_CrudList"],"mappings":"kNACIA,EAEEC,EAAA,CADE,MAAM,eAAc"}
