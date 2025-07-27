@@ -19,7 +19,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "@sentry/vue": "^9.40.0",
-    "@smallwei/avue": "^3.7.0",
+    "@smallwei/avue": "^3.7.1",
     "@vercel/node": "^5.3.7",
     "@vueuse/core": "^13.5.0",
     "@vueuse/integrations": "^13.5.0",
