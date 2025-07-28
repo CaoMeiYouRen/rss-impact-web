@@ -65,7 +65,7 @@ export default defineConfig({
             format: 'html',
             filename: 'sonda-report.html',
             open: false, // 是否自动打开浏览器
-            detailed: true, // 是否显示详细信息
+            // detailed: true, // 是否显示详细信息
             sources: true, // 是否显示源码
             gzip: true, // 是否启用 gzip 压缩
             brotli: true, // 是否启用 brotli 压缩
