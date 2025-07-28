@@ -359,6 +359,7 @@ export interface LoginDto {
 export interface Auth0CallbackData {
   id_token: string;
   state?: string;
+  code?: string;
   sid?: string;
 }
 
@@ -393,20 +394,23 @@ export interface NotificationConfig {
    * @example "ServerChanTurbo"
    */
   type:
-    | "ServerChanTurbo"
-    | "ServerChanV3"
-    | "Dingtalk"
     | "CustomEmail"
-    | "WechatRobot"
-    | "WechatApp"
+    | "Dingtalk"
+    | "Discord"
+    | "Feishu"
+    | "IGot"
+    | "Ntfy"
+    | "OneBot"
     | "PushDeer"
     | "PushPlus"
-    | "IGot"
     | "Qmsg"
-    | "XiZhi"
+    | "ServerChanTurbo"
+    | "ServerChanV3"
     | "Telegram"
-    | "Discord"
-    | "OneBot";
+    | "WechatApp"
+    | "WechatRobot"
+    | "WxPusher"
+    | "XiZhi";
   /**
    * 推送配置
    * 具体配置请参考 push-all-in-one 文档，在线生成配置：https://push.cmyr.dev
@@ -649,6 +653,12 @@ export interface AIConfig {
    * @example 2048
    */
   maxTokens?: number;
+  /**
+   * 响应格式
+   * OpenAI 响应格式。总结时默认为纯文本，分类时默认为JSON
+   * @example 0
+   */
+  responseFormat?: string;
   /**
    * 最小正文长度
    * 当 RSS 的正文超过这个数字时，才启用 AI 总结。默认值 1024。设置为 0 则不限制。
@@ -2357,6 +2367,9 @@ export class HttpClient<SecurityDataType = unknown> {
   }
 
   protected createFormData(input: Record<string, unknown>): FormData {
+    if (input instanceof FormData) {
+      return input;
+    }
     return Object.keys(input || {}).reduce((formData, key) => {
       const property = input[key];
       const propertyContent: any[] = property instanceof Array ? property : [property];
@@ -2400,7 +2413,7 @@ export class HttpClient<SecurityDataType = unknown> {
         ...requestParams,
         headers: {
           ...(requestParams.headers || {}),
-          ...(type && type !== ContentType.FormData ? { "Content-Type": type } : {}),
+          ...(type ? { "Content-Type": type } : {}),
         },
         params: query,
         responseType: responseFormat,
@@ -2747,7 +2760,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      *
      * @tags auth
      * @name AuthCallback
-     * @summary 处理 Auth0 回调
+     * @summary 处理 OIDC 回调
      * @request POST:/api/auth/callback
      */
     authCallback: (data: Auth0CallbackData, params: RequestParams = {}) =>
@@ -2756,6 +2769,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         method: "POST",
         body: data,
         type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags auth
+     * @name AuthCallbackGet
+     * @summary 处理 OIDC GET 回调
+     * @request GET:/api/auth/callback
+     */
+    authCallbackGet: (params: RequestParams = {}) =>
+      this.request<void, any>({
+        path: `/api/auth/callback`,
+        method: "GET",
         ...params,
       }),
 

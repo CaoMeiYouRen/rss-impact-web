@@ -212,14 +212,14 @@ const activeTab = ref('one-click')
 const onOneClickRegister = () => {
     const url = new URL(window.location.href)
     url.pathname = '/api/auth/register'
-    url.searchParams.set('redirect', window.location.origin)
+    // url.searchParams.set('redirect', window.location.origin)
     window.location.href = url.href
 }
 
 const onOneClickLogin = () => {
     const url = new URL(window.location.href)
     url.pathname = '/api/auth/login'
-    url.searchParams.set('redirect', window.location.origin)
+    // url.searchParams.set('redirect', window.location.origin)
     window.location.href = url.href
 }
 
