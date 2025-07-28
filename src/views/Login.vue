@@ -225,7 +225,7 @@ const onOneClickLogin = () => {
 
 const onAuth0LoginCallback = async () => {
     try {
-        if (otherQuery.value?.state?.startsWith('auth0_login_')) { // 如果从 auth0 回调
+        if (otherQuery.value?.state?.startsWith('auth0_login_') || otherQuery.value?.state?.startsWith('oidc_login_')) { // 如果从 auth0 回调
             await userStore.getUserInfo()
             await router.push({
                 path: redirect.value || '/',
