@@ -35,7 +35,7 @@ importers:
         version: 10.0.0(pinia@3.0.3(typescript@5.8.3)(vue@3.5.18(typescript@5.8.3)))(vue@3.5.18(typescript@5.8.3))
       '@smallwei/avue':
         specifier: ^3.7.1
-        version: 3.7.1(element-plus@2.10.4(vue@3.5.18(typescript@5.8.3)))(vue@3.5.18(typescript@5.8.3))
+        version: 3.7.1(element-plus@2.10.5(vue@3.5.18(typescript@5.8.3)))(vue@3.5.18(typescript@5.8.3))
       '@vercel/node':
         specifier: ^5.3.7
         version: 5.3.7(rollup@4.46.0)
@@ -58,8 +58,8 @@ importers:
         specifier: ^5.6.0
         version: 5.6.0
       element-plus:
-        specifier: ^2.10.4
-        version: 2.10.4(vue@3.5.18(typescript@5.8.3))
+        specifier: ^2.10.5
+        version: 2.10.5(vue@3.5.18(typescript@5.8.3))
       file-saver:
         specifier: ^2.0.5
         version: 2.0.5
@@ -585,8 +585,14 @@ packages:
   '@floating-ui/core@1.7.2':
     resolution: {integrity: sha512-wNB5ooIKHQc+Kui96jE/n69rHFWAVoxn5CAzL1Xdd8FG03cgY3MLO+GF9U3W737fYDSgPWA6MReKhBQBop6Pcw==}
 
+  '@floating-ui/core@1.7.3':
+    resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
+
   '@floating-ui/dom@1.7.2':
     resolution: {integrity: sha512-7cfaOQuCS27HD7DX+6ib2OrnW+b4ZBwDNnCcT0uTyidcmyWb03FnQqJybDBoCnpdxwBSfA94UAYlRCt7mV+TbA==}
+
+  '@floating-ui/dom@1.7.3':
+    resolution: {integrity: sha512-uZA413QEpNuhtb3/iIKoYMSK07keHPYeXF02Zhd6e213j+d1NamLix/mCLxBUDW/Gx52sPH2m+chlUsyaBs/Ag==}
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
@@ -2267,8 +2273,8 @@ packages:
   electron-to-chromium@1.5.96:
     resolution: {integrity: sha512-8AJUW6dh75Fm/ny8+kZKJzI1pgoE8bKLZlzDU2W1ENd+DXKJrx7I7l9hb8UWR4ojlnb5OlixMt00QWiYJoVw1w==}
 
-  element-plus@2.10.4:
-    resolution: {integrity: sha512-UD4elWHrCnp1xlPhbXmVcaKFLCRaRAY6WWRwemGfGW3ceIjXm9fSYc9RNH3AiOEA6Ds1p9ZvhCs76CR9J8Vd+A==}
+  element-plus@2.10.5:
+    resolution: {integrity: sha512-O9wTDu3Tm51ACVByWrThtBhH4Ygefg1HGY5pyAaxnoIrj8uMN0GtZ4IREwR3Yw/6sM2HyxjrsGI/D46iUVP97A==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -6205,9 +6211,18 @@ snapshots:
     dependencies:
       '@floating-ui/utils': 0.2.10
 
+  '@floating-ui/core@1.7.3':
+    dependencies:
+      '@floating-ui/utils': 0.2.10
+
   '@floating-ui/dom@1.7.2':
     dependencies:
       '@floating-ui/core': 1.7.2
+      '@floating-ui/utils': 0.2.10
+
+  '@floating-ui/dom@1.7.3':
+    dependencies:
+      '@floating-ui/core': 1.7.3
       '@floating-ui/utils': 0.2.10
 
   '@floating-ui/utils@0.2.10': {}
@@ -6656,12 +6671,12 @@ snapshots:
 
   '@sinclair/typebox@0.25.24': {}
 
-  '@smallwei/avue@3.7.1(element-plus@2.10.4(vue@3.5.18(typescript@5.8.3)))(vue@3.5.18(typescript@5.8.3))':
+  '@smallwei/avue@3.7.1(element-plus@2.10.5(vue@3.5.18(typescript@5.8.3)))(vue@3.5.18(typescript@5.8.3))':
     dependencies:
       '@element-plus/icons-vue': 2.3.1(vue@3.5.18(typescript@5.8.3))
       countup.js: 1.9.3
       dayjs: 1.11.13
-      element-plus: 2.10.4(vue@3.5.18(typescript@5.8.3))
+      element-plus: 2.10.5(vue@3.5.18(typescript@5.8.3))
       lodash: 4.17.21
       vue: 3.5.18(typescript@5.8.3)
 
@@ -8090,11 +8105,11 @@ snapshots:
 
   electron-to-chromium@1.5.96: {}
 
-  element-plus@2.10.4(vue@3.5.18(typescript@5.8.3)):
+  element-plus@2.10.5(vue@3.5.18(typescript@5.8.3)):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
       '@element-plus/icons-vue': 2.3.1(vue@3.5.18(typescript@5.8.3))
-      '@floating-ui/dom': 1.7.2
+      '@floating-ui/dom': 1.7.3
       '@popperjs/core': '@sxzz/popperjs-es@2.11.7'
       '@types/lodash': 4.17.20
       '@types/lodash-es': 4.17.12
