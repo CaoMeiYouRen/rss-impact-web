@@ -68,7 +68,7 @@
     "lint-staged": "^16.1.4",
     "postcss-html": "^1.8.0",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.89.2",
+    "sass": "^1.90.0",
     "semantic-release": "21.0.1",
     "sonda": "^0.9.0",
     "stylelint": "^16.23.0",
