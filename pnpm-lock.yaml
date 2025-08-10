@@ -28,8 +28,8 @@ importers:
   .:
     dependencies:
       '@element-plus/icons-vue':
-        specifier: ^2.3.1
-        version: 2.3.1(vue@3.5.18(typescript@5.9.2))
+        specifier: ^2.3.2
+        version: 2.3.2(vue@3.5.18(typescript@5.9.2))
       '@sentry/vue':
         specifier: ^10.3.0
         version: 10.3.0(pinia@3.0.3(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))
@@ -393,8 +393,8 @@ packages:
     resolution: {integrity: sha512-0dEVyRLM/lG4gp1R/Ik5bfPl/1wX00xFwd5KcNH602tzBa09oF7pbTKETEhR1GjZ75K6OJnYFu8II2dyMhONMw==}
     engines: {node: '>=16'}
 
-  '@element-plus/icons-vue@2.3.1':
-    resolution: {integrity: sha512-XxVUZv48RZAd87ucGS48jPf6pKu0yV5UCg9f4FFwtrYxXOwWuVJo6wOvSLKEoMQKjv8GsX/mhP6UsC1lRwbUWg==}
+  '@element-plus/icons-vue@2.3.2':
+    resolution: {integrity: sha512-OzIuTaIfC8QXEPmJvB4Y4kw34rSXdCJzxcD1kFStBvr8bK6X1zQAYDo0CNMjojnfTqRQCJ0I7prlErcoRiET2A==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -6066,7 +6066,7 @@ snapshots:
     dependencies:
       '@edge-runtime/primitives': 4.1.0
 
-  '@element-plus/icons-vue@2.3.1(vue@3.5.18(typescript@5.9.2))':
+  '@element-plus/icons-vue@2.3.2(vue@3.5.18(typescript@5.9.2))':
     dependencies:
       vue: 3.5.18(typescript@5.9.2)
 
@@ -6641,7 +6641,7 @@ snapshots:
 
   '@smallwei/avue@3.7.1(element-plus@2.10.6(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))':
     dependencies:
-      '@element-plus/icons-vue': 2.3.1(vue@3.5.18(typescript@5.9.2))
+      '@element-plus/icons-vue': 2.3.2(vue@3.5.18(typescript@5.9.2))
       countup.js: 1.9.3
       dayjs: 1.11.13
       element-plus: 2.10.6(vue@3.5.18(typescript@5.9.2))
@@ -8031,7 +8031,7 @@ snapshots:
   element-plus@2.10.6(vue@3.5.18(typescript@5.9.2)):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
-      '@element-plus/icons-vue': 2.3.1(vue@3.5.18(typescript@5.9.2))
+      '@element-plus/icons-vue': 2.3.2(vue@3.5.18(typescript@5.9.2))
       '@floating-ui/dom': 1.7.3
       '@popperjs/core': '@sxzz/popperjs-es@2.11.7'
       '@types/lodash': 4.17.20

@@ -17,7 +17,7 @@
     "build:vercel": "vercel build"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^2.3.1",
+    "@element-plus/icons-vue": "^2.3.2",
     "@sentry/vue": "^10.3.0",
     "@smallwei/avue": "^3.7.1",
     "@vercel/node": "^5.3.11",
