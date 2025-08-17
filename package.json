@@ -81,7 +81,7 @@
     "typescript": "^5.9.2",
     "unplugin-auto-import": "^20.0.0",
     "unplugin-vue-components": "^29.0.0",
-    "vercel": "^44.7.3",
+    "vercel": "^46.0.1",
     "vite": "^7.1.2",
     "vite-plugin-swagger-typescript-api": "^1.0.1",
     "vite-tsconfig-paths": "^5.1.4",
