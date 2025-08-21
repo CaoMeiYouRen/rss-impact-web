@@ -97,7 +97,7 @@ export default defineComponent({
             return 0
         })
 
-        const theOnlyOneChild = computed( () => {
+        const theOnlyOneChild = computed(() => {
             if (showingChildNumber.value > 1) {
                 return null
             }

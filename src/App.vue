@@ -12,8 +12,8 @@ import { api } from '@/api'
 const state = useAppStore()
 
 onMounted(async () => {
-  const meta = await api.api.authMeta()
-  state.setAuthMeta(meta)
+    const meta = await api.api.authMeta()
+    state.setAuthMeta(meta)
 })
 
 </script>

@@ -159,7 +159,7 @@ const initForm = async () => {
 }
 
 // 更新字典
-const updateDic = async() => {
+const updateDic = async () => {
     try {
         // await formDom.value?.updateDic()
         await formDom.value?.dicInit()

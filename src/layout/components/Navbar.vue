@@ -91,7 +91,6 @@ const navbar = [
                 userStore.logout(),
                 router.push('/login'),
             ])
-
         },
     },
 ]

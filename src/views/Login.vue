@@ -232,7 +232,6 @@ const onAuth0LoginCallback = async () => {
                 query: {},
             })
         }
-
     } catch (error) {
         console.error(error)
         await userStore.logout()

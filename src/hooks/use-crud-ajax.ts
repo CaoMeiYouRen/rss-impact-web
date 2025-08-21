@@ -83,9 +83,8 @@ const defaultOption: AvueCrudOption = {
  * @param [autoMount] 自动挂载
  * @returns
  */
-// eslint-disable-next-line max-lines-per-function
-export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T>, model: string | Ref<string>, transform: IProps = {}, autoMount: boolean = true) {
 
+export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T>, model: string | Ref<string>, transform: IProps = {}, autoMount: boolean = true) {
     const option = ref<AvueCrudOption>({ ...defaultOption })
     const list = ref<T[]>([])
     const selections = ref<T[]>([])
@@ -340,7 +339,6 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
                     key,
                     undefined,
                 ]
-
             }
             if (Array.isArray(value)) {
                 if (value.length > 0) {
@@ -447,5 +445,4 @@ export function useCrudAjax<T extends Record<string, unknown> = any>(form: Ref<T
         search,
         searchWhere,
     }
-
 }

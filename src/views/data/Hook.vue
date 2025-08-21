@@ -22,7 +22,7 @@ const postGet = (data: Hook) => {
 }
 
 const pre = (data: Hook) => {
-    if ((data?.config as any)?._type ) {
+    if ((data?.config as any)?._type) {
         delete (data.config as any)._type
     }
     if (['notification', 'webhook'].includes(data.type)) {
@@ -39,7 +39,7 @@ const preSave = pre
 const preUpdate = pre
 watch(() => form.value?.type, (type) => {
     if (form.value?.config && type) {
-        form.value.config = {    // 将 type 同步到 config
+        form.value.config = { // 将 type 同步到 config
             ...form.value.config,
             _type: type,
         } as any

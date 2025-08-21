@@ -67,7 +67,6 @@ const onSuccess = async () => {
     ElMessage.success('添加成功！')
     await crudListDom.value?.updateDic()
     await crudListDom.value?.refreshChange()
-
 }
 
 const onReset = async () => {
@@ -78,7 +77,6 @@ const onImportSuccess = async () => {
     ElMessage.success('添加成功！')
     await crudListDom.value?.updateDic()
     await crudListDom.value?.refreshChange()
-
 }
 
 const download = async () => {
@@ -97,7 +95,7 @@ watch(
     () => route.path,
     async () => {
         if (route.path.includes('/feed')) {
-            await crudFormDom.value?.updateDic()  // 显示当前页面时刷新字典，解决新增用户等字典未更新问题
+            await crudFormDom.value?.updateDic() // 显示当前页面时刷新字典，解决新增用户等字典未更新问题
         }
     },
 )

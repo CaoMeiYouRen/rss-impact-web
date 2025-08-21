@@ -39,7 +39,7 @@ if (__PROD__ && VITE_SENTRY_DSN && location.host.endsWith(VITE_DOMAIN)) {
         dsn: VITE_SENTRY_DSN,
         integrations: [
             Sentry.browserTracingIntegration({ router }),
-            // eslint-disable-next-line import/namespace
+
             Sentry.replayIntegration({}),
         ],
         tracesSampleRate: 0.1,

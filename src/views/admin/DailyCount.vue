@@ -60,7 +60,7 @@ const {
     chartOption,
     onSearch,
 } = useStatistics('daily-count', 'date',
-['articleCount', 'resourceCount', 'webhookLogCount', 'feedCount', 'categoryCount', 'hookCount', 'customQueryCount', 'proxyConfigCount', 'userCount'],
+    ['articleCount', 'resourceCount', 'webhookLogCount', 'feedCount', 'categoryCount', 'hookCount', 'customQueryCount', 'proxyConfigCount', 'userCount'],
 )
 
 const dayNum = ref(30)
