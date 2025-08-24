@@ -1,2 +1,0 @@
-import{_ as r,q as e}from"./index-THu_M5rC.js";import{O as t,o as c}from"./vendor-hzWcWeGH.js";import"./utils-Bti12kXR.js";import"./elementPlusIcons-DKLRZp7E.js";const s={};function n(_,a){const o=e;return c(),t(o,{model:"user"})}const d=r(s,[["render",n]]);export{d as default};
-//# sourceMappingURL=User-aqW4D7XY.js.map
