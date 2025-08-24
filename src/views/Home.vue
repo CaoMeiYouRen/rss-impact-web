@@ -94,6 +94,7 @@ onBeforeUnmount(() => {
     align-items: start;
     width: 100%;
     height: 100vh;
+
     // background: linear-gradient(135deg, #83a4d4, #b6fbff);
     // 设置背景颜色为浅灰色
     // background-color: rgba(245, 245, 245, 0.9);
@@ -101,10 +102,10 @@ onBeforeUnmount(() => {
     font-family: 'Helvetica Neue', Arial, sans-serif;
 
     .home-content {
-        background: rgba(255, 255, 255, 0.9);
+        background: rgb(255 255 255 / 0.9);
         padding: 40px;
         border-radius: 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 20px rgb(0 0 0 / 0.1);
         text-align: center;
         max-width: 800px;
         width: 100%;

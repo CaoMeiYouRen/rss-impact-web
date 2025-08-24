@@ -166,6 +166,7 @@ export default defineComponent({
 
                 & > .el-sub-menu__title {
                     padding: 0 15px;
+
                     .el-sub-menu__icon-arrow {
                         display: none;
                     }
@@ -190,7 +191,6 @@ export default defineComponent({
 
     i[class^="iconfont"] {
         width: 24px;
-
         margin-right: 16px;
         margin-left: 4px;
         text-align: center;

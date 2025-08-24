@@ -106,7 +106,7 @@ function toggleSideBar() {
     height: 50px;
     overflow: hidden;
     background: #fff;
-    box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+    box-shadow: 0 1px 4px rgb(0 21 41 / 0.08);
 
     .hamburger-container {
         float: left;
@@ -118,7 +118,7 @@ function toggleSideBar() {
         -webkit-tap-highlight-color: transparent;
 
         &:hover {
-            background: rgb(0 0 0 / 2.5%);
+            background: rgb(0 0 0 / 0.025);
         }
     }
 
@@ -148,7 +148,7 @@ function toggleSideBar() {
                 transition: background 0.3s;
 
                 &:hover {
-                    background: rgb(0 0 0 / 2.5%);
+                    background: rgb(0 0 0 / 0.025);
                 }
             }
         }

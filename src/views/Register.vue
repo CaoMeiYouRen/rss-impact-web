@@ -199,10 +199,10 @@ const clearForm = () => {
     background: linear-gradient(135deg, #83a4d4, #b6fbff);
 
     .register-form {
-        background: rgba(255, 255, 255, 1);
+        background: rgb(255 255 255 / 1);
         padding: 40px;
         border-radius: 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 20px rgb(0 0 0 / 0.1);
         width: 400px;
         text-align: center;
 
@@ -212,7 +212,7 @@ const clearForm = () => {
         }
 
         .logo-title{
-            color:rgb(20, 34, 51);
+            color:rgb(20 34 51);
         }
 
         .el-form-item {
