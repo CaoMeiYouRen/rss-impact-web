@@ -37,7 +37,7 @@
     "pinia": "^3.0.3",
     "shepherd.js": "^14.5.1",
     "universal-cookie": "^8.0.1",
-    "vue": "^3.5.18",
+    "vue": "^3.5.19",
     "vue-echarts": "^7.0.3",
     "vue-router": "^4.5.1",
     "vue-shepherd": "^5.0.1",
