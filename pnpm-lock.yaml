@@ -176,8 +176,8 @@ importers:
         specifier: ^16.23.1
         version: 16.23.1(typescript@5.9.2)
       stylelint-config-cmyr:
-        specifier: 1.0.0-beta.2
-        version: 1.0.0-beta.2(postcss@8.5.6)(stylelint@16.23.1(typescript@5.9.2))
+        specifier: 1.0.0
+        version: 1.0.0(postcss@8.5.6)(stylelint@16.23.1(typescript@5.9.2))
       typescript:
         specifier: ^5.9.2
         version: 5.9.2
@@ -3577,8 +3577,8 @@ packages:
   mdn-data@2.12.2:
     resolution: {integrity: sha512-IEn+pegP1aManZuckezWCO+XZQDplx1366JoVhTpMpBB1sPey/SbveZQUosKiKiGYjg1wH4pMlNgXbCiYgihQA==}
 
-  mdn-data@2.21.0:
-    resolution: {integrity: sha512-+ZKPQezM5vYJIkCxaC+4DTnRrVZR1CgsKLu5zsQERQx6Tea8Y+wMx5A24rq8A8NepCeatIQufVAekKNgiBMsGQ==}
+  mdn-data@2.24.0:
+    resolution: {integrity: sha512-i97fklrJl03tL1tdRVw0ZfLLvuDsdb6wxL+TrJ+PKkCbLrp2PCu2+OYdCKychIUm19nSM/35S6qz7pJpnXttoA==}
 
   memoize-one@6.0.0:
     resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==}
@@ -4814,9 +4814,9 @@ packages:
   strip-literal@3.0.0:
     resolution: {integrity: sha512-TcccoMhJOM3OebGhSBEmp3UZ2SfDMZUEBdRA/9ynfLi8yYajyWX3JiXArcJt4Umh4vISpspkQIY8ZZoCqjbviA==}
 
-  stylelint-config-cmyr@1.0.0-beta.2:
-    resolution: {integrity: sha512-RrHdihf8aWLonYR5b0yqd3kjxNuYWMfbtTeKSBqaiM8apfqF17/bipNksFnT6qtoEHSaYJy8ZTHBC9k71Rx0UA==}
-    engines: {node: '>=16'}
+  stylelint-config-cmyr@1.0.0:
+    resolution: {integrity: sha512-OCnapKSGarlRAP/veil0az+8rjecyD5TYbhUk3esHcFeMXy7B5GRsy/h5+dGK8g229hX8k9mxd69u20dqdT0dg==}
+    engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4.31
       stylelint: '>=16'
@@ -9225,7 +9225,7 @@ snapshots:
 
   mdn-data@2.12.2: {}
 
-  mdn-data@2.21.0: {}
+  mdn-data@2.24.0: {}
 
   memoize-one@6.0.0: {}
 
@@ -10598,7 +10598,7 @@ snapshots:
     dependencies:
       js-tokens: 9.0.1
 
-  stylelint-config-cmyr@1.0.0-beta.2(postcss@8.5.6)(stylelint@16.23.1(typescript@5.9.2)):
+  stylelint-config-cmyr@1.0.0(postcss@8.5.6)(stylelint@16.23.1(typescript@5.9.2)):
     dependencies:
       postcss: 8.5.6
       postcss-html: 1.8.0
@@ -10661,7 +10661,7 @@ snapshots:
       css-tree: 3.1.0
       is-plain-object: 5.0.0
       known-css-properties: 0.36.0
-      mdn-data: 2.21.0
+      mdn-data: 2.24.0
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.6
       postcss-selector-parser: 7.1.0
