@@ -54,7 +54,7 @@
     "@types/nprogress": "^0.2.3",
     "@vitejs/plugin-vue": "^6.0.1",
     "commitizen": "^4.3.1",
-    "commitlint-config-cmyr": "1.0.0-beta.2",
+    "commitlint-config-cmyr": "1.0.0",
     "conventional-changelog-cmyr-config": "^2.1.2",
     "cross-env": "^10.0.0",
     "cz-conventional-changelog-cmyr": "2.0.0-beta.1",
