@@ -67,7 +67,7 @@
     "sass": "^1.91.0",
     "semantic-release": "21.0.1",
     "sonda": "^0.9.0",
-    "stylelint": "^16.23.1",
+    "stylelint": "^16.24.0",
     "stylelint-config-cmyr": "1.0.0",
     "typescript": "^5.9.2",
     "unplugin-auto-import": "^20.2.0",
