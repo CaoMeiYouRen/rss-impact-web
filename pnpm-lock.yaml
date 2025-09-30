@@ -35,7 +35,7 @@ importers:
         version: 10.17.0(pinia@3.0.3(typescript@5.9.2)(vue@3.5.20(typescript@5.9.2)))(vue@3.5.20(typescript@5.9.2))
       '@smallwei/avue':
         specifier: ^3.7.2
-        version: 3.7.2(element-plus@2.11.1(vue@3.5.20(typescript@5.9.2)))(vue@3.5.20(typescript@5.9.2))
+        version: 3.7.2(element-plus@2.11.4(vue@3.5.20(typescript@5.9.2)))(vue@3.5.20(typescript@5.9.2))
       '@vercel/node':
         specifier: ^5.3.17
         version: 5.3.17(rollup@4.52.3)
@@ -58,8 +58,8 @@ importers:
         specifier: ^5.6.0
         version: 5.6.0
       element-plus:
-        specifier: ^2.11.1
-        version: 2.11.1(vue@3.5.20(typescript@5.9.2))
+        specifier: ^2.11.4
+        version: 2.11.4(vue@3.5.20(typescript@5.9.2))
       file-saver:
         specifier: ^2.0.5
         version: 2.0.5
@@ -2322,8 +2322,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  element-plus@2.11.1:
-    resolution: {integrity: sha512-weYFIniyNXTAe9vJZnmZpYzurh4TDbdKhBsJwhbzuo0SDZ8PLwHVll0qycJUxc6SLtH+7A9F7dvdDh5CnqeIVA==}
+  element-plus@2.11.4:
+    resolution: {integrity: sha512-sLq+Ypd0cIVilv8wGGMEGvzRVBBsRpJjnAS5PsI/1JU1COZXqzH3N1UYMUc/HCdvdjf6dfrBy80Sj7KcACsT7w==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -6418,12 +6418,12 @@ snapshots:
 
   '@sinclair/typebox@0.25.24': {}
 
-  '@smallwei/avue@3.7.2(element-plus@2.11.1(vue@3.5.20(typescript@5.9.2)))(vue@3.5.20(typescript@5.9.2))':
+  '@smallwei/avue@3.7.2(element-plus@2.11.4(vue@3.5.20(typescript@5.9.2)))(vue@3.5.20(typescript@5.9.2))':
     dependencies:
       '@element-plus/icons-vue': 2.3.2(vue@3.5.20(typescript@5.9.2))
       countup.js: 1.9.3
       dayjs: 1.11.18
-      element-plus: 2.11.1(vue@3.5.20(typescript@5.9.2))
+      element-plus: 2.11.4(vue@3.5.20(typescript@5.9.2))
       lodash: 4.17.21
       vue: 3.5.20(typescript@5.9.2)
 
@@ -7725,7 +7725,7 @@ snapshots:
       signal-exit: 4.0.2
       time-span: 4.0.0
 
-  element-plus@2.11.1(vue@3.5.20(typescript@5.9.2)):
+  element-plus@2.11.4(vue@3.5.20(typescript@5.9.2)):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
       '@element-plus/icons-vue': 2.3.2(vue@3.5.20(typescript@5.9.2))
