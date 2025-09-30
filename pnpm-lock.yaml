@@ -44,13 +44,13 @@ importers:
         version: 13.9.0(vue@3.5.20(typescript@5.9.2))
       '@vueuse/integrations':
         specifier: ^13.9.0
-        version: 13.9.0(async-validator@4.2.5)(axios@1.12.0)(nprogress@0.2.0)(universal-cookie@8.0.1)(vue@3.5.20(typescript@5.9.2))
+        version: 13.9.0(async-validator@4.2.5)(axios@1.12.2)(nprogress@0.2.0)(universal-cookie@8.0.1)(vue@3.5.20(typescript@5.9.2))
       animate.css:
         specifier: ^4.1.1
         version: 4.1.1
       axios:
-        specifier: ^1.12.0
-        version: 1.12.0
+        specifier: ^1.12.2
+        version: 1.12.2
       dayjs:
         specifier: ^1.11.18
         version: 1.11.18
@@ -1743,8 +1743,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axios@1.12.0:
-    resolution: {integrity: sha512-oXTDccv8PcfjZmPGlWsPSwtOJCZ/b6W5jAMCNcfwJbCzDckwG0jrYJFaWH1yvivfCXjVzV/SPDEhMB3Q+DSurg==}
+  axios@1.12.2:
+    resolution: {integrity: sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==}
 
   bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==}
@@ -6930,14 +6930,14 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/integrations@13.9.0(async-validator@4.2.5)(axios@1.12.0)(nprogress@0.2.0)(universal-cookie@8.0.1)(vue@3.5.20(typescript@5.9.2))':
+  '@vueuse/integrations@13.9.0(async-validator@4.2.5)(axios@1.12.2)(nprogress@0.2.0)(universal-cookie@8.0.1)(vue@3.5.20(typescript@5.9.2))':
     dependencies:
       '@vueuse/core': 13.9.0(vue@3.5.20(typescript@5.9.2))
       '@vueuse/shared': 13.9.0(vue@3.5.20(typescript@5.9.2))
       vue: 3.5.20(typescript@5.9.2)
     optionalDependencies:
       async-validator: 4.2.5
-      axios: 1.12.0
+      axios: 1.12.2
       nprogress: 0.2.0
       universal-cookie: 8.0.1
 
@@ -7142,7 +7142,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axios@1.12.0:
+  axios@1.12.2:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.4
