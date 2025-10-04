@@ -121,6 +121,7 @@
       "braces": "^3.0.3",
       "trim-newlines": "^4.1.1",
       "trim": "^1.0.1",
+      "tmp": "~0.2.4",
       "micromatch": "^4.0.8",
       "cookie": "^0.7.0",
       "path-to-regexp": "$path-to-regexp",
