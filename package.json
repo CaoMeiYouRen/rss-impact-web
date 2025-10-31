@@ -71,7 +71,7 @@
     "stylelint-config-cmyr": "^1.0.0",
     "typescript": "^5.9.2",
     "unplugin-auto-import": "^20.2.0",
-    "unplugin-vue-components": "^29.1.0",
+    "unplugin-vue-components": "^30.0.0",
     "vercel": "^48.1.6",
     "vite": "^7.1.7",
     "vite-plugin-swagger-typescript-api": "^1.0.1",
