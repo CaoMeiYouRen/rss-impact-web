@@ -62,7 +62,7 @@
     "eslint-config-cmyr": "2.0.1",
     "eslint-plugin-vue": "^10.5.1",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.3",
+    "lint-staged": "^16.2.6",
     "postcss": "^8.4.31",
     "sass": "^1.93.3",
     "semantic-release": "21.0.1",
