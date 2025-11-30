@@ -1,0 +1,1 @@
+{"version":3,"file":"User-CMMkMpYs.js","sources":["../../src/views/admin/User.vue"],"sourcesContent":["<template>\n    <CrudList\n        model=\"user\"\n    />\n</template>\n\n<script lang=\"ts\" setup>\n\n</script>\n\n<style lang=\"scss\" scoped>\n</style>\n"],"names":["_createBlock","_component_CrudList"],"mappings":"kNACIA,EAEEC,EAAA,CADE,MAAM,OAAM"}
