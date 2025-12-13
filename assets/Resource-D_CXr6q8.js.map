@@ -1,1 +1,0 @@
-{"version":3,"file":"Resource-D_CXr6q8.js","sources":["../../src/views/data/Resource.vue"],"sourcesContent":["<template>\n    <CrudList\n        model=\"resource\"\n    />\n</template>\n\n<script lang=\"ts\" setup>\n</script>\n\n<style lang=\"scss\" scoped>\n</style>\n"],"names":["_createBlock","_component_CrudList"],"mappings":"kNACIA,EAEEC,EAAA,CADE,MAAM,WAAU"}
