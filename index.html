@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RSS Impact</title>
     <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4497014_2eqjac6p7rj.css">
-    <script src="https://s4.zstatic.net/npm/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+    <!-- <script src="https://s4.zstatic.net/npm/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
     <script src="https://s4.zstatic.net/npm/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
     <script src="https://s4.zstatic.net/npm/dayjs@1.11.13/dayjs.min.js" integrity="sha384-DpVxUeeBWjUvUV1czyIHJAjh+jYUZFu2lLakbdua5vbwOrBGi1UgaKCHjTC+x3Ky" crossorigin="anonymous"></script>
     <script src="https://s4.zstatic.net/npm/antd@5.22.4/dist/antd.js" integrity="sha384-fUDl2rBZ4FKVorbun5HEm9N1KR2ZYf+PLQEDGptIzlznOGVhFBPggAXfFob/kiQ2" crossorigin="anonymous"></script>
     <script src="https://s4.zstatic.net/npm/lottie-web@5.12.2/build/player/lottie.js" integrity="sha384-9PRmoHP4fdzvOWYSuumntsQhlLqWWJOgW/FQr0S6/RMgSmKPBanJxUFzL25Mt6Dp" crossorigin="anonymous"></script>
     <script src="https://s4.zstatic.net/npm/@petercatai/assistant@1.0.7/dist/umd/assistant.min.js" integrity="sha384-hAOOaF95kFVDoSVwD++9io03MoEekz6J/GnwKuCHdVFZSSlRJUPW5gj9sIUXbP8t" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://s4.zstatic.net/npm/@petercatai/assistant@1.0.7/dist/umd/assistant.min.css" integrity="sha384-KvQvP/Mk8shTDe+KrMb9YPIoHSaDEgtb6aV/sCpJOp4FKuQr8sguuwYDvCFOIhKX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://s4.zstatic.net/npm/@petercatai/assistant@1.0.7/dist/umd/assistant.min.css" integrity="sha384-KvQvP/Mk8shTDe+KrMb9YPIoHSaDEgtb6aV/sCpJOp4FKuQr8sguuwYDvCFOIhKX" crossorigin="anonymous"> -->
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -26,15 +26,15 @@
                 var s = document.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(hm, s);
             }
-            if (VITE_PETERCAT_AI_TOKEN && location.host.endsWith(VITE_DOMAIN)) {
-                window.onload = () => {
-                    window.petercat = PetercatLUI.initAssistant({
-                        apiDomain: 'https://api.petercat.ai',
-                        token: VITE_PETERCAT_AI_TOKEN,
-                        clearMessage: true
-                    });
-                }
-            }
+            // if (VITE_PETERCAT_AI_TOKEN && location.host.endsWith(VITE_DOMAIN)) {
+            //     window.onload = () => {
+            //         window.petercat = PetercatLUI.initAssistant({
+            //             apiDomain: 'https://api.petercat.ai',
+            //             token: VITE_PETERCAT_AI_TOKEN,
+            //             clearMessage: true
+            //         });
+            //     }
+            // }
         })();
     </script>
 </head>

@@ -12,7 +12,7 @@
                     target="_blank"
                     title="rss-impact-server docs"
                 >文档</a><br><br>
-                <span v-if="hasAI">您也可以点击右下角的图标启动 AI 文档助手解答问题</span>
+                <!-- <span v-if="hasAI">您也可以点击右下角的图标启动 AI 文档助手解答问题</span> -->
                 <!-- 您也可以点击按钮启动交互式引导
                 <el-button type="primary" @click="startTour">
                     打开引导
