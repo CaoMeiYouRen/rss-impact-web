@@ -132,7 +132,7 @@ importers:
         version: 0.2.3
       '@vitejs/plugin-vue':
         specifier: ^6.0.3
-        version: 6.0.3(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))
+        version: 6.0.3(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))
       commitizen:
         specifier: ^4.3.1
         version: 4.3.1(@types/node@25.0.3)(typescript@5.9.3)
@@ -167,8 +167,8 @@ importers:
         specifier: ^8.4.31
         version: 8.5.6
       sass:
-        specifier: ^1.94.2
-        version: 1.96.0
+        specifier: ^1.97.1
+        version: 1.97.1
       semantic-release:
         specifier: ^21.0.1
         version: 21.0.1(typescript@5.9.3)
@@ -195,13 +195,13 @@ importers:
         version: 50.1.3(rollup@4.52.3)(typescript@5.9.3)
       vite:
         specifier: ^7.2.2
-        version: 7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2)
+        version: 7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2)
       vite-plugin-swagger-typescript-api:
         specifier: ^1.0.1
-        version: 1.0.1(swagger-typescript-api@13.0.23)(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2))
+        version: 1.0.1(swagger-typescript-api@13.0.23)(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2))
       vite-tsconfig-paths:
         specifier: ^6.0.3
-        version: 6.0.3(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2))
+        version: 6.0.3(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2))
       vue-tsc:
         specifier: ^3.1.5
         version: 3.1.8(typescript@5.9.3)
@@ -3268,8 +3268,8 @@ packages:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
 
-  immutable@5.1.3:
-    resolution: {integrity: sha512-+chQdDfvscSF1SJqv2gn4SRO2ZyS3xL3r7IW/wWEEzrzLisnOlKiQu5ytC/BVNcS15C39WT2Hg/bjKjDMcu+zg==}
+  immutable@5.1.4:
+    resolution: {integrity: sha512-p6u1bG3YSnINT5RQmx/yRZBpenIl30kVxkTLDyHLIMk0gict704Q9n+thfDI7lTRm9vXdDYutVzXhzcThxTnXA==}
 
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
@@ -4811,8 +4811,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.96.0:
-    resolution: {integrity: sha512-8u4xqqUeugGNCYwr9ARNtQKTOj4KmYiJAVKXf2CTIivTCR51j96htbMKWDru8H5SaQWpyVgTfOF8Ylyf5pun1Q==}
+  sass@1.97.1:
+    resolution: {integrity: sha512-uf6HoO8fy6ClsrShvMgaKUn14f2EHQLQRtpsZZLeU/Mv0Q1K5P0+x2uvH6Cub39TVVbWNSrraUhDAoFph6vh0A==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -7318,10 +7318,10 @@ snapshots:
       json-schema-to-ts: 1.6.4
       ts-morph: 12.0.0
 
-  '@vitejs/plugin-vue@6.0.3(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))':
+  '@vitejs/plugin-vue@6.0.3(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.53
-      vite: 7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2)
+      vite: 7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2)
       vue: 3.5.25(typescript@5.9.3)
 
   '@volar/language-core@2.4.26':
@@ -9137,7 +9137,7 @@ snapshots:
 
   ignore@7.0.5: {}
 
-  immutable@5.1.3: {}
+  immutable@5.1.4: {}
 
   import-fresh@3.3.1:
     dependencies:
@@ -10817,10 +10817,10 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.96.0:
+  sass@1.97.1:
     dependencies:
       chokidar: 4.0.3
-      immutable: 5.1.3
+      immutable: 5.1.4
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.1
@@ -11722,23 +11722,23 @@ snapshots:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  vite-plugin-swagger-typescript-api@1.0.1(swagger-typescript-api@13.0.23)(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2)):
+  vite-plugin-swagger-typescript-api@1.0.1(swagger-typescript-api@13.0.23)(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2)):
     dependencies:
       swagger-typescript-api: 13.0.23
-      vite: 7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2)
+      vite: 7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2)
 
-  vite-tsconfig-paths@6.0.3(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2)):
+  vite-tsconfig-paths@6.0.3(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2)):
     dependencies:
       debug: 4.4.3
       globrex: 0.1.2
       tsconfck: 3.1.6(typescript@5.9.3)
     optionalDependencies:
-      vite: 7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2)
+      vite: 7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.96.0)(tsx@4.19.2)(yaml@2.8.2):
+  vite@7.2.7(@types/node@25.0.3)(jiti@2.6.0)(sass@1.97.1)(tsx@4.19.2)(yaml@2.8.2):
     dependencies:
       esbuild: 0.25.10
       fdir: 6.5.0(picomatch@4.0.3)
@@ -11750,7 +11750,7 @@ snapshots:
       '@types/node': 25.0.3
       fsevents: 2.3.3
       jiti: 2.6.0
-      sass: 1.96.0
+      sass: 1.97.1
       tsx: 4.19.2
       yaml: 2.8.2
 
