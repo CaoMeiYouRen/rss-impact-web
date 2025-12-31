@@ -20,7 +20,7 @@
     "@element-plus/icons-vue": "^2.3.2",
     "@sentry/vue": "^10.30.0",
     "@smallwei/avue": "^3.7.3",
-    "@vercel/node": "^5.5.15",
+    "@vercel/node": "^5.5.16",
     "@vueuse/core": "^14.1.0",
     "@vueuse/integrations": "^14.0.0",
     "animate.css": "^4.1.1",
