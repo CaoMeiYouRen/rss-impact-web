@@ -22,7 +22,7 @@
     "@smallwei/avue": "^3.8.1",
     "@vercel/node": "^5.5.16",
     "@vueuse/core": "^14.1.0",
-    "@vueuse/integrations": "^14.0.0",
+    "@vueuse/integrations": "^14.2.0",
     "animate.css": "^4.1.1",
     "axios": "^1.13.4",
     "dayjs": "^1.11.19",
