@@ -37,8 +37,8 @@ importers:
         specifier: ^10.32.1
         version: 10.32.1(pinia@3.0.4(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))
       '@smallwei/avue':
-        specifier: ^3.7.3
-        version: 3.7.4(element-plus@2.13.0(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))
+        specifier: ^3.8.1
+        version: 3.8.1(element-plus@2.13.0(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))
       '@vercel/node':
         specifier: ^5.5.16
         version: 5.5.16(rollup@4.54.0)
@@ -1245,8 +1245,8 @@ packages:
   '@sinclair/typebox@0.25.24':
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
 
-  '@smallwei/avue@3.7.4':
-    resolution: {integrity: sha512-uT0Q+JGl5VuN9jo+IImyUwbW7VpjG5df/EJcp3Y9OO8w/OB5iseNAsfxAidYu514k08cEV30+W/EWhJ+O17woA==}
+  '@smallwei/avue@3.8.1':
+    resolution: {integrity: sha512-E9ILzTfvHa/oLmXIMuCMMysRx1HuyoVbH8ar1jC/vl88ERy1n1l0+OR/cD5dnS9/rbkf6WIFn+EPCsZcXs+vJg==}
     peerDependencies:
       element-plus: '>=2.2.0'
       vue: '>=3.2.0'
@@ -1257,8 +1257,8 @@ packages:
     peerDependencies:
       eslint: '>=9.0.0'
 
-  '@sxzz/popperjs-es@2.11.7':
-    resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
+  '@sxzz/popperjs-es@2.11.8':
+    resolution: {integrity: sha512-wOwESXvvED3S8xBmcPWHs2dUuzrE4XiZeFu7e1hROIJkm02a49N120pmOXxY33sBb6hArItm5W5tcg1cBtV+HQ==}
 
   '@tootallnate/once@2.0.0':
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -6116,7 +6116,7 @@ snapshots:
   '@lint-md/core@2.0.0':
     dependencies:
       '@lint-md/parser': 0.0.14
-      lodash: 4.17.21
+      lodash: 4.17.23
     transitivePeerDependencies:
       - supports-color
 
@@ -6496,7 +6496,7 @@ snapshots:
       conventional-commits-parser: 3.2.4
       debug: 4.4.3
       import-from: 4.0.0
-      lodash: 4.17.21
+      lodash: 4.17.23
       micromatch: 4.0.8
       semantic-release: 21.0.1(typescript@5.9.3)
     transitivePeerDependencies:
@@ -6535,7 +6535,7 @@ snapshots:
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.6
       issue-parser: 6.0.0
-      lodash: 4.17.21
+      lodash: 4.17.23
       mime: 3.0.0
       p-filter: 2.1.0
       semantic-release: 21.0.1(typescript@5.9.3)
@@ -6570,7 +6570,7 @@ snapshots:
       get-stream: 6.0.1
       import-from: 4.0.0
       into-stream: 6.0.0
-      lodash: 4.17.21
+      lodash: 4.17.23
       read-pkg-up: 7.0.1
       semantic-release: 21.0.1(typescript@5.9.3)
     transitivePeerDependencies:
@@ -6614,13 +6614,13 @@ snapshots:
 
   '@sinclair/typebox@0.25.24': {}
 
-  '@smallwei/avue@3.7.4(element-plus@2.13.0(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))':
+  '@smallwei/avue@3.8.1(element-plus@2.13.0(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))':
     dependencies:
       '@element-plus/icons-vue': 2.3.2(vue@3.5.26(typescript@5.9.3))
       countup.js: 1.9.3
       dayjs: 1.11.19
       element-plus: 2.13.0(vue@3.5.26(typescript@5.9.3))
-      lodash: 4.17.21
+      lodash: 4.17.23
       vue: 3.5.26(typescript@5.9.3)
 
   '@stylistic/eslint-plugin@5.4.0(eslint@9.39.2(jiti@2.6.1))':
@@ -6633,7 +6633,7 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.3
 
-  '@sxzz/popperjs-es@2.11.7': {}
+  '@sxzz/popperjs-es@2.11.8': {}
 
   '@tootallnate/once@2.0.0': {}
 
@@ -7681,7 +7681,7 @@ snapshots:
       dateformat: 3.0.3
       handlebars: 4.7.8
       json-stringify-safe: 5.0.1
-      lodash: 4.17.21
+      lodash: 4.17.23
       meow: 8.1.2
       semver: 6.3.1
       split: 1.0.1
@@ -7698,7 +7698,7 @@ snapshots:
     dependencies:
       JSONStream: 1.3.5
       is-text-path: 1.0.1
-      lodash: 4.17.21
+      lodash: 4.17.23
       meow: 8.1.2
       split2: 3.2.2
       through2: 4.0.2
@@ -7997,7 +7997,7 @@ snapshots:
       '@ctrl/tinycolor': 3.6.1
       '@element-plus/icons-vue': 2.3.2(vue@3.5.26(typescript@5.9.3))
       '@floating-ui/dom': 1.7.4
-      '@popperjs/core': '@sxzz/popperjs-es@2.11.7'
+      '@popperjs/core': '@sxzz/popperjs-es@2.11.8'
       '@types/lodash': 4.17.21
       '@types/lodash-es': 4.17.12
       '@vueuse/core': 10.11.1(vue@3.5.26(typescript@5.9.3))
@@ -9800,7 +9800,7 @@ snapshots:
 
   node-emoji@1.11.0:
     dependencies:
-      lodash: 4.17.21
+      lodash: 4.17.23
 
   node-fetch-h2@2.3.0:
     dependencies:
