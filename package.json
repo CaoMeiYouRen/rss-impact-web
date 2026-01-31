@@ -70,7 +70,7 @@
     "stylelint": "^16.26.1",
     "stylelint-config-cmyr": "^1.0.0",
     "typescript": "^5.9.3",
-    "unplugin-auto-import": "^20.3.0",
+    "unplugin-auto-import": "^21.0.0",
     "unplugin-vue-components": "^30.0.0",
     "vercel": "^50.1.3",
     "vite": "^7.3.0",
