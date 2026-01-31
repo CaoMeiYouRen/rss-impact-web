@@ -76,7 +76,7 @@
     "vite": "^7.3.0",
     "vite-plugin-swagger-typescript-api": "^1.0.1",
     "vite-tsconfig-paths": "^6.0.3",
-    "vue-tsc": "^3.2.1"
+    "vue-tsc": "^3.2.4"
   },
   "config": {
     "commitizen": {
