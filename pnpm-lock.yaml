@@ -100,8 +100,8 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1(@vue/compiler-sfc@3.5.27)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))
       vue-shepherd:
-        specifier: ^5.0.1
-        version: 5.0.1(vue@3.5.27(typescript@5.9.3))
+        specifier: ^6.0.0
+        version: 6.0.0(vue@3.5.27(typescript@5.9.3))
       xlsx:
         specifier: https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
         version: https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
@@ -5599,9 +5599,9 @@ packages:
       pinia:
         optional: true
 
-  vue-shepherd@5.0.1:
-    resolution: {integrity: sha512-7EzP7SW89zoG9PnsT5ZKw/6kMq1EFR5KoMuEI3aekVVNFZst4//BvYG78hkvXGgMO2K/4TVKEn2R63711bvSeA==}
-    engines: {node: 18.* || >= 20}
+  vue-shepherd@6.0.0:
+    resolution: {integrity: sha512-vQPr8fp7SgGUu3bfJSD1nm8EQfjnnj92iaMf529HQSQHEPDfdPbeYf8MIa8vEjqsxJvu7NPC0913+HOyxarxbg==}
+    engines: {node: '>= 20'}
     peerDependencies:
       vue: '>=3.0.0'
 
@@ -11744,9 +11744,9 @@ snapshots:
       '@vue/compiler-sfc': 3.5.27
       pinia: 3.0.4(typescript@5.9.3)(vue@3.5.27(typescript@5.9.3))
 
-  vue-shepherd@5.0.1(vue@3.5.27(typescript@5.9.3)):
+  vue-shepherd@6.0.0(vue@3.5.27(typescript@5.9.3)):
     dependencies:
-      shepherd.js: 14.5.1
+      shepherd.js: 15.2.1
       vue: 3.5.27(typescript@5.9.3)
 
   vue-tsc@3.2.5(typescript@5.9.3):
