@@ -14,7 +14,7 @@ overrides:
   tmp: ~0.2.4
   micromatch: ^4.0.8
   cookie: ^0.7.0
-  path-to-regexp: ^8.4.0
+  path-to-regexp: ^8.4.1
   nanoid: ^3.3.8
   tar: ^6.2.1
   undici: ^5.28.5
@@ -79,8 +79,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       path-to-regexp:
-        specifier: ^8.4.0
-        version: 8.4.0
+        specifier: ^8.4.1
+        version: 8.4.1
       pinia:
         specifier: ^3.0.4
         version: 3.0.4(typescript@5.9.3)(vue@3.5.29(typescript@5.9.3))
@@ -3680,6 +3680,9 @@ packages:
   lodash@4.17.23:
     resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
 
+  lodash@4.18.0:
+    resolution: {integrity: sha512-l1mfj2atMqndAHI3ls7XqPxEjV2J9ZkcNyHpoZA3r2T1LLwDB69jgkMWh71YKwhBbK0G2f4WSn05ahmQXVxupA==}
+
   log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
     engines: {node: '>=10'}
@@ -4438,8 +4441,8 @@ packages:
   path-to-regexp@6.3.0:
     resolution: {integrity: sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==}
 
-  path-to-regexp@8.4.0:
-    resolution: {integrity: sha512-PuseHIvAnz3bjrM2rGJtSgo1zjgxapTLZ7x2pjhzWwlp4SJQgK3f3iZIQwkpEnBaKz6seKBADpM4B4ySkuYypg==}
+  path-to-regexp@8.4.1:
+    resolution: {integrity: sha512-fvU78fIjZ+SBM9YwCknCvKOUKkLVqtWDVctl0s7xIqfmfb38t2TT4ZU2gHm+Z8xGwgW+QWEU3oQSAzIbo89Ggw==}
 
   path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
@@ -6968,7 +6971,7 @@ snapshots:
       execa: 3.2.0
       fs-extra: 11.1.0
       oxc-transform: 0.111.0
-      path-to-regexp: 8.4.0
+      path-to-regexp: 8.4.1
       resolve.exports: 2.0.3
       rolldown: 1.0.0-rc.1
       srvx: 0.8.9
@@ -7021,7 +7024,7 @@ snapshots:
       '@vercel/node': 5.6.9(rollup@4.54.0)
       '@vercel/static-config': 3.1.2
       fs-extra: 11.1.0
-      path-to-regexp: 8.4.0
+      path-to-regexp: 8.4.1
       ts-morph: 12.0.0
       zod: 3.22.4
     transitivePeerDependencies:
@@ -7048,7 +7051,7 @@ snapshots:
       micro: 9.3.5-canary.3
       ms: 2.1.1
       node-fetch: 2.6.7
-      path-to-regexp: 8.4.0
+      path-to-regexp: 8.4.1
       promisepipe: 3.0.0
       semver: 7.5.4
       stat-mode: 0.3.0
@@ -7092,7 +7095,7 @@ snapshots:
       '@vercel/node': 5.6.9(rollup@4.54.0)
       '@vercel/static-config': 3.1.2
       fs-extra: 11.1.0
-      path-to-regexp: 8.4.0
+      path-to-regexp: 8.4.1
       ts-morph: 12.0.0
       zod: 3.22.4
     transitivePeerDependencies:
@@ -7187,7 +7190,7 @@ snapshots:
       etag: 1.8.1
       mime-types: 2.1.35
       node-fetch: 2.6.9
-      path-to-regexp: 8.4.0
+      path-to-regexp: 8.4.1
       path-to-regexp-updated: path-to-regexp@6.3.0
       ts-morph: 12.0.0
       tsx: 4.21.0
@@ -7229,7 +7232,7 @@ snapshots:
       '@vercel/error-utils': 2.0.3
       '@vercel/nft': 1.1.1(rollup@4.54.0)
       '@vercel/static-config': 3.1.2
-      path-to-regexp: 8.4.0
+      path-to-regexp: 8.4.1
       path-to-regexp-updated: path-to-regexp@6.3.0
       ts-morph: 12.0.0
     transitivePeerDependencies:
@@ -9535,6 +9538,8 @@ snapshots:
 
   lodash@4.17.23: {}
 
+  lodash@4.18.0: {}
+
   log-symbols@4.1.0:
     dependencies:
       chalk: 4.1.2
@@ -10412,7 +10417,7 @@ snapshots:
 
   path-to-regexp@6.3.0: {}
 
-  path-to-regexp@8.4.0: {}
+  path-to-regexp@8.4.1: {}
 
   path-type@4.0.0: {}
 
@@ -11347,7 +11352,7 @@ snapshots:
       didyoumean: 1.2.2
       eta: 2.2.0
       js-yaml: 4.1.1
-      lodash: 4.17.23
+      lodash: 4.18.0
       nanoid: 3.3.11
       prettier: 3.3.3
       swagger-schema-official: 2.0.0-bab6bed
@@ -11800,7 +11805,7 @@ snapshots:
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
       esquery: 1.7.0
-      lodash: 4.17.23
+      lodash: 4.18.0
       semver: 7.7.4
     transitivePeerDependencies:
       - supports-color
