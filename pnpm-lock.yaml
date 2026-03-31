@@ -188,8 +188,8 @@ importers:
         specifier: ^21.0.0
         version: 21.0.0(@vueuse/core@14.2.1(vue@3.5.31(typescript@5.9.3)))
       unplugin-vue-components:
-        specifier: ^31.0.0
-        version: 31.0.0(vue@3.5.31(typescript@5.9.3))
+        specifier: ^32.0.0
+        version: 32.0.0(vue@3.5.31(typescript@5.9.3))
       vercel:
         specifier: ^50.37.3
         version: 50.37.3(@emnapi/core@1.8.1)(@emnapi/runtime@1.8.1)(rollup@4.54.0)(typescript@5.9.3)
@@ -4000,9 +4000,6 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  mlly@1.8.0:
-    resolution: {integrity: sha512-l8D9ODSRWLe2KHJSifWGwBqpTZXIXTeo8mlKjY+E2HAakaTeNpqAyBZ8GSqLzHgw4XmHmC8whvpjJNMbFZN7/g==}
-
   mlly@1.8.2:
     resolution: {integrity: sha512-d+ObxMQFmbt10sretNDytwt85VrbkhhUA/JBGm1MPaWJ65Cl4wOgLaB1NYvJSZ0Ef03MMEU/0xpPMXUIQ29UfA==}
 
@@ -5480,8 +5477,8 @@ packages:
     resolution: {integrity: sha512-5lWVjgi6vuHhJ526bI4nlCOmkCIF3nnfXkCMDeMJrtdvxTs6ZFCM8oNufGTsDbKv/tJ/xj8RpvXjRuPBZJuJog==}
     engines: {node: '>=20.19.0'}
 
-  unplugin-vue-components@31.0.0:
-    resolution: {integrity: sha512-4ULwfTZTLuWJ7+S9P7TrcStYLsSRkk6vy2jt/WTfgUEUb0nW9//xxmrfhyHUEVpZ2UKRRwfRb8Yy15PDbVZf+Q==}
+  unplugin-vue-components@32.0.0:
+    resolution: {integrity: sha512-uLdccgS7mf3pv1bCCP20y/hm+u1eOjAmygVkh+Oa70MPkzgl1eQv1L0CwdHNM3gscO8/GDMGIET98Ja47CBbZg==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       '@nuxt/kit': ^3.2.2 || ^4.0.0
@@ -10027,13 +10024,6 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  mlly@1.8.0:
-    dependencies:
-      acorn: 8.16.0
-      pathe: 2.0.3
-      pkg-types: 1.3.1
-      ufo: 1.6.3
-
   mlly@1.8.2:
     dependencies:
       acorn: 8.16.0
@@ -11659,16 +11649,16 @@ snapshots:
       pathe: 2.0.3
       picomatch: 4.0.4
 
-  unplugin-vue-components@31.0.0(vue@3.5.31(typescript@5.9.3)):
+  unplugin-vue-components@32.0.0(vue@3.5.31(typescript@5.9.3)):
     dependencies:
       chokidar: 5.0.0
       local-pkg: 1.1.2
       magic-string: 0.30.21
-      mlly: 1.8.0
+      mlly: 1.8.2
       obug: 2.1.1
-      picomatch: 4.0.3
+      picomatch: 4.0.4
       tinyglobby: 0.2.15
-      unplugin: 2.3.11
+      unplugin: 3.0.0
       unplugin-utils: 0.3.1
       vue: 3.5.31(typescript@5.9.3)
 
