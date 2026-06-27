@@ -1,7 +1,7 @@
 import 'normalize.css'
 import { createApp } from 'vue'
 import axios from 'axios'
-import zhLocale from '@smallwei/avue/lib/locale/lang/zh'
+import zhLocale from '@smallwei/avue/lib/locale/browser/zh'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import * as Sentry from '@sentry/vue'
 import App from './App.vue'
