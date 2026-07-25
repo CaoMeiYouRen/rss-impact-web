@@ -1,0 +1,2 @@
+import{q as s}from"./index-BkRL1pTz.js";import{u as a}from"./use-id-transformer-C5hQerZT.js";import{d as n,o as m,X as c,C as e}from"./vendor-BWBiSWtN.js";import"./utils-Bs5W8jIi.js";import"./elementPlusIcons-DERarcXW.js";const h=n({__name:"WebhookLog",setup(_){const{postGet:o,preSave:t,preUpdate:r}=a(["articles"]);return(u,i)=>{const p=s;return m(),c(p,{model:"webhook-log","post-get":e(o),"pre-save":e(t),"pre-update":e(r)},null,8,["post-get","pre-save","pre-update"])}}});export{h as default};
+//# sourceMappingURL=WebhookLog-BOcdoh0j.js.map
