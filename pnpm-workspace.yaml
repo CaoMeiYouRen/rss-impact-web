@@ -1,6 +1,6 @@
 overrides:
   compare-func: 2.0.0
-  postcss: ^8.5.12
+  postcss: ^8.5.18
   yargs-parser: ^21.1.1
   braces: ^3.0.3
   trim-newlines: ^4.1.1
@@ -10,7 +10,7 @@ overrides:
   cookie: ^0.7.0
   path-to-regexp: ^8.4.2
   nanoid: ^3.3.8
-  tar: ^7.5.17
+  tar: ^7.5.22
   undici: ^6.24.0
   esbuild: ^0.28.1
   '@octokit/plugin-paginate-rest': ^11.4.1
@@ -20,9 +20,9 @@ overrides:
   '@tootallnate/once': ^2.0.1
   glob: ^11.1.0
   handlebars: 4.7.9
-  js-yaml: ^4.2.0
+  js-yaml: ^4.3.0
   '@isaacs/brace-expansion': ^5.0.1
-  fast-uri: ^3.1.2
+  fast-uri: 3.1.4
   flatted: ^3.4.2
   lodash: ^4.17.24
   minimatch: ^3.1.4
@@ -31,6 +31,12 @@ overrides:
   srvx: ^0.11.13
   ini: ^1.3.6
   axios: ^1.16.0
+  dompurify: 3.4.12
+  ajv@>=8.0.0: 8.18.0
+  semver@<4.3.2: 4.3.2
+  semver@>=5.0.0 <5.7.2: ^5.7.2
+  hosted-git-info@<2.8.9: ^2.8.9
+  hosted-git-info@>=3.0.0 <3.0.8: ^3.0.8
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@scarf/scarf'
@@ -41,3 +47,5 @@ allowBuilds:
   '@parcel/watcher': true
   esbuild: true
   vue-demi: true
+minimumReleaseAgeExclude:
+  - tar@7.5.22
