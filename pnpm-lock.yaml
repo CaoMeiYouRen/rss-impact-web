@@ -61,8 +61,8 @@ importers:
         specifier: ^9.0.1
         version: 9.0.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@vercel/build-utils@14.6.1)(rollup@4.62.2)(supports-color@7.2.0)
       '@vueuse/core':
-        specifier: ^14.2.1
-        version: 14.3.0(vue@3.5.39(typescript@5.9.3))
+        specifier: ^14.4.0
+        version: 14.4.0(vue@3.5.39(typescript@5.9.3))
       '@vueuse/integrations':
         specifier: ^14.2.1
         version: 14.3.0(async-validator@4.2.5)(axios@1.18.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(nprogress@0.2.0)(universal-cookie@8.1.2)(vue@3.5.39(typescript@5.9.3))
@@ -204,7 +204,7 @@ importers:
         version: 5.9.3
       unplugin-auto-import:
         specifier: ^21.0.0
-        version: 21.0.0(@vueuse/core@14.3.0(vue@3.5.39(typescript@5.9.3)))
+        version: 21.0.0(@vueuse/core@14.4.0(vue@3.5.39(typescript@5.9.3)))
       unplugin-vue-components:
         specifier: ^32.0.0
         version: 32.1.0(esbuild@0.28.1)(rollup@4.62.2)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(sass@1.101.0)(tsx@4.21.0)(yaml@2.9.0))(vue@3.5.39(typescript@5.9.3))
@@ -13305,7 +13305,7 @@ snapshots:
 
   unpipe@1.0.0: {}
 
-  unplugin-auto-import@21.0.0(@vueuse/core@14.3.0(vue@3.5.39(typescript@5.9.3))):
+  unplugin-auto-import@21.0.0(@vueuse/core@14.4.0(vue@3.5.39(typescript@5.9.3))):
     dependencies:
       local-pkg: 1.2.1
       magic-string: 0.30.21
@@ -13314,7 +13314,7 @@ snapshots:
       unplugin: 2.3.11
       unplugin-utils: 0.3.1
     optionalDependencies:
-      '@vueuse/core': 14.3.0(vue@3.5.39(typescript@5.9.3))
+      '@vueuse/core': 14.4.0(vue@3.5.39(typescript@5.9.3))
 
   unplugin-utils@0.3.1:
     dependencies:
