@@ -55,8 +55,8 @@ importers:
         specifier: ^10.72.0
         version: 10.72.0(pinia@3.0.4(typescript@5.9.3)(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3))
       '@smallwei/avue':
-        specifier: ^3.8.2
-        version: 3.9.2(@element-plus/icons-vue@2.3.2(vue@3.5.39(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.5(vue@3.5.39(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.39(typescript@5.9.3))
+        specifier: ^3.9.4
+        version: 3.9.4(@element-plus/icons-vue@2.3.2(vue@3.5.39(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.5(vue@3.5.39(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.39(typescript@5.9.3))
       '@vercel/node':
         specifier: ^9.0.1
         version: 9.0.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@vercel/build-utils@14.6.1)(rollup@4.62.2)(supports-color@7.2.0)
@@ -1780,8 +1780,8 @@ packages:
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
 
-  '@smallwei/avue@3.9.2':
-    resolution: {integrity: sha512-kdkC/92Bidqt8F69IgR48/CW/H0o+tCyL2IyyxMxjytv9S+ZM/v+fRV7cukTjdhoy3LkfFuNOZkLOKjSiwvFwg==}
+  '@smallwei/avue@3.9.4':
+    resolution: {integrity: sha512-I9veG4llX7/s4Tdqfr8KkPvVVBhX/c2G36D0ix3SQrDvkJWbB8R6OuXuc9ku6Wf8c5HikUzCUrLHVazvirAeQA==}
     peerDependencies:
       '@element-plus/icons-vue': '>=2.0.0'
       element-plus: '>=2.2.0'
@@ -2448,6 +2448,9 @@ packages:
 
   axios@1.18.1:
     resolution: {integrity: sha512-3nTvFlvpn9Zu/RkHUqtc7/+al4UpRW5az71ap5zccp6e8RAYEzhMTecX8Dz1wWDYrPpUoB1HAQEGEAEvUr7S9g==}
+
+  axios@1.20.0:
+    resolution: {integrity: sha512-r8aOh8j9cGKpgQAqpzrUHnSIc6a59Y3Xf/cv8sy1DrHCkZHzQGEuoq1tARk6qSyDdtQGSDgpb9kFlruzPvrgwg==}
 
   b4a@1.8.1:
     resolution: {integrity: sha512-aiqre1Nr0B/6DgE2N5vwTc+2/oQZ4Wh1t4NznYY4E00y8LCt6NqdRv81so00oo27D8MVKTpUa/MwUUtBLXCoDw==}
@@ -5284,6 +5287,9 @@ packages:
     resolution: {integrity: sha512-+Owyggi9IxT1ePKGafcI87ubSmxol6smwJ+RAHDQlx9+9cPwFWDiKFFCPuWhr9ignlGpZ9vDQLw67N4dcTVFEA==}
     engines: {node: '>=20'}
 
+  qrcode-generator@2.0.4:
+    resolution: {integrity: sha512-mZSiP6RnbHl4xL2Ap5HfkjLnmxfKcPWpWe/c+5XxCuetEenqmNFf1FH/ftXPCtFG5/TDobjsjz6sSNL0Sr8Z9g==}
+
   quansync@0.2.11:
     resolution: {integrity: sha512-AifT7QEbW9Nri4tAwR5M/uzpBuqfZf+zwaEM/QkzEjj7NBuFD2rBuy0K3dE+8wltbezDV7JMA0WfnCPYRSYbXA==}
 
@@ -7889,15 +7895,16 @@ snapshots:
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
-  '@smallwei/avue@3.9.2(@element-plus/icons-vue@2.3.2(vue@3.5.39(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.5(vue@3.5.39(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.39(typescript@5.9.3))':
+  '@smallwei/avue@3.9.4(@element-plus/icons-vue@2.3.2(vue@3.5.39(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.5(vue@3.5.39(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.39(typescript@5.9.3))':
     dependencies:
       '@element-plus/icons-vue': 2.3.2(vue@3.5.39(typescript@5.9.3))
-      axios: 1.18.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
+      axios: 1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       countup.js: 1.9.3
       dayjs: 1.11.23
       element-plus: 2.14.5(vue@3.5.39(typescript@5.9.3))
       lodash: 4.18.1
       lodash-es: 4.18.1
+      qrcode-generator: 2.0.4
       vue: 3.5.39(typescript@5.9.3)
     transitivePeerDependencies:
       - debug
@@ -8854,6 +8861,16 @@ snapshots:
       possible-typed-array-names: 1.1.0
 
   axios@1.18.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0):
+    dependencies:
+      follow-redirects: 1.16.0(debug@4.4.3(supports-color@7.2.0))
+      form-data: 4.0.6
+      https-proxy-agent: 5.0.1(supports-color@7.2.0)
+      proxy-from-env: 2.1.0
+    transitivePeerDependencies:
+      - debug
+      - supports-color
+
+  axios@1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
       follow-redirects: 1.16.0(debug@4.4.3(supports-color@7.2.0))
       form-data: 4.0.6
@@ -11790,7 +11807,7 @@ snapshots:
       debug: 4.4.3(supports-color@7.2.0)
       get-uri: 6.0.1(supports-color@7.2.0)
       http-proxy-agent: 7.0.1(supports-color@7.2.0)
-      https-proxy-agent: 7.0.3(supports-color@7.2.0)
+      https-proxy-agent: 7.0.6(supports-color@7.2.0)
       pac-resolver: 7.0.0
       socks-proxy-agent: 8.0.2(supports-color@7.2.0)
     transitivePeerDependencies:
@@ -12081,6 +12098,8 @@ snapshots:
   qified@0.10.1:
     dependencies:
       hookified: 2.2.0
+
+  qrcode-generator@2.0.4: {}
 
   quansync@0.2.11: {}
 
