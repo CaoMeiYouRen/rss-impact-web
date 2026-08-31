@@ -73,8 +73,8 @@ importers:
         specifier: ^1.16.0
         version: 1.18.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       dayjs:
-        specifier: ^1.11.20
-        version: 1.11.21
+        specifier: ^1.11.23
+        version: 1.11.23
       echarts:
         specifier: ^6.1.0
         version: 6.1.0
@@ -2579,9 +2579,6 @@ packages:
   dateformat@3.0.3:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
 
-  dayjs@1.11.21:
-    resolution: {integrity: sha512-98IT+HOahAisibz/yjKbzuOBwYcjJ7BCLPzARyHiyEBmRz4fatF+KPJszEHXsGYjUG234aH/cOjW1wwTbKUZlA==}
-
   dayjs@1.11.23:
     resolution: {integrity: sha512-QDTCU0M0MxR3hQfnlDJfwekQiaanm1ubOD231u73WBckQ/fsamwRLiE2GBz6D3a/xF1NgfiDLJjXBa1hYOYTtQ==}
 
@@ -4311,11 +4308,6 @@ packages:
   mute-stream@0.0.8:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
 
-  nanoid@3.3.15:
-    resolution: {integrity: sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-
   nanoid@3.3.18:
     resolution: {integrity: sha512-DTg4MJbGMWkfi6VZFdNt2/caMbQy4Ou+Op/hJQvGEWcnVfoA1QA+xzRKAzw9jD6+GVOOeYr/mIcuDSdug6F6+w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -4842,10 +4834,6 @@ packages:
 
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
-
-  postcss@8.5.22:
-    resolution: {integrity: sha512-KBDEIpLrvpv16pp3K0Fw+UCoZfopFjjgeB+0tA/aaThfEE74kKDLrgg603YvOWJyg3+WYtyq3xYsQWsIyZlPqQ==}
-    engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.26:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
@@ -7374,7 +7362,7 @@ snapshots:
       '@element-plus/icons-vue': 2.3.2(vue@3.5.39(typescript@5.9.3))
       axios: 1.18.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       countup.js: 1.9.3
-      dayjs: 1.11.21
+      dayjs: 1.11.23
       element-plus: 2.14.5(vue@3.5.39(typescript@5.9.3))
       lodash: 4.18.1
       lodash-es: 4.18.1
@@ -8003,7 +7991,7 @@ snapshots:
       '@vue/shared': 3.5.39
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.22
+      postcss: 8.5.26
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.39':
@@ -8799,8 +8787,6 @@ snapshots:
       is-data-view: 1.0.2
 
   dateformat@3.0.3: {}
-
-  dayjs@1.11.21: {}
 
   dayjs@1.11.23: {}
 
@@ -10851,8 +10837,6 @@ snapshots:
 
   mute-stream@0.0.8: {}
 
-  nanoid@3.3.15: {}
-
   nanoid@3.3.18: {}
 
   natural-compare@1.4.0: {}
@@ -11345,12 +11329,6 @@ snapshots:
       postcss: 8.5.26
 
   postcss-value-parser@4.2.0: {}
-
-  postcss@8.5.22:
-    dependencies:
-      nanoid: 3.3.15
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
 
   postcss@8.5.26:
     dependencies:
@@ -12341,7 +12319,7 @@ snapshots:
       consola: 3.4.2
       es-toolkit: 1.49.0
       eta: 3.5.0
-      nanoid: 3.3.15
+      nanoid: 3.3.18
       openapi-types: 12.1.3
       swagger-schema-official: 2.0.0-bab6bed
       swagger2openapi: 7.0.8
@@ -13081,7 +13059,7 @@ snapshots:
       clsx: 2.1.1
       dayjs: 1.11.23
       dompurify: 3.4.12
-      nanoid: 3.3.15
+      nanoid: 3.3.18
       tailwind-merge: 3.6.0
 
   zod@3.22.4: {}
