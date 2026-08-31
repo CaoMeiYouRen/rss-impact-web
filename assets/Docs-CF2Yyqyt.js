@@ -1,0 +1,2 @@
+import{_ as s}from"./index-QaYxfyJS.js";import{o as r,c as e,a as t}from"./vendor-DGoJUGRK.js";import"./utils-Bs5W8jIi.js";import"./elementPlusIcons-CvPkRSU4.js";const a={},c={class:"docs"};function d(i,o){return r(),e("div",c,[...o[0]||(o[0]=[t("iframe",{id:"about",src:"https://rss-docs.cmyr.dev/",height:"100%",width:"100%",frameborder:"0",sandbox:"allow-forms allow-same-origin allow-scripts"},null,-1)])])}const _=s(a,[["render",d],["__scopeId","data-v-4093efd6"]]);export{_ as default};
+//# sourceMappingURL=Docs-CF2Yyqyt.js.map
