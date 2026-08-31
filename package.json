@@ -38,7 +38,7 @@
     "shepherd.js": "^15.2.2",
     "universal-cookie": "^8.1.2",
     "vue": "^3.5.33",
-    "vue-echarts": "^8.0.1",
+    "vue-echarts": "^8.1.0",
     "vue-router": "^5.0.6",
     "vue-shepherd": "^6.0.0",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
