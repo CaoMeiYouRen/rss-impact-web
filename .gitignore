@@ -26,3 +26,5 @@ dist-ssr
 .vercel
 
 sonda-report.html
+# dependfix
+dependfix-reports/

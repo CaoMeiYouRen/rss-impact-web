@@ -13,16 +13,16 @@ overrides:
   tar: ^7.5.22
   undici: ^6.24.0
   esbuild: ^0.28.1
-  '@octokit/plugin-paginate-rest': ^11.4.1
-  '@octokit/request': ^9.2.1
-  '@octokit/request-error': ^5.1.1
-  '@babel/helpers': ^7.26.10
-  '@tootallnate/once': ^2.0.1
+  "@octokit/plugin-paginate-rest": ^11.4.1
+  "@octokit/request": ^9.2.1
+  "@octokit/request-error": ^5.1.1
+  "@babel/helpers": ^7.26.10
+  "@tootallnate/once": ^2.0.1
   glob: ^11.1.0
   handlebars: 4.7.9
-  js-yaml: ^4.3.0
-  '@isaacs/brace-expansion': ^5.0.1
-  fast-uri: 3.1.4
+  js-yaml: ^4.3.2
+  "@isaacs/brace-expansion": ^5.0.1
+  fast-uri: ^3.1.6
   flatted: ^3.4.2
   lodash: ^4.17.24
   minimatch: ^3.1.4
@@ -31,20 +31,21 @@ overrides:
   srvx: ^0.11.13
   ini: ^1.3.6
   axios: ^1.16.0
-  dompurify: 3.4.12
+  dompurify: ^3.4.13
   ajv@>=8.0.0: 8.18.0
   semver@<4.3.2: 4.3.2
   semver@>=5.0.0 <5.7.2: ^5.7.2
   hosted-git-info@<2.8.9: ^2.8.9
   hosted-git-info@>=3.0.0 <3.0.8: ^3.0.8
+  brace-expansion: ^1.1.18
 onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@scarf/scarf'
+  - "@parcel/watcher"
+  - "@scarf/scarf"
   - esbuild
   - vue-demi
 strictPeerDependencies: false
 allowBuilds:
-  '@parcel/watcher': true
+  "@parcel/watcher": true
   esbuild: true
   vue-demi: true
 minimumReleaseAgeExclude:
