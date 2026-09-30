@@ -57,7 +57,7 @@ importers:
         version: 10.72.0(pinia@3.0.4(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))
       '@smallwei/avue':
         specifier: ^3.9.4
-        version: 3.9.4(@element-plus/icons-vue@2.3.2(vue@3.5.42(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.5(vue@3.5.42(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.42(typescript@5.9.3))
+        version: 3.9.4(@element-plus/icons-vue@2.3.2(vue@3.5.42(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.6(vue@3.5.42(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.42(typescript@5.9.3))
       '@vercel/node':
         specifier: ^9.0.1
         version: 9.0.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@vercel/build-utils@14.6.1)(rollup@4.62.2)(supports-color@7.2.0)
@@ -80,8 +80,8 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0
       element-plus:
-        specifier: ^2.14.5
-        version: 2.14.5(vue@3.5.42(typescript@5.9.3))
+        specifier: ^2.14.6
+        version: 2.14.6(vue@3.5.42(typescript@5.9.3))
       file-saver:
         specifier: ^2.0.5
         version: 2.0.5
@@ -454,8 +454,8 @@ packages:
     peerDependencies:
       postcss-selector-parser: ^7.0.0
 
-  '@ctrl/tinycolor@4.2.0':
-    resolution: {integrity: sha512-kzyuwOAQnXJNLS9PSyrk0CWk35nWJW/zl/6KvnTBMFK65gm7U1/Z5BqjxeapjZCIhQcM/DsrEmcbRwDyXyXK4A==}
+  '@ctrl/tinycolor@4.2.1':
+    resolution: {integrity: sha512-Vh5uy9Y1JBMId6J1f68TMXnZrTCvNdo9Fu2k0d1YnJngR+sM5kWTKl441c/3TFs+cG0NWOjRWgQ/iaWhbYx+7A==}
     engines: {node: '>=14'}
 
   '@dual-bundle/import-meta-resolve@4.2.1':
@@ -2221,6 +2221,12 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
+  '@vueuse/core@15.0.0':
+    resolution: {integrity: sha512-Zv67h5mrk7YHDJsRObx+DXaCBz6RKBUpxqLesJ+3xZNPG6yuQs7ja7kg3veFrrouYLWAqydQ7CwGEbLVxB43Ng==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      vue: ^3.5.0
+
   '@vueuse/integrations@14.4.0':
     resolution: {integrity: sha512-oJz9qTgczvA7L1nXQFRU7h8tQbOCoiceqvMMhT9XYMyOGTqLJ2rEa09PON+nD2t48sZUfeOmg4eaWJXV4sZb/w==}
     peerDependencies:
@@ -2266,8 +2272,18 @@ packages:
   '@vueuse/metadata@14.4.0':
     resolution: {integrity: sha512-swx/255R6JyHZFJhx845iz5CRWDZdCfvkZOpACWc5+c5WHcG24mv8gUT1WIdFQaHt6dq79rvILd9QnCWiyVm9g==}
 
+  '@vueuse/metadata@15.0.0':
+    resolution: {integrity: sha512-sfWE5LADAKJ0KnjtGliMdSN8Ij/L7uP6rXIZlgPloAI4zvvefbw6H5Lt7KJA6RqQOYgVqWF5Guj50HHMIzygBg==}
+    engines: {node: '>=22'}
+
   '@vueuse/shared@14.4.0':
     resolution: {integrity: sha512-JRgY90Sz8DDtPMsaDflvPMp9xYk69JZAmbuDvAquUVXKr2gEjqtzGNTTthLfckH0BzBqvnu31gb4a8TGLRe79g==}
+    peerDependencies:
+      vue: ^3.5.0
+
+  '@vueuse/shared@15.0.0':
+    resolution: {integrity: sha512-vbNXhGrbV53xPOMSyOzMHQRvhMgZf7oNDw2RChUetVxwTIEkInQ1joZ9JbT0G3z2n2AJNjvmCWeM9ySYrnvogA==}
+    engines: {node: '>=22'}
     peerDependencies:
       vue: ^3.5.0
 
@@ -3102,8 +3118,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  element-plus@2.14.5:
-    resolution: {integrity: sha512-bghYy/S+qg87enHPXELirhEdDqsVAUGcGpbGIeG8dz0kwpIkGz7gYsifulBshXX74iRtHib85XWQj0uSH2A1Yg==}
+  element-plus@2.14.6:
+    resolution: {integrity: sha512-GH0fMoMgVEKkHimoaKvg5B00NmfPbQ+qxX6/JrO7F+dLAC3atrZr2Y2MoccHMxS22M7QE12/s0DG0Zs49iwJ/A==}
     peerDependencies:
       vue: ^3.3.7
 
@@ -6947,7 +6963,7 @@ snapshots:
     dependencies:
       postcss-selector-parser: 7.1.4
 
-  '@ctrl/tinycolor@4.2.0': {}
+  '@ctrl/tinycolor@4.2.1': {}
 
   '@dual-bundle/import-meta-resolve@4.2.1': {}
 
@@ -7936,13 +7952,13 @@ snapshots:
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
-  '@smallwei/avue@3.9.4(@element-plus/icons-vue@2.3.2(vue@3.5.42(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.5(vue@3.5.42(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.42(typescript@5.9.3))':
+  '@smallwei/avue@3.9.4(@element-plus/icons-vue@2.3.2(vue@3.5.42(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.6(vue@3.5.42(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@element-plus/icons-vue': 2.3.2(vue@3.5.42(typescript@5.9.3))
       axios: 1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       countup.js: 1.9.3
       dayjs: 1.11.23
-      element-plus: 2.14.5(vue@3.5.42(typescript@5.9.3))
+      element-plus: 2.14.6(vue@3.5.42(typescript@5.9.3))
       lodash: 4.18.1
       lodash-es: 4.18.1
       qrcode-generator: 2.0.4
@@ -8652,6 +8668,13 @@ snapshots:
       '@vueuse/shared': 14.4.0(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
+  '@vueuse/core@15.0.0(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.21
+      '@vueuse/metadata': 15.0.0
+      '@vueuse/shared': 15.0.0(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
   '@vueuse/integrations@14.4.0(async-validator@4.2.5)(axios@1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(nprogress@0.2.0)(universal-cookie@8.1.2)(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@vueuse/core': 14.4.0(vue@3.5.42(typescript@5.9.3))
@@ -8665,7 +8688,13 @@ snapshots:
 
   '@vueuse/metadata@14.4.0': {}
 
+  '@vueuse/metadata@15.0.0': {}
+
   '@vueuse/shared@14.4.0(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.42(typescript@5.9.3)
+
+  '@vueuse/shared@15.0.0(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       vue: 3.5.42(typescript@5.9.3)
 
@@ -9498,15 +9527,15 @@ snapshots:
       signal-exit: 4.0.2
       time-span: 4.0.0
 
-  element-plus@2.14.5(vue@3.5.42(typescript@5.9.3)):
+  element-plus@2.14.6(vue@3.5.42(typescript@5.9.3)):
     dependencies:
-      '@ctrl/tinycolor': 4.2.0
+      '@ctrl/tinycolor': 4.2.1
       '@element-plus/icons-vue': 2.3.2(vue@3.5.42(typescript@5.9.3))
       '@floating-ui/dom': 1.8.0
       '@popperjs/core': '@sxzz/popperjs-es@2.11.8'
       '@types/lodash': 4.17.25
       '@types/lodash-es': 4.17.12
-      '@vueuse/core': 14.4.0(vue@3.5.42(typescript@5.9.3))
+      '@vueuse/core': 15.0.0(vue@3.5.42(typescript@5.9.3))
       async-validator: 4.2.5
       dayjs: 1.11.23
       lodash: 4.18.1
