@@ -65,8 +65,8 @@ importers:
         specifier: ^14.4.0
         version: 14.4.0(vue@3.5.43(typescript@5.9.3))
       '@vueuse/integrations':
-        specifier: ^14.4.0
-        version: 14.4.0(async-validator@4.2.5)(axios@1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(nprogress@0.2.0)(universal-cookie@8.1.2)(vue@3.5.43(typescript@5.9.3))
+        specifier: ^15.0.0
+        version: 15.0.0(async-validator@4.2.5)(axios@1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(nprogress@0.2.0)(universal-cookie@8.1.2)(vue@3.5.43(typescript@5.9.3))
       animate.css:
         specifier: ^4.1.1
         version: 4.1.1
@@ -2238,13 +2238,14 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
-  '@vueuse/integrations@14.4.0':
-    resolution: {integrity: sha512-oJz9qTgczvA7L1nXQFRU7h8tQbOCoiceqvMMhT9XYMyOGTqLJ2rEa09PON+nD2t48sZUfeOmg4eaWJXV4sZb/w==}
+  '@vueuse/integrations@15.0.0':
+    resolution: {integrity: sha512-uWC1608pEocJPeRk1IqrEA3uYHhAGTJNibcMAdxgdK2Sy2Hypc6b+VdNO9KekCxyPc4VXK8SKDp8vsXefR/ZFg==}
+    engines: {node: '>=22'}
     peerDependencies:
       async-validator: ^4
       axios: ^1.16.0
       change-case: ^5
-      drauu: ^0.4
+      drauu: ^1 || ^0.4
       focus-trap: ^7 || ^8
       fuse.js: ^7
       idb-keyval: ^6
@@ -8623,10 +8624,10 @@ snapshots:
       '@vueuse/shared': 15.0.0(vue@3.5.43(typescript@5.9.3))
       vue: 3.5.43(typescript@5.9.3)
 
-  '@vueuse/integrations@14.4.0(async-validator@4.2.5)(axios@1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(nprogress@0.2.0)(universal-cookie@8.1.2)(vue@3.5.43(typescript@5.9.3))':
+  '@vueuse/integrations@15.0.0(async-validator@4.2.5)(axios@1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(nprogress@0.2.0)(universal-cookie@8.1.2)(vue@3.5.43(typescript@5.9.3))':
     dependencies:
-      '@vueuse/core': 14.4.0(vue@3.5.43(typescript@5.9.3))
-      '@vueuse/shared': 14.4.0(vue@3.5.43(typescript@5.9.3))
+      '@vueuse/core': 15.0.0(vue@3.5.43(typescript@5.9.3))
+      '@vueuse/shared': 15.0.0(vue@3.5.43(typescript@5.9.3))
       vue: 3.5.43(typescript@5.9.3)
     optionalDependencies:
       async-validator: 4.2.5
