@@ -150,8 +150,8 @@ importers:
         specifier: ^0.2.3
         version: 0.2.3
       '@vitejs/plugin-vue':
-        specifier: ^6.0.8
-        version: 6.0.8(vite@7.3.6(@types/node@26.6.3)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1))(vue@3.5.43(typescript@5.9.3))
+        specifier: ^6.0.9
+        version: 6.0.9(vite@7.3.6(@types/node@26.6.3)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1))(vue@3.5.43(typescript@5.9.3))
       commitizen:
         specifier: ^4.3.1
         version: 4.3.2(@types/node@26.6.3)(typescript@5.9.3)
@@ -2149,8 +2149,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@vitejs/plugin-vue@6.0.8':
-    resolution: {integrity: sha512-0ZjgOg7oO6farnNGup7yvoM/YXZV84OZxHAwtflItNa/6zzQyVb5LNxyea3FEKEX2XlagIKzrlH7wwxkKgtiew==}
+  '@vitejs/plugin-vue@6.0.9':
+    resolution: {integrity: sha512-rD/MORlhaZMlXWW0rEn4FB4wMinWC0z/D7Ye160S5+Rs1mC8ZDAdcDp4SjKfUhG5t8q1ktcPVw4xuTkPRlzrSA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -6548,11 +6548,6 @@ packages:
     resolution: {integrity: sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA==}
     engines: {node: '>= 6'}
 
-  yaml@2.9.0:
-    resolution: {integrity: sha512-2AvhNX3mb8zd6Zy7INTtSpl1F15HW6Wnqj0srWlkKLcpYl/gMIMJiyuGq2KeI2YFxUPjdlB+3Lc10seMLtL4cA==}
-    engines: {node: '>= 14.6'}
-    hasBin: true
-
   yaml@2.9.1:
     resolution: {integrity: sha512-3NxN8+78OdzbT7C/WjGsyfPAtJaN3FNDsWxv7Y7mcDsT/oOmgW8BpyQQFFBnvZE3j9Y2Sdz1ULFLezL7Eb2yFw==}
     engines: {node: '>= 14.6'}
@@ -8480,7 +8475,7 @@ snapshots:
   '@vercel/vc-native-win32-x64@60.1.3':
     optional: true
 
-  '@vitejs/plugin-vue@6.0.8(vite@7.3.6(@types/node@26.6.3)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1))(vue@3.5.43(typescript@5.9.3))':
+  '@vitejs/plugin-vue@6.0.9(vite@7.3.6(@types/node@26.6.3)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1))(vue@3.5.43(typescript@5.9.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
       vite: 7.3.6(@types/node@26.6.3)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1)
@@ -12799,7 +12794,7 @@ snapshots:
       swagger2openapi: 7.0.8
       type-fest: 5.7.0
       typescript: 6.0.3
-      yaml: 2.9.0
+      yaml: 2.9.1
       yummies: 7.20.1
     transitivePeerDependencies:
       - '@biomejs/wasm-bundler'
@@ -13539,10 +13534,7 @@ snapshots:
 
   yaml@1.10.3: {}
 
-  yaml@2.9.0: {}
-
-  yaml@2.9.1:
-    optional: true
+  yaml@2.9.1: {}
 
   yargs-parser@21.1.1: {}
 
