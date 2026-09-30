@@ -116,8 +116,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(echarts@6.1.0)(vue@3.5.42(typescript@5.9.3))
       vue-router:
-        specifier: ^5.3.0
-        version: 5.3.0(@vue/compiler-sfc@3.5.42)(esbuild@0.28.2)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rollup@4.62.2)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(sass@1.103.1)(tsx@4.21.0)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3))
+        specifier: ^5.3.1
+        version: 5.3.1(@vue/compiler-sfc@3.5.42)(esbuild@0.28.2)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rollup@4.62.2)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(sass@1.103.1)(tsx@4.21.0)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3))
       vue-shepherd:
         specifier: ^6.0.0
         version: 6.0.0(vue@3.5.42(typescript@5.9.3))
@@ -6454,8 +6454,8 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
 
-  vue-router@5.3.0:
-    resolution: {integrity: sha512-a2PBXX9yfkS58JzSJALUffgDa09lEzKmCcEnLaepoIr88L+9hEnsgEQkcadJGID+vtHa0gFpVo064zmylA9fcg==}
+  vue-router@5.3.1:
+    resolution: {integrity: sha512-GDBZzgmILxA/kFnkFbJjQZdZ2QQbngnIMMuoUcjhZIfH1RGMaPjPwX5ASnV38qamuA9uhO0RDjSBHTDNG2uXyQ==}
     peerDependencies:
       '@pinia/colada': '>=0.21.2'
       '@vue/compiler-sfc': ^3.5.34 || ^4.0.0
@@ -13229,7 +13229,7 @@ snapshots:
       strip-literal: 3.1.0
       tinyglobby: 0.2.17
       unplugin: 2.3.11
-      unplugin-utils: 0.3.1
+      unplugin-utils: 0.3.2
 
   unique-string@3.0.0:
     dependencies:
@@ -13484,7 +13484,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vue-router@5.3.0(@vue/compiler-sfc@3.5.42)(esbuild@0.28.2)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rollup@4.62.2)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(sass@1.103.1)(tsx@4.21.0)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)):
+  vue-router@5.3.1(@vue/compiler-sfc@3.5.42)(esbuild@0.28.2)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rollup@4.62.2)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(sass@1.103.1)(tsx@4.21.0)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)):
     dependencies:
       '@vue-macros/common': 3.1.4(vue@3.5.42(typescript@5.9.3))
       '@vue/devtools-api': 8.2.1
