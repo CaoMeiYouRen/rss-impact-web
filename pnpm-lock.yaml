@@ -55,7 +55,7 @@ importers:
         version: 2.3.2(vue@3.5.43(typescript@5.9.3))
       '@sentry/vue':
         specifier: ^11.10.0
-        version: 11.10.0(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)))(vue@3.5.43(typescript@5.9.3))
+        version: 11.10.0(pinia@4.1.0(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)))(vue@3.5.43(typescript@5.9.3))
       '@smallwei/avue':
         specifier: ^3.9.5
         version: 3.9.5(@element-plus/icons-vue@2.3.2(vue@3.5.43(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.7(vue@3.5.43(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.43(typescript@5.9.3))
@@ -102,8 +102,8 @@ importers:
         specifier: ^8.4.2
         version: 8.4.2
       pinia:
-        specifier: ^4.0.3
-        version: 4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3))
+        specifier: ^4.1.0
+        version: 4.1.0(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3))
       shepherd.js:
         specifier: ^15.3.0
         version: 15.3.0
@@ -118,7 +118,7 @@ importers:
         version: 8.3.2(echarts@6.1.0)(vue@3.5.43(typescript@5.9.3))
       vue-router:
         specifier: ^5.3.1
-        version: 5.3.1(@vue/compiler-sfc@3.5.43)(esbuild@0.28.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)))(rollup@4.62.2)(vite@7.3.7(@types/node@26.6.6)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1))(vue@3.5.43(typescript@5.9.3))
+        version: 5.3.1(@vue/compiler-sfc@3.5.43)(esbuild@0.28.2)(pinia@4.1.0(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)))(rollup@4.62.2)(vite@7.3.7(@types/node@26.6.6)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1))(vue@3.5.43(typescript@5.9.3))
       vue-shepherd:
         specifier: ^6.0.0
         version: 6.0.0(vue@3.5.43(typescript@5.9.3))
@@ -4642,10 +4642,10 @@ packages:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
 
-  pinia@4.0.3:
-    resolution: {integrity: sha512-XMQqpvjgG7LMqVhhFUzKLT4KEbsYbfZZ0CZU9PgdFm1O2VKBmIkykL8+SfNhOaT7sR0wT6BEgKT0YNDYWgmVRA==}
+  pinia@4.1.0:
+    resolution: {integrity: sha512-+5/HMuVjYQfKlCD5xQ7zfXn1xUzYFEa7pd0DQK5SaMfZCaFRTHlaH/c02N1FoGOdlzSiwf5EOPgJx//1QDw6gw==}
     peerDependencies:
-      '@vue/devtools-api': ^8.1.5
+      '@vue/devtools-api': ^8.2.1
       typescript: '>=5.6.0'
       vue: ^3.5.11
     peerDependenciesMeta:
@@ -7200,14 +7200,14 @@ snapshots:
       '@sentry/browser-utils': 11.10.0
       '@sentry/core': 11.10.0
 
-  '@sentry/vue@11.10.0(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)))(vue@3.5.43(typescript@5.9.3))':
+  '@sentry/vue@11.10.0(pinia@4.1.0(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)))(vue@3.5.43(typescript@5.9.3))':
     dependencies:
       '@sentry/browser': 11.10.0
       '@sentry/conventions': 0.29.0
       '@sentry/core': 11.10.0
       vue: 3.5.43(typescript@5.9.3)
     optionalDependencies:
-      pinia: 4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3))
+      pinia: 4.1.0(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3))
 
   '@simple-libs/child-process-utils@2.0.0':
     dependencies:
@@ -10609,7 +10609,7 @@ snapshots:
 
   pify@3.0.0: {}
 
-  pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)):
+  pinia@4.1.0(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)):
     dependencies:
       '@vue/devtools-api': 8.2.1
       nostics: 1.2.0
@@ -11995,7 +11995,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vue-router@5.3.1(@vue/compiler-sfc@3.5.43)(esbuild@0.28.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)))(rollup@4.62.2)(vite@7.3.7(@types/node@26.6.6)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1))(vue@3.5.43(typescript@5.9.3)):
+  vue-router@5.3.1(@vue/compiler-sfc@3.5.43)(esbuild@0.28.2)(pinia@4.1.0(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)))(rollup@4.62.2)(vite@7.3.7(@types/node@26.6.6)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1))(vue@3.5.43(typescript@5.9.3)):
     dependencies:
       '@vue-macros/common': 3.1.4(vue@3.5.43(typescript@5.9.3))
       '@vue/devtools-api': 8.2.1
@@ -12016,7 +12016,7 @@ snapshots:
       vue: 3.5.43(typescript@5.9.3)
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.43
-      pinia: 4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3))
+      pinia: 4.1.0(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3))
       vite: 7.3.7(@types/node@26.6.6)(jiti@2.7.0)(sass@1.105.0)(tsx@4.21.0)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@farmfe/core'
