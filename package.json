@@ -64,7 +64,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "postcss": "^8.5.32",
-    "sass": "^1.105.0",
+    "sass": "^1.106.1",
     "semantic-release": "^21.0.1",
     "sonda": "^0.14.0",
     "stylelint": "^16.26.1",
