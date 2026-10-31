@@ -58,7 +58,7 @@ importers:
         version: 11.0.0(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.43(typescript@5.9.3)))(vue@3.5.43(typescript@5.9.3))
       '@smallwei/avue':
         specifier: ^3.9.5
-        version: 3.9.5(@element-plus/icons-vue@2.3.2(vue@3.5.43(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.6(vue@3.5.43(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.43(typescript@5.9.3))
+        version: 3.9.5(@element-plus/icons-vue@2.3.2(vue@3.5.43(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.7(vue@3.5.43(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.43(typescript@5.9.3))
       '@vercel/node':
         specifier: ^16.0.1
         version: 16.0.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@vercel/build-utils@14.13.1)(rollup@4.62.2)(supports-color@7.2.0)
@@ -81,8 +81,8 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0
       element-plus:
-        specifier: ^2.14.6
-        version: 2.14.6(vue@3.5.43(typescript@5.9.3))
+        specifier: ^2.14.7
+        version: 2.14.7(vue@3.5.43(typescript@5.9.3))
       file-saver:
         specifier: ^2.0.5
         version: 2.0.5
@@ -2937,8 +2937,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  element-plus@2.14.6:
-    resolution: {integrity: sha512-GH0fMoMgVEKkHimoaKvg5B00NmfPbQ+qxX6/JrO7F+dLAC3atrZr2Y2MoccHMxS22M7QE12/s0DG0Zs49iwJ/A==}
+  element-plus@2.14.7:
+    resolution: {integrity: sha512-lrG7pZyCS+mpCNVpzxxyu5r35+T6V0hzkAeIwn7HA6to772XSTHKuYCZG51OfzlqaxGbNegLxs650zAF1j43gA==}
     peerDependencies:
       vue: ^3.3.7
 
@@ -7642,13 +7642,13 @@ snapshots:
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
-  '@smallwei/avue@3.9.5(@element-plus/icons-vue@2.3.2(vue@3.5.43(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.6(vue@3.5.43(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.43(typescript@5.9.3))':
+  '@smallwei/avue@3.9.5(@element-plus/icons-vue@2.3.2(vue@3.5.43(typescript@5.9.3)))(debug@4.4.3(supports-color@7.2.0))(element-plus@2.14.7(vue@3.5.43(typescript@5.9.3)))(supports-color@7.2.0)(vue@3.5.43(typescript@5.9.3))':
     dependencies:
       '@element-plus/icons-vue': 2.3.2(vue@3.5.43(typescript@5.9.3))
       axios: 1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       countup.js: 1.9.3
       dayjs: 1.11.23
-      element-plus: 2.14.6(vue@3.5.43(typescript@5.9.3))
+      element-plus: 2.14.7(vue@3.5.43(typescript@5.9.3))
       lodash: 4.18.1
       lodash-es: 4.18.1
       qrcode-generator: 2.0.4
@@ -9195,7 +9195,7 @@ snapshots:
       signal-exit: 4.0.2
       time-span: 4.0.0
 
-  element-plus@2.14.6(vue@3.5.43(typescript@5.9.3)):
+  element-plus@2.14.7(vue@3.5.43(typescript@5.9.3)):
     dependencies:
       '@ctrl/tinycolor': 4.2.1
       '@element-plus/icons-vue': 2.3.2(vue@3.5.43(typescript@5.9.3))
