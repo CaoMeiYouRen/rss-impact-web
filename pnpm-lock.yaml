@@ -5644,8 +5644,8 @@ packages:
   undici-types@8.9.0:
     resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
-  undici@6.29.0:
-    resolution: {integrity: sha512-R+RODBqp6i2pPflGdq+xIOUkl+RNfGgHwoinecKu/JCuf2uO06cOKoDbI2P7Dn6KcswdKwrczbU6IYJ6K8X+wg==}
+  undici@6.29.1:
+    resolution: {integrity: sha512-EvRlUt/QqAEvXdQeRMYUfwOQsfzpDztykrG2owGEE/rBOBoYv9uF39ZzsNDh4lTFHhTr2XOZjKkYgueD12ZmGA==}
     engines: {node: '>=18.17'}
 
   unicorn-magic@0.3.0:
@@ -7545,7 +7545,7 @@ snapshots:
       is-buffer: 2.0.5
       is-node-process: 1.2.0
       throttleit: 2.1.0
-      undici: 6.29.0
+      undici: 6.29.1
 
   '@vercel/build-utils@15.1.0':
     dependencies:
@@ -7621,7 +7621,7 @@ snapshots:
       luxon: 3.7.2
       sandbox: 4.4.0(supports-color@7.2.0)
       smol-toml: 1.9.1
-      undici: 6.29.0
+      undici: 6.29.1
       uuid: 14.0.1
       zod: 4.1.11
     transitivePeerDependencies:
@@ -7839,7 +7839,7 @@ snapshots:
       ts-morph: 12.0.0
       tsx: 4.21.0
       typescript: 5.9.3
-      undici: 6.29.0
+      undici: 6.29.1
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
@@ -7923,7 +7923,7 @@ snapshots:
       ms: 2.1.3
       picocolors: 1.1.1
       tar-stream: 3.1.7
-      undici: 6.29.0
+      undici: 6.29.1
       xdg-app-paths: 5.1.0
       zod: 4.1.11
     transitivePeerDependencies:
@@ -11906,7 +11906,7 @@ snapshots:
 
   undici-types@8.9.0: {}
 
-  undici@6.29.0: {}
+  undici@6.29.1: {}
 
   unicorn-magic@0.3.0: {}
 
@@ -12091,7 +12091,7 @@ snapshots:
       luxon: 3.7.2
       sandbox: 4.4.0(supports-color@7.2.0)
       smol-toml: 1.9.1
-      undici: 6.29.0
+      undici: 6.29.1
       uuid: 14.0.1
       zod: 4.1.11
     optionalDependencies:
